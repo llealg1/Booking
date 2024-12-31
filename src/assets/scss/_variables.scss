@@ -64,15 +64,15 @@ $color-contrast-dark:      $black;
 $color-contrast-light:     $white;
 
 
-$primary:     #5143d9; // To change dark mode primary color go to user.scss file and follow the instruction
-$secondary:   $gray-500;
+$primary:     #200444; // To change dark mode primary color go to user.scss file and follow the instruction
+$secondary:   #531e99; //
 $success:     $green;
 $info:        $cyan;
-$warning:     $yellow;
+$warning:     #fffc3c;
 $danger:      $red;
 $light:       $gray-100;
 $dark:        $gray-800;
-$mode:        $white; 
+$mode:        $white;
 
 // theme colors map
 $theme-colors: (
@@ -135,7 +135,7 @@ $soft-alpha:          .1;
 
 $enable-negative-margins:     true;
 $enable-rounded:              true;
-$enable-dark-mode:            true;
+$enable-dark-mode:            false;
 $color-mode-type:             data; // `data` or `media-query`
 
 
@@ -459,7 +459,7 @@ $form-range-thumb-disabled-bg:             $gray-500;
 $form-range-thumb-box-shadow:              0 .1rem .25rem rgba($black, .1);
 $form-range-thumb-focus-box-shadow:        0 0 0 1px $body-bg, $input-focus-box-shadow;
 
-// Z-index 
+// Z-index
 $zindex-header:                     $zindex-sticky;
 
 // Popover-variables
@@ -469,7 +469,7 @@ $popover-max-width:                 200px;
 $popover-border-width:              $border-width;
 $popover-border-color:              rgba($black, .2);
 
-// Navs 
+// Navs
 
 $nav-link-padding-y:                1rem;
 $nav-link-padding-x:                .75rem;
@@ -502,12 +502,12 @@ $navbar-nav-link-font-size:         $font-size-base;
 $navbar-nav-link-font-weight:       $font-weight-normal;
 $navbar-nav-link-text-transform:    capitalize;
 
-$navbar-brand-height:               40px; //Logo height
-$navbar-brand-padding-y:            30px;
+$navbar-brand-height:               75px; //Logo height
+$navbar-brand-padding-y:            0px;
 $nav-link-line-height:              $navbar-brand-padding-y * 2 + $navbar-brand-height;
 
-$navbar-brand-height-sticky:        35px; //sticky Logo height
-$navbar-brand-padding-y-sticky:     14px;
+$navbar-brand-height-sticky:        75px; //sticky Logo height
+$navbar-brand-padding-y-sticky:     0px;
 $nav-link-line-height-sticky:       $navbar-brand-padding-y-sticky * 2 + $navbar-brand-height-sticky;
 
 $navbar-mobile-brand-height:        30px; //mobile Logo height
@@ -522,8 +522,8 @@ $navbar-dark-active-color:          $primary !important;
 $navbar-dark-disabled-color:        rgba($white, .25);
 $navbar-dark-toggler-icon-bg:       str-replace(url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='#ffffff' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"), "#", "%23");
 
-$navbar-light-color:                $gray-800;
-$navbar-light-hover-color:          $primary;
+$navbar-light-color:                $primary;
+$navbar-light-hover-color:          $secondary;
 $navbar-light-active-color:         $primary;
 $navbar-light-disabled-color:       rgba($black, .3);
 $navbar-light-toggler-border-color: rgba($black, .1);
@@ -609,7 +609,7 @@ $pagination-disabled-color:         var(--#{$prefix}gray-400);
 $pagination-disabled-bg:            $white;
 $pagination-disabled-border-color:  var(--#{$prefix}gray-300);
 
-// table  
+// table
 
 $table-group-separator-color:       var(--#{$prefix}gray-500);
 $table-hover-bg:                    rgba($dark, $table-hover-bg-factor);

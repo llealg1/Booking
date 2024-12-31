@@ -1,11 +1,11 @@
-// 
+//
 // navbar.scss
 // Extended from Bootstrap
-// 
+//
 
-// 
+//
 // Bootstrap Overrides and Additional style for theme
-// 
+//
 
 
 // `.navbar-expand-*` responsive classes for configuring
@@ -14,7 +14,7 @@
   @each $breakpoint in map-keys($grid-breakpoints) {
     $next: breakpoint-next($breakpoint, $grid-breakpoints);
     $infix: breakpoint-infix($next, $grid-breakpoints);
-    
+
     // Styling for navbar-expand
     &#{$infix} {
 
@@ -45,7 +45,7 @@
 
       // Navbar styling for navbar expand
       @include media-breakpoint-up($next) {
-        
+
         .navbar-top{
           z-index: 1100 !important;
         }
@@ -120,7 +120,7 @@
 					.dropdown-submenu {
 						z-index: unset !important;
 					}
-				
+
 					.dropdown-menu {
 						z-index: -1;
 						> * {
@@ -148,7 +148,7 @@
 
       // Navbar styling for navbar collapse
       @include media-breakpoint-down($next) {
-        
+
         .navbar-brand .navbar-brand-item {
           height: $navbar-mobile-brand-height;
         }
@@ -159,7 +159,7 @@
           max-height: var(--#{$variable-prefix}scroll-height, 65vh);
         }
 
-        // Responsive dropdown menu without navbar toggle. Collapse will open on .nav-item 
+        // Responsive dropdown menu without navbar toggle. Collapse will open on .nav-item
         .navbar-collapse {
           box-shadow: 0px 10px 30px rgba(83, 88, 93, .4);
           position: absolute;
@@ -183,9 +183,12 @@
             color: var(--#{$prefix}navbar-light-color);
             &:hover, &:focus {
               color: var(--bs-nav-link-hover-color);
+              cursor: pointer;
+              background-color: #200444;
+              box-shadow: 0 4px 2px -2px #200444;
+            }
           }
-          }
-          
+
         }
 
         // Dropdown submenu background
@@ -201,7 +204,7 @@
 
         //Toggler icon
         .navbar-toggler {
-          // border-color: transparent !important; 
+          // border-color: transparent !important;
           border: none;
         }
 

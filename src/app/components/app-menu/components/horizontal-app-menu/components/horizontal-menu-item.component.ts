@@ -12,7 +12,7 @@ import { MenuItemLinkComponent } from './horizontal-menu-item-link.component'
     }
   `,
   template: `
-    <li>
+    <li class="my-auto">
       <horizontal-menu-item-link
         [item]="item"
         [linkClassName]="linkClassName ?? ''"

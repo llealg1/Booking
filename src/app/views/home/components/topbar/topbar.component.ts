@@ -3,7 +3,9 @@ import { VerticalMenuButtonComponent } from '@/app/components/app-menu/component
 import { LogoBoxComponent } from '@/app/components/logo-box/logo-box.component'
 import { StickyHeaderComponent } from '@/app/components/sticky-header.component'
 import { ThemeSwitcherComponent } from '@/app/components/top-bar/theme-switcher/them-switcher.component'
+import { MenuItemType } from '@/app/core/models'
 import { Component } from '@angular/core'
+import { RouterModule } from '@angular/router'
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap'
 
 @Component({
@@ -16,8 +18,53 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap'
     AppMenuComponent,
     ThemeSwitcherComponent,
     NgbDropdownModule,
+    RouterModule
   ],
   templateUrl: './topbar.component.html',
-  styles: ``,
+  styles: `
+    :host(help-navbar) {
+      display: contents;
+    }
+  `,
 })
-export class TopbarComponent {}
+export class TopbarComponent {
+
+  homeMenuItems:MenuItemType[] = [
+    {
+      key: 'inicio',
+      label: 'Inicio',
+      url: '/',
+      icon: 'fa-solid fa-home',
+    },
+    {
+      key: 'promociones',
+      label: 'Promociones',
+      url: '/promociones',
+      icon: 'fa-solid fa-gift',
+    },
+    {
+      key: 'empresa',
+      label: 'Empresa',
+      url: '/empresa',
+      icon: 'fa-solid fa-building',
+    },
+    {
+      key: 'destino',
+      label: 'Destino',
+      url: '/destino',
+      icon: 'fa-solid fa-map-marker',
+    },
+    {
+      key: 'faq',
+      label: 'FAQ',
+      url: '/faq',
+      icon: 'fa-solid fa-question-circle',
+    },
+    {
+      key: 'contacto',
+      label: 'Contacto',
+      url: '/contacto',
+      icon: 'fa-solid fa-envelope',
+    },
+  ]
+}
