@@ -39,13 +39,13 @@ export class TopbarComponent {
     {
       key: 'promociones',
       label: 'Promociones',
-      url: '/promociones',
+      url: '/promotions',
       icon: 'fa-solid fa-gift',
     },
     {
       key: 'empresa',
       label: 'Empresa',
-      url: '/empresa',
+      url: '/business',
       icon: 'fa-solid fa-building',
     },
     {
