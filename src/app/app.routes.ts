@@ -11,8 +11,15 @@ import { AuthGuard } from './core/guards'
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/hotels/home',
+    redirectTo: '/home',
     pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    component: DefaultLayoutComponent,
+    loadChildren: () =>
+      import('./views/home/home.route').then((mod) => mod.HOME_ROUTES)
+    ,
   },
   {
     path: 'hotels',
