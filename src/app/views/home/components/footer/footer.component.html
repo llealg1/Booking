@@ -1,0 +1,157 @@
+<!-- =======================
+Footer START -->
+<footer class="bg-dark pt-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-2">
+        <a routerLink="/">
+          <img class="h-40px" src="assets/images/logo-dark-full.png" alt="logo" />
+        </a>
+        <p class="my-3 text-body-secondary">
+          Descubre experiencias inolvidables y destinos fascinantes con nuestro equipo de viajes expertos en Arcadia.
+        </p>
+        <p class="mb-0">
+          <a
+            href="javascript:void(0);"
+            class="text-body-secondary text-primary-hover"
+            ><i class="bi bi-envelope me-2"></i>info&#64;arcadia-viajes.com</a
+          >
+        </p>
+      </div>
+
+      <div class="col-lg-9 ms-auto">
+        <div class="row g-4">
+          @for (item of footerLinks; track $index) {
+            <div class="col-6 col-md-3">
+              <h5 class="text-white mb-2 mb-md-4">{{ item.title }}</h5>
+              <ul class="nav flex-column text-primary-hover">
+                @for (data of item.items; track $index) {
+                  <li class="nav-item">
+                    <a
+                      class="nav-link text-body-secondary"
+                      routerLink="{{ data.link }}"
+                      *ngIf="!data.offices"
+                    >
+                      @if (data.icon) {
+                        <i class="fa-solid {{ data.icon }} me-2"></i>
+                      }
+                      {{ data.name }}
+                    </a>
+                    <a
+                      class="nav-link text-body-secondary"
+                      href="javascript:void(0);"
+                      *ngIf="data.offices"
+                      ngbTooltip="{{ getOfficesTooltip(data.offices) }}"
+                    >
+                      @if (data.icon) {
+                        <img [src]="data.image" [alt]="data.name" style="height: 16px; margin-right: 5px;border-radius: 50%;">
+                        <span class="me-2">{{ data.icon }}</span>
+                      }
+                      {{ data.name }}
+                    </a>
+                  </li>
+                }
+              </ul>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row g-4 justify-content-between mt-0 mt-md-2">
+      <div class="col-sm-7 col-md-6 col-lg-4">
+        <!-- <h5 class="text-white mb-2">Payment & Security</h5>
+        <ul class="list-inline mb-0 mt-3">
+          <li class="list-inline-item">
+            <a href="javascript:void(0);" class="me-1"
+              ><img
+                src="assets/images/element/paypal.svg"
+                class="h-30px"
+                alt=""
+            /></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="javascript:void(0);" class="me-1">
+              <img src="assets/images/element/visa.svg" class="h-30px" alt=""
+            /></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="javascript:void(0);" class="me-1">
+              <img
+                src="assets/images/element/mastercard.svg"
+                class="h-30px"
+                alt=""
+            /></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="javascript:void(0);" class="me-1"
+              ><img
+                src="assets/images/element/expresscard.svg"
+                class="h-30px"
+                alt=""
+            /></a>
+          </li>
+        </ul> -->
+      </div>
+
+      <div class="col-sm-5 col-md-6 col-lg-3 text-sm-end">
+        <h5 class="text-white mb-2">Síguenos en</h5>
+        <ul class="list-inline mb-0 mt-3">
+          <li class="list-inline-item" *ngFor="let country of countries">
+            <a
+              class="btn btn-sm shadow px-2 bg-instagram mb-0 ms-1"
+              [href]="country.link"
+              target="_blank"
+            >
+              <img [src]="country.image" [alt]="country.name" style="height: 16px; margin-right: 5px;border-radius: 50%;">
+              <i class="fab fa-fw fa-instagram"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="mt-4 mb-0" />
+
+    <div class="row">
+      <div class="container">
+        <div
+          class="d-lg-flex justify-content-between align-items-center py-3 text-center text-lg-start"
+        >
+          <div class="text-body-secondary text-primary-hover">
+            © 2025 Arcadia Viajes - Todos los Derechos Reservados.
+          </div>
+          <!-- copyright links-->
+          <div class="nav mt-2 mt-lg-0">
+            <ul class="list-inline text-primary-hover mx-auto mb-0">
+              <li class="list-inline-item me-0">
+                <a
+                  class="nav-link text-body-secondary py-1 pe-3"
+                  href="javascript:void(0);"
+                  >Política de privacidad</a
+                >
+              </li>
+              <li class="list-inline-item me-0">
+                <a
+                  class="nav-link text-body-secondary py-1 pe-3"
+                  href="javascript:void(0);"
+                  >Términos y condiciones</a
+                >
+              </li>
+              <li class="list-inline-item me-0">
+                <a
+                  class="nav-link text-body-secondary py-1 pe-0"
+                  href="javascript:void(0);"
+                  >Política de reembolso</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- =======================
+Footer END -->

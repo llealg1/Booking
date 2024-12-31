@@ -1,3 +1,6 @@
+<ng-template #content let-modal>
+  <offer-detail-banner/>
+</ng-template>
 @if (staticAlert) {
   <ngb-alert
     [dismissible]="false"
@@ -21,7 +24,7 @@
 @if (promoAlert) {
   <ngb-alert
     [dismissible]="false"
-    class="alert topNav alert-warning py-2 text-dark m-0 bg-light border-0 rounded-0 alert-dismissible fade show text-center overflow-hidden"
+    class="alert topNav alert-warning py-2 text-dark m-0 bg-warning border-0 rounded-0 alert-dismissible fade show text-center overflow-hidden"
     role="alert"
   >
   <p class="text-dark m-0">
@@ -40,6 +43,9 @@
 }
 <directories-hero/>
 <home-testimonial-slider/>
-
 <flights-home-action-box/>
-<p>principal works!</p>
+<home-featured-holiday/>
+<our-team-list/>
+<home-footer/>
+
+
