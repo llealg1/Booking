@@ -88,7 +88,7 @@
   --bs-body-color-rgb: 116, 117, 121;
   --bs-body-bg: #fff;
   --bs-body-bg-rgb: 255, 255, 255;
-  --bs-emphasis-color: #000;
+  --bs-emphasis-color: #531e99;
   --bs-emphasis-color-rgb: 0, 0, 0;
   --bs-secondary-color: #c5c5c7;
   --bs-secondary-color-rgb: 197, 197, 199;
@@ -6727,7 +6727,7 @@ textarea.form-control-lg {
   --bs-tooltip-margin: ;
   --bs-tooltip-font-size: 0.6875rem;
   --bs-tooltip-color: var(--bs-body-bg);
-  --bs-tooltip-bg: var(--bs-emphasis-color);
+  --bs-tooltip-bg: #531e99;
   --bs-tooltip-border-radius: var(--bs-border-radius);
   --bs-tooltip-opacity: 0.9;
   --bs-tooltip-arrow-width: 0.8rem;
