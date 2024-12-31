@@ -18,6 +18,7 @@ import { TeamListComponent } from '../components/team-list/team-list.component';
 import { AddressMapComponent } from '../components/address-map/address-map.component';
 import { ActionBoxAnalitycsComponent } from '../components/action-box-analitycs/action-box.component';
 import { ClientsComponent } from '../components/clients/clients.component';
+import { ActionBoxAboutusComponent } from '../components/action-box-aboutus/action-box.component';
 @Component({
   selector: 'app-principal',
   standalone: true,
@@ -35,7 +36,8 @@ import { ClientsComponent } from '../components/clients/clients.component';
     TeamListComponent,
     AddressMapComponent,
     ActionBoxAnalitycsComponent,
-    ClientsComponent
+    ClientsComponent,
+    ActionBoxAboutusComponent
   ],
   templateUrl: './principal.component.html',
   styleUrl: './principal.component.scss'
