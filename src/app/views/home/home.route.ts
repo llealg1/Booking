@@ -5,5 +5,5 @@ export const HOME_ROUTES: Route[] = [
     path: '',
     component: PrincipalComponent,
     data: { title: 'Booking Confirmed' },
-  }
+  },
 ]
