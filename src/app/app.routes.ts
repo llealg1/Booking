@@ -22,6 +22,22 @@ export const routes: Routes = [
     ,
   },
   {
+    path: 'promotions',
+    component: DefaultLayoutComponent,
+    loadChildren: () =>
+      import('./views/promotions/promotions.route').then(
+        (mod) => mod.PROMOTIONS_ROUTES
+      ),
+  },
+  {
+    path: 'business',
+    component: DefaultLayoutComponent,
+    loadChildren: () =>
+      import('./views/business/business.route').then(
+        (mod) => mod.BUSINESS_ROUTES
+      ),
+  },
+  {
     path: 'hotels',
     component: DefaultLayoutComponent,
     loadChildren: () =>
