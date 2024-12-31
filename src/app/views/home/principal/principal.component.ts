@@ -15,6 +15,9 @@ import {
 } from '@ng-bootstrap/ng-bootstrap'
 import { FeaturedHolidayComponent } from '../components/featured-holiday/featured-holiday.component';
 import { TeamListComponent } from '../components/team-list/team-list.component';
+import { AddressMapComponent } from '../components/address-map/address-map.component';
+import { ActionBoxAnalitycsComponent } from '../components/action-box-analitycs/action-box.component';
+import { ClientsComponent } from '../components/clients/clients.component';
 @Component({
   selector: 'app-principal',
   standalone: true,
@@ -29,7 +32,10 @@ import { TeamListComponent } from '../components/team-list/team-list.component';
     NgbNavModule,
     BannerComponent,
     FeaturedHolidayComponent,
-    TeamListComponent
+    TeamListComponent,
+    AddressMapComponent,
+    ActionBoxAnalitycsComponent,
+    ClientsComponent
   ],
   templateUrl: './principal.component.html',
   styleUrl: './principal.component.scss'
