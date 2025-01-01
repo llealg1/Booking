@@ -18,8 +18,7 @@ export const routes: Routes = [
     path: 'home',
     component: DefaultLayoutComponent,
     loadChildren: () =>
-      import('./views/home/home.route').then((mod) => mod.HOME_ROUTES)
-    ,
+      import('./views/home/home.route').then((mod) => mod.HOME_ROUTES),
   },
   {
     path: 'promotions',
@@ -36,6 +35,12 @@ export const routes: Routes = [
       import('./views/business/business.route').then(
         (mod) => mod.BUSINESS_ROUTES
       ),
+  },
+  {
+    path: 'destiny',
+    component: DefaultLayoutComponent,
+    loadChildren: () =>
+      import('./views/destiny/destiny.route').then((mod) => mod.DESTINY_ROUTES),
   },
   {
     path: 'hotels',

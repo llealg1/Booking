@@ -18,7 +18,7 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap'
     AppMenuComponent,
     ThemeSwitcherComponent,
     NgbDropdownModule,
-    RouterModule
+    RouterModule,
   ],
   templateUrl: './topbar.component.html',
   styles: `
@@ -28,8 +28,7 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap'
   `,
 })
 export class TopbarComponent {
-
-  homeMenuItems:MenuItemType[] = [
+  homeMenuItems: MenuItemType[] = [
     {
       key: 'inicio',
       label: 'Inicio',
@@ -51,7 +50,7 @@ export class TopbarComponent {
     {
       key: 'destino',
       label: 'Destino',
-      url: '/destino',
+      url: '/destiny',
       icon: 'fa-solid fa-map-marker',
     },
     {
