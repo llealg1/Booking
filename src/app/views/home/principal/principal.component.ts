@@ -19,6 +19,9 @@ import { AddressMapComponent } from '../components/address-map/address-map.compo
 import { ActionBoxAnalitycsComponent } from '../components/action-box-analitycs/action-box.component';
 import { ClientsComponent } from '../components/clients/clients.component';
 import { ActionBoxAboutusComponent } from '../components/action-box-aboutus/action-box.component';
+import { BannerHomeComponent } from '../components/banner-home/banner.component';
+import { ActionComponent } from '../components/action/action.component';
+import { ConsultantsService } from '../../../core/services/consultants.service';
 @Component({
   selector: 'app-principal',
   standalone: true,
@@ -37,7 +40,9 @@ import { ActionBoxAboutusComponent } from '../components/action-box-aboutus/acti
     AddressMapComponent,
     ActionBoxAnalitycsComponent,
     ClientsComponent,
-    ActionBoxAboutusComponent
+    ActionBoxAboutusComponent,
+    BannerHomeComponent,
+    ActionComponent
   ],
   templateUrl: './principal.component.html',
   styleUrl: './principal.component.scss'
@@ -50,11 +55,15 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
   private modalService = inject(NgbModal);
 	closeResult: WritableSignal<string> = signal('');
   @ViewChild('content') modalBanner!: TemplateRef<any>;
-  constructor() {
+  constructor(private consultantsService: ConsultantsService) {
 
   }
 
   ngOnInit(): void {
+
+    this.consultantsService.getUsersPortal().subscribe((data) => {
+      console.log(data);
+    });
     // this.open(this.modalBanner);
   }
 
