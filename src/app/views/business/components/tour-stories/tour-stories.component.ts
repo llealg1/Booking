@@ -34,12 +34,12 @@ export class TourStoriesComponent {
 
   testimonialSlides: any[] = [
     {
-      name: 'Louis Ferguson',
-      description: 'Farther-related bed and passage comfort civilly.',
-      image: '../../../../../assets/images/sedes/valencia/valencia.jpg',
+      name: 'Madrid, España',
+      description: 'Calle Alcalá 22, Piso 2 puerta DR',
+      image: '../../../../../assets/images/sedes/madrid/madrid.jpg',
     },
     {
-      name: 'Sede de Barcelona',
+      name: 'Barcelona, España',
       description:
         'Business Center Pesseig de Grácia 5.0 Passeig de Grácia, 12, 10, 08007.',
       image: '../../../../../assets/images/sedes/barcelona/barcelona.jpg',
