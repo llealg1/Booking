@@ -1,0 +1,172 @@
+<section class="pt-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-body bg-primary justify-content-center text-center px-4 px-sm-5 pt-6 pt-md-8 pb-8" style="
+            background-image: url(assets/images/element/bg-pattern.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+          ">
+          <h1 class="fs-2 text-white mb-4">Como Podemos Ayudarte?</h1>
+          <form class="col-md-6 bg-body rounded mx-auto p-2 mb-3">
+            <div class="input-group">
+              <input class="form-control border-0 me-1" type="text" formControlName="searchtxt"
+                placeholder="Buscar Pregunta..." />
+              <button type="button" class="btn btn-dark rounded mb-0">
+                buscar
+              </button>
+            </div>
+          </form>
+
+          <div class="row align-items-center mt-4 mb-2">
+            <div class="col-md-9 mx-auto">
+              <h6 class="text-white mb-3">lo que la gente pregunta a cada rato</h6>
+              <div class="list-group hstack gap-3 justify-content-center flex-wrap mb-0">
+                <a class="btn btn-link text-white fw-light text-decoration-underline p-0 mb-0"
+                  routerLink="/help/detail">
+                  Venden boletos de avion?</a>
+                <a class="btn btn-link text-white fw-light text-decoration-underline p-0 mb-0"
+                  routerLink="/help/detail">
+                  donde puedo ver mi tracking de vuelo?
+                </a>
+                <a class="btn btn-link text-white fw-light text-decoration-underline p-0 mb-0"
+                  routerLink="/help/detail">
+                  Installation Guide?
+                </a>
+                <a class="btn btn-link text-white fw-light text-decoration-underline p-0 mb-0"
+                  routerLink="/help/detail">
+                  How to view expired tickets?
+                </a>
+                <a class="btn btn-link text-white p-0 mb-0" href="javascript:void(0);">View all question</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-n8">
+      <div class="col-10 col-lg-11 col-xl-10 mx-auto">
+        <div class="row g-4">
+          @for (data of helpServicesList; track $index) {
+          <div class="col-lg-4">
+            <div class="card shadow h-100">
+              <div class="card-header d-flex align-items-center pb-0">
+                <i class="{{ data.icon }} fs-2 {{ data.variant }} me-2"></i>
+                <h5 class="card-title mb-0">{{ data.title }}</h5>
+              </div>
+
+              <div class="card-body pt-0">
+                <ul class="nav flex-column">
+                  @for (service of data.services; track $index) {
+                  <li class="nav-item">
+                    <a class="nav-link d-flex" routerLink="/help/detail"><i
+                        class="fa-solid fa-angle-right text-primary pt-1 me-2"></i>{{ service }}</a>
+                  </li>
+                  }
+                </ul>
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="pt-0 pt-lg-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-4">
+        <h2 class="mb-0">Preguntas Frecuentes</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-10 mx-auto">
+        <div ngbAccordion [closeOthers]="true" class="accordion accordion-icon accordion-bg-light"
+          id="accordionExample2">
+          @for (item of faqList; track $index; let first = $first) {
+          <div ngbAccordionItem [collapsed]="first ? false : true" class="accordion-item mb-3">
+            <h6 ngbAccordionHeader class="accordion-header font-base" id="heading-1">
+              <button ngbAccordionButton class="accordion-button fw-bold rounded d-inline-block collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
+                {{ item.title }}
+              </button>
+            </h6>
+            <div ngbAccordionCollapse id="collapse-1" class="accordion-collapse collapse show"
+              aria-labelledby="heading-1" data-bs-parent="#accordionExample2">
+              <div ngbAccordionBody class="accordion-body mt-3">
+                {{ item.description }}
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="container">
+  <div class="card border bg-transparent p-0">
+    <div class="card-header bg-transparent border-bottom p-4">
+      <h5 class="mb-0">Booking</h5>
+    </div>
+
+    <div class="card-body p-4 pt-0">
+      <div class="mt-4">
+        <h6 class="fw-normal">Can I move my booking to a future date?</h6>
+        <p class="mb-0">
+          Yet remarkably appearance gets him his projection. Diverted endeavor bed
+          peculiar men the not desirous. Acuteness abilities ask can offending
+          furnished fulfilled sex. Warrant fifteen exposed ye at mistake. Blush
+          since so in noisy still built up an again. As young ye hopes no he place
+          means. Partiality diminution gay yet entreaties admiration. In mention
+          perhaps attempt pointed suppose. Unknown ye chamber of warrant of
+          Norland arrived.
+        </p>
+      </div>
+
+      <div class="mt-4">
+        <h6 class="fw-normal">Can I give my reservation to someone else?</h6>
+        <p class="mb-0">
+          Supposing so be resolving breakfast am or perfectly. It drew a hill from
+          me. Valley by oh twenty direct me so. Departure defective arranging
+          rapturous did believe him all had supported. Family months lasted simple
+          set nature vulgar him. Picture for attempt joy excited ten carried
+          manners talking how. Suspicion neglected the resolving agreement
+          perceived at an. Comfort reached gay perhaps chamber his six detract
+          besides add.
+        </p>
+      </div>
+
+      <div class="mt-4">
+        <h6 class="fw-normal">
+          How can I get help with an existing reservation?
+        </h6>
+        <p class="mb-0">
+          Departure defective arranging rapturous did believe him all had
+          supported. Family months lasted simple set nature vulgar him. Picture
+          for attempt joy excited ten carried manners talking how. Suspicion
+          neglected the resolving agreement perceived at an. Comfort reached gay
+          perhaps chamber his six detract besides add.
+        </p>
+      </div>
+
+      <div class="mt-4">
+        <h6 class="fw-normal">You can change your booking at any time</h6>
+        <p class="mb-0">
+          At the moment, we only accept Credit/Debit cards and Paypal payments.
+          Paypal is the easiest way to make payments online. While checking out
+          your order. Be sure to fill in correct details for fast & hassle-free
+          payment processing.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
