@@ -46,6 +46,18 @@ export class TopbarComponent {
       label: 'Empresa',
       url: '/business',
       icon: 'fa-solid fa-building',
+      children: [
+        {
+          key: 'business',
+          label: 'Empresa',
+          url: '/business',
+        },
+        {
+          key: 'asesores',
+          label: 'Asesores',
+          url: '/advisors',
+        }
+      ]
     },
     {
       key: 'destino',
@@ -62,7 +74,7 @@ export class TopbarComponent {
     {
       key: 'contacto',
       label: 'Contacto',
-      url: '/contacto',
+      url: '/contact',
       icon: 'fa-solid fa-envelope',
     },
   ]

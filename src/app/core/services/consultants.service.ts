@@ -33,4 +33,14 @@ export class ConsultantsService {
 
     return this.http.get<any>(url, { headers, params });
   }
+
+  getUserPortalById(id: string): Observable<any> {
+    const url = `${this.baseUrl}/users-portal/${id}`;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-API-KEY': this.apiKey
+    });
+
+    return this.http.get<any>(url, { headers });
+  }
 }

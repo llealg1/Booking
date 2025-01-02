@@ -5,7 +5,6 @@ import { HelpLayoutComponent } from './layouts/help-layout/help-layout.component
 import { AgentLayoutComponent } from './layouts/agent-layout/agent-layout.component'
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component'
 import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component'
-import { AboutComponent } from './views/about-us/about/about.component'
 import { AuthGuard } from './core/guards'
 
 export const routes: Routes = [
@@ -35,6 +34,19 @@ export const routes: Routes = [
       import('./views/business/business.route').then(
         (mod) => mod.BUSINESS_ROUTES
       ),
+  },
+  {
+    path: 'contact',
+    component: DefaultLayoutComponent,
+    loadChildren: () =>
+      import('./views/contact/contact.route').then(
+        (mod) => mod.CONTACT_ROUTES
+      ),
+  },
+  {
+    path: 'advisors',
+    component: DefaultLayoutComponent,
+    loadChildren: () => import('./views/advisors/advisors.route').then((mod) => mod.ADVISORS_ROUTES),
   },
   {
     path: 'destiny',

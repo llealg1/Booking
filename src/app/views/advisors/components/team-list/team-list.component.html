@@ -1,0 +1,29 @@
+<section class="py-0">
+  <div class="container">
+    <div class="row g-4">
+      <ng-container *ngFor="let team of teamMembers;">
+        <div class="col-sm-6 col-md-4 col-xl-3">
+          <div class="card card-img-scale card-element-hover overflow-hidden bg-transparent">
+            <div class="card-img-scale-wrapper rounded-3">
+              <img [src]="team.imgUrl" class="card-img" alt="{{ team.name }}" />
+
+              <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                <span class="badge text-bg-white">
+                  <i class="fa-solid fa-star text-warning me-2"></i>4.3
+                </span>
+              </div>
+            </div>
+
+            <div class="card-body px-2 pb-0">
+              <h5 class="card-title mb-1">
+                <a [routerLink]="['/advisors', team.id]">{{ team.name }} {{ team.lastName }}</a>
+              </h5>
+              <span>{{ team.session.rol.name }}</span>
+              <p class="mb-0">Sede: {{ team.sede.name }}</p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</section>

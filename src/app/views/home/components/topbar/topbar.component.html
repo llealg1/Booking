@@ -16,7 +16,7 @@
                   data-bs-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
-                  >{{ item.label }}</a
+                  ><i class="fa-solid fa-{{ item.icon }}"></i> {{ item.label }}</a
                 >
                 <ul
                   ngbDropdownMenu
@@ -25,6 +25,7 @@
                 >
                   @for (subitem of item.children; track $index) {
                     <li>
+
                       <a class="dropdown-item" [routerLink]="subitem.url">{{
                         subitem.label
                       }}</a>
