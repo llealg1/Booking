@@ -1,0 +1,40 @@
+<div class="card border">
+    <div class="card-header border-bottom">
+        <h4 class="card-header-title">Contacto de emergencia</h4>
+        <p class="mb-0">
+            Ingresar todos los Datos del contacto de Emergencia
+            <span class="text-primary">Contacto de Emergencia</span>
+        </p>
+    </div>
+
+    <div class="card-body">
+        <form novalidate [formGroup]="updateEmail">
+
+
+            <label class="form-label">Nombre y Apellido<span class="text-danger">*</span></label>
+            <input type="email" formControlName="email" class="form-control p-2"
+                [ngClass]="{ 'is-invalid': formSubmit && form['email'].errors }"
+                placeholder="Ingresar Nombre completo" />
+            @if (formSubmit && form['email'].errors) {
+            <div class="invalid-feedback">Ingresar Datos</div>
+            }
+            <label class="form-label pt-2">Ingresar Correo Electronico <span class="text-danger">*</span></label>
+
+            <input type="email" formControlName="email" class="form-control"
+                [ngClass]="{ 'is-invalid': formSubmit && form['email'].errors }" placeholder="correo electronico" />
+            @if (formSubmit && form['email'].errors) {
+            <div class="invalid-feedback">Ingresar Datos</div>
+            }
+            <label class="form-label pt-2">Numero de Telefono <span class="text-danger">*</span></label>
+
+            <input type="number" formControlName="number" class="form-control"
+                [ngClass]="{ 'is-invalid': formSubmit && form['number'].errors }" placeholder="numero de telefono" />
+            @if (formSubmit && form['number'].errors) {
+            <div class="invalid-feedback">Ingresar Datos</div>
+            }
+            <div class="text-end mt-3">
+                <a (click)="onSubmit()" href="javascript:void(0);" class="btn btn-primary mb-0">Guardar Cambios</a>
+            </div>
+        </form>
+    </div>
+</div>

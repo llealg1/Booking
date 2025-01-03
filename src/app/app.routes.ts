@@ -36,17 +36,24 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'faq',
+    component: DefaultLayoutComponent,
+    loadChildren: () =>
+      import('./views/faq/faq.route').then((mod) => mod.FAQ_ROUTES),
+  },
+  {
     path: 'contact',
     component: DefaultLayoutComponent,
     loadChildren: () =>
-      import('./views/contact/contact.route').then(
-        (mod) => mod.CONTACT_ROUTES
-      ),
+      import('./views/contact/contact.route').then((mod) => mod.CONTACT_ROUTES),
   },
   {
     path: 'advisors',
     component: DefaultLayoutComponent,
-    loadChildren: () => import('./views/advisors/advisors.route').then((mod) => mod.ADVISORS_ROUTES),
+    loadChildren: () =>
+      import('./views/advisors/advisors.route').then(
+        (mod) => mod.ADVISORS_ROUTES
+      ),
   },
   {
     path: 'destiny',
