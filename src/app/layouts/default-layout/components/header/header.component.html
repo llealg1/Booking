@@ -1,0 +1,94 @@
+<div class="m-0">
+  <ngb-alert
+  [dismissible]="false"
+  class="alert topNav alert-warning py-2 text-white m-0 bg-primary border-0 rounded-0 alert-dismissible fade show text-center overflow-hidden"
+  role="alert"
+>
+  <p class="text-white m-0">
+    ¿Listo para tu próxima aventura? Descubre destinos increíbles con Arcadia.
+    <a href="javascript:void(0)" class="btn btn-xs btn-dark ms-2 mb-0"
+      >¡Explora más!</a
+    >
+  </p>
+</ngb-alert>
+
+<sticky-header-component>
+  <nav class="navbar navbar-expand-xl">
+    <div class="container-fluid">
+      <app-logo-box />
+      <div class="navbar-collapse collapse" id="navbarCollapse">
+        <ul class="navbar-nav navbar-nav-scroll ms-auto">
+          @for (item of homeMenuItems; track $index) {
+            @if (item.children) {
+              <li ngbDropdown class="nav-item dropdown">
+                <a
+                  ngbDropdownToggle
+                  class="nav-link dropdown-toggle"
+                  href="javascript:void(0);"
+                  id="helpMenu"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ><i class="fa-solid fa-{{ item.icon }}"></i>
+                  {{ item.label }}</a
+                >
+                <ul
+                  ngbDropdownMenu
+                  class="dropdown-menu"
+                  aria-labelledby="helpMenu"
+                >
+                  @for (subitem of item.children; track $index) {
+                    <li>
+                      <a class="dropdown-item" [routerLink]="subitem.url">{{
+                        subitem.label
+                      }}</a>
+                    </li>
+                  }
+                </ul>
+              </li>
+            } @else {
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="item.url"
+                  ><i class="fa-solid fa-{{ item.icon }} "></i>
+                  {{ item.label }}</a
+                >
+              </li>
+            }
+          }
+        </ul>
+      </div>
+    </div>
+  </nav>
+</sticky-header-component>
+
+@if (promoCasheaAlert) {
+  <ngb-alert
+    [dismissible]="false"
+    class="alert topNav alert-warning py-2 text-dark m-0 bg-warning border-0 rounded-0 alert-dismissible fade show text-center overflow-hidden"
+    role="alert"
+  >
+    <p class="text-dark m-0">
+      <img
+        src="assets/images/logo_cashea.png"
+        alt="Cashea Logo"
+        class="me-2"
+        style="height: 24px"
+      />
+      ¡Aprovecha nuestra promoción especial! Paga con Cashea y obtén un 10% de
+      descuento en tu próximo viaje.
+      <a href="javascript:void(0)" class="btn btn-xs btn-dark ms-2 mb-0"
+        >¡Cashea ahora!</a
+      >
+    </p>
+    <button
+      type="button"
+      class="btn-close btn-close-dark opacity-9 p-3"
+      (click)="promoCasheaAlert = false"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </ngb-alert>
+}
+
+</div>
+

@@ -1,9 +1,9 @@
 import { Route } from '@angular/router'
-import { PrincipalComponent } from './principal/principal.component'
+import { HomeComponent } from './home.component'
 export const HOME_ROUTES: Route[] = [
   {
     path: '',
-    component: PrincipalComponent,
+    component: HomeComponent,
     data: { title: 'Booking Confirmed' },
   }
 ]
