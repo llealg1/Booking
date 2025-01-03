@@ -1,0 +1,81 @@
+<div class="card border">
+  <div class="card-header border-bottom">
+    <h4 class="card-header-title">Informacion personal</h4>
+  </div>
+
+  <div class="card-body">
+    <form class="row g-3">
+      <div class="col-12">
+        <label class="form-label">Upload your profile photo<span class="text-danger">*</span></label>
+        <div class="d-flex align-items-center">
+          <label class="position-relative me-4" for="uploadfile-1" title="Replace this pic">
+            <span class="avatar avatar-xl">
+              <img id="uploadfile-1-preview" class="avatar-img rounded-circle border border-white border-3 shadow"
+                src="assets/images/avatar/01.jpg" alt="" />
+            </span>
+          </label>
+
+          <label class="btn btn-sm btn-primary-soft mb-0" for="uploadfile-1">Cambiar </label>
+          <input id="uploadfile-1" class="form-control d-none" type="file" />
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Nombre<span class="text-danger">*</span></label>
+        <input type="text" class="form-control" value="Jacqueline Miller" placeholder="Enter your full name" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Apellido<span class="text-danger">*</span></label>
+        <input type="text" class="form-control" value="Jacqueline Miller" placeholder="Enter your full name" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Cedula / DNI<span class="text-danger">*</span></label>
+        <input type="number" class="form-control" value="Jacqueline Miller" placeholder="Enter your full name" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Correo Electronico<span class="text-danger">*</span></label>
+        <input type="email" class="form-control" value="hello@gmail.com" placeholder="Enter your email id" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Teléfono<span class="text-danger">*</span></label>
+        <input type="text" class="form-control" value="222 555 666" placeholder="Enter your mobile number" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Fecha de nacimiento<span class="text-danger">*</span></label>
+        <input type="text" class="form-control flatpickr" value="29 Aug 1996" placeholder="Enter date of birth"
+          data-date-format="d M Y" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Nationalidad<span class="text-danger">*</span></label>
+        <select class="form-select js-choice">
+          <option value="">Select your country</option>
+          <option>USA</option>
+          <option selected>Paris</option>
+          <option>India</option>
+          <option>UK</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Estado<span class="text-danger">*</span></label>
+        <input type="text" class="form-control" value="Jacqueline Miller" placeholder="Enter your full name" />
+      </div>
+
+      <div class="col-12">
+        <label class="form-label">Provincia / Municipio / Calle</label>
+        <textarea class="form-control" rows="3" spellcheck="false">
+2119 N Division Ave, New Hampshire, York, United States</textarea>
+      </div>
+
+      <div class="col-12 text-end">
+        <a href="javascript:void(0);" class="btn btn-primary mb-0">Guardar Cambios</a>
+      </div>
+    </form>
+  </div>
+</div>
