@@ -1,4 +1,4 @@
-import { ModalComponent } from './../../../flights/list/components/modal/modal.component';
+// import { ModalComponent } from './../../../flights/list/components/modal/modal.component';
 import { Component, inject } from '@angular/core'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { RouterModule } from '@angular/router'
@@ -17,6 +17,6 @@ export class FlightCardComponent {
   currentYear = currentYear
 
   open() {
-    this.modalService.open(ModalComponent, { size: 'lg' })
+    // this.modalService.open(ModalComponent, { size: 'lg' })
   }
 }
