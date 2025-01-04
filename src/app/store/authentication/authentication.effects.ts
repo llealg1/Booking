@@ -17,13 +17,12 @@ export class AuthenticationEffects {
   login$ = createEffect(() =>
     this.actions$.pipe(
       ofType(login),
-      exhaustMap(({ email, password }) => {
-        return this.AuthenticationService.login(email, password).pipe(
+      exhaustMap(({ username, password }) => {
+        return this.AuthenticationService.login(username, password).pipe(
           map((user) => {
             if (user) {
-              const returnUrl =
-                this.route.snapshot.queryParams['returnUrl'] || '/'
-              this.router.navigateByUrl(returnUrl)
+              console.log('User logged in')
+              this.router.navigate(['user'])
             }
             return loginSuccess({ user })
           }),

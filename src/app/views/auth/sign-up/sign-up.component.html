@@ -16,59 +16,138 @@
 
     <h1 class="mb-2 h3">Crear Cuenta</h1>
     <p class="mb-0">
-      Ya eres parte de la familia arcadia?,<a routerLink="/auth/sign-in"> Iniciar Sesion</a>
+      Ya eres parte de la familia Arcadia?,<a routerLink="/auth/sign-in"> Iniciar Sesion</a>
     </p>
 
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="mt-4 text-start">
-      <div class="mb-3">
-        <label class="form-label">Correo Electronico</label>
-        <input type="email" formControlName="email" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && form['email'].errors }" />
-        <div class="invalid-feedback">Please enter your email</div>
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Cedula de Identidad / DNI</label>
-        <input type="number" formControlName="number" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && form['number'].errors }" />
-        <div class="invalid-feedback">Please enter your email</div>
-      </div>
-      <div class="mb-3 position-relative">
-        <label class="form-label">Contraseña</label>
-        <input class="form-control fakepassword" formControlName="password" [type]="fieldTextType ? 'text' : 'password'"
-          id="psw-input" [ngClass]="{ 'is-invalid': submitted && form['password'].errors }" />
-        @if (
-        (signupForm.get('confirmpwd')?.touched &&
-        signupForm.errors?.['notSame']) ||
-        (!submitted && form['password'].errors)
-        ) {
-        <span class="position-absolute top-50 end-0 translate-middle-y p-0 mt-3">
-          <i class="fakepasswordicon fas fa-eye-slash cursor-pointer p-2" [ngClass]="{ 'fa-eye': fieldTextType }"
-            (click)="changetype()"></i>
-        </span>
-        }
-        <div class="invalid-feedback">Please enter your password</div>
-      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" formControlName="name" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && form['name'].errors }" />
+            <div class="invalid-feedback">Por favor ingresa tu nombre</div>
+          </div>
 
-      <div class="mb-3 position-relative">
-        <label class="form-label">Confirmar Contraseña</label>
-        <input [type]="fieldTextType1 ? 'text' : 'password'" formControlName="confirmpwd" [ngClass]="{
-            'is-invalid':
-              signupForm.get('confirmpwd')?.touched &&
-              signupForm.errors?.['notSame']
-          }" class="form-control" />
-        @if (!submitted && form['confirmpwd'].errors) {
-        <span class="position-absolute top-50 end-0 translate-middle-y p-0 mt-3">
-          <i class="fakepasswordicon fas fa-eye-slash cursor-pointer p-2" [ngClass]="{ 'fa-eye': fieldTextType1 }"
-            (click)="fieldTextType1 = !fieldTextType1"></i>
-        </span>
-        }
-        <div class="invalid-feedback">
-          New password and confirm password doesn't match
+          <div class="mb-3">
+            <label class="form-label">Apellido</label>
+            <input type="text" formControlName="lastName" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && form['lastName'].errors }" />
+            <div class="invalid-feedback">Por favor ingresa tu apellido</div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Pasaporte</label>
+            <input type="text" formControlName="passport" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && form['passport'].errors }" />
+            <div class="invalid-feedback">Por favor ingresa tu pasaporte</div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Teléfono</label>
+            <input type="text" formControlName="phone" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && form['phone'].errors }" />
+            <div class="invalid-feedback">Por favor ingresa tu teléfono</div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Cédula de Identidad / DNI</label>
+            <input type="text" formControlName="identityCard" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && form['identityCard'].errors }" />
+            <div class="invalid-feedback">Por favor ingresa tu cédula de identidad</div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Es menor de edad?</label>
+            <input type="checkbox" formControlName="child" class="form-check-input"
+              [ngClass]="{ 'is-invalid': submitted && form['child'].errors }" />
+            <div class="invalid-feedback">Por favor selecciona si es menor de edad</div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Fecha de Nacimiento</label>
+            <input type="date" formControlName="birthDate" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && form['birthDate'].errors }" placeholder="dd/mm/yyyy" />
+            <div class="invalid-feedback">Por favor ingresa tu fecha de nacimiento</div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div formGroupName="address">
+            <div class="mb-3">
+              <label class="form-label">País</label>
+              <input type="text" formControlName="country" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted }" />
+              <div class="invalid-feedback">Por favor ingresa tu país</div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Estado</label>
+              <input type="text" formControlName="state" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted  }" />
+              <div class="invalid-feedback">Por favor ingresa tu estado</div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Calle</label>
+              <input type="text" formControlName="street" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted }" />
+              <div class="invalid-feedback">Por favor ingresa tu calle</div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Correo Electrónico</label>
+            <input type="email" formControlName="email" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && form['email'].errors }" />
+            <div class="invalid-feedback">Por favor ingresa tu correo electrónico</div>
+          </div>
+
+          <div class="mb-3 position-relative">
+            <label class="form-label">Contraseña</label>
+            <input class="form-control fakepassword" formControlName="password" [type]="fieldTextType ? 'text' : 'password'"
+              id="psw-input" [ngClass]="{ 'is-invalid': submitted && form['password'].errors }" />
+            <span class="position-absolute top-50 end-0 translate-middle-y p-0 mt-3">
+              <i class="fakepasswordicon fas fa-eye-slash cursor-pointer p-2" [ngClass]="{ 'fa-eye': fieldTextType }"
+                (click)="changetype()"></i>
+            </span>
+            <div class="invalid-feedback">Por favor ingresa tu contraseña</div>
+          </div>
+
+          <!-- <div class="mb-3 position-relative">
+            <label class="form-label">Confirmar Contraseña</label>
+            <input [type]="fieldTextType1 ? 'text' : 'password'" formControlName="confirmpwd" [ngClass]="{
+                'is-invalid':
+                  signupForm.get('confirmpwd')?.touched &&
+                  signupForm.errors?.['notSame']
+              }" class="form-control" />
+            <span class="position-absolute top-50 end-0 translate-middle-y p-0 mt-3">
+              <i class="fakepasswordicon fas fa-eye-slash cursor-pointer p-2" [ngClass]="{ 'fa-eye': fieldTextType1 }"
+                (click)="fieldTextType1 = !fieldTextType1"></i>
+            </span>
+            <div class="invalid-feedback">
+              Las contraseñas no coinciden
+            </div>
+          </div> -->
         </div>
       </div>
 
+      <div *ngIf="loading" class="text-center mb-3">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <div *ngIf="successMessage" class="alert alert-success">
+        {{ successMessage }}
+      </div>
+
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+
       <div>
-        <button type="submit" class="btn btn-primary w-100 mb-0">
+        <button type="submit" class="btn btn-primary w-100 mb-0" [disabled]="loading">
           Crear Cuenta
         </button>
       </div>

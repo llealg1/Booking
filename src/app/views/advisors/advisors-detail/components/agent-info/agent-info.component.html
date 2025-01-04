@@ -1,37 +1,6 @@
 <div class="row g-4 mb-5">
   <div class="col-md-4 col-xxl-3">
-    <div class="card bg-light">
-      <div class="dropdown position-absolute top-0 end-0 m-3" ngbDropdown>
-        <a
-          href="javascript:void(0);"
-          ngbDropdownToggle
-          class="btn btn-sm btn-white btn-round lh-lg mb-0 arrow-none"
-          role="button"
-          id="dropdownShare1"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <i class="bi bi-three-dots fa-fw"></i>
-        </a>
-
-        <ul
-          ngbDropdownMenu
-          class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded"
-          aria-labelledby="dropdownShare1"
-        >
-          <li>
-            <a class="dropdown-item" href="javascript:void(0);"
-              ><i class="bi bi-pencil-square fa-fw me-2"></i>Editar</a
-            >
-          </li>
-          <li>
-            <a class="dropdown-item" href="javascript:void(0);"
-              ><i class="bi bi-trash fa-fw me-2"></i>Eliminar</a
-            >
-          </li>
-        </ul>
-      </div>
-
+    <div class="card bg-light h-100">
       <div class="card-body text-center bg-primary text-white rounded-3">
         <div class="avatar avatar-xl flex-shrink-0 mb-3">
           <img
@@ -83,11 +52,6 @@
               </li>
 
               <li class="list-group-item mb-3">
-                <span>Cédula de Identidad:</span>
-                <span class="h6 fw-normal ms-2 mb-0">{{ agent?.identityCard }}</span>
-              </li>
-
-              <li class="list-group-item mb-3">
                 <span>Número de Teléfono:</span>
                 <span class="h6 fw-normal ms-2 mb-0">{{ agent?.primaryPhone }}</span>
               </li>
@@ -103,36 +67,6 @@
               </li>
             </ul>
           </div>
-
-          <div class="col-md-6">
-            <ul class="list-group list-group-borderless">
-              <li class="list-group-item mb-3">
-                <span>Último Acceso:</span>
-                <span class="h6 fw-normal ms-2 mb-0">{{ agent?.session?.lastAccess  }}</span>
-              </li>
-
-              <li class="list-group-item mb-3">
-                <span>Veces Conectado:</span>
-                <span class="h6 fw-normal ms-2 mb-0">{{ agent?.session?.timesLoggedIn }}</span>
-              </li>
-
-              <li class="list-group-item mb-3">
-                <span>Estado:</span>
-                <span class="h6 fw-normal ms-2 mb-0">{{ agent?.session?.status?.name }}</span>
-              </li>
-
-              <li class="list-group-item mb-3">
-                <span>Fecha de Creación:</span>
-                <span class="h6 fw-normal ms-2 mb-0">{{ agent?.createdAt }}</span>
-              </li>
-
-              <li class="list-group-item mb-3">
-                <span>Fecha de Actualización:</span>
-                <span class="h6 fw-normal ms-2 mb-0">{{ agent?.updatedAt }}</span>
-              </li>
-            </ul>
-          </div>
-
           <div class="col-12">
             <ul class="list-group list-group-borderless">
               <li class="list-group-item">

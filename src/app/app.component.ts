@@ -35,17 +35,17 @@ export class AppComponent implements OnInit {
 
   // show Loader when route change
   checkRouteChange(routerEvent: Event) {
-    if (routerEvent instanceof NavigationStart) {
-      this.progressBar.start()
-    }
-    if (
-      routerEvent instanceof NavigationEnd ||
-      routerEvent instanceof NavigationCancel ||
-      routerEvent instanceof NavigationError
-    ) {
-      setTimeout(() => {
-        this.progressBar.complete()
-      }, 200)
-    }
+    // if (routerEvent instanceof NavigationStart) {
+    //   this.progressBar.start()
+    // }
+    // if (
+    //   routerEvent instanceof NavigationEnd ||
+    //   routerEvent instanceof NavigationCancel ||
+    //   routerEvent instanceof NavigationError
+    // ) {
+    //   setTimeout(() => {
+    //     this.progressBar.complete()
+    //   }, 200)
+    // }
   }
 }

@@ -1,3 +1,4 @@
+import { AuthenticationService } from '@/app/core/services/auth.service'
 import { credits, currentYear } from '@/app/store'
 import { login } from '@/app/store/authentication/authentication.actions'
 import { CommonModule } from '@angular/common'
@@ -33,10 +34,10 @@ export class SignInComponent {
   public fb = inject(UntypedFormBuilder)
   store = inject(Store)
 
-  constructor() {
+  constructor(private authService: AuthenticationService) {
     this.signinForm = this.fb.group({
-      email: ['user@gmail.com', [Validators.required, Validators.email]],
-      password: ['123456', [Validators.required]],
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]],
     })
   }
 
@@ -47,11 +48,24 @@ export class SignInComponent {
   onLogin() {
     this.submitted = true
     if (this.signinForm.valid) {
-      const email = this.form['email'].value // Get the username from the form
+      const username = this.form['username'].value // Get the username from the form
       const password = this.form['password'].value // Get the password from the form
 
+      this.authService.login(username, password).subscribe({
+        next: (user) => {
+          // Login successful
+          // Save the user in the store
+          this.store.dispatch(login({ username: username, password: password }))
+        },
+        error: (error) => {
+          // Login failed
+          // Show the error message
+          console.error('Error:', error)
+        },
+      })
+
       // Login Api
-      this.store.dispatch(login({ email: email, password: password }))
+      // this.store.dispatch(login({ username: username, password: password }))
     }
   }
 
