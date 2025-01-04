@@ -30,38 +30,31 @@ export const bookingHomeMenuItems: MenuItemType[] = [
 export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
   {
     key: 'acc-user-profile',
-    label: 'My Profile',
+    label: 'Mi Perfil',
     url: '/user/profile',
     parentKey: 'acc-user',
     icon: 'bi bi-person',
   },
   {
-    key: 'acc-user-bookings',
-    label: 'My Bookings',
-    url: '/user/bookings',
-    parentKey: 'acc-user',
-    icon: 'bi bi-ticket-perforated',
-  },
-  {
-    key: 'acc-user-travelers',
-    label: 'Travelers',
-    url: '/user/travelers',
-    parentKey: 'acc-user',
-    icon: 'bi bi-people',
-  },
-  {
     key: 'acc-user-payment-details',
-    label: 'Payment Details',
+    label: 'Analiticas',
     url: '/user/payment-details',
     parentKey: 'acc-user',
-    icon: 'bi bi-wallet',
+    icon: 'bi bi-bar-chart',
   },
   {
     key: 'acc-user-wishlist',
-    label: 'Wishlist',
+    label: 'Mis Citas',
     url: '/user/wishlist',
     parentKey: 'acc-user',
     icon: 'bi bi-heart',
+  },
+  {
+    key: 'acc-user-bookings',
+    label: 'Mis Compras',
+    url: '/user/bookings',
+    parentKey: 'acc-user',
+    icon: 'bi bi-ticket-perforated',
   },
   {
     key: 'acc-user-settings',
@@ -69,13 +62,6 @@ export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
     url: '/user/settings',
     parentKey: 'acc-user',
     icon: 'bi bi-gear',
-  },
-  {
-    key: 'acc-user-delete',
-    label: 'Delete Profile',
-    url: '/user/delete-profile',
-    parentKey: 'acc-user',
-    icon: 'bi bi-trash',
   },
 ]
 
@@ -303,5 +289,4 @@ export const APP_MENU_ITEMS: MenuItemType[] = [
     url: '/promociones',
     icon: 'fa-solid fa-tags',
   },
-
 ]
