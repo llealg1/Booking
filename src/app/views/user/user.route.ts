@@ -6,6 +6,7 @@ import { TravelersComponent } from './travelers/travelers.component'
 import { WishlistComponent } from './wishlist/wishlist.component'
 import { PaymentDetailsComponent } from './payment-details/payment-details.component'
 import { DeleteProfileComponent } from './delete-profile/delete-profile.component'
+import { FinancesComponent } from './finances/finances.component'
 
 export const USER_PAGES_ROUTES: Route[] = [
   {
@@ -32,6 +33,11 @@ export const USER_PAGES_ROUTES: Route[] = [
     path: 'wishlist',
     component: WishlistComponent,
     data: { title: 'User - Wishlist' },
+  },
+  {
+    path: 'finances',
+    component: FinancesComponent,
+    data: { title: 'User - finances' },
   },
   {
     path: 'payment-details',
