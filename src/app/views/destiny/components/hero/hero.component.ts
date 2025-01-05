@@ -1,13 +1,12 @@
-import { DateFormInputDirective } from '@/app/components/form/date-form-input.directive'
 import { SelectFormInputDirective } from '@/app/components/form/select-form-input.directive'
 import { Component } from '@angular/core'
-import { FlightCardComponent } from '../flight-card/flight-card.component'
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap'
 
 @Component({
-  selector: 'heroes-hero',
+  selector: 'directories-hero',
   standalone: true,
-  imports: [SelectFormInputDirective, DateFormInputDirective,FlightCardComponent ],
+  imports: [SelectFormInputDirective, NgbDropdownModule],
   templateUrl: './hero.component.html',
-  styleUrl: './hero.component.scss',
+  styles: ``,
 })
 export class HeroComponent {}

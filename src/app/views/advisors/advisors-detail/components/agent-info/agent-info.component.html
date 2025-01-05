@@ -1,16 +1,12 @@
 <div class="row g-4 mb-5">
-  <div class="col-md-4 col-xxl-3">
+  <div class="col-md-4 col-xxl-3" style="color: #200444; max-width: auto; filter: drop-shadow(4px 10px 10px);">
     <div class="card bg-light h-100">
       <div class="card-body text-center bg-primary text-white rounded-3">
         <div class="avatar avatar-xl flex-shrink-0 mb-3">
-          <img
-            class="avatar-img rounded-circle"
-            [src]="agent?.imgUrl"
-            alt="avatar"
-          />
+          <img class="avatar-img rounded-circle" [src]="agent?.imgUrl" alt="avatar" />
         </div>
 
-        <h5 class="mb-2 text-white">{{ agent?.name }} {{ agent?.lastName }}</h5>
+        <h2 class="mb-2 text-white">{{ agent?.name }} {{ agent?.lastName }}</h2>
         <ul class="list-inline small mb-0">
           <li class="list-inline-item me-1">
             <i class="fa-solid fa-star text-warning"></i>
@@ -25,7 +21,7 @@
             <i class="fa-solid fa-star text-warning"></i>
           </li>
           <li class="list-inline-item me-1">
-            <i class="fa-solid fa-star text-warning"></i>
+            <i class="fa-solid fa-star text-danger"></i>
           </li>
         </ul>
         <p class="mb-0">Rol: {{ agent?.session?.rol?.name }}</p>
@@ -36,7 +32,7 @@
     </div>
   </div>
 
-  <div class="col-md-8 col-xxl-9">
+  <div class="col-md-8 col-xxl-9" style="max-width: auto; filter: drop-shadow(4px 10px 10px);">
     <div class="card shadow">
       <div class="card-header border-bottom">
         <h5 class="mb-0">Información Personal</h5>

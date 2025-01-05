@@ -50,6 +50,13 @@ export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
     icon: 'bi bi-heart',
   },
   {
+    key: 'acc-user-finances',
+    label: 'Mis Financiamientos',
+    url: '/user/finances',
+    parentKey: 'acc-user',
+    icon: 'bi bi-cash-coin',
+  },
+  {
     key: 'acc-user-bookings',
     label: 'Mis Compras',
     url: '/user/bookings',
