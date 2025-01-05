@@ -2,7 +2,6 @@ import { inject } from '@angular/core'
 import {
   ActivatedRouteSnapshot,
   CanActivateFn,
-  Router,
   RouterStateSnapshot,
 } from '@angular/router'
 import { AuthenticationService } from '@core/services/auth.service'
@@ -12,12 +11,8 @@ export const AuthGuard: CanActivateFn = (
   state: RouterStateSnapshot
 ) => {
   const authenticationService = inject(AuthenticationService)
-  const router = inject(Router)
   const currentUser = authenticationService.session
-
+  console.log('currentUser', currentUser)
   if (currentUser) return true
-
-  return router.createUrlTree(['/auth/sign-in'], {
-    queryParams: { returnUrl: state.url },
-  })
+  return false
 }

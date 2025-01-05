@@ -9,4 +9,5 @@ export class User {
   avatar?: string
   role?: 'admin' | 'user'
   token?: string
+  access_token?: any
 }

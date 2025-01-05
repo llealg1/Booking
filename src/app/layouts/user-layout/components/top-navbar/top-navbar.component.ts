@@ -18,7 +18,6 @@ import {
     NgbDropdownModule,
     LogoBoxComponent,
     NgbCollapseModule,
-    VerticalMenuButtonComponent,
     NotificationDropdownComponent,
     ProfileDropdownComponent,
     StickyHeaderComponent,
@@ -29,21 +28,13 @@ import {
         <div class="container">
           <app-logo-box />
 
-          <vertical-menu-button className="ms-auto mx-3 me-md-0" [showText]="false" />
-          <app-menu [showContactPages]="true" />
+          <!-- <vertical-menu-button className="ms-auto mx-3 me-md-0" [showText]="false" /> -->
+          <!-- <app-menu [showContactPages]="true" /> -->
 
           <ul class="nav flex-row align-items-center list-unstyled ms-xl-auto">
             <app-notification-dropdown />
 
             <app-profile-dropdown className="ms-3" />
-
-            <li class="nav-item ms-3 d-none d-sm-block">
-              <a
-                class="btn btn-sm btn-primary-soft mb-0"
-                href="javascript:void(0);"
-                ><i class="bi bi-lightning-charge"></i> Upgrade now</a
-              >
-            </li>
           </ul>
         </div>
       </nav>

@@ -14,16 +14,19 @@ import {
 
 @Injectable()
 export class AuthenticationEffects {
+  constructor(
+    @Inject(Actions) private actions$: Actions,
+    private AuthenticationService: AuthenticationService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+
   login$ = createEffect(() =>
     this.actions$.pipe(
       ofType(login),
       exhaustMap(({ username, password }) => {
         return this.AuthenticationService.login(username, password).pipe(
           map((user) => {
-            if (user) {
-              console.log('User logged in')
-              this.router.navigate(['user'])
-            }
             return loginSuccess({ user })
           }),
           catchError((error) => of(loginFailure({ error })))
@@ -43,10 +46,5 @@ export class AuthenticationEffects {
     )
   )
 
-  constructor(
-    @Inject(Actions) private actions$: Actions,
-    private AuthenticationService: AuthenticationService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {}
+
 }

@@ -4,7 +4,7 @@
   </div>
 
   <div class="card-body">
-    <form class="row g-3">
+    <form [formGroup]="personalInfoForm" class="row g-3">
       <div class="col-12">
         <label class="form-label">Upload your profile photo<span class="text-danger">*</span></label>
         <div class="d-flex align-items-center">
@@ -22,41 +22,40 @@
 
       <div class="col-md-6">
         <label class="form-label">Nombre<span class="text-danger">*</span></label>
-        <input type="text" class="form-control" value="Jacqueline Miller" placeholder="Enter your full name" />
+        <input type="text" formControlName="name" class="form-control" placeholder="Enter your full name" />
       </div>
 
       <div class="col-md-6">
         <label class="form-label">Apellido<span class="text-danger">*</span></label>
-        <input type="text" class="form-control" value="Jacqueline Miller" placeholder="Enter your full name" />
+        <input type="text" formControlName="last_name" class="form-control" placeholder="Enter your full name" />
       </div>
 
       <div class="col-md-6">
         <label class="form-label">Cedula / DNI<span class="text-danger">*</span></label>
-        <input type="number" class="form-control" value="Jacqueline Miller" placeholder="Enter your full name" />
+        <input type="text" formControlName="identityCard" class="form-control" placeholder="Enter your identity card" />
       </div>
 
       <div class="col-md-6">
         <label class="form-label">Correo Electronico<span class="text-danger">*</span></label>
-        <input type="email" class="form-control" value="hello@gmail.com" placeholder="Enter your email id" />
+        <input type="email" formControlName="email" class="form-control" placeholder="Enter your email id" />
       </div>
 
       <div class="col-md-6">
         <label class="form-label">Teléfono<span class="text-danger">*</span></label>
-        <input type="text" class="form-control" value="222 555 666" placeholder="Enter your mobile number" />
+        <input type="text" formControlName="phone" class="form-control" placeholder="Enter your mobile number" />
       </div>
 
       <div class="col-md-6">
         <label class="form-label">Fecha de nacimiento<span class="text-danger">*</span></label>
-        <input type="text" class="form-control flatpickr" value="29 Aug 1996" placeholder="Enter date of birth"
-          data-date-format="d M Y" />
+        <input type="text" formControlName="birth_date" class="form-control flatpickr" placeholder="Enter date of birth">
       </div>
 
       <div class="col-md-6">
         <label class="form-label">Nationalidad<span class="text-danger">*</span></label>
-        <select class="form-select js-choice">
+        <select formControlName="country" class="form-select js-choice">
           <option value="">Select your country</option>
           <option>USA</option>
-          <option selected>Paris</option>
+          <option>Paris</option>
           <option>India</option>
           <option>UK</option>
         </select>
@@ -64,17 +63,16 @@
 
       <div class="col-md-6">
         <label class="form-label">Estado<span class="text-danger">*</span></label>
-        <input type="text" class="form-control" value="Jacqueline Miller" placeholder="Enter your full name" />
+        <input type="text" formControlName="state" class="form-control" placeholder="Enter your state" />
       </div>
 
       <div class="col-12">
         <label class="form-label">Provincia / Municipio / Calle</label>
-        <textarea class="form-control" rows="3" spellcheck="false">
-2119 N Division Ave, New Hampshire, York, United States</textarea>
+        <textarea formControlName="street" class="form-control" rows="3" spellcheck="false"></textarea>
       </div>
 
       <div class="col-12 text-end">
-        <a href="javascript:void(0);" class="btn btn-primary mb-0">Guardar Cambios</a>
+        <button type="button" class="btn btn-primary mb-0" (click)="onSave()">Guardar Cambios</button>
       </div>
     </form>
   </div>

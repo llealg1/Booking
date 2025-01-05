@@ -11,7 +11,8 @@ export class AuthenticationService {
   user: User | null = null
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Authorization': `Bearer ${this.session}`,
+      'Content-Type': 'application/json',
     })
   };
 
@@ -20,7 +21,7 @@ export class AuthenticationService {
     return body || [] || {};
   }
 
-  public readonly authSessionKey = '_BOOKING_AUTH_SESSION_KEY_'
+  public readonly authSessionKey = 'Bearer_auth_arcadia'
 
   constructor(
     private http: HttpClient,
@@ -30,17 +31,10 @@ export class AuthenticationService {
   login(username: string, password: string) {
     return this.http.post<User>(`${API_URL}/auth/login`, { username, password }).pipe(
       map((user) => {
-        // login successful if there's a jwt token in the response
-        if (user && user.token) {
+          // login successful if there's a jwt token in the response
           this.user = user
           // store user details and jwt in session
-          this.cookieService.set(
-            this.authSessionKey,
-            JSON.stringify(user.token),
-            1,
-            '/'
-          )
-        }
+          this.cookieService.set(this.authSessionKey, user.access_token,)
         return user
       })
     )
@@ -68,6 +62,7 @@ export class AuthenticationService {
   }
 
   get session(): string {
+
     return this.cookieService.get(this.authSessionKey)
   }
 
@@ -77,5 +72,14 @@ export class AuthenticationService {
 
   removeSession(): void {
     this.cookieService.delete(this.authSessionKey)
+  }
+
+  authMe(): Observable<any> {
+    console.log(
+      new HttpHeaders({
+        Authorization: `Bearer ${this.session}`,
+      })
+    )
+    return this.http.get(`${API_URL}/auth/me`,this.httpOptions);
   }
 }
