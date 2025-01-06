@@ -62,7 +62,7 @@ export class SignInComponent {
           this.successMessage = 'Login successful'
           this.loading = false
           this.store.dispatch(login({ username: username, password: password }));
-          this.router.navigate(['/user'])
+          this.router.navigate(['/user/profile'])
 
         },
         error: (error) => {

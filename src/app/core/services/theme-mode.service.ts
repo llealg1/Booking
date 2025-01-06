@@ -16,22 +16,24 @@ export class ThemeModeService {
   }
 
   private getSavedTheme(): 'light' | 'dark' {
-    const foundTheme = localStorage.getItem(storageThemeKey)
-    const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)')
-      .matches
-      ? 'dark'
-      : 'light'
-    if (foundTheme) {
-      if (foundTheme === 'auto') {
-        toggleDocumentAttribute(themeAttributeKey, preferredTheme)
-        return preferredTheme
-      }
-      toggleDocumentAttribute(themeAttributeKey, foundTheme)
-      return foundTheme == 'dark' ? 'dark' : 'light'
-    } else {
-      localStorage.setItem(storageThemeKey, preferredTheme)
-      return preferredTheme
-    }
+    // const foundTheme = localStorage.getItem(storageThemeKey)
+    // const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)')
+    //   .matches
+    //   ? 'dark'
+    //   : 'light'
+    // if (foundTheme) {
+    //   if (foundTheme === 'auto') {
+    //     toggleDocumentAttribute(themeAttributeKey, preferredTheme)
+    //     return preferredTheme
+    //   }
+    //   toggleDocumentAttribute(themeAttributeKey, foundTheme)
+    //   return foundTheme == 'dark' ? 'dark' : 'light'
+    // } else {
+    //   localStorage.setItem(storageThemeKey, preferredTheme)
+    //   return preferredTheme
+    // }
+
+    return 'light'
   }
 
   updateTheme(newTheme: 'light' | 'dark' | 'auto') {

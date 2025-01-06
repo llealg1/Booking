@@ -12,7 +12,6 @@ export const AuthGuard: CanActivateFn = (
 ) => {
   const authenticationService = inject(AuthenticationService)
   const currentUser = authenticationService.session
-  console.log('currentUser', currentUser)
   if (currentUser) return true
   return false
 }
