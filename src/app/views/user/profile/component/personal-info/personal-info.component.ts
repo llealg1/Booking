@@ -1,15 +1,16 @@
 import { Component, Input, OnChanges, SimpleChanges, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms'
-import { DatePipe } from '@angular/common'
+import { CommonModule, DatePipe } from '@angular/common'
 @Component({
   selector: 'profile-personal-info',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './personal-info.component.html',
   styles: ``,
 })
 export class PersonalInfoComponent implements OnInit, OnChanges {
   @Input() dataPersonalInfo: any
+  @Input() countrys: any
   personalInfoForm: FormGroup
 
   constructor(private fb: FormBuilder) {

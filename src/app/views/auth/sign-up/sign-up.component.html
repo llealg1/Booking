@@ -75,9 +75,14 @@
         <div class="col-md-6">
           <div formGroupName="address">
             <div class="mb-3">
-              <label class="form-label">País</label>
-              <input type="text" formControlName="country" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted }" />
+              <div class="mb-3">
+                <label class="form-label">País</label>
+                <select formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': submitted }">
+                  <option value="">Seleccione su país</option>
+                  <option *ngFor="let country of countrys" [value]="country.name">{{ country.name }}</option>
+                </select>
+                <div class="invalid-feedback">Por favor ingresa tu país</div>
+              </div>
               <div class="invalid-feedback">Por favor ingresa tu país</div>
             </div>
 

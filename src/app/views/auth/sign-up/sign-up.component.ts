@@ -1,7 +1,7 @@
 import { AuthenticationService } from '@/app/core/services/auth.service'
 import { credits, currentYear } from '@/app/store'
 import { CommonModule } from '@angular/common'
-import { Component, inject } from '@angular/core'
+import { Component, inject, OnInit } from '@angular/core'
 import {
   FormsModule,
   ReactiveFormsModule,
@@ -13,6 +13,7 @@ import {
 import { Router,RouterModule } from '@angular/router'
 import { catchError } from 'rxjs/operators'
 import { of } from 'rxjs'
+import { CountryService } from '../../../core/services/country.service';
 
 @Component({
   selector: 'auth-sign-up',
@@ -25,7 +26,7 @@ import { of } from 'rxjs'
     }
   `,
 })
-export class SignUpComponent {
+export class SignUpComponent implements OnInit {
   creditsBy = credits
   currentYear = currentYear
   fieldTextType!: boolean
@@ -35,10 +36,10 @@ export class SignUpComponent {
   loading: boolean = false
   successMessage: string = ''
   errorMessage: string = ''
-
+  countrys: any = []
   public fb = inject(UntypedFormBuilder)
 
-  constructor(private authService: AuthenticationService, private router: Router) {
+  constructor(private authService: AuthenticationService, private router: Router, private countryService: CountryService) {
     this.signupForm = this.fb.group(
       {
         name: ['', [Validators.required]],
@@ -59,6 +60,13 @@ export class SignUpComponent {
       },
       { validators: this.validateAreEqual }
     )
+  }
+
+  ngOnInit(): void {
+    this.countryService.getCountry().subscribe((data: any) => {
+      console.log(data)
+      this.countrys = data.data
+    })
   }
 
   public validateAreEqual(c: AbstractControl): { notSame: boolean } | null {

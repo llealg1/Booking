@@ -4,6 +4,7 @@ import { UpdatePasswordComponent } from './component/update-password/update-pass
 import { PersonalInfoComponent } from './component/personal-info/personal-info.component'
 import { EmergencyContactComponent } from './component/emergency-contact/emergency-contact.component'
 import { AuthenticationService } from '../../../core/services/auth.service';
+import { CountryService } from '../../../core/services/country.service';
 
 @Component({
   selector: 'app-profile',
@@ -18,13 +19,16 @@ import { AuthenticationService } from '../../../core/services/auth.service';
   styles: ``,
 })
 export class ProfileComponent implements OnInit {
-  constructor(private authenticationService:AuthenticationService) {}
-  dataPersonalInfo:any;
+  dataPersonalInfo:any
+  countrys: any = []
+  constructor(private authenticationService:AuthenticationService, private countryService:CountryService) {}
   ngOnInit(): void {
     this.authenticationService.authMe().subscribe((data) => {
-      console.log('Data personal info: ');
-      console.log(data);
-      this.dataPersonalInfo = data;
+      this.dataPersonalInfo = data
+    })
+
+    this.countryService.getCountry().subscribe((data: any) => {
+      this.countrys = data.data;
     })
   }
 }

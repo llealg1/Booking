@@ -52,12 +52,8 @@
 
       <div class="col-md-6">
         <label class="form-label">Nationalidad<span class="text-danger">*</span></label>
-        <select formControlName="country" class="form-select js-choice">
-          <option value="">Select your country</option>
-          <option>USA</option>
-          <option>Paris</option>
-          <option>India</option>
-          <option>UK</option>
+        <select formControlName="country" class="form-control">
+          <option *ngFor="let country of countrys" [value]="country.name">{{ country.name }}</option>
         </select>
       </div>
 

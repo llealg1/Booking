@@ -10,13 +10,27 @@ export class CountryService {
   private apiKey: string = 'apikey123'
 
   constructor(private http: HttpClient) {}
-  getCountry(): Observable<any> {
+
+  getCountry(
+    search: string = '',
+    limit: number = 199,
+    page: number = 1,
+    orderDirection: string = 'asc'
+
+  ): Observable<any> {
     const url = `${this.baseUrl}/country`
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'X-API-KEY': this.apiKey,
     })
 
-    return this.http.get<any>(url, { headers })
+    let params = new HttpParams()
+      .set('search', search)
+      .set('limit', limit.toString())
+      .set('page', page.toString())
+      .set('orderDirection', orderDirection);
+
+
+    return this.http.get<any>(url, { headers, params })
   }
 }
