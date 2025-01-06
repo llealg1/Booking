@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
+import { PaymentHistoryComponent } from './components/payment-history/payment-history.component'
 
 @Component({
   selector: 'app-finances',
   standalone: true,
-  imports: [],
+  imports: [PaymentHistoryComponent],
   templateUrl: './finances.component.html',
-  styleUrl: './finances.component.scss'
+  styleUrl: './finances.component.scss',
 })
-export class FinancesComponent {
-
-}
+export class FinancesComponent {}
