@@ -9,11 +9,16 @@
   </p>
 </ngb-alert>
 
+
+
 <sticky-header-component>
   <nav class="navbar navbar-expand-xl">
     <div class="container-fluid">
       <app-logo-box />
-      <div class="navbar-collapse collapse" id="navbarCollapse">
+
+      <app-header-horizontal [menuItems]="homeMenuItems"/>
+      <vertical-menu-button />
+      <!-- <div class="navbar-collapse collapse" id="navbarCollapse">
         <ul class="navbar-nav navbar-nav-scroll ms-auto">
           @for (item of homeMenuItems; track $index) {
             @if (item.children) {
@@ -57,7 +62,7 @@
           <a class="btn btn-outline-primary me-2" [routerLink]="'/auth/sign-in'">Iniciar Sesión</a>
           <a class="btn btn-primary" [routerLink]="'/auth/sign-up'">Registrarse</a>
         </div>
-      </div>
+      </div> -->
     </div>
   </nav>
 </sticky-header-component>

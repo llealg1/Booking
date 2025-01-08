@@ -1,0 +1,41 @@
+<div class="navbar-collapse collapse" id="navbarCollapse">
+  <ul class="navbar-nav navbar-nav-scroll ms-auto">
+    @for (item of menuItems; track $index) {
+      @if (item.children) {
+        <li ngbDropdown class="nav-item dropdown">
+          <a
+            ngbDropdownToggle
+            class="nav-link dropdown-toggle"
+            href="javascript:void(0);"
+            id="helpMenu"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            ><i class="fa-solid fa-{{ item.icon }}"></i> {{ item.label }}</a
+          >
+          <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="helpMenu">
+            @for (subitem of item.children; track $index) {
+              <li>
+                <a class="dropdown-item" [routerLink]="subitem.url">{{
+                  subitem.label
+                }}</a>
+              </li>
+            }
+          </ul>
+        </li>
+      } @else {
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="item.url"
+            ><i class="fa-solid fa-{{ item.icon }} "></i> {{ item.label }}</a
+          >
+        </li>
+      }
+    }
+  </ul>
+  <div class="d-flex ms-3">
+    <a class="btn btn-outline-primary me-2" [routerLink]="'/auth/sign-in'"
+      >Iniciar Sesión</a
+    >
+    <a class="btn btn-primary" [routerLink]="'/auth/sign-up'">Registrarse</a>
+  </div>
+</div>

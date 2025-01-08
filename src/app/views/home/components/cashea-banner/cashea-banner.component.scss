@@ -1,0 +1,22 @@
+.button-purple {
+  background-color: #240e78;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.button-purple:hover {
+  background-color: #3a1389;
+}
+.custom-circle {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+img {
+  width: 100%;
+  height: auto;
+}

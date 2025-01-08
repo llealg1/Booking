@@ -277,13 +277,7 @@ export const HELP_MENU_ITEMS: MenuItemType[] = [
   },
 ]
 
-export const APP_MENU_ITEMS: MenuItemType[] = [
-  {
-    key: 'helps-service',
-    label: 'Terms of Service',
-    url: '/help/service',
-    isTitle: true,
-  },
+export const APP_MENU_ITEMS: MenuItemType[] =[
   {
     key: 'inicio',
     label: 'Inicio',
@@ -293,7 +287,43 @@ export const APP_MENU_ITEMS: MenuItemType[] = [
   {
     key: 'promociones',
     label: 'Promociones',
-    url: '/promociones',
-    icon: 'fa-solid fa-tags',
+    url: '/promotions',
+    icon: 'fa-solid fa-gift',
+  },
+  {
+    key: 'empresa',
+    label: 'Empresa',
+    url: '/business',
+    icon: 'fa-solid fa-building',
+    children: [
+      {
+        key: 'business',
+        label: 'Empresa',
+        url: '/business',
+      },
+      {
+        key: 'asesores',
+        label: 'Asesores',
+        url: '/advisors',
+      },
+    ],
+  },
+  {
+    key: 'destino',
+    label: 'Destino',
+    url: '/destiny',
+    icon: 'fa-solid fa-map-marker',
+  },
+  {
+    key: 'faq',
+    label: 'FAQ',
+    url: '/faq',
+    icon: 'fa-solid fa-question-circle',
+  },
+  {
+    key: 'contacto',
+    label: 'Contacto',
+    url: '/contact',
+    icon: 'fa-solid fa-envelope',
   },
 ]

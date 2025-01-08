@@ -24,14 +24,18 @@ export class BannerHomeComponent {
     gutter: 0,
     nav: false,
     controlsText: [
-      '<i class="bi bi-arrow-left"></i>',
-      '<i class="bi bi-arrow-right"></i>',
+      // '<i class="bi bi-arrow-left"></i>',
+      // '<i class="bi bi-arrow-right"></i>',
     ],
+
   }
 
   jarallaxConfig: JarallaxOptions = {
     speed: 0.4,
-    videoSrc: 'https://www.youtube.com/watch?v=j56YlCXuPFU',
+    videoSrc: 'https://youtu.be/TwuqhU1tGtI',
     videoPlayOnlyVisible: true,
+    videoLazyLoading: true,
+    videoEndTime: 60,
+
   }
 }

@@ -1,18 +1,26 @@
 import { MenuItemType } from '@/app/core/models'
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import { StickyHeaderComponent } from '@/app/components/sticky-header.component'
 import { LogoBoxComponent } from '@/app/components/logo-box/logo-box.component'
 import { RouterModule } from '@angular/router'
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap'
+import { HeaderHorizontalComponent } from './header-horizontal/header-horizontal.component'
+import { HeaderVerticalComponent } from "./header-vertical/header-vertical.component";
+import {VerticalMenuButtonComponent} from './header-vertical/vertical-menu-button.component'
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [StickyHeaderComponent, LogoBoxComponent, RouterModule, NgbAlert],
+  imports: [StickyHeaderComponent, LogoBoxComponent, RouterModule, NgbAlert, HeaderHorizontalComponent, HeaderVerticalComponent, VerticalMenuButtonComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
+
+  @Input() showExtraPages?: boolean
+  @Input() showContactPages?: boolean
+  @Input() startBookingMenu?: boolean
+  @Input() menuClassName?: string
   promoCasheaAlert = true
   homeMenuItems: MenuItemType[] = [
     {
