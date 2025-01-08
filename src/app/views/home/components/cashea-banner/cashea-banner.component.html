@@ -2,13 +2,17 @@
   <section class="container bg-warning rounded-3 py-5 highlight-bg position-relative">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-6 text-center text-lg-start">
+        <div class="col-lg-6 text-center text-lg-start mb-4">
           <h1 class="fw-bold mb-4">¡Haz realidad tu viaje con Cashea!</h1>
-          <p class="mb-4">Arcadia Viajes y Cashea te ofrecen opciones de financiamiento flexibles en Venezuela. Planifica tu próximo destino y paga en cómodas cuotas, con la seguridad de viajar cuando lo desees.</p>
-          <button class="button-purple">Cashea tus viajes</button>
+          <p class="mb-4">
+            Arcadia Viajes y Cashea te ofrecen opciones de financiamiento flexibles en Venezuela. Planifica tu próximo
+            destino y paga en cómodas cuotas, con la seguridad de viajar cuando lo desees.
+          </p>
+          <button class="btn btn-primary d-none d-lg-inline-block">Cashea tus viajes</button>
         </div>
-        <div class="col-lg-6 text-center">
-          <img src="assets/images/casheacasilla.png" alt="App Preview" class="img-fluid position-absolute top-0 end-0" style="height: 350px; width: 350px;">
+        <div class="col-lg-6 text-center mt-4 mt-lg-0 position-relative" [ngStyle]="{ 'top': isMobile ? '0px' : '-134px', height: isMobile ? 'auto' : '282px' }">
+          <img src="assets/images/casheacasilla.png" alt="App Preview" class="img-fluid img-overflow" />
+          <button class="btn btn-primary d-lg-none mt-3">Cashea tus viajes</button>
         </div>
       </div>
     </div>

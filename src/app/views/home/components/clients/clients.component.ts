@@ -1,13 +1,43 @@
-import { Component } from '@angular/core'
+import { Component, ViewChild } from '@angular/core'
+import { TinySliderSettings } from 'tiny-slider'
+import { TinySliderComponent } from '@/app/components/tiny-slider/tiny-slider.component'
+import { CommonModule } from '@angular/common'
+
 
 @Component({
   selector: 'home-clients',
   standalone: true,
-  imports: [],
+  imports: [TinySliderComponent, CommonModule],
   templateUrl: './clients.component.html',
   styles: ``,
 })
 export class ClientsComponent {
+  @ViewChild('clientSlider', { static: false }) clientSlider: any
+
+  clientSliderSetting: TinySliderSettings = {
+    autoplay: true,
+    edgePadding: 0,
+    gutter: 80,
+    arrowKeys: false,
+    items: 5,
+    responsive: {
+      1: {
+        items: 1,
+      },
+      576: {
+        items: 2,
+      },
+      768: {
+        items: 3,
+      },
+      992: {
+        items: 4,
+      },
+      1200: {
+        items: 5,
+      },
+    },
+  }
   clientList = [
     { id: 4, image: "assets/images/proveedores/AVIOR.png" },
     { id: 5, image: "assets/images/proveedores/BT-TRAVEL.png" },

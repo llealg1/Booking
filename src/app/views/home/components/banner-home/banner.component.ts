@@ -32,7 +32,7 @@ export class BannerHomeComponent {
 
   jarallaxConfig: JarallaxOptions = {
     speed: 0.4,
-    videoSrc: 'https://youtu.be/TwuqhU1tGtI',
+    videoSrc: 'https://youtu.be/OXU0YcrfvFc',
     videoPlayOnlyVisible: true,
     videoLazyLoading: true,
     videoEndTime: 60,
