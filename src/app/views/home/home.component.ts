@@ -18,6 +18,7 @@ import { BannerHomeComponent } from './components/banner-home/banner.component';
 import { ActionComponent } from './components/action/action.component';
 import { ConsultantsService } from '../../core/services/consultants.service';
 import { CasheaBannerComponent } from "./components/cashea-banner/cashea-banner.component";
+import { OfferSliderComponent } from './components/offer-slider/offer-slider.component';
 @Component({
   selector: 'app-principal',
   standalone: true,
@@ -35,7 +36,8 @@ import { CasheaBannerComponent } from "./components/cashea-banner/cashea-banner.
     ActionBoxAboutusComponent,
     BannerHomeComponent,
     ActionComponent,
-    CasheaBannerComponent
+    CasheaBannerComponent,
+    OfferSliderComponent
 ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
