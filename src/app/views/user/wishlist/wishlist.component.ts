@@ -1,26 +1,29 @@
 import { SelectFormInputDirective } from '@/app/components/form/select-form-input.directive'
 import { Component } from '@angular/core'
-import { RouterModule } from '@angular/router'
-import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap'
-import { wishListCards } from './data'
+import { RouterModule, RouterLink } from '@angular/router'
+import {
+  NgbDropdownModule,
+  NgbPaginationModule,
+} from '@ng-bootstrap/ng-bootstrap'
 import { currency } from '@/app/store'
-import { DateFormInputDirective } from '@/app/components/form/date-form-input.directive'
+import { bookingDetailList } from '../../admin/bookings/detail/data'
+import { CommonModule } from '@angular/common'
 
 @Component({
   selector: 'app-wishlist',
   standalone: true,
-  imports: [NgbDropdownModule, RouterModule, DateFormInputDirective],
+  imports: [
+    NgbDropdownModule,
+    RouterModule,
+    CommonModule,
+    SelectFormInputDirective,
+    NgbPaginationModule,
+    RouterLink,
+  ],
   templateUrl: './wishlist.component.html',
   styles: ``,
 })
 export class WishlistComponent {
-  wishListCards = wishListCards
+  bookingDetailList = bookingDetailList
   currencyType = currency
-
-  onSave() {
-    // if (this.dateInfoForm.valid) {
-    //   console.log(this.dateInfoForm.value)
-    //   // Aquí puedes agregar la lógica para guardar los cambios
-    // }
-  }
 }

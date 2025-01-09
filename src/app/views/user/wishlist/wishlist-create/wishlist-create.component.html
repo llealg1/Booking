@@ -1,0 +1,56 @@
+<div class="card border bg-transparent">
+    <div class="card-header bg-transparent border-bottom">
+        <h4 class="card-header-title">Crear Cita</h4>
+    </div>
+
+    <div class="card-body">
+        <form class="row g-3">
+
+            <div class="col-md-12">
+                <label class="form-label">Sede <span class="text-danger">*</span></label>
+                <select formControlName="country" class="form-select js-choice">
+                    <option value="">Seleccionar Sede</option>
+                    <option>USA</option>
+                    <option>Paris</option>
+                    <option>India</option>
+                    <option>UK</option>
+                </select>
+            </div>
+
+            <div class="col-md-12">
+                <label class="form-label">Asesor <span class="text-danger">*</span></label>
+                <select formControlName="country" class="form-select js-choice">
+                    <option value="">Seleccionar Asesor</option>
+                    <option>USA</option>
+                    <option>Paris</option>
+                    <option>India</option>
+                    <option>UK</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-fs-lg form-control-transparent">
+                    <label class="form-label">Fecha</label>
+                    <input mwlFlatpickr type="text" class="form-control flatpickr" placeholder="Select date" />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-fs-lg form-control-transparent">
+                    <label class="form-label">Hora</label>
+                    <input type="text" class="form-control flatpickr" data-enableTime="true" data-noCalendar="true"
+                        placeholder="Select time" />
+                </div>
+            </div>
+
+            <div class="col-12">
+                <label class="form-label">Motivo</label>
+                <textarea formControlName="street" class="form-control" rows="3" spellcheck="false"></textarea>
+            </div>
+
+            <div class="col-12 text-end">
+                <button type="button" class="btn btn-primary mb-0">Crear Cita</button>
+            </div>
+        </form>
+    </div>
+</div>

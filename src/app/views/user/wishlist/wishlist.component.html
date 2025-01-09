@@ -1,60 +1,127 @@
-<div class="card border bg-transparent">
-  <div class="card-header bg-transparent border-bottom">
-    <h4 class="card-header-title">Crear Cita</h4>
+<div class="card shadow mt-5">
+  <div class="card-header border-bottom">
+    <div class="row">
+      <h5 class="card-header-title col-9">Mis Citas</h5>
+      <a routerLink="/user/wishlist-create" class="btn btn-sm btn-primary mb-0 ms-auto flex-shrink-0 col-3"><i
+          class="bi bi-plus-lg fa-fw me-2"></i>Crear Cita</a>
+    </div>
   </div>
 
   <div class="card-body">
-    <form class="row g-3">
-
-      <div class="col-md-12">
-        <label class="form-label">Sede <span class="text-danger">*</span></label>
-        <select formControlName="country" class="form-select js-choice">
-          <option value="">Seleccionar Sede</option>
-          <option>USA</option>
-          <option>Paris</option>
-          <option>India</option>
-          <option>UK</option>
-        </select>
+    <div class="row g-3 align-items-center justify-content-between mb-3">
+      <div class="col-md-8">
+        <form class="rounded position-relative">
+          <input class="form-control pe-5" type="search" placeholder="Search" aria-label="Search" />
+          <button class="btn border-0 px-3 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit">
+            <i class="fas fa-search fs-6"></i>
+          </button>
+        </form>
       </div>
 
-      <div class="col-md-12">
-        <label class="form-label">Asesor <span class="text-danger">*</span></label>
-        <select formControlName="country" class="form-select js-choice">
-          <option value="">Seleccionar Asesor</option>
-          <option>USA</option>
-          <option>Paris</option>
-          <option>India</option>
-          <option>UK</option>
-        </select>
+      <div class="col-md-3">
+        <form>
+          <select selectFormInput [options]="{ searchEnabled: false }" class="form-select js-choice"
+            aria-label=".form-select-sm">
+            <option value="">Sort by</option>
+            <option>Free</option>
+            <option>Newest</option>
+            <option>Oldest</option>
+          </select>
+        </form>
       </div>
+    </div>
 
-      <div class="col-md-6">
-        <div class="form-fs-lg form-control-transparent">
-          <label class="form-label">Fecha</label>
-          <input mwlFlatpickr type="text" class="form-control flatpickr" placeholder="Select date" />
+    <div class="bg-light rounded p-3 d-none d-lg-block">
+      <div class="row row-cols-7 g-4">
+        <div class="col">
+          <h6 class="mb-0">ID</h6>
+        </div>
+        <div class="col">
+          <h6 class="mb-0">Sede</h6>
+        </div>
+        <div class="col">
+          <h6 class="mb-0">Asesor</h6>
+        </div>
+        <div class="col">
+          <h6 class="mb-0">Fecha</h6>
+        </div>
+        <div class="col">
+          <h6 class="mb-0">Hora</h6>
+        </div>
+        <div class="col">
+          <h6 class="mb-0">Estado</h6>
+        </div>
+        <div class="col">
+          <h6 class="mb-0">Accion</h6>
+        </div>
+      </div>
+    </div>
+    @for (item of bookingDetailList; track $index) {
+    <div class="row row-cols-xl-7 align-items-lg-center border-bottom g-4 px-2 py-4">
+      <div class="col">
+        <small class="d-block d-lg-none">Booked by:</small>
+        <div class="d-flex align-items-center">
+          <div class="avatar avatar-xs flex-shrink-0">
+            <img class="avatar-img rounded-circle" [src]="item.image" alt="avatar" />
+          </div>
+
+          <div class="ms-2">
+            <h6 class="mb-0 fw-light">{{ item.name }}</h6>
+          </div>
         </div>
       </div>
 
-      <div class="col-md-6">
-        <div class="form-fs-lg form-control-transparent">
-          <label class="form-label">Hora</label>
-          <input mwlFlatpickr [flatpickrOptions]="{
-              enableTime: true,
-              noCalendar: true,
-              dateFormat: 'H:i'
-            }" type="text" class="form-control flatpickr" data-enableTime="true" data-noCalendar="true"
-            placeholder="Select time" />
+      <div class="col">
+        <small class="d-block d-lg-none">Check-in:</small>
+        <h6 class="mb-0 fw-normal">{{ item.checkIn }}</h6>
+      </div>
+
+      <div class="col">
+        <small class="d-block d-lg-none">Check-out:</small>
+        <h6 class="mb-0 fw-normal">{{ item.checkOut }}</h6>
+      </div>
+
+      <div class="col">
+        <small class="d-block d-lg-none">Guests:</small>
+        <h6 class="mb-0 fw-normal">0{{ item.guest }}</h6>
+      </div>
+
+      <div class="col">
+        <small class="d-block d-lg-none">Amount:</small>
+        <h6 class="text-success mb-0">{{ currencyType }}{{ item.amount }}</h6>
+      </div>
+
+      <div class="col">
+        <small class="d-block d-lg-none">Payment:</small>
+        <div class="badge bg-opacity-10" [ngClass]="{
+              'text-info bg-info': item.payment === 'Half payment',
+              'text-orange bg-orange': item.payment === 'On Property',
+              'text-success bg-success': item.payment === 'Full payment'
+            }">
+          {{ item.payment }}
         </div>
       </div>
 
-      <div class="col-12">
-        <label class="form-label">Motivo</label>
-        <textarea formControlName="street" class="form-control" rows="3" spellcheck="false"></textarea>
+      <div class="col">
+        <a href="javascript:void(0);" class="btn btn-sm btn-light mb-0">View</a>
       </div>
+    </div>
+    }
+  </div>
 
-      <div class="col-12 text-end">
-        <button type="button" class="btn btn-primary mb-0" (click)="onSave()">Crear Cita</button>
-      </div>
-    </form>
+  <div class="card-footer pt-0">
+    <div class="d-sm-flex justify-content-sm-between align-items-sm-center">
+      <p class="mb-sm-0 text-center text-sm-start">
+        Showing 1 to 8 of 20 entries
+      </p>
+
+      <nav class="mb-sm-0 d-flex justify-content-center" aria-label="navigation">
+        <ngb-pagination [collectionSize]="150" [size]="'sm'" [maxSize]="2"
+          class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
+          <ng-template ngbPaginationPrevious>Prev </ng-template>
+          <ng-template ngbPaginationNext>Next </ng-template>
+        </ngb-pagination>
+      </nav>
+    </div>
   </div>
 </div>
