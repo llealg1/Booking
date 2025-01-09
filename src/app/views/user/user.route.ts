@@ -7,6 +7,7 @@ import { WishlistComponent } from './wishlist/wishlist.component'
 import { PaymentDetailsComponent } from './payment-details/payment-details.component'
 import { DeleteProfileComponent } from './delete-profile/delete-profile.component'
 import { FinancesComponent } from './finances/finances.component'
+import { WishlistCreateComponent } from './wishlist/wishlist-create/wishlist-create.component'
 
 export const USER_PAGES_ROUTES: Route[] = [
   {
@@ -33,6 +34,11 @@ export const USER_PAGES_ROUTES: Route[] = [
     path: 'wishlist',
     component: WishlistComponent,
     data: { title: 'User - Wishlist' },
+  },
+  {
+    path: 'wishlist-create',
+    component: WishlistCreateComponent,
+    data: { title: 'User - Wishlist-create' },
   },
   {
     path: 'finances',
