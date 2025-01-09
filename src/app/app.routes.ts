@@ -61,7 +61,6 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./views/destiny/destiny.route').then((mod) => mod.DESTINY_ROUTES),
   },
-
   {
     path: 'auth',
     component: AuthLayoutComponent,
@@ -82,5 +81,4 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./views/admin/admin.route').then((mod) => mod.ADMIN_ROUTES),
   },
-
 ]
