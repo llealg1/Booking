@@ -35,13 +35,13 @@ export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
     parentKey: 'acc-user',
     icon: 'bi bi-person',
   },
-  {
-    key: 'acc-user-payment-details',
-    label: 'Analiticas',
-    url: '/user/payment-details',
-    parentKey: 'acc-user',
-    icon: 'bi bi-bar-chart',
-  },
+  // {
+  //   key: 'acc-user-payment-details',
+  //   label: 'Analiticas',
+  //   url: '/user/payment-details',
+  //   parentKey: 'acc-user',
+  //   icon: 'bi bi-bar-chart',
+  // },
   {
     key: 'acc-user-wishlist',
     label: 'Mis Citas',
@@ -277,7 +277,7 @@ export const HELP_MENU_ITEMS: MenuItemType[] = [
   },
 ]
 
-export const APP_MENU_ITEMS: MenuItemType[] =[
+export const APP_MENU_ITEMS: MenuItemType[] = [
   {
     key: 'inicio',
     label: 'Inicio',
