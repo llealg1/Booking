@@ -1,0 +1,43 @@
+<section class="pt-0 mt-2">
+
+  <h3 class="text-primary text-center display-4 fw-bold my-4">¡NUESTROS DESTINOS FAVORITOS!</h3>
+  <div class="container ">
+
+    <div class="row g-4">
+      @for (item of gridData; track $index) {
+        <div class="col-md-6 col-xl-4">
+          <div class="card shadow p-1 pb-0 h-100">
+            <div
+              class="tiny-slider arrow-round arrow-xs arrow-dark rounded-2 overflow-hidden"
+            >
+              <div
+                class="tiny-slider-inner"
+                data-autoplay="false"
+                data-arrow="true"
+                data-dots="false"
+                data-items="1"
+              >
+                <ng-tiny-slider [config]="gridSliderSetting" #gridSlider>
+                  @for (img of item.images; track $index) {
+                    <div><img [src]="img" alt="Card image" /></div>
+                  }
+                </ng-tiny-slider>
+              </div>
+            </div>
+
+            <div class="card-body px-3 pb-0">
+
+              <h3 class="card-title text-center ">
+                <a routerLink="/hotels/detail">{{ item.name }}</a>
+              </h3>
+              <button
+                class="btn btn-primary btn-md d-block mt-2 text-center mx-auto"
+                routerLink="/hotels/detail"
+              >Más información</button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

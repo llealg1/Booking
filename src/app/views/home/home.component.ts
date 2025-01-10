@@ -19,11 +19,13 @@ import { ActionComponent } from './components/action/action.component';
 import { ConsultantsService } from '../../core/services/consultants.service';
 import { CasheaBannerComponent } from "./components/cashea-banner/cashea-banner.component";
 import { OfferSliderComponent } from './components/offer-slider/offer-slider.component';
+import { DestinationsGridComponent } from './components/destinations-grid/destinations-grid.component';
 @Component({
   selector: 'app-principal',
   standalone: true,
   imports: [
     AdvisorSliderComponent,
+    DestinationsGridComponent,
     NgbAlertModule,
     ActionBoxComponent,
     NgbModalModule,
