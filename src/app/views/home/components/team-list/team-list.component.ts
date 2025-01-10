@@ -33,6 +33,71 @@ export class TeamListComponent implements OnInit {
       position: 'Editor in Chief',
       image: avatar3,
     },
+    {
+      name: 'Larry Lawson',
+      position: 'Editor in Chief',
+      image: avatar3,
+    },
+    {
+      name: 'Dennis Barrett',
+      position: 'UK Tourist Guide',
+      image: avatar1,
+    },
+    {
+      name: 'Jacqueline Miller',
+      position: 'Us Tourist Guide',
+      image: avatar2,
+    },
+    {
+      name: 'Larry Lawson',
+      position: 'Editor in Chief',
+      image: avatar3,
+    },
+    {
+      name: 'Larry Lawson',
+      position: 'Editor in Chief',
+      image: avatar3,
+    },
+    {
+      name: 'Dennis Barrett',
+      position: 'UK Tourist Guide',
+      image: avatar1,
+    },
+    {
+      name: 'Jacqueline Miller',
+      position: 'Us Tourist Guide',
+      image: avatar2,
+    },
+    {
+      name: 'Larry Lawson',
+      position: 'Editor in Chief',
+      image: avatar3,
+    },
+    {
+      name: 'Larry Lawson',
+      position: 'Editor in Chief',
+      image: avatar3,
+    },
+    {
+      name: 'Dennis Barrett',
+      position: 'UK Tourist Guide',
+      image: avatar1,
+    },
+    {
+      name: 'Jacqueline Miller',
+      position: 'Us Tourist Guide',
+      image: avatar2,
+    },
+    {
+      name: 'Larry Lawson',
+      position: 'Editor in Chief',
+      image: avatar3,
+    },
+    {
+      name: 'Larry Lawson',
+      position: 'Editor in Chief',
+      image: avatar3,
+    }
   ]
 
   chunkedMemberList: any[][] = [];

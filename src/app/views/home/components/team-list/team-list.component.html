@@ -4,7 +4,7 @@
     <ngb-carousel id="teamCarousel" [interval]="0">
       <ng-template ngbSlide *ngFor="let chunk of chunkedMemberList; let i = index">
         <div class="row g-4">
-          <div class="col-sm-6 col-md-4 col-xl-4" *ngFor="let team of chunk">
+          <div class="col-sm-6 col-md-3 col-xl-3" *ngFor="let team of chunk">
             <div class="card card-img-scale card-element-hover overflow-hidden bg-transparent">
               <div class="card-img-scale-wrapper rounded-3">
                 <img [src]="team.image" class="card-img" alt="" style="width: 100%; height: 650px; object-fit: cover;" />
