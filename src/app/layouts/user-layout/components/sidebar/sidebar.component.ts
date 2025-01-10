@@ -48,7 +48,7 @@ import { filter } from 'rxjs'
           <a
             class="nav-link text-danger bg-danger-soft-hover"
             routerLink="/auth/sign-in"
-            ><i class="fas fa-sign-out-alt fa-fw me-2"></i>Sign Out</a
+            ><i class="fas fa-sign-out-alt fa-fw me-2"></i>Cerrar Sesion</a
           >
         </li>
       </ul>
