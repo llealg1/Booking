@@ -37,6 +37,7 @@ export class DestinationsGridComponent {
       rating: 4.5,
       feature: ['Air Conditioning', 'Wifi', 'Kitchen', 'Pool'],
       price: 750,
+      description: 'Descubre la vibrante capital de España, llena de historia, cultura y vida nocturna.',
     },
     {
       id: 2,
@@ -46,6 +47,7 @@ export class DestinationsGridComponent {
       rating: 4,
       feature: ['Air Conditioning', 'Wifi', 'Pool', 'Kitchen'],
       price: 1200,
+      description: 'Explora la ciudad de Gaudí, con su arquitectura única y hermosas playas.',
     },
     {
       id: 3,
@@ -55,6 +57,7 @@ export class DestinationsGridComponent {
       feature: ['Air Conditioning', 'Wifi', 'Kitchen', 'Pool'],
       price: 980,
       bookmark: true,
+      description: 'La ciudad del amor, famosa por su arte, moda y la icónica Torre Eiffel.',
     },
     {
       id: 4,
@@ -64,6 +67,7 @@ export class DestinationsGridComponent {
       feature: ['Air Conditioning', 'Wifi', 'Kitchen', 'Pool'],
       price: 1400,
       bookmark: true,
+      description: 'Sumérgete en la historia antigua con monumentos como el Coliseo y el Vaticano.',
     },
     {
       id: 5,
@@ -72,6 +76,7 @@ export class DestinationsGridComponent {
       rating: 4.5,
       feature: ['Air Conditioning', 'Wifi', 'Kitchen', 'Pool'],
       price: 680,
+      description: 'Una metrópolis moderna con una rica historia, museos y el famoso Big Ben.',
     },
     {
       id: 6,
@@ -80,7 +85,8 @@ export class DestinationsGridComponent {
       rating: 4.4,
       feature: ['Air Conditioning', 'Wifi', 'Kitchen', 'Pool'],
       price: 740,
-    }
+      description: 'La ciudad que nunca duerme, llena de rascacielos, teatros de Broadway y Central Park.',
+    },
   ];
   currencyType = currency
 
