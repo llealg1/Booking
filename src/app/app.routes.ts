@@ -6,6 +6,7 @@ import { AgentLayoutComponent } from './layouts/agent-layout/agent-layout.compon
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component'
 import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component'
 import { AuthGuard } from './core/guards'
+import { ChatComponent } from './views/chat/chat.component'
 
 export const routes: Routes = [
   {
@@ -60,6 +61,12 @@ export const routes: Routes = [
     component: DefaultLayoutComponent,
     loadChildren: () =>
       import('./views/destiny/destiny.route').then((mod) => mod.DESTINY_ROUTES),
+  },
+  {
+    path: 'chat',
+    component: ChatComponent,
+    loadChildren: () =>
+      import('./views/chat/chat.route').then((mod) => mod.CHAT_ROUTES),
   },
   {
     path: 'auth',

@@ -1,19 +1,14 @@
-<section class="position-relative py-8 py-lg-9" style="
-    background-image: url(assets/images/auth-side-bg.png);
-    /* background-position: center left;
-    background-size: cover; */
-  ">
-  <div class="bg-overlay bg-dark opacity-8"></div>
+<section ngJarallax class="card overflow-hidden vh-50 bg-primary text-center rounded-0"
+  data-jarallax-video="youtube.com/watch?v=kcfs1-ryKWE">
+  <div class="bg-overlay bg-dark opacity-1"></div>
   <div class="container z-index-9 position-relative">
     <div class="row py-sm-5">
       <div class="col-xl-12 m-auto text-center">
         <h6 class="text-white fw-normal mb-3">
-          Descubra y conéctate con lugares maravillosos alrededor del mundo
+          Descubra y conéctate con lugares maravillosos alrededor del mundo, viaja feliz, Viaja Arcadia
         </h6>
         <h1 class="display-4 text-white mb-0">
-          Viaja feliz, Viaja
-          <span class="position-relative z-index-9 d-block">Arcadia
-
+          <span class="position-relative z-index-9 d-block">Olympia
             <span class="position-absolute top-50 start-50 translate-middle z-index-n1 d-none d-md-block mt-4">
               <svg width="390.5px" height="21.5px" viewBox="0 0 445.5 21.5">
                 <path class="fill-primary opacity-7"
@@ -24,73 +19,15 @@
         </h1>
       </div>
 
-      <div class="col-xl-10 mx-auto">
+      <div class="col-xl-8 mx-auto">
         <div class="bg-blur bg-white bg-opacity-10 border border-light border-opacity-25 rounded-3 p-4 mt-5">
           <form class="row g-3 justify-content-center align-items-center">
-            <div class="col-lg-5">
-              <div class="form-input-dropdown position-relative" ngbDropdown>
-                <input class="form-control form-control-lg me-1 ps-5" ngbDropdownToggle type="text"
-                  data-bs-toggle="dropdown" placeholder="Que actividades te gustan?" />
-
-                <ul class="dropdown-menu input-dropdown shadow rounded-0 rounded-bottom w-100" ngbDropdownMenu>
-                  <li>
-                    <a class="dropdown-item" href="javascript:void(0);"><i
-                        class="bi bi-building fa-fw text-primary me-2"></i>Hoteles</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="javascript:void(0);"><i
-                        class="bi bi-egg-fried fa-fw text-primary me-2"></i>Restaurantes</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="javascript:void(0);"><i
-                        class="bi bi-airplane fa-fw text-primary me-2"></i>Vuelos</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="javascript:void(0);"><i
-                        class="bi bi-cup-straw fa-fw text-primary me-2"></i>Bares</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="javascript:void(0);"><i
-                        class="bi bi-tv fa-fw text-primary me-2"></i>Entretenimiento</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="javascript:void(0);"><i
-                        class="bi bi-car-front fa-fw text-primary me-2"></i>Automoviles</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="javascript:void(0);"><i
-                        class="bi bi-emoji-kiss fa-fw text-primary me-2"></i>Spa</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="javascript:void(0);"><i
-                        class="bi bi-fire fa-fw text-primary me-2"></i>Vida Nocturna</a>
-                  </li>
-                </ul>
-
-                <span class="position-absolute top-50 start-0 translate-middle ps-5"><i
-                    class="bi bi-search fs-5"></i></span>
-              </div>
-            </div>
-
-            <div class="col-lg-5">
-              <div class="form-mix-icon-input form-size-lg">
-                <select selectFormInput class="form-select js-choice" data-search-enabled="true">
-                  <option value="">Busca tu lugar feliz</option>
-                  <option>San Jacinto, USA</option>
-                  <option>North Dakota, Canada</option>
-                  <option>West Virginia, Paris</option>
-                </select>
-
-                <span class="position-absolute top-50 start-0 translate-middle ps-5"><i
-                    class="bi bi-geo-alt fs-5"></i></span>
-                <a href="javascript:void(0);" class="h6 mb-0 position-absolute top-50 end-0 translate-middle pe-1">
-                  <i class="fa-solid fa-crosshairs"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="col-lg-2 d-grid">
-              <a class="btn btn-lg btn-primary mb-0" href="javascript:void(0);">Buscar</a>
+            <div class="input-group">
+              <input class="form-control border-0 me-1" type="text" formControlName="searchtxt"
+                placeholder="Planifica tu Itinerario aqui!" />
+              <button type="button" class="btn btn-primary rounded mb-0">
+                Preguntar
+              </button>
             </div>
           </form>
         </div>
