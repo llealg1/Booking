@@ -245,7 +245,7 @@ $transition-base:               all .3s ease-in-out;
 //
 // Font Families
 
-$font-family-base:        "Kanit", serif;
+$font-family-base: "Montserrat", serif;
 // Font Sizes
 
 $font-size-xs:                .8125rem;
@@ -277,7 +277,7 @@ $font-sizes: (
 );
 
 $headings-margin-bottom:        .5rem;
-$headings-font-family:          "Kanit", serif;
+$headings-font-family:        "Montserrat", serif;
 $headings-font-weight:          $font-weight-bold;
 $headings-line-height:          $line-height-sm;
 $headings-color:                var(--#{$prefix}gray-900);

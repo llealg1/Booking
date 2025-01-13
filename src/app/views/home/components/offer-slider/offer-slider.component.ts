@@ -37,11 +37,11 @@ export class OfferSliderComponent {
         items: 1,
         gutter: 10,
       },
-      992: {
+      1300: {
         items: 2,
         gutter: 30,
       },
-      1600: {
+      2000: {
         items: 3,
         gutter: 30,
       },
