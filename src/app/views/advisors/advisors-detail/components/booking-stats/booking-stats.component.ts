@@ -1,7 +1,9 @@
 import { ChartOptions } from '@/app/core/models/apexchart.model'
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { NgApexchartsModule } from 'ng-apexcharts'
 import { BookingTrafficComponent } from '../booking-traffic/booking-traffic.component'
+import { ConsultantsService } from '@/app/core/services/consultants.service'
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'dashboard-booking-stats',
@@ -10,7 +12,8 @@ import { BookingTrafficComponent } from '../booking-traffic/booking-traffic.comp
   templateUrl: './booking-stats.component.html',
   styles: ``,
 })
-export class BookingStatsComponent {
+export class BookingStatsComponent implements OnInit {
+  agent: any;
   chartOpts: Partial<ChartOptions> = {
     colors: ['#2163e8'],
     series: [
@@ -74,4 +77,18 @@ export class BookingStatsComponent {
       },
     },
   }
+
+    constructor(private consultantsService:ConsultantsService, private route: ActivatedRoute,) {}
+    ngOnInit() {
+      this.route.paramMap.subscribe(params => {
+        const id = params.get('id');
+        if (id) {
+          this.consultantsService.getUserPortalById(id).subscribe(agent => {
+            console.log(agent);
+            this.agent = agent;
+
+          });
+        }
+      });
+    }
 }
