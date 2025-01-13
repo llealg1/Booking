@@ -4,6 +4,6 @@ export const DESTINY_ROUTES: Route[] = [
   {
     path: '',
     component: DestinyComponent,
-    data: { title: 'Booking Confirmed' },
+    data: { title: 'Planificador' },
   },
 ]
