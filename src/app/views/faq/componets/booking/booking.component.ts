@@ -64,20 +64,20 @@ export class BookingComponent {
   ]
   helpServicesList = [
     {
-      title: 'Get Started',
-      icon: 'bi bi-emoji-smile',
-      variant: 'text-success',
+      title: 'VUELOS:',
+      icon: 'bi bi-airplane-engines-fill',
+      variant: 'text-primary',
       services: [
-        'Gulp and Customization',
-        'Color Scheme and Logo Settings',
-        'Dark mode, RTL Version, and Lazy Load',
+        '¿Qué incluye el precio de los vuelos?',
+        '¿Qué debo hacer para cotizar un vuelo?',
+        '¿Qué destinos están disponibles?',
         'Updates and Support',
       ],
     },
     {
-      title: 'Account Setup:',
-      icon: 'bi bi-layers',
-      variant: 'text-warning',
+      title: 'HOSPEDAJES:',
+      icon: 'bi bi-building-fill-add',
+      variant: 'text-primary+',
       services: [
         'Connecting to your Account',
         'Edit your profile information',
@@ -87,14 +87,14 @@ export class BookingComponent {
       ],
     },
     {
-      title: 'Other Topics',
-      icon: 'bi bi-info-circle',
-      variant: 'text-info',
+      title: 'SERVICIOS ESPECIALES:',
+      icon: 'bi bi-luggage-fill',
+      variant: 'text-primary',
       services: [
         'Security & Privacy',
-        'Author, Publisher & Admin Guides',
-        'Pricing plans',
-        'Sales Tax & Regulatory Fees',
+        '¿Qué ventajas tiene reservar con Arcadia Viajes?',
+        '¿Cómo funciona la asesoría personalizada?',
+        '¿El seguro de viaje está incluido?',
         'Promotions & Deals',
       ],
     },
