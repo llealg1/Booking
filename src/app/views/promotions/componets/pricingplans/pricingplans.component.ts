@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap'
 import { CommonModule } from '@angular/common'
+import { currency } from '@/app/store'
 
 type PricingType = {
   planName: string
@@ -14,6 +15,28 @@ type PricingType = {
     icon2: string
     available?: boolean
   }[]
+}
+
+type TourCardType = {
+  id: number
+  name: string
+  date: string
+  type: string
+  sale?: string
+  days: number
+  nights: number
+  benefits: {
+    flight?: number
+    hotel?: number
+    activities?: number
+    user?: number
+    secure?: number
+    bag?: number
+    luggage?: number
+  }
+  price: number
+  image: string
+  disc: boolean
 }
 
 type FAQType = {
@@ -262,4 +285,125 @@ export class PricingplansComponent {
     },
   ]
   planList = this.pricingPlans
+
+  tourCards: TourCardType[] = [
+    {
+      id: 1,
+      name: 'Caracas',
+      type: 'Vuelo Directo',
+      sale: '30% Off',
+      days: 6,
+      nights: 5,
+      date: 'Salida desde Buenos Aires',
+      price: 680,
+      benefits: {
+        flight: 1,
+        hotel: 0,
+        user: 1,
+        secure: 1,
+        bag: 0,
+        luggage: 1,
+      },
+      image: 'assets/images/6.png',
+      disc: true,
+    },
+    {
+      id: 2,
+      name: 'Madrid',
+      type: 'Vuelo Directo',
+      days: 6,
+      nights: 5,
+      date: 'Salida desde Caracas',
+      price: 700,
+      benefits: {
+        flight: 1,
+        hotel: 1,
+        user: 1,
+        secure: 0,
+        bag: 1,
+        luggage: 1,
+      },
+      image: 'assets/images/6.png',
+      disc: false,
+    },
+    {
+      id: 3,
+      name: 'Caracas',
+      type: 'Vuelo Directo',
+      days: 5,
+      nights: 4,
+      date: 'Salida desde Madrid',
+      price: 330,
+      benefits: {
+        flight: 1,
+        hotel: 0,
+        user: 1,
+        secure: 0,
+        bag: 1,
+        luggage: 0,
+      },
+      image: 'assets/images/6.png',
+      disc: false,
+    },
+    {
+      id: 4,
+      name: 'Miami',
+      type: 'Con Conexion',
+      days: 4,
+      nights: 3,
+      date: 'Salida desde Caracas',
+      price: 790,
+      benefits: {
+        flight: 1,
+        hotel: 1,
+        user: 1,
+        secure: 0,
+        bag: 1,
+        luggage: 1,
+      },
+      image: 'assets/images/6.png',
+      disc: false,
+    },
+    {
+      id: 5,
+      name: 'Bogota',
+      type: 'Vuelo Directo',
+      days: 5,
+      nights: 4,
+      date: 'Salida desde Caracas',
+      price: 360,
+      benefits: {
+        flight: 1,
+        hotel: 1,
+        user: 1,
+        secure: 0,
+        bag: 1,
+        luggage: 0,
+      },
+      image: 'assets/images/6.png',
+      disc: false,
+    },
+    {
+      id: 6,
+      name: 'Roma',
+      type: 'Con Conexion',
+      days: 6,
+      nights: 7,
+      date: 'Salida desde Caracas',
+      price: 760,
+      benefits: {
+        flight: 1,
+        hotel: 1,
+        user: 1,
+        secure: 1,
+        bag: 1,
+        luggage: 1,
+      },
+      image: 'assets/images/6.png',
+      disc: false,
+    },
+  ]
+  tourList = this.tourCards
+
+  currencyType = currency
 }

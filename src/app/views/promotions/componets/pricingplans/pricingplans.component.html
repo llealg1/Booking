@@ -23,63 +23,147 @@
       </div>
     </div>
 
-    <div class="row g-4 justify-content-center mt-5" style="max-width: auto; filter: drop-shadow(4px 10px 10px);">
-      @for (data of planList; track $index) {
-      <div class="col-md-6 col-lg-4">
-        <div class="card" [ngClass]="
-              data.planName == 'Professional'
-                ? 'border border-primary'
-                : 'shadow'
-            ">
-          <div class="card-header d-flex justify-content-between align-items-center border-bottom p-4">
-            <div>
-              <h3 class="mb-0" [ngClass]="{
-                    'text-primary': data.planName == 'Professional'
-                  }">
-                {{ data.planName }}
-              </h3>
-              <div class="hstack gap-2">
-                <span class="h3 plan-price mb-0">
-                  @if (paymentType) {
-                  ${{ data.yearlyPrice }}
-                  } @else {
-                  ${{ data.monthlyPrice }}
-                  }
-                </span>
-                <span class="h6 fw-light mb-0">{{data.exit}}</span>
+    <section class="pt-0">
+      <section class="container">
+        <div class="row g-4 align-items-center justify-content-between mb-4">
+
+          <div class="row g-4">
+            @for (item of tourCards; track $index) {
+            <div class="col-md-6 col-xl-4">
+              <div class="card card-hover-shadow pb-0 h-100">
+                <div class="position-relative">
+                  <img [src]="item.image" class="card-img-top" alt="Card image" />
+
+                  <div class="card-img-overlay d-flex flex-column p-4 z-index-1">
+                    <div>
+                      <span class="badge text-bg-danger me-1">{{ item.sale }}</span>
+                      <span class="badge text-bg-dark">{{ item.type }}</span>
+                    </div>
+
+                    <div class="w-100 mt-auto text-left">
+                      <span class="badge text-bg-secondary fs-6">Valido hasta el mes de Julio</span>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="card-body px-3">
+                  <h2 class="card-title mb-0">
+                    <a routerLink="/auth/sign-in" class="stretched-link">{{
+                      item.name
+                      }}</a>
+                  </h2>
+                  <span class="medium"><i class="far fa-calendar-alt me-2"></i>{{ item.date }}</span>
+
+                  <ul class="list-unstyled mt-3">
+                    @if (item.benefits.flight == 1) {
+                    <li class="nav-item h6 fw-normal mb-2">
+                      <i class="fa-solid bi bi-pass-fill text-primary me-2"></i>{{ item.benefits.flight }} Boleto de
+                      Avion
+                    </li>
+                    }
+                    @else {
+                    <li class="nav-item h6 fw-normal mb-2">
+                      <i class="fa-solid bi bi-pass-fill text-danger me-2"></i>No incluye
+                      Boleto de
+                      Avion
+                    </li>
+                    }
+                    @if (item.benefits.hotel == 1) {
+                    <li class="nav-item h6 fw-normal mb-2">
+                      <i class="fa-solid fa-hotel text-primary me-2"></i>{{ item.benefits.hotel }} Reserva de Hotel
+                    </li>
+                    }
+                    @else {
+                    <li class="nav-item h6 fw-normal mb-2">
+                      <i class="fa-solid fa-hotel text-danger me-2"></i>No incluye Reserva de Hotel
+                    </li>
+                    }
+                    @if (item.benefits.secure == 1) {
+                    <li class="nav-item h6 fw-normal mb-2">
+                      <i class="fa-solid bi bi-clipboard-plus-fill text-primary me-2"></i>{{ item.benefits.secure }}
+                      Seguro de Viaje
+                    </li>
+                    }
+                    @else {
+                    <li class="nav-item h6 fw-normal mb-2">
+                      <i class="fa-solid bi bi-clipboard-plus-fill text-danger me-2"></i>No incluye Seguro de Viaje
+                    </li>
+                    }
+                    @if (item.benefits.bag == 1) {
+                    <li class="nav-item h6 fw-normal mb-2">
+                      <i class="fa-solid bi bi-backpack2-fill text-primary me-2"></i>{{ item.benefits.bag }}
+                      Equipaje de Mano
+                    </li>
+                    }
+                    @else {
+                    <li class="nav-item h6 fw-normal mb-2">
+                      <i class="fa-solid bi bi-backpack2-fill text-danger me-2"></i>No Incluye
+                      Equipaje de Mano
+                    </li>
+                    }
+                    @if (item.benefits.luggage == 1) {
+                    <li class="nav-item h6 fw-normal mb-2">
+                      <i class="fa-solid bi bi-luggage-fill text-primary me-2"></i>{{ item.benefits.luggage }}
+                      Equipaje de 23 Kg
+                    </li>
+                    }
+                    @else {
+                    <li class="nav-item h6 fw-normal mb-2">
+                      <i class="fa-solid bi bi-luggage-fill text-danger me-2"></i>No incluye
+                      Equipaje de 23 Kg
+                    </li>
+                    }
+                    @if (item.benefits.user == 1) {
+                    <li class="nav-item h6 fw-normal mb-2">
+                      <i class="fa-solid bi bi-person-hearts text-primary me-2"></i>{{ item.benefits.user }}
+                      Asesoria Personalizada
+                    </li>
+                    }
+                    @else {
+                    <li class="nav-item h6 fw-normal mb-2">
+                      <i class="fa-solid bi bi-person-hearts text-danger me-2"></i>No incluye
+                      Asesoria Personalizada
+                    </li>
+                    }
+                  </ul>
+                </div>
+
+
+
+                <!-- Card footer START-->
+                <div class="card-footer pt-0">
+                  <div class="d-sm-flex justify-content-sm-between align-items-center flex-wrap">
+                    <div class="row">
+                      <div class="hstack gap-2 text-center">
+                        <small>DESDE</small>
+                        <h3 class="fw-normal text-secondary mb-0">
+                          {{ currencyType }}{{ item.price }}
+                        </h3>
+                        <small>/ Por Persona</small>
+                        @if (item.disc) {
+                        <span class="text-decoration-line-through">{{ currencyType }}100</span>
+                        }
+                      </div>
+
+                      <div class="mt-2 mt-sm-0 text-center">
+                        <a href="/auth/sign-in" class="btn btn-sm btn-primary mb-0">Reservar AHORA! <i
+                            class="bi bi-ticket-detailed"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <span class="icon-lg rounded-circle" [ngClass]="
-                  data.planName == 'Professional'
-                    ? 'bg-primary bg-opacity-10 text-primary'
-                    : 'bg-light'
-                " placement="top" [ngbTooltip]="data.tag">
-              <i class="{{ data.icon }}"></i>
-            </span>
+            }
           </div>
 
-          <div class="card-body p-4">
-            <ul class="list-unstyled mb-0">
-              @for (feature of data.feature; track $index; let last = $last) {
-              <li [class.mb-2]="!last">
-                <i class="bi bi-check-circle text-success me-2" [ngClass]="
-                        feature.available
-                          ? 'bi-check-circle text-success'
-                          : 'bi-x-circle text-danger'
-                      "></i>{{ feature.name }} <i class="{{ feature.icon2 }}"></i>
-              </li>
-              }
-            </ul>
-          </div>
-
-          <div class="card-footer p-4 pt-0">
-            <a href="javascript:void(0);" class="btn w-100 mb-0" [ngClass]="
-                  data.planName == 'Professional' ? 'btn-primary' : 'btn-dark'
-                ">Hacer un pedido <i class="bi bi-bag-check-fill"></i></a>
+          <div class="row">
+            <div class="col-12">
+            </div>
           </div>
         </div>
-      </div>
-      }
-    </div>
+      </section>
+    </section>
   </div>
 </section>
