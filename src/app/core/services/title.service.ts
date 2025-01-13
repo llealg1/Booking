@@ -30,7 +30,7 @@ export class TitleService {
 
     if (route.snapshot.data['title']) {
       this.titleService.setTitle(
-        `${route.snapshot.data['title']} | Booking Angular - Multipurpose Online Booking Theme`
+        `${route.snapshot.data['title']} | Arcadia Viajes, Agencia de vuelos #1 en Latinoamerica`
       )
     }
   }

@@ -4,6 +4,6 @@ export const FAQ_ROUTES: Route[] = [
   {
     path: '',
     component: FaqComponent,
-    data: { title: 'Booking Confirmed' },
+    data: { title: 'FAQ' },
   },
 ]
