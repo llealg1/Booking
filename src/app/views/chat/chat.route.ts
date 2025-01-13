@@ -4,6 +4,6 @@ export const CHAT_ROUTES: Route[] = [
   {
     path: '',
     component: ChatComponent,
-    data: { title: 'Booking Confirmed' },
+    data: { title: 'Chat' },
   },
 ]

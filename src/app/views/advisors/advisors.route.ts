@@ -5,11 +5,11 @@ export const ADVISORS_ROUTES: Route[] = [
   {
     path: '',
     component: AdvisorsComponent,
-    data: { title: 'Booking Confirmed' },
+    data: { title: 'Asesores' },
   },
   {
     path: ':id/:name',
     component: AdvisorsDetailComponent,
-    data: { title: 'Advisor Detail' },
-  }
+    data: { title: 'Asesores' },
+  },
 ]

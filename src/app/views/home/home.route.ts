@@ -4,6 +4,6 @@ export const HOME_ROUTES: Route[] = [
   {
     path: '',
     component: HomeComponent,
-    data: { title: 'Booking Confirmed' },
-  }
+    data: { title: 'Inicio' },
+  },
 ]

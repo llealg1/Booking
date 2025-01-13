@@ -4,6 +4,6 @@ export const PROMOTIONS_ROUTES: Route[] = [
   {
     path: '',
     component: PromotionsComponent,
-    data: { title: 'Booking Confirmed' },
+    data: { title: 'Promociones' },
   },
 ]
