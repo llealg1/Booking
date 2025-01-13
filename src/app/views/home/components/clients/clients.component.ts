@@ -34,7 +34,7 @@ export class ClientsComponent {
         items: 4,
       },
       1200: {
-        items: 5,
+        items: 4,
       },
     },
   }

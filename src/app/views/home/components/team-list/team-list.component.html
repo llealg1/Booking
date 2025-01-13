@@ -1,35 +1,21 @@
 <section class="py-5">
   <div class="container">
     <h2 class="text-center mb-5">¡Conoce a tus asesores de ventas!</h2>
-    <ngb-carousel id="teamCarousel" [interval]="0">
+     <ngb-carousel id="teamCarousel" [interval]="5000">
       <ng-template ngbSlide *ngFor="let chunk of chunkedMemberList; let i = index">
         <div class="row g-4">
           <div class="col-sm-6 col-md-3 col-xl-3" *ngFor="let team of chunk">
-            <div class="card card-img-scale card-element-hover overflow-hidden bg-transparent">
+            <div class="card card-img-scale card-element-hover overflow-hidden bg-transparent" (click)="navigateToAdvisor(team.id)">
               <div class="card-img-scale-wrapper rounded-3">
-                <img [src]="team.image" class="card-img" alt="" style="width: 100%; height: 650px; object-fit: cover;" />
+                <img [src]="team.imgUrl" class="card-img" alt="" style="width: 100%; height: 650px; object-fit: cover;" />
                 <div class="card-img-overlay d-flex align-items-start flex-column p-4">
-                  <span class="badge text-bg-white fs-5">
-                    <i class="fa-solid fa-star text-warning me-2"></i>4.3
-                  </span>
-                  <div class="btn-group hover-element d-flex mt-auto">
-                    <a href="javascript:void(0);" class="btn btn-white fs-5">
-                      <i class="fa-brands fa-facebook-f text-facebook"></i>
-                    </a>
-                    <a href="javascript:void(0);" class="btn btn-white fs-5">
-                      <i class="fa-brands fa-instagram text-instagram"></i>
-                    </a>
-                    <a href="javascript:void(0);" class="btn btn-white fs-5">
-                      <i class="fa-brands fa-twitter text-twitter"></i>
-                    </a>
-                  </div>
                 </div>
               </div>
               <div class="card-body px-3 pb-2">
                 <h3 class="card-title mb-2 fs-4">
                   <a href="javascript:void(0);">{{ team.name }}</a>
                 </h3>
-                <span class="fs-5">{{ team.position }}</span>
+                <span class="fs-5">{{ team.session.rol.name }}</span>
               </div>
             </div>
           </div>
