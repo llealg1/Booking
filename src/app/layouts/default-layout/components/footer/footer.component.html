@@ -27,7 +27,7 @@ Footer START -->
       <div class="col-lg-9 ms-auto">
         <div class="row g-4">
           @for (item of footerLinks; track $index) {
-            <div class="col-6 col-md-3">
+            <div class="col-6 col-md-4">
               <h5 class="text-white mb-2 mb-md-4">{{ item.title }}</h5>
               <ul class="nav flex-column text-primary-hover">
                 @for (data of item.items; track $index) {

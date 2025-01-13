@@ -23,9 +23,7 @@
 
             <div class="card-body px-2 pb-0">
               <h5 class="card-title mb-1">
-                <a [routerLink]="['/advisors', team.id]"
-                  >{{ team.name }} {{ team.lastName }}</a
-                >
+                <a [routerLink]="['/advisors', team.id, team.name + '-' + team.lastName]">{{ team.name }}</a>
               </h5>
               <span>{{ team.session.rol.name }}</span>
               <p class="mb-0">Sede: {{ team.sede.name }}</p>

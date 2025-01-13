@@ -8,7 +8,7 @@ export const ADVISORS_ROUTES: Route[] = [
     data: { title: 'Booking Confirmed' },
   },
   {
-    path: ':id',
+    path: ':id/:name',
     component: AdvisorsDetailComponent,
     data: { title: 'Advisor Detail' },
   }

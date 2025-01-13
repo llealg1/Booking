@@ -138,15 +138,6 @@ const footerLinks: FooterLink[] = [
       },
     ],
   },
-  {
-    title: 'Booking',
-    items: [
-      { name: 'Hotel', icon: 'fa-hotel', link: '/hotels/home' },
-      { name: 'Flight', icon: 'fa-plane', link: '/flights/home' },
-      { name: 'Tour', icon: 'fa-earth-americas', link: '/tours/home' },
-      { name: 'Cabs', icon: 'fa-car', link: '/cabs/home' },
-    ],
-  },
 ]
 
 const topLinks: TopLink[] = [

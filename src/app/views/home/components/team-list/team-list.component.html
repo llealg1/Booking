@@ -5,7 +5,7 @@
       <ng-template ngbSlide *ngFor="let chunk of chunkedMemberList; let i = index">
         <div class="row g-4">
           <div class="col-sm-6 col-md-3 col-xl-3" *ngFor="let team of chunk">
-            <div class="card card-img-scale card-element-hover overflow-hidden bg-transparent" (click)="navigateToAdvisor(team.id)">
+            <div class="card card-img-scale card-element-hover overflow-hidden bg-transparent" (click)="navigateToAdvisor(team)">
               <div class="card-img-scale-wrapper rounded-3">
                 <img [src]="team.imgUrl" class="card-img" alt="" style="width: 100%; height: 650px; object-fit: cover;" />
                 <div class="card-img-overlay d-flex align-items-start flex-column p-4">

@@ -77,8 +77,8 @@ export class TeamListComponent implements OnInit {
     { id: 11, image: "assets/images/proveedores/vivitatis.png" },
   ];
   constructor(private consultantsService: ConsultantsService,  private router:Router) {}
-  navigateToAdvisor(id: number) {
-    this.router.navigate([`/advisors/${id}`])
+  navigateToAdvisor(team: any) {
+    this.router.navigate([`/advisors/${team.id}/${team.name}-${team.lastName}`]);
   }
 
   ngOnInit() {

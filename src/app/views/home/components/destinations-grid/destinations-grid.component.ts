@@ -85,7 +85,7 @@ export class DestinationsGridComponent {
       rating: 4.4,
       feature: ['Air Conditioning', 'Wifi', 'Kitchen', 'Pool'],
       price: 740,
-      description: 'La ciudad que nunca duerme, llena de rascacielos, teatros de Broadway y Central Park.',
+      description: 'La ciudad que nunca duerme, llena de rascacielos.',
     },
   ];
   currencyType = currency
