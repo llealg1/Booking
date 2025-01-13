@@ -304,7 +304,7 @@ export class PricingplansComponent {
         bag: 0,
         luggage: 1,
       },
-      image: 'assets/images/6.png',
+      image: 'assets/images/promo/caracas1.png',
       disc: true,
     },
     {
@@ -323,7 +323,7 @@ export class PricingplansComponent {
         bag: 1,
         luggage: 1,
       },
-      image: 'assets/images/6.png',
+      image: 'assets/images/promo/madrid1.png',
       disc: false,
     },
     {
@@ -342,7 +342,7 @@ export class PricingplansComponent {
         bag: 1,
         luggage: 0,
       },
-      image: 'assets/images/6.png',
+      image: 'assets/images/promo/caracas2.png',
       disc: false,
     },
     {
@@ -361,7 +361,7 @@ export class PricingplansComponent {
         bag: 1,
         luggage: 1,
       },
-      image: 'assets/images/6.png',
+      image: 'assets/images/promo/miami1.png',
       disc: false,
     },
     {
@@ -380,7 +380,7 @@ export class PricingplansComponent {
         bag: 1,
         luggage: 0,
       },
-      image: 'assets/images/6.png',
+      image: 'assets/images/promo/bogota1.png',
       disc: false,
     },
     {
@@ -399,7 +399,7 @@ export class PricingplansComponent {
         bag: 1,
         luggage: 1,
       },
-      image: 'assets/images/6.png',
+      image: 'assets/images/promo/roma1.png',
       disc: false,
     },
   ]

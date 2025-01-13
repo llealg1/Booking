@@ -71,7 +71,6 @@ export class BookingComponent {
         '¿Qué incluye el precio de los vuelos?',
         '¿Qué debo hacer para cotizar un vuelo?',
         '¿Qué destinos están disponibles?',
-        'Updates and Support',
       ],
     },
     {
@@ -79,11 +78,9 @@ export class BookingComponent {
       icon: 'bi bi-building-fill-add',
       variant: 'text-primary+',
       services: [
-        'Connecting to your Account',
-        'Edit your profile information',
-        'Connecting to other Social Media Accounts',
-        'Adding your profile picture',
-        'Describing your store',
+        '¿Qué ventajas tiene reservar con Arcadia Viajes?',
+        '¿Qué debo hacer en caso de cambios o cancelaciones?',
+        '¿El hospedaje está incluido?',
       ],
     },
     {
@@ -91,11 +88,9 @@ export class BookingComponent {
       icon: 'bi bi-luggage-fill',
       variant: 'text-primary',
       services: [
-        'Security & Privacy',
         '¿Qué ventajas tiene reservar con Arcadia Viajes?',
         '¿Cómo funciona la asesoría personalizada?',
         '¿El seguro de viaje está incluido?',
-        'Promotions & Deals',
       ],
     },
   ]
