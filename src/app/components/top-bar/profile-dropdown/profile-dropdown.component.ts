@@ -1,5 +1,5 @@
 import { ThemeModeService } from '@/app/core/services/theme-mode.service'
-import { Component, inject, Input, Renderer2 } from '@angular/core'
+import { Component, inject, Input, OnInit, Renderer2 } from '@angular/core'
 import { RouterLink } from '@angular/router'
 import { NgbDropdownModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap'
 
@@ -10,13 +10,17 @@ import { NgbDropdownModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap'
   templateUrl: './profile-dropdown.component.html',
   styles: ``,
 })
-export class ProfileDropdownComponent {
+export class ProfileDropdownComponent implements OnInit {
   @Input() showThemeToggler: boolean = true
   @Input() className: string = ''
 
   theme: string = 'light'
 
   public themeModeService = inject(ThemeModeService)
+
+  ngOnInit() {
+
+  }
 
   changeTheme(mode: 'light' | 'dark' | 'auto') {
     this.theme = mode

@@ -24,7 +24,18 @@
     }
   </ul>
   <div class="d-flex ms-3">
-    <a class="btn btn-outline-primary me-2" [routerLink]="'/auth/sign-in'">Iniciar Sesión</a>
+
+    <ng-container *ngIf="isLoggedIn$ | async; else notLoggedIn">
+      <ul class="nav flex-row align-items-center list-unstyled ms-xl-auto">
+        <app-notification-dropdown />
+        <app-profile-dropdown className="ms-3" />
+      </ul>
+
+    </ng-container>
+    <ng-template #notLoggedIn>
+      <a class="btn btn-outline-primary me-2" [routerLink]="'/auth/sign-in'">Iniciar Sesión</a>
+      <!-- <a class="btn btn-primary" [routerLink]="'/auth/sign-up'">Registrarse</a> -->
+    </ng-template>
     <!-- <a class="btn btn-primary" [routerLink]="'/auth/sign-up'">Registrarse</a> -->
   </div>
 </div>

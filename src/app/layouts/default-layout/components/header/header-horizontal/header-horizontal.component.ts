@@ -1,4 +1,4 @@
-import { MenuItemType } from '@/app/core/models'
+import { MenuItemType, User } from '@/app/core/models'
 import {
   findAllParent,
   findMenuItem,
@@ -10,11 +10,18 @@ import { Component, Input, OnInit } from '@angular/core'
 import { Router, RouterLink } from '@angular/router'
 import { MenuItemWithChildrenComponent } from './components/horizontal-menu-item-with-children.component'
 import { MenuItemComponent } from './components/horizontal-menu-item.component'
+import { ProfileDropdownComponent } from "../../../../../components/top-bar/profile-dropdown/profile-dropdown.component";
+import { AuthenticationState } from '@/app/store/authentication/authentication.reducer'
+import { Store } from '@ngrx/store'
+import { Observable } from 'rxjs'
+import { getisLoggedIn, getUser } from '@/app/store/authentication/authentication.selector'
+import { CommonModule } from '@angular/common'
+import { NotificationDropdownComponent } from "../../../../../components/top-bar/notification-dropdown/notification-dropdown.component";
 
 @Component({
   selector: 'app-header-horizontal',
   standalone: true,
-  imports: [MenuItemWithChildrenComponent, MenuItemComponent, RouterLink],
+  imports: [MenuItemWithChildrenComponent, MenuItemComponent, RouterLink, ProfileDropdownComponent, CommonModule, NotificationDropdownComponent],
   templateUrl: './header-horizontal.component.html',
   styleUrl: './header-horizontal.component.scss',
 })
@@ -24,8 +31,16 @@ export class HeaderHorizontalComponent implements OnInit {
   @Input() startBookingMenu?: boolean
   @Input() menuClassName?: string
   @Input() menuItems!: MenuItemType[]
+  user$: Observable<User | null>;
+  isLoggedIn$: Observable<boolean>;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private store: Store<AuthenticationState>) {
+    this.user$ = this.store.select(getUser);
+    this.isLoggedIn$ = this.store.select(getisLoggedIn);
+    console.log('////')
+    console.log(this.user$)
+    console.log(this.isLoggedIn$)
+  }
   ngOnInit(): void {
     if (this.menuItems)
       this.matchingMenuItem = getMenuItemFromURL(
@@ -42,6 +57,9 @@ export class HeaderHorizontalComponent implements OnInit {
         ]
       }
     }
+
+    console.log(this.user$)
+    console.log(this.isLoggedIn$)
   }
   activeMenuItems?: string[]
   bookingHomeMenuItems = bookingHomeMenuItems
