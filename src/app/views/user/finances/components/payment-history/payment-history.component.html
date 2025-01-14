@@ -81,7 +81,7 @@
                 <small class="d-block d-sm-none">Estado:</small>
                 <div class="badge bg-success bg-opacity-10 text-success" [ngClass]="{
                       'bg-orange text-orange': item.status === 'POR_CONFIRMAR',
-                      'bg-danger text-danger': item.status === 'CANCELADO'
+                      'bg-danger text-danger': item.status === 'NO_CONFIRMADO'
                     }">
                   {{ item.status | titlecase | replaceUnderscore }}
                 </div>
@@ -172,7 +172,7 @@
                 <small class="d-block d-sm-none">Estado:</small>
                 <div class="badge bg-success bg-opacity-10 text-success" [ngClass]="{
                       'bg-orange text-orange': item.status === 'POR_CONFIRMAR',
-                      'bg-danger text-danger': item.status === 'CANCELADO'
+                      'bg-danger text-danger': item.status === 'NO_CONFIRMADO'
                     }">
                   {{ item.status | titlecase | replaceUnderscore }}
                 </div>
