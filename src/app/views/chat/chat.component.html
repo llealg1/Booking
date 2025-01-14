@@ -1,1 +1,46 @@
-<p>chat works!</p>
+<section class="container full-height">
+    <div class="row h-100">
+        <!-- Sección del Chat -->
+        <div class="col-md-6 h-100 d-flex flex-column justify-content-between">
+            <div class="shadow rounded bg-light h-100">
+                <div class="chat-box d-flex flex-column h-100">
+                    <!-- Cuerpo del Chat -->
+                    <div class="chat-body my-3 flex-grow-1 overflow-auto bg-white rounded">
+                        <div class="chat-message user-message mb-2">
+                            <p class="bg-primary text-white rounded p-2">Olympia 1.0</p>
+                        </div>
+                        <div class="chat-message user-message mb-2">
+                            <p class="bg-secondary text-white rounded p-2">hola</p>
+                        </div>
+                        <div class="chat-message ai-message border-secondary">
+                            <p class="bg-light text-dark rounded p-2 border">
+                                Hola! So, are we planning a trip to a Spanish-speaking paradise, or are you just
+                                practicing your
+                                language skills? What’s on your mind?
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Pie del Chat -->
+                    <div class="chat-footer d-flex align-items-center">
+                        <input type="text" class="form-control me-2 p-4"
+                            placeholder="Pregunta cualquier cosa, cuanto más compartas, mejor podré ayudarte..." />
+                        <button class="btn btn-primary">Enviar <i class="bi bi-send"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección del Hero -->
+        <div class="col-md-6 h-100">
+            <div class="position-relative h-100">
+                <!-- Imagen que ocupa todo el contenedor -->
+                <img src="assets/images/blog/05.jpg" alt="Tu Asesor de Viajes AI"
+                    class="img-fluid w-100 h-100 position-absolute top-0 start-0 rounded" style="object-fit: cover;" />
+                <!-- Opcional: Contenido superpuesto -->
+                <div class="hero-overlay position-absolute top-50 start-50 translate-middle text-center text-white">
+                    <h2 class="fs-4 fw-bold text-bg-primary rounded-2">Chatea con Olympia</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
