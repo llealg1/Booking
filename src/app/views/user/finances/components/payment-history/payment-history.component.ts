@@ -32,13 +32,15 @@ export class PaymentHistoryComponent implements OnInit {
   constructor(private ordersService: OrdersService) {}
 
   ngOnInit(): void {
-    this.getOrders(true)
+    this.getOrders(false)
   }
 
   getOrders(financed: boolean) {
     this.isLoading = true
     this.ordersService.getOrders(financed).subscribe(
       (res: any) => {
+
+        console.log(res.data,financed )
         this.paymentHistory = res.data
         this.isLoading = false
       },
@@ -49,12 +51,10 @@ export class PaymentHistoryComponent implements OnInit {
   }
 
   changeTab(event: any) {
-    console.log(event)
-    const tabId = event.nextId
     this.paymentHistory = []
-    if (tabId === 'ngb-nav-0') {
+    if (event == 'ngb-nav-0') {
       this.getOrders(false)
-    } else if (tabId === 'ngb-nav-1') {
+    } else if (event == 'ngb-nav-1') {
       this.getOrders(true)
     }
   }
