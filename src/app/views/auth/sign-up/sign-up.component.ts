@@ -10,10 +10,10 @@ import {
   type AbstractControl,
   type UntypedFormGroup,
 } from '@angular/forms'
-import { Router,RouterModule } from '@angular/router'
+import { Router, RouterModule } from '@angular/router'
 import { catchError } from 'rxjs/operators'
 import { of } from 'rxjs'
-import { CountryService } from '../../../core/services/country.service';
+import { CountryService } from '../../../core/services/country.service'
 
 @Component({
   selector: 'auth-sign-up',
@@ -31,36 +31,38 @@ export class SignUpComponent implements OnInit {
   currentYear = currentYear
   fieldTextType!: boolean
   fieldTextType1!: boolean
-  signupForm!: UntypedFormGroup
+  public fb = inject(UntypedFormBuilder)
+  signupForm: UntypedFormGroup = this.fb.group(
+    {
+      name: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      passport: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
+      identityCard: ['', [Validators.required]],
+      child: [false, [Validators.required]],
+      birthDate: ['', [Validators.required]],
+      address: this.fb.group({
+        country: ['', [Validators.required]],
+        state: ['', [Validators.required]],
+        street: ['', [Validators.required]],
+      }),
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+      // confirmpwd: ['', [Validators.required]],
+    },
+    { validators: this.validateAreEqual }
+  )
   submitted: boolean = false
   loading: boolean = false
   successMessage: string = ''
   errorMessage: string = ''
   countrys: any = []
-  public fb = inject(UntypedFormBuilder)
 
-  constructor(private authService: AuthenticationService, private router: Router, private countryService: CountryService) {
-    this.signupForm = this.fb.group(
-      {
-        name: ['', [Validators.required]],
-        lastName: ['', [Validators.required]],
-        passport: ['', [Validators.required]],
-        phone: ['', [Validators.required]],
-        identityCard: ['', [Validators.required]],
-        child: [false, [Validators.required]],
-        birthDate: ['', [Validators.required]],
-        address: this.fb.group({
-          country: ['', [Validators.required]],
-          state: ['', [Validators.required]],
-          street: ['', [Validators.required]],
-        }),
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required]],
-        // confirmpwd: ['', [Validators.required]],
-      },
-      { validators: this.validateAreEqual }
-    )
-  }
+  constructor(
+    private authService: AuthenticationService,
+    private router: Router,
+    private countryService: CountryService
+  ) {}
 
   ngOnInit(): void {
     this.countryService.getCountry().subscribe((data: any) => {
@@ -101,6 +103,4 @@ export class SignUpComponent implements OnInit {
       },
     })
   }
-
-
 }

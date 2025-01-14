@@ -1,57 +1,61 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import {
   NgbDropdownModule,
   NgbPaginationModule,
 } from '@ng-bootstrap/ng-bootstrap'
 import { currency } from '@/app/store'
+import { OrdersService } from '../../../../../core/services/orders.service'
+import { ReplaceUnderscorePipe } from '@/app/core/pipes/replace-underscore.pipe'
+import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap'
+import { RouterModule } from '@angular/router'
 
 @Component({
   selector: 'earnings-payment-history',
   standalone: true,
-  imports: [CommonModule, NgbDropdownModule, NgbPaginationModule],
+  imports: [
+    CommonModule,
+    NgbDropdownModule,
+    NgbPaginationModule,
+    ReplaceUnderscorePipe,
+    NgbNavModule,
+    RouterModule,
+  ],
   templateUrl: './payment-history.component.html',
   styles: ``,
 })
-export class PaymentHistoryComponent {
+export class PaymentHistoryComponent implements OnInit {
   currencyType = currency
+  paymentHistory: any[] = []
+  isLoading = true
 
-  paymentHistory: any[] = [
-    {
-      id: 2045896,
-      date: '02 Dec 2022',
-      amount: '3.999',
-      status: 'Pagado',
-    },
-    {
-      id: 124896,
-      date: '01 Dec 2022',
-      amount: '2.500',
-      status: 'Pagado',
-    },
-    {
-      id: 201547,
-      date: '25 Nov 2022',
-      amount: '4.140',
-      status: 'Pendiente',
-    },
-    {
-      id: 145750,
-      date: '24 Nov 2022',
-      amount: '3.245',
-      status: 'Pagado',
-    },
-    {
-      id: 524780,
-      date: '22 Nov 2022',
-      amount: '1.825',
-      status: 'Cancelado',
-    },
-    {
-      id: 47850,
-      date: '20 Nov 2022',
-      amount: '3.656',
-      status: 'Pagado',
-    },
-  ]
+  constructor(private ordersService: OrdersService) {}
+
+  ngOnInit(): void {
+    this.getOrders(true)
+  }
+
+  getOrders(financed: boolean) {
+    this.isLoading = true
+    this.ordersService.getOrders(financed).subscribe(
+      (res: any) => {
+        this.paymentHistory = res.data
+        this.isLoading = false
+      },
+      () => {
+        this.isLoading = false
+      }
+    )
+  }
+
+  changeTab(event: any) {
+    console.log(event)
+    const tabId = event.nextId
+    this.paymentHistory = []
+    if (tabId === 'ngb-nav-0') {
+      this.getOrders(false)
+    } else if (tabId === 'ngb-nav-1') {
+      this.getOrders(true)
+    }
+  }
 }

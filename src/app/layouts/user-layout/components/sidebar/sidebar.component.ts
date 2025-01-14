@@ -1,4 +1,5 @@
 import { VerticalAppMenuComponent } from '@/app/components/app-menu/components/vertical-app-menu/vertical-app-menu.component'
+import { AuthenticationService } from '@/app/core/services/auth.service'
 import { USER_PROFILE_MENU_ITEMS } from '@/assets/data'
 import { CommonModule } from '@angular/common'
 import { Component, OnInit, inject } from '@angular/core'
@@ -16,15 +17,15 @@ import { filter } from 'rxjs'
         <div class="avatar avatar-xl mb-2">
           <img
             class="avatar-img rounded-circle border border-2 border-white"
-            src="assets/images/avatar/01.jpg"
+            src="assets/images/logosArcadia/venezuela.jpg"
             alt=""
           />
         </div>
-        <h6 class="mb-0">Jacqueline Miller</h6>
+        <h6 class="mb-0">{{ this.clientMe?.name  + " " + this.clientMe?.last_name }}</h6>
         <a
           href="javascript:void(0);"
           class="text-reset text-primary-hover small"
-          >hello&#64;gmail.com</a
+          >{{ this.clientMe?.email || ""}}</a
         >
         <hr />
       </div>
@@ -62,11 +63,11 @@ export class SidebarComponent implements OnInit {
   usermenuItems = USER_PROFILE_MENU_ITEMS
 
   currentPath: string | null = null
-
+  clientMe: any
   offcanvasService = inject(NgbOffcanvas)
   isOffcanvasOpen: boolean = false
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authenticationService:AuthenticationService) {}
 
   ngOnInit(): void {
     this.currentPath = this.router.url
@@ -79,5 +80,11 @@ export class SidebarComponent implements OnInit {
       .subscribe((event: NavigationEnd) => {
         this.currentPath = event.urlAfterRedirects
       })
+
+    this.authenticationService.authMe().subscribe((data) => {
+      this.clientMe = data
+      console.log(this.clientMe)
+    })
   }
+
 }
