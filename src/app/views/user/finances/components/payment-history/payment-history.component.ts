@@ -51,10 +51,12 @@ export class PaymentHistoryComponent implements OnInit {
   }
 
   changeTab(event: any) {
+    console.log(event)
+    const tabId = event.activeId
     this.paymentHistory = []
-    if (event == 'ngb-nav-0') {
+    if (tabId == '1') {
       this.getOrders(false)
-    } else if (event == 'ngb-nav-1') {
+    } else if (tabId == '2') {
       this.getOrders(true)
     }
   }
