@@ -1,0 +1,29 @@
+/* Clase para la sección completa */
+.full-height {
+  height: 100vh; /* Altura completa del viewport */
+  display: flex;
+  align-items: stretch; /* Mantiene estirados los hijos al 100% */
+}
+
+/* Configura las columnas y filas para que ocupen todo el alto */
+.row.h-100 {
+  height: 100%; /* Las filas deben ocupar el 100% de la altura del contenedor */
+}
+
+.col-md-6.h-100 {
+  height: 100%; /* Las columnas también deben ocupar el 100% */
+}
+
+.shadow {
+  height: 100%; /* Mantiene el contenido dentro del contenedor */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye el contenido */
+}
+
+/* Chat Body para scroll si es necesario */
+.chat-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
