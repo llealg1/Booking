@@ -51,14 +51,14 @@ export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
   },
   {
     key: 'acc-user-finances',
-    label: 'Mis Financiamientos',
+    label: 'Mis Ordenes',
     url: '/user/finances',
     parentKey: 'acc-user',
     icon: 'bi bi-cash-coin',
   },
   {
     key: 'acc-user-bookings',
-    label: 'Mis Compras',
+    label: 'Mis Reservas',
     url: '/user/bookings',
     parentKey: 'acc-user',
     icon: 'bi bi-ticket-perforated',

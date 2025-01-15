@@ -32,6 +32,10 @@ export class OrdersService {
   }
 
   getOrders(financed: boolean = false) {
-    return this.httpClient.get(`${this.baseUrl}/order-web?financed=${financed}`, this.httpOptions);
+    return this.httpClient.get(`${this.baseUrl}/order-web?${financed?'financed=true': 'noFinanced=true' }`, this.httpOptions);
+  }
+
+  getOrdersById(id: string) {
+    return this.httpClient.get(`${this.baseUrl}/order-web/${id}`, this.httpOptions);
   }
 }

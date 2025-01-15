@@ -9,6 +9,8 @@ import { OrdersService } from '../../../../../core/services/orders.service'
 import { ReplaceUnderscorePipe } from '@/app/core/pipes/replace-underscore.pipe'
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap'
 import { RouterModule } from '@angular/router'
+import {  inject, signal, TemplateRef, WritableSignal } from '@angular/core';
+import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'earnings-payment-history',
@@ -28,12 +30,35 @@ export class PaymentHistoryComponent implements OnInit {
   currencyType = currency
   paymentHistory: any[] = []
   isLoading = true
+  itemView: any = {}
+
+  private modalService = inject(NgbModal);
+	closeResult: WritableSignal<string> = signal('');
+
 
   constructor(private ordersService: OrdersService) {}
 
   ngOnInit(): void {
-    this.getOrders(false)
+    this.getOrders(true)
   }
+
+	open(content: TemplateRef<any>, item: any) {
+    this.ordersService.getOrdersById(item.id).subscribe(() => {
+      this.itemView = item
+      console.log(this.itemView)
+    });
+
+		this.modalService.open(content, { size: 'xl', scrollable: true}).result.then(
+			(result) => {
+        this.itemView = {}
+				this.closeResult.set(`Closed with: ${result}`);
+			},
+			(reason) => {
+        this.itemView = {}
+				this.closeResult.set(`Dismissed ${this.getDismissReason(reason)}`);
+			},
+		);
+	}
 
   getOrders(financed: boolean) {
     this.isLoading = true
@@ -60,4 +85,15 @@ export class PaymentHistoryComponent implements OnInit {
       this.getOrders(true)
     }
   }
+
+  private getDismissReason(reason: any): string {
+		switch (reason) {
+			case ModalDismissReasons.ESC:
+				return 'by pressing ESC';
+			case ModalDismissReasons.BACKDROP_CLICK:
+				return 'by clicking on a backdrop';
+			default:
+				return `with: ${reason}`;
+		}
+	}
 }

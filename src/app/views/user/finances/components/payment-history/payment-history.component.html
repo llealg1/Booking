@@ -1,6 +1,6 @@
 <div class="card shadow mt-5">
   <div class="card-header border-bottom">
-    <h5 class="card-title mb-0">Mis Financiamientos</h5>
+    <h5 class="card-title mb-0">Mis Ordenes</h5>
   </div>
   <div class="card-body p-0">
     <ul
@@ -9,7 +9,6 @@
       ngbNav
       #nav="ngbNav"
       class="nav nav-tabs nav-bottom-line nav-responsive nav-justified"
-
     >
       <li class="nav-item" ngbNavItem domId="1">
         <a class="nav-link mb-0" ngbNavLink data-bs-toggle="tab" href="#tab-1"
@@ -30,7 +29,10 @@
               <p>No hay órdenes encontradas</p>
             </div>
 
-            <div class="bg-light rounded p-3 d-none d-sm-block" *ngIf="!isLoading && paymentHistory.length > 0">
+            <div
+              class="bg-light rounded p-3 d-none d-sm-block"
+              *ngIf="!isLoading && paymentHistory.length > 0"
+            >
               <div class="row row-cols-7 g-4">
                 <div class="col">
                   <h6 class="mb-0">Orden ID</h6>
@@ -56,7 +58,10 @@
               </div>
             </div>
 
-            <div *ngFor="let item of paymentHistory" class="row row-cols-xl-7 g-4 align-items-sm-center border-bottom px-2 py-4">
+            <div
+              *ngFor="let item of paymentHistory"
+              class="row row-cols-xl-7 g-4 align-items-sm-center border-bottom px-2 py-4"
+            >
               <div class="col">
                 <small class="d-block d-sm-none">Orden ID:</small>
                 <h6 class="fw-light mb-0">#{{ item.id }}</h6>
@@ -64,7 +69,9 @@
 
               <div class="col">
                 <small class="d-block d-sm-none">Fecha de creación:</small>
-                <h6 class="mb-0 fw-normal">{{ item.createdAt | date: 'dd/MM/yyyy' }}</h6>
+                <h6 class="mb-0 fw-normal">
+                  {{ item.createdAt | date: 'dd/MM/yyyy' }}
+                </h6>
               </div>
 
               <div class="col">
@@ -79,34 +86,58 @@
 
               <div class="col">
                 <small class="d-block d-sm-none">Estado:</small>
-                <div class="badge bg-success bg-opacity-10 text-success" [ngClass]="{
-                      'bg-orange text-orange': item.status === 'POR_CONFIRMAR',
-                      'bg-danger text-danger': item.status === 'NO_CONFIRMADO'
-                    }">
+                <div
+                  class="badge bg-success bg-opacity-10 text-success"
+                  [ngClass]="{
+                    'bg-orange text-orange': item.status === 'POR_CONFIRMAR',
+                    'bg-danger text-danger': item.status === 'NO_CONFIRMADO'
+                  }"
+                >
                   {{ item.status | titlecase | replaceUnderscore }}
                 </div>
               </div>
 
               <div class="col">
                 <small class="d-block d-sm-none">Asesor:</small>
-                <h6 class="mb-0">{{ item.user.name + ' ' + item.user.lastName }}</h6>
+                <h6 class="mb-0">
+                  {{ item.user.name + ' ' + item.user.lastName }}
+                </h6>
               </div>
 
               <div class="col">
-                <a href="javascript:void(0);" class="btn btn-light btn-round mb-0"><i class="bi bi-eye-fill"></i></a>
+                <button
+                  (click)="open(content, item)"
+                  class="btn btn-light btn-round mb-0"
+                >
+                  <i class="bi bi-eye-fill"></i>
+                </button>
               </div>
             </div>
           </div>
 
-          <div class="card-footer pt-0" *ngIf="!isLoading && paymentHistory.length > 0">
-            <div class="d-sm-flex justify-content-sm-between align-items-sm-center">
+          <div
+            class="card-footer pt-0"
+            *ngIf="!isLoading && paymentHistory.length > 0"
+          >
+            <div
+              class="d-sm-flex justify-content-sm-between align-items-sm-center"
+            >
               <p class="mb-sm-0 text-center text-sm-start">
-                Mostrar 1 a {{ paymentHistory.length }} de {{ paymentHistory.length }} Total
+                Mostrar 1 a {{ paymentHistory.length }} de
+                {{ paymentHistory.length }} Total
               </p>
 
-              <nav class="mb-sm-0 d-flex justify-content-center" aria-label="navigation">
-                <ngb-pagination [collectionSize]="paymentHistory.length" [page]="1" [size]="'sm'" [maxSize]="2"
-                  class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
+              <nav
+                class="mb-sm-0 d-flex justify-content-center"
+                aria-label="navigation"
+              >
+                <ngb-pagination
+                  [collectionSize]="paymentHistory.length"
+                  [page]="1"
+                  [size]="'sm'"
+                  [maxSize]="2"
+                  class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0"
+                >
                   <ng-template ngbPaginationPrevious>Atras </ng-template>
                   <ng-template ngbPaginationNext>Siguiente </ng-template>
                 </ngb-pagination>
@@ -147,7 +178,10 @@
               </div>
             </div>
 
-            <div *ngFor="let item of paymentHistory" class="row row-cols-xl-7 g-4 align-items-sm-center border-bottom px-2 py-4">
+            <div
+              *ngFor="let item of paymentHistory"
+              class="row row-cols-xl-7 g-4 align-items-sm-center border-bottom px-2 py-4"
+            >
               <div class="col">
                 <small class="d-block d-sm-none">Orden ID:</small>
                 <h6 class="fw-light mb-0">#{{ item.id }}</h6>
@@ -155,7 +189,9 @@
 
               <div class="col">
                 <small class="d-block d-sm-none">Fecha de creación:</small>
-                <h6 class="mb-0 fw-normal">{{ item.createdAt | date: 'dd/MM/yyyy' }}</h6>
+                <h6 class="mb-0 fw-normal">
+                  {{ item.createdAt | date: 'dd/MM/yyyy' }}
+                </h6>
               </div>
 
               <div class="col">
@@ -170,34 +206,58 @@
 
               <div class="col">
                 <small class="d-block d-sm-none">Estado:</small>
-                <div class="badge bg-success bg-opacity-10 text-success" [ngClass]="{
-                      'bg-orange text-orange': item.status === 'POR_CONFIRMAR',
-                      'bg-danger text-danger': item.status === 'NO_CONFIRMADO'
-                    }">
+                <div
+                  class="badge bg-success bg-opacity-10 text-success"
+                  [ngClass]="{
+                    'bg-orange text-orange': item.status === 'POR_CONFIRMAR',
+                    'bg-danger text-danger': item.status === 'NO_CONFIRMADO'
+                  }"
+                >
                   {{ item.status | titlecase | replaceUnderscore }}
                 </div>
               </div>
 
               <div class="col">
                 <small class="d-block d-sm-none">Asesor:</small>
-                <h6 class="mb-0">{{ item.user.name + ' ' + item.user.lastName }}</h6>
+                <h6 class="mb-0">
+                  {{ item.user.name + ' ' + item.user.lastName }}
+                </h6>
               </div>
 
               <div class="col">
-                <a href="javascript:void(0);" class="btn btn-light btn-round mb-0"><i class="bi bi-eye-fill"></i></a>
+                <button
+                  (click)="open(content, item)"
+                  class="btn btn-light btn-round mb-0"
+                >
+                  <i class="bi bi-eye-fill"></i>
+                </button>
               </div>
             </div>
           </div>
 
-          <div class="card-footer pt-0" *ngIf="!isLoading && paymentHistory.length > 0">
-            <div class="d-sm-flex justify-content-sm-between align-items-sm-center">
+          <div
+            class="card-footer pt-0"
+            *ngIf="!isLoading && paymentHistory.length > 0"
+          >
+            <div
+              class="d-sm-flex justify-content-sm-between align-items-sm-center"
+            >
               <p class="mb-sm-0 text-center text-sm-start">
-                Mostrar 1 a {{ paymentHistory.length }} de {{ paymentHistory.length }} Total
+                Mostrar 1 a {{ paymentHistory.length }} de
+                {{ paymentHistory.length }} Total
               </p>
 
-              <nav class="mb-sm-0 d-flex justify-content-center" aria-label="navigation">
-                <ngb-pagination [collectionSize]="paymentHistory.length" [page]="1" [size]="'sm'" [maxSize]="2"
-                  class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
+              <nav
+                class="mb-sm-0 d-flex justify-content-center"
+                aria-label="navigation"
+              >
+                <ngb-pagination
+                  [collectionSize]="paymentHistory.length"
+                  [page]="1"
+                  [size]="'sm'"
+                  [maxSize]="2"
+                  class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0"
+                >
                   <ng-template ngbPaginationPrevious>Atras </ng-template>
                   <ng-template ngbPaginationNext>Siguiente </ng-template>
                 </ngb-pagination>
@@ -211,3 +271,362 @@
     <div class="tab-content" [ngbNavOutlet]="nav" id="nav-tabContent"></div>
   </div>
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      Detalles de la compra #{{ itemView.id }}
+    </h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body p-3">
+    <ul
+      ngbNav
+      #nav="ngbNav"
+      class="nav nav-pills nav-justified nav-responsive bg-primary bg-opacity-10 rounded p-2 mb-3"
+      id="flight-pills-tab"
+      role="tablist"
+    >
+      <li ngbNavItem class="nav-item" role="presentation">
+        <button
+          ngbNavLink
+          class="nav-link mb-0"
+          id="flight-info"
+          data-bs-toggle="pill"
+          data-bs-target="#flight-info-tab"
+          type="button"
+          role="tab"
+          aria-controls="flight-info-tab"
+          aria-selected="true"
+        >
+          Información General
+        </button>
+        <ng-template ngbNavContent>
+          <div
+            class="tab-pane fade show active"
+            id="flight-info-tab"
+            role="tabpanel"
+            aria-labelledby="flight-info"
+          >
+            <div class="card border">
+              <div class="card-body p-4">
+                <div *ngFor="let item of itemView.location; let i = index">
+                  <div
+                    class="row g-4 my-2"
+                    *ngFor="let item2 of item.tickets; let y = index"
+                  >
+                    <div
+                      class="d-sm-flex justify-content-sm-between align-items-center"
+                    >
+                      <div class="d-flex mb-2 mb-sm-0">
+                        <img
+                          src="assets/images/element/09.svg"
+                          class="w-40px me-2"
+                          alt=""
+                        />
+                        <h6 class="fw-normal mb-0">
+                          {{ item2.airline.nameAirline }} -
+                          {{ item2.location.name }}
+                        </h6>
+                      </div>
+                    </div>
+                    <h6 class="fw-normal mb-0">
+                      <span class="text-body"
+                        >Tipo de vuelo:
+                        {{ item2.details_ticket.type_flight_class }} -
+                        {{
+                          item2.flightDateReturn == null
+                            ? 'Solo ida'
+                            : 'Ida y vuelta'
+                        }}</span
+                      >
+                    </h6>
+                    <div class="col-sm-4">
+                      <h4>
+                        {{ item2.origin.codeIataAirport }} -
+                        {{ item2.origin.nameCountry }}
+                      </h4>
+                      <h6 class="mb-0">
+                        {{ item2.flightDate | date: 'dd/MM/YYYY' }}
+                      </h6>
+                      <p class="mb-0">
+                        {{ item2.origin.nameAirport }}
+                      </p>
+                    </div>
+
+                    <div class="col-sm-4 my-sm-auto text-center">
+                      <!-- <h5>aaa</h5> -->
+
+                      <div class="position-relative my-4">
+                        <hr class="bg-primary opacity-5 position-relative" />
+
+                        <div
+                          class="icon-md bg-primary text-white rounded-circle position-absolute top-50 start-50 translate-middle"
+                        >
+                          <i class="fa-solid fa-fw fa-plane rtl-flip"></i>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                      <h4>
+                        {{ item2.destination.codeIataAirport }} -
+                        {{ item2.destination.nameCountry }}
+                      </h4>
+                      <h6 class="mb-0">
+                        {{ item2.flightDateReturn | date: 'dd/MM/YYYY' }}
+                      </h6>
+                      <p class="mb-0">{{ item2.destination.nameAirport }}</p>
+                    </div>
+                    <div
+                      *ngIf="itemView.location.length - 1 !== i"
+                      class="bg-light text-center fw-normal rounded-2 my-4"
+                    >
+                      <i class="bi bi-signpost-split"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </li>
+
+      <li class="nav-item" ngbNavItem role="presentation">
+        <button
+          ngbNavLink
+          class="nav-link mb-0"
+          id="flight-fare"
+          data-bs-toggle="pill"
+          data-bs-target="#flight-fare-tab"
+          type="button"
+          role="tab"
+          aria-controls="flight-fare-tab"
+          aria-selected="false"
+        >
+          Cargos
+        </button>
+        <ng-template ngbNavContent>
+          <div
+            class="tab-pane fade show active"
+            id="flight-fare-tab"
+            role="tabpanel"
+            aria-labelledby="flight-fare"
+          >
+            <div class="card card-body">
+              <div class="table-responsive-lg">
+                <table class="table caption-bottom mb-0">
+                  <!-- <caption class="pb-0">
+                    *From The Date Of Departure
+                  </caption> -->
+
+                  <thead class="table-dark">
+                    <tr>
+                      <th scope="col" class="border-0 rounded-start">Precio</th>
+                      <th scope="col" class="border-0">Tipo de vuelo</th>
+                      <th scope="col" class="border-0 rounded-end">Total</th>
+                    </tr>
+                  </thead>
+
+                  <tbody *ngFor="let item of itemView.location; let i = index">
+                    <tr *ngFor="let item2 of item.tickets; let y = index">
+                      <td>{{ currencyType }}{{ item2.price }}</td>
+                      <td>
+                        {{ item2.details_ticket.type_flight_class }} -
+                        {{
+                          item2.flightDateReturn == null
+                            ? 'Solo ida'
+                            : 'Ida y vuelta'
+                        }}
+                      </td>
+                      <td>
+                        <h5 class="mb-0">
+                          {{ currencyType }}{{ item2.price }}
+                        </h5>
+                      </td>
+                    </tr>
+                    <tr *ngIf="itemView.location.length - 1 == i">
+                      <td></td>
+                      <td></td>
+                      <td>
+                        <h5>
+                          {{ currencyType
+                          }}{{ itemView.clientPaymentWithDeduction }}
+                        </h5>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </li>
+
+      <li class="nav-item" ngbNavItem role="presentation">
+        <button
+          ngbNavLink
+          class="nav-link mb-0"
+          id="flight-baggage"
+          data-bs-toggle="pill"
+          data-bs-target="#flight-baggage-tab"
+          type="button"
+          role="tab"
+          aria-controls="flight-baggage-tab"
+          aria-selected="false"
+        >
+          Articulos
+        </button>
+        <ng-template ngbNavContent>
+          <div
+            class="tab-pane show active fade"
+            id="flight-baggage-tab"
+            role="tabpanel"
+            aria-labelledby="flight-baggage"
+          >
+            <div class="card border">
+              <!-- <div class="card-header d-flex align-items-center border-bottom">
+                <img
+                  src="assets/images/element/09.svg"
+                  class="h-20px me-1"
+                  alt=""
+                />
+                <h5 class="card-title mb-0">BOM - CDG</h5>
+              </div> -->
+
+              <div class="card-body">
+                <div class="table-responsive-lg">
+                  <table class="table caption-bottom mb-0">
+                    <thead class="table-dark">
+                      <tr>
+                        <th scope="col" class="border-0 rounded-start">
+                          Boleto
+                        </th>
+                        <th scope="col" class="border-0">Articulos</th>
+                      </tr>
+                    </thead>
+
+                    <tbody
+                      class="border-top-0"
+                      *ngFor="let item of itemView.location; let i = index"
+                    >
+                      <tr *ngFor="let item2 of item.tickets; let y = index">
+                        <td>
+                          {{ item2.airline.nameAirline }} -
+                          {{ item2.location.name }} <br />
+                          {{ item2.origin.codeIataAirport }} -
+                          {{ item2.destination.codeIataAirport }}
+                        </td>
+                        <td>
+                          <i class="bi bi-backpack2-fill"></i> Equipaje de mano
+                          {{ item2.details_ticket.hand_baggage }} /
+                          <i class="bi bi-suitcase-fill"></i>Equipaje de bodega
+                          {{ item2.details_ticket.baggage }}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </li>
+
+      <li ngbNavItem class="nav-item" role="presentation">
+        <button
+          ngbNavLink
+          class="nav-link mb-0"
+          id="flight-policy"
+          data-bs-toggle="pill"
+          data-bs-target="#flight-policy-tab"
+          type="button"
+          role="tab"
+          aria-controls="flight-policy-tab"
+          aria-selected="false"
+        >
+          Informacion Adicional
+        </button>
+        <ng-template ngbNavContent>
+          <div
+            class="tab-pane"
+            id="flight-policy-tab"
+            role="tabpanel"
+            aria-labelledby="flight-policy"
+          >
+            <div class="card border">
+              <!-- <div class="card-header d-flex align-items-center border-bottom">
+                <img
+                  src="assets/images/element/09.svg"
+                  class="h-20px me-1"
+                  alt=""
+                />
+                <h5 class="card-title mb-0">BOM - CDG</h5>
+              </div> -->
+
+              <div class="card-body">
+                <div class="table-responsive-lg">
+                  <table class="table caption-bottom mb-0">
+
+
+                    <thead class="table-dark">
+                      <tr>
+                        <th scope="col" class="border-0 rounded-start">
+                          Fecha de la compra
+                        </th>
+                        <th scope="col" class="border-0">Metodo de pago</th>
+                        <th scope="col" class="border-0">Cliente</th>
+                        <!-- <th scope="col" class="border-0">Sede encargada</th> -->
+                        <th scope="col" class="border-0 rounded-end">Asesor</th>
+                      </tr>
+                    </thead>
+                    <tbody class="border-top-0">
+                      <tr>
+                        <td>
+                          {{
+                            itemView.transactionDate | date: 'H:mm - dd/MM/yyyy'
+                          }}
+                        </td>
+                        <td>
+                          <div *ngFor="let item of itemView.paymentReferences">
+                            <small class="d-inline"
+                              >{{ item.paymentMethod.name }}.
+                            </small>
+                          </div>
+                        </td>
+                        <td>
+                          {{ itemView.customer.name }}
+                          {{ itemView.customer.last_name }}
+                        </td>
+                        <td class="d-flex justify-content-around">
+                          <span>{{ itemView.user.name }} {{ itemView.user.lastName }}</span>
+                          <a [href]="'Https://wa.me/'+ itemView.user.primaryPhone"><i class="bi bi-whatsapp ml-3" style="color: green;"></i></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </li>
+    </ul>
+
+    <div [ngbNavOutlet]="nav" class="ms-4"></div>
+  </div>
+  <div class="modal-footer">
+    <!-- <button
+      type="button"
+      class="btn btn-outline-secondary"
+      (click)="modal.close('Save click')"
+    >
+      Save
+    </button> -->
+  </div>
+</ng-template>
