@@ -7,11 +7,11 @@ export const login = createAction(
   props<{ username: string; password: string }>()
 )
 export const loginSuccess = createAction(
-  '[Authentication] Login Success',
+  '[Authentication] Inicio de sesion exitoso',
   props<{ user: User }>()
 )
 export const loginFailure = createAction(
-  '[Authentication] Login Failure',
+  '[Authentication] Error Al inicio de sesion',
   props<{ error: string }>()
 )
 
