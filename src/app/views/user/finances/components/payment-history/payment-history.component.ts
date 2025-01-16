@@ -39,7 +39,7 @@ export class PaymentHistoryComponent implements OnInit {
   constructor(private ordersService: OrdersService) {}
 
   ngOnInit(): void {
-    this.getOrders(true)
+    this.getOrders(false)
   }
 
 	open(content: TemplateRef<any>, item: any) {
@@ -80,9 +80,9 @@ export class PaymentHistoryComponent implements OnInit {
     const tabId = event.activeId
     this.paymentHistory = []
     if (tabId == '1') {
-      this.getOrders(false)
-    } else if (tabId == '2') {
       this.getOrders(true)
+    } else if (tabId == '2') {
+      this.getOrders(false)
     }
   }
 

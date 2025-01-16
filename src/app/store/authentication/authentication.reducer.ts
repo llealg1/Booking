@@ -14,21 +14,33 @@ export type AuthenticationState = {
 }
 
 const initialState: AuthenticationState = {
-  isLoggedIn: false,
-  user: null,
+  isLoggedIn: JSON.parse(localStorage.getItem('isLoggedIn') || 'false'),
+  user: JSON.parse(localStorage.getItem('user') || 'null'),
   error: null,
 }
 
 export const authenticationReducer = createReducer(
   initialState,
   on(login, (state) => ({ ...state, error: null })),
-  on(loginSuccess, (state, { user }) => ({
-    ...state,
-    isLoggedIn: true,
-    user,
-    error: null,
-  })),
+  on(loginSuccess, (state, { user }) => {
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('user', JSON.stringify(user));
+    return {
+      ...state,
+      isLoggedIn: true,
+      user,
+      error: null,
+    };
+  }),
   on(loginFailure, (state, { error }) => ({ ...state, error })),
-
-  on(logout, (state) => ({ ...state, user: null }))
-)
+  on(logout, (state) => {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('user');
+    return {
+      ...state,
+      isLoggedIn: false,
+      user: null,
+      error: null,
+    };
+  })
+);

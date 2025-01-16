@@ -58,6 +58,8 @@ export class AuthenticationService {
   logout(): void {
     // remove user from cookie to log user out
     this.cookieService.delete(this.authSessionKey)
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('user');
     this.user = null
   }
 

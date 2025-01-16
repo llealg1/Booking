@@ -189,7 +189,7 @@
     symbol-observable "4.0.0"
     yargs "17.7.2"
 
-"@angular/common@^14.0.0", "@angular/common@^17.0.0", "@angular/common@^17.0.2", "@angular/common@^17.1.1", "@angular/common@^18.0.3", "@angular/common@>=13.0.0", "@angular/common@>=14.0.0", "@angular/common@>=16.0.0", "@angular/common@>=17", "@angular/common@>=6.0.0", "@angular/common@>=9.0.0", "@angular/common@18.2.13":
+"@angular/common@^14.0.0", "@angular/common@^17.0.0", "@angular/common@^17.0.2", "@angular/common@^17.1.1", "@angular/common@^18.0.3", "@angular/common@^19.0.5", "@angular/common@>=13.0.0", "@angular/common@>=14.0.0", "@angular/common@>=16.0.0", "@angular/common@>=17", "@angular/common@>=6.0.0", "@angular/common@>=9.0.0", "@angular/common@18.2.13":
   version "18.2.13"
   resolved "https://registry.npmjs.org/@angular/common/-/common-18.2.13.tgz"
   integrity sha512-4ZqrNp1PoZo7VNvW+sbSc2CB2axP1sCH2wXl8B0wdjsj8JY1hF1OhuugwhpAHtGxqewed2kCXayE+ZJqSTV4jw==
@@ -217,7 +217,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@^14.0.0", "@angular/core@^17.0.0", "@angular/core@^17.0.2", "@angular/core@^17.1.1", "@angular/core@^18.0.3", "@angular/core@>=13.0.0", "@angular/core@>=14.0.0", "@angular/core@>=16.0.0", "@angular/core@>=17", "@angular/core@>=5.0.0", "@angular/core@>=6.0.0", "@angular/core@>=9.0.0", "@angular/core@18.2.13":
+"@angular/core@^14.0.0", "@angular/core@^17.0.0", "@angular/core@^17.0.2", "@angular/core@^17.1.1", "@angular/core@^18.0.3", "@angular/core@^19.0.5", "@angular/core@>=13.0.0", "@angular/core@>=14.0.0", "@angular/core@>=16.0.0", "@angular/core@>=17", "@angular/core@>=5.0.0", "@angular/core@>=6.0.0", "@angular/core@>=9.0.0", "@angular/core@18.2.13":
   version "18.2.13"
   resolved "https://registry.npmjs.org/@angular/core/-/core-18.2.13.tgz"
   integrity sha512-8mbWHMgO95OuFV1Ejy4oKmbe9NOJ3WazQf/f7wks8Bck7pcihd0IKhlPBNjFllbF5o+04EYSwFhEtvEgjMDClA==
@@ -1476,7 +1476,7 @@
   dependencies:
     tslib "^2.0.0"
 
-"@ngrx/store@^17.2.0", "@ngrx/store@17.2.0":
+"@ngrx/store@^17.2.0", "@ngrx/store@^19.0.0", "@ngrx/store@17.2.0":
   version "17.2.0"
   resolved "https://registry.npmjs.org/@ngrx/store/-/store-17.2.0.tgz"
   integrity sha512-7wKgZ59B/6yQSvvsU0DQXipDqpkAXv7LwcXLD5Ww7nvqN0fQoRPThMh4+Wv55DCJhE0bQc1NEMciLA47uRt7Wg==
@@ -4823,6 +4823,14 @@ ng-otp-input@^1.9.3:
   resolved "https://registry.npmjs.org/ng-otp-input/-/ng-otp-input-1.9.3.tgz"
   integrity sha512-QiAvOeTVPk8DiY2dnVstyCikWnsY70TXgsVl2iBgz7nFnNM5sdrgbVj8tP0usGznJowVRygCQZJ+hzvYLEhIOQ==
   dependencies:
+    tslib "^2.3.0"
+
+ngrx-store-localstorage@^19.0.0:
+  version "19.0.0"
+  resolved "https://registry.npmjs.org/ngrx-store-localstorage/-/ngrx-store-localstorage-19.0.0.tgz"
+  integrity sha512-aONkwb2oW8BI9p6Hqyc6UvB8N51LgPSPg6ogg/ypYCQqRP/p8CDgDuYfkXyQktO1WS+2wKV4lPvGdjfb8dJwEw==
+  dependencies:
+    deepmerge "^4.2.2"
     tslib "^2.3.0"
 
 ngx-cookie-service@^17.1.0:
