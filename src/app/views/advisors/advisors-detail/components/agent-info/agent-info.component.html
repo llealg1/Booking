@@ -1,13 +1,14 @@
 <div class="row g-4 mb-5">
   <div class="col-md-4 col-xxl-3" style="color: #200444; max-width: auto;">
     <div class="card bg-secondary h-100">
-      <div class="card-body text-center bg-primary text-white rounded-3">
+      <div class="card-body text-center bg-secondary text-white rounded-3">
         <div class="avatar avatar-xl flex-shrink-0 mb-3" style="height: 13rem; width: 13rem;">
           <img class="avatar-img rounded-circle" [src]="agent?.imgUrl" alt="avatar" />
         </div>
 
-        <h2 class="mb-2 text-white">{{ agent?.name }} {{ agent?.lastName }}</h2>
-        <h3 class="mb-2 text-white">{{ agent?.session?.rol?.name }}</h3>
+        <h3 class="mb-2 text-white">{{ agent?.name }} {{ agent?.lastName }}</h3>
+        <h5 class="mb-2 text-white">{{ agent?.session?.rol?.name }}</h5><br>
+        <h6 class="mb-2 text-white">Sede: {{ agent?.sede?.name }}</h6>
         <!-- <ul class="list-inline small mb-0">
           <li class="list-inline-item me-1">
             <i class="fa-solid fa-star text-warning"></i>
@@ -38,7 +39,6 @@
       <div class="card-header border-bottom">
         <h5 class="mb-0">Información Personal</h5>
       </div>
-
       <div class="card-body">
         <div class="row">
           <div class="col-md-12">
@@ -79,20 +79,18 @@
     </div>
   </div>
   <div class="col-md-6 col-xxl-3">
-    <div class="col-md-4 col-lg-12 mb-1 p-1"
-      style="color: #200444; max-width: auto;">
+    <div class="col-md-4 col-lg-12 mb-1 p-1" style="color: #200444; max-width: auto;">
       <div class="card bg-light h-100">
         <div class="card-body text-center text-white rounded-3">
-          <h1><i class="bi bi-check-circle-fill"
-              style="color: #0984db; max-width: auto;"></i></h1>
+          <h1><i class="bi bi-check-circle-fill" style="color: #0d92f1; max-width: auto;"></i></h1>
           <h1 class="mb-2 text-dark">ASESOR</h1>
           <h4 class="mb-2 text-dark">VERIFICADO</h4>
         </div>
       </div>
-    </div>
-    <div class="col-md-4 col-lg-12" style="color: #200444; max-width: auto;">
+    </div><br>
+    <div class="col-md-4 col-lg-12 " style="color: #200444; max-width: auto;">
       <div class="card bg-light h-100">
-        <div class="card-body text-center bg-primary text-white rounded-3">
+        <div class="card-body text-center bg-secondary text-white rounded-3">
           <h3 class="mb-2 text-white">Nivel</h3>
           <h4 class="mb-2 text-white">Asesor Novato</h4>
         </div>

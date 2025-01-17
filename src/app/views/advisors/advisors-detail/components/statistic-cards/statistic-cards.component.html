@@ -8,7 +8,7 @@
           0% <i class="bi bi-graph-up"></i>
         </div>
       </div>
-      <p class="mb-0">Total de clientes atendidos</p>
+      <p class="text-dark mb-0">Total de clientes atendidos</p>
     </div>
   </div>
 
@@ -19,11 +19,12 @@
         <h2 class="mb-0 me-2">{{ agent?.rating || 0 }}</h2>
         <ul class="list-inline mb-0">
           <li class="list-inline-item me-1" *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
-            <i class="fa-solid fa-star" [ngClass]="{'text-primary': i < agent?.rating, 'text-danger': i >= agent?.rating}"></i>
+            <i class="fa-solid fa-star"
+              [ngClass]="{'text-primary': i < agent?.rating, 'text-danger': i >= agent?.rating}"></i>
           </li>
         </ul>
       </div>
-      <p class="mb-0">Clasificación por clientes</p>
+      <p class="mb-0 text-dark">Clasificación por clientes</p>
     </div>
   </div>
 
@@ -36,7 +37,7 @@
           0% <i class="bi bi-graph-up"></i>
         </div>
       </div>
-      <p class="mb-0">Total de Ventas Concretadas</p>
+      <p class="mb-0 text-dark">Total de Ventas Concretadas</p>
     </div>
   </div>
 </div>
@@ -50,7 +51,7 @@
       <div class="d-flex align-items-center justify-content-center">
         <h3 class="mb-0 me-2">{{ agent?.serviceCounts?.flights || 0 }}</h3>
       </div>
-      <p class="mb-0">Total</p>
+      <p class="mb-0 text-dark">Total</p>
     </div>
   </div>
   <div class="col-md-6 col-lg-2" style="max-width: auto;">
@@ -59,7 +60,7 @@
       <div class="d-flex align-items-center justify-content-center">
         <h3 class="mb-0 me-2">{{ agent?.serviceCounts?.hotels || 0 }}</h3>
       </div>
-      <p class="mb-0">Total</p>
+      <p class="mb-0 text-dark">Total</p>
     </div>
   </div>
   <div class="col-md-6 col-lg-2" style="max-width: auto;">
@@ -68,7 +69,7 @@
       <div class="d-flex align-items-center justify-content-center">
         <h3 class="mb-0 me-2">{{ agent?.serviceCounts?.insurance || 0 }}</h3>
       </div>
-      <p class="mb-0">Total</p>
+      <p class="mb-0 text-dark">Total</p>
     </div>
   </div>
   <div class="col-md-6 col-lg-2" style="max-width: auto;">
@@ -77,7 +78,7 @@
       <div class="d-flex align-items-center justify-content-center">
         <h3 class="mb-0 me-2">{{ agent?.serviceCounts?.specialServices || 0 }}</h3>
       </div>
-      <p class="mb-0">Total</p>
+      <p class="mb-0 text-dark">Total</p>
     </div>
   </div>
   <div class="col-md-6 col-lg-2" style=" max-width: auto;">
@@ -86,7 +87,7 @@
       <div class="d-flex align-items-center justify-content-center">
         <h3 class="mb-0 me-2">{{ agent?.serviceCounts?.transfers || 0 }}</h3>
       </div>
-      <p class="mb-0">Total</p>
+      <p class="mb-0 text-dark">Total</p>
     </div>
   </div>
   <div class="col-md-6 col-lg-2" style="max-width: auto;">
@@ -95,7 +96,7 @@
       <div class="d-flex align-items-center justify-content-center">
         <h3 class="mb-0 me-2">{{ agent?.serviceCounts?.excursions || 0 }}</h3>
       </div>
-      <p class="mb-0">Total</p>
+      <p class="mb-0 text-dark">Total</p>
     </div>
   </div>
 </div>

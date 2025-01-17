@@ -47,7 +47,8 @@
 
       <div class="col-md-6">
         <label class="form-label">Fecha de nacimiento<span class="text-danger">*</span></label>
-        <input type="text" formControlName="birth_date" class="form-control flatpickr" placeholder="Enter date of birth">
+        <input type="text" formControlName="birth_date" class="form-control flatpickr"
+          placeholder="Enter date of birth">
       </div>
 
       <div class="col-md-6">
@@ -66,7 +67,15 @@
         <label class="form-label">Provincia / Municipio / Calle</label>
         <textarea formControlName="street" class="form-control" rows="3" spellcheck="false"></textarea>
       </div>
-
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Cedula de identidad / DNI <b>(JPEG, JPG, PNG,
+            PDF)</b></label>
+        <input class="form-control" type="file" id="formFile">
+      </div>
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Pasaporte <b>(JPEG, JPG, PNG, PDF)</b></label>
+        <input class="form-control" type="file" id="formFile">
+      </div>
       <div class="col-12 text-end">
         <button type="button" class="btn btn-primary mb-0" (click)="onSave()">Guardar Cambios</button>
       </div>
