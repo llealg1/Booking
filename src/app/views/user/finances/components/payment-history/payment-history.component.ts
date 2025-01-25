@@ -27,10 +27,13 @@ import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstra
   styles: ``,
 })
 export class PaymentHistoryComponent implements OnInit {
-  currencyType = currency
-  paymentHistory: any[] = []
-  isLoading = true
-  itemView: any = {}
+  currencyType = currency;
+  paymentHistory: any[] = [];
+  isLoading = true;
+  itemView: any = {};
+  totalItems = 0;
+  page = 1;
+  limit = 10;
 
   private modalService = inject(NgbModal);
 	closeResult: WritableSignal<string> = signal('');
@@ -62,11 +65,10 @@ export class PaymentHistoryComponent implements OnInit {
 
   getOrders(financed: boolean) {
     this.isLoading = true
-    this.ordersService.getOrders(financed).subscribe(
+    this.ordersService.getOrders(financed, this.page).subscribe(
       (res: any) => {
-
-        console.log(res.data,financed )
         this.paymentHistory = res.data
+        this.totalItems = res.meta.totalItems;
         this.isLoading = false
       },
       () => {
@@ -78,6 +80,7 @@ export class PaymentHistoryComponent implements OnInit {
   changeTab(event: any) {
     console.log(event)
     const tabId = event.activeId
+    this.page = 1
     this.paymentHistory = []
     if (tabId == '1') {
       this.getOrders(true)
@@ -96,4 +99,9 @@ export class PaymentHistoryComponent implements OnInit {
 				return `with: ${reason}`;
 		}
 	}
+
+  onPageChange(page: number) {
+    this.page = page;
+    this.getOrders(false);
+  }
 }

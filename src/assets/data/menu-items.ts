@@ -42,13 +42,13 @@ export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
   //   parentKey: 'acc-user',
   //   icon: 'bi bi-bar-chart',
   // },
-  {
-    key: 'acc-user-wishlist',
-    label: 'Mis Citas',
-    url: '/user/wishlist',
-    parentKey: 'acc-user',
-    icon: 'bi bi-heart',
-  },
+  // {
+  //   key: 'acc-user-wishlist',
+  //   label: 'Mis Citas',
+  //   url: '/user/wishlist',
+  //   parentKey: 'acc-user',
+  //   icon: 'bi bi-heart',
+  // },
   {
     key: 'acc-user-finances',
     label: 'Mis Ordenes',

@@ -57,10 +57,9 @@
                 </div>
               </div>
             </div>
-
             <div
               *ngFor="let item of paymentHistory"
-              class="row row-cols-xl-7 g-4 align-items-sm-center border-bottom px-2 py-4"
+              class="row row-cols-xl-7 g-4 align-items-sm-center border-bottom px-2 py-4" [ngClass]="isLoading ? 'd-none' : ''"
             >
               <div class="col">
                 <small class="d-block d-sm-none">Orden ID:</small>
@@ -132,10 +131,10 @@
                 aria-label="navigation"
               >
                 <ngb-pagination
-                  [collectionSize]="paymentHistory.length"
-                  [page]="1"
-                  [size]="'sm'"
-                  [maxSize]="2"
+                  [collectionSize]="totalItems"
+                  [(page)]="page"
+                  [pageSize]="limit"
+                  (pageChange)="onPageChange($event)"
                   class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0"
                 >
                   <ng-template ngbPaginationPrevious>Atras </ng-template>
@@ -181,6 +180,7 @@
             <div
               *ngFor="let item of paymentHistory"
               class="row row-cols-xl-7 g-4 align-items-sm-center border-bottom px-2 py-4"
+              [ngClass]="isLoading ? 'd-none' : ''"
             >
               <div class="col">
                 <small class="d-block d-sm-none">Orden ID:</small>
@@ -550,7 +550,7 @@
           aria-controls="flight-policy-tab"
           aria-selected="false"
         >
-          Informacion Adicional
+          Información básica
         </button>
         <ng-template ngbNavContent>
           <div
@@ -572,8 +572,6 @@
               <div class="card-body">
                 <div class="table-responsive-lg">
                   <table class="table caption-bottom mb-0">
-
-
                     <thead class="table-dark">
                       <tr>
                         <th scope="col" class="border-0 rounded-start">
@@ -604,8 +602,19 @@
                           {{ itemView.customer.last_name }}
                         </td>
                         <td class="d-flex justify-content-around">
-                          <span>{{ itemView.user.name }} {{ itemView.user.lastName }}</span>
-                          <a [href]="'Https://wa.me/'+ itemView.user.primaryPhone"><i class="bi bi-whatsapp ml-3" style="color: green;"></i></a>
+                          <span
+                            >{{ itemView.user.name }}
+                            {{ itemView.user.lastName }}</span
+                          >
+                          <a
+                            [href]="
+                              'Https://wa.me/' + itemView.user.primaryPhone
+                            "
+                            ><i
+                              class="bi bi-whatsapp ml-3"
+                              style="color: green"
+                            ></i
+                          ></a>
                         </td>
                       </tr>
                     </tbody>

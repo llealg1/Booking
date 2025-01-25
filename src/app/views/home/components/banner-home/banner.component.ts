@@ -23,9 +23,10 @@ export class BannerHomeComponent {
     items: 1,
     gutter: 0,
     nav: false,
+
     controlsText: [
-      // '<i class="bi bi-arrow-left"></i>',
-      // '<i class="bi bi-arrow-right"></i>',
+       '<i class="bi bi-arrow-left"></i>',
+      '<i class="bi bi-arrow-right"></i>',
     ],
 
   }

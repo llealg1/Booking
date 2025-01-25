@@ -12,22 +12,20 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 export const AuthGuard: CanActivateFn = (
   next: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
-): Observable<boolean> => {
+): Observable<boolean> | Promise<boolean> | boolean => {
   const authenticationService = inject(AuthenticationService);
   const router = inject(Router);
 
-  return authenticationService.authMe().pipe(
-    map((user) => {
-      if (user) {
-        return true;
-      } else {
-        router.navigate(['/auth/sign-in']);
-        return false;
-      }
-    }),
-    catchError(() => {
+  return authenticationService.validateToken().then(() => {
+    const currentUser = authenticationService.session;
+    if (currentUser) {
+      return true;
+    } else {
       router.navigate(['/auth/sign-in']);
-      return of(false);
-    })
-  );
+      return false;
+    }
+  }).catch(() => {
+    router.navigate(['/auth/sign-in']);
+    return false;
+  });
 };

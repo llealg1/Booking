@@ -1,6 +1,6 @@
 import { AuthenticationService } from '@/app/core/services/auth.service'
 import { credits, currentYear } from '@/app/store'
-import { login } from '@/app/store/authentication/authentication.actions'
+import { login, loginSuccess } from '@/app/store/authentication/authentication.actions'
 import { CommonModule } from '@angular/common'
 import { Component, inject } from '@angular/core'
 import {
@@ -59,14 +59,15 @@ export class SignInComponent {
 
       this.authService.login(username, password).subscribe({
         next: (user) => {
-          this.successMessage = 'Login successful'
+          this.successMessage = 'Inicio de sesión exitoso'
           this.loading = false
           this.store.dispatch(login({ username: username, password: password }));
+
           this.router.navigate(['/user/profile'])
 
         },
         error: (error) => {
-          this.errorMessage = 'Error logging in'
+          this.errorMessage = 'Error al iniciar sesión, Verifique sus credenciales'
           this.loading = false
         },
       })
