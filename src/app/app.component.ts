@@ -11,6 +11,7 @@ import {
 import { BackToTopComponent } from './components/back-to-top.component'
 import { NgProgressComponent, NgProgressModule } from 'ngx-progressbar'
 import { TitleService } from './core/services/title.service'
+import { AuthenticationService } from './core/services/auth.service'
 
 @Component({
   selector: 'app-root',
@@ -23,14 +24,16 @@ export class AppComponent implements OnInit {
   private router = inject(Router)
   private titleService = inject(TitleService)
 
-  constructor() {
+  constructor(private authService: AuthenticationService) {
     this.router.events.subscribe((event: Event) => {
       this.checkRouteChange(event)
     })
+
   }
 
   ngOnInit(): void {
     this.titleService.init()
+    this.authService.validateToken()
   }
 
   // show Loader when route change

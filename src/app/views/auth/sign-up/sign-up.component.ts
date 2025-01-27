@@ -1,6 +1,6 @@
 import { AuthenticationService } from '@/app/core/services/auth.service'
 import { credits, currentYear } from '@/app/store'
-import { CommonModule } from '@angular/common'
+import { CommonModule, DatePipe } from '@angular/common'
 import { Component, inject, OnInit } from '@angular/core'
 import {
   FormsModule,
@@ -14,11 +14,22 @@ import { Router, RouterModule } from '@angular/router'
 import { catchError } from 'rxjs/operators'
 import { of } from 'rxjs'
 import { CountryService } from '../../../core/services/country.service'
-
+import { DateFormInputDirective } from '@/app/components/form/date-form-input.directive'
+import { SelectFormInputDirective } from '@/app/components/form/select-form-input.directive'
+import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 @Component({
   selector: 'auth-sign-up',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
+  providers: [DatePipe],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    DateFormInputDirective,
+    RecaptchaModule,
+    RecaptchaFormsModule,
+  ],
   templateUrl: './sign-up.component.html',
   styles: `
     :host(auth-sign-up) {
@@ -31,6 +42,7 @@ export class SignUpComponent implements OnInit {
   currentYear = currentYear
   fieldTextType!: boolean
   fieldTextType1!: boolean
+  confirmPwd: string = ''
   public fb = inject(UntypedFormBuilder)
   signupForm: UntypedFormGroup = this.fb.group(
     {
@@ -48,7 +60,7 @@ export class SignUpComponent implements OnInit {
       }),
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
-      // confirmpwd: ['', [Validators.required]],
+      recaptcha: ['', Validators.required],
     },
     { validators: this.validateAreEqual }
   )
@@ -61,7 +73,7 @@ export class SignUpComponent implements OnInit {
   constructor(
     private authService: AuthenticationService,
     private router: Router,
-    private countryService: CountryService
+    private countryService: CountryService,
   ) {}
 
   ngOnInit(): void {
@@ -83,22 +95,51 @@ export class SignUpComponent implements OnInit {
     return this.signupForm.controls
   }
 
+  resolvedCaptcha(captchaResponse: any) {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
+  }
+  onChangeConfirmPwd(event: any) {
+    console.log(event.target.value);
+    this.confirmPwd = event.target.value
+  }
   onSubmit() {
     this.submitted = true
     this.loading = true
     this.successMessage = ''
     this.errorMessage = ''
 
+    // Convertir la fecha al formato adecuado
+    const birthDate = this.signupForm.value.birthDate;
+    if(birthDate) {
+      const [day, month, year] = birthDate.split('/');
+      const formattedDate = `${year}-${month}-${day}`;
+
+      this.signupForm.patchValue({
+        birthDate: formattedDate,
+      });
+    }
+
+    const password = this.signupForm.value.password;
+
+    if (password !==  this.confirmPwd) {
+      this.loading = false;
+      this.errorMessage = 'Las contraseñas no coinciden';
+      return;
+    } else {
+
+    }
+
+
     this.authService.signup(this.signupForm.value).subscribe({
       next: (data) => {
-        this.successMessage = 'User registered successfully'
+        this.successMessage = 'Usuario registrado correctamente'
         this.loading = false
         setTimeout(() => {
           this.router.navigate(['/auth/sign-in'])
         }, 500) // Navegar después de 2 segundos
       },
       error: (error) => {
-        this.errorMessage = 'Error registering user'
+        this.errorMessage = 'Error al registrar el usuario'
         this.loading = false
       },
     })

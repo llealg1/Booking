@@ -9,6 +9,7 @@ import { filter } from 'rxjs'
 import { Store } from '@ngrx/store';
 import { AuthenticationState } from '@/app/store/authentication/authentication.reducer'
 import { logout } from '@/app/store/authentication/authentication.actions'
+import { getUser } from '@/app/store/authentication/authentication.selector'
 
 @Component({
   selector: 'user-sidebar',
@@ -49,11 +50,11 @@ import { logout } from '@/app/store/authentication/authentication.actions'
           </li>
         }
         <li class="nav-item">
-          <a
+          <button
             class="nav-link text-danger bg-danger-soft-hover" (click)="onLogout()"
 
-            ><i class="fas fa-sign-out-alt fa-fw me-2"></i>Cerrar Sesion</a
-          >
+            ><i class="fas fa-sign-out-alt fa-fw me-2"></i>Cerrar Sesion</button>
+
         </li>
       </ul>
     </div>
@@ -84,14 +85,16 @@ export class SidebarComponent implements OnInit {
         this.currentPath = event.urlAfterRedirects
       })
 
-    this.authenticationService.authMe().subscribe((data) => {
-      this.clientMe = data
-      console.log(this.clientMe)
-    })
+
+      this.store.select(getUser).subscribe((data) => {
+        this.clientMe = data
+      })
+
   }
 
   onLogout() {
-    this.store.dispatch(logout());
+    this.authenticationService.logout().subscribe(() => {})
+
   }
 
 

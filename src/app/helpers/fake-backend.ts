@@ -23,7 +23,7 @@ type MyRequestBody = {
 const token =
   'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ3ZWJlc3RpY2EiLCJpYXQiOjE1ODczNTY2NDksImV4cCI6MTkwMjg4OTQ0OSwiYXVkIjoiaHR0cHM6Ly93d3cud2ViZXN0aWNhLmNvbS8iLCJzdWIiOiJ3ZWJlc3RpY2FAZ21haWwuY29tIiwibGFzdE5hbWUiOiJXZWJlc3RpY2EiLCJFbWFpbCI6IndlYmVzdGljYUBnbWFpbC5jb20iLCJSb2xlIjoiQWRtaW4iLCJmaXJzdE5hbWUiOiJCb29raW5nIn0.4XRiR3ANcl9AnbdrOrO_cIA15HbDlyHAqL9NqGSacDVeKM8w8dV7HaEbLs-KLiQ92e7tHotU_RBIZCgiRF95MA'
 
-const fakeUsers: User[] = [
+const fakeUsers: any[] = [
   {
     id: 1,
     username: 'user',

@@ -45,9 +45,16 @@
                 </div>
               </div>
             </div>
+<<<<<<< HEAD
 
             <div *ngFor="let item of paymentHistory"
               class="row row-cols-xl-7 g-4 align-items-sm-center border-bottom px-2 py-4">
+=======
+            <div
+              *ngFor="let item of paymentHistory"
+              class="row row-cols-xl-7 g-4 align-items-sm-center border-bottom px-2 py-4" [ngClass]="isLoading ? 'd-none' : ''"
+            >
+>>>>>>> 7401b164dba9c766c15a125c15607c3de789a4c1
               <div class="col">
                 <small class="d-block d-sm-none">Orden ID:</small>
                 <h6 class="fw-light mb-0">#{{ item.id }}</h6>
@@ -102,9 +109,23 @@
                 {{ paymentHistory.length }} Total
               </p>
 
+<<<<<<< HEAD
               <nav class="mb-sm-0 d-flex justify-content-center" aria-label="navigation">
                 <ngb-pagination [collectionSize]="paymentHistory.length" [page]="1" [size]="'sm'" [maxSize]="2"
                   class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
+=======
+              <nav
+                class="mb-sm-0 d-flex justify-content-center"
+                aria-label="navigation"
+              >
+                <ngb-pagination
+                  [collectionSize]="totalItems"
+                  [(page)]="page"
+                  [pageSize]="limit"
+                  (pageChange)="onPageChange($event)"
+                  class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0"
+                >
+>>>>>>> 7401b164dba9c766c15a125c15607c3de789a4c1
                   <ng-template ngbPaginationPrevious>Atras </ng-template>
                   <ng-template ngbPaginationNext>Siguiente </ng-template>
                 </ngb-pagination>
@@ -144,8 +165,16 @@
               </div>
             </div>
 
+<<<<<<< HEAD
             <div *ngFor="let item of paymentHistory"
               class="row row-cols-xl-7 g-4 align-items-sm-center border-bottom px-2 py-4">
+=======
+            <div
+              *ngFor="let item of paymentHistory"
+              class="row row-cols-xl-7 g-4 align-items-sm-center border-bottom px-2 py-4"
+              [ngClass]="isLoading ? 'd-none' : ''"
+            >
+>>>>>>> 7401b164dba9c766c15a125c15607c3de789a4c1
               <div class="col">
                 <small class="d-block d-sm-none">Orden ID:</small>
                 <h6 class="fw-light mb-0">#{{ item.id }}</h6>
@@ -457,10 +486,25 @@
       </li>
 
       <li ngbNavItem class="nav-item" role="presentation">
+<<<<<<< HEAD
         <button ngbNavLink class="nav-link mb-0" id="flight-policy" data-bs-toggle="pill"
           data-bs-target="#flight-policy-tab" type="button" role="tab" aria-controls="flight-policy-tab"
           aria-selected="false">
           Informacion Adicional
+=======
+        <button
+          ngbNavLink
+          class="nav-link mb-0"
+          id="flight-policy"
+          data-bs-toggle="pill"
+          data-bs-target="#flight-policy-tab"
+          type="button"
+          role="tab"
+          aria-controls="flight-policy-tab"
+          aria-selected="false"
+        >
+          Información básica
+>>>>>>> 7401b164dba9c766c15a125c15607c3de789a4c1
         </button>
         <ng-template ngbNavContent>
           <div class="tab-pane" id="flight-policy-tab" role="tabpanel" aria-labelledby="flight-policy">
@@ -477,8 +521,6 @@
               <div class="card-body">
                 <div class="table-responsive-lg">
                   <table class="table caption-bottom mb-0">
-
-
                     <thead class="table-dark">
                       <tr>
                         <th scope="col" class="border-0 rounded-start">
@@ -508,9 +550,25 @@
                           {{ itemView.customer.last_name }}
                         </td>
                         <td class="d-flex justify-content-around">
+<<<<<<< HEAD
                           <span>{{ itemView.user.name }} {{ itemView.user.lastName }}</span>
                           <a [href]="'Https://wa.me/'+ itemView.user.primaryPhone"><i class="bi bi-whatsapp ml-3"
                               style="color: green;"></i></a>
+=======
+                          <span
+                            >{{ itemView.user.name }}
+                            {{ itemView.user.lastName }}</span
+                          >
+                          <a
+                            [href]="
+                              'Https://wa.me/' + itemView.user.primaryPhone
+                            "
+                            ><i
+                              class="bi bi-whatsapp ml-3"
+                              style="color: green"
+                            ></i
+                          ></a>
+>>>>>>> 7401b164dba9c766c15a125c15607c3de789a4c1
                         </td>
                       </tr>
                     </tbody>
