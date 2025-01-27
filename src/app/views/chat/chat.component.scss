@@ -1,29 +1,67 @@
-/* Clase para la sección completa */
-.full-height {
-  height: 100vh; /* Altura completa del viewport */
-  display: flex;
-  align-items: stretch; /* Mantiene estirados los hijos al 100% */
-}
-
-/* Configura las columnas y filas para que ocupen todo el alto */
-.row.h-100 {
-  height: 100%; /* Las filas deben ocupar el 100% de la altura del contenedor */
-}
-
-.col-md-6.h-100 {
-  height: 100%; /* Las columnas también deben ocupar el 100% */
-}
-
-.shadow {
-  height: 100%; /* Mantiene el contenido dentro del contenedor */
+.chat-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distribuye el contenido */
+  width: auto;
+  height: 600px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Chat Body para scroll si es necesario */
-.chat-body {
+.chat-messages {
   flex: 1;
+  padding: 16px;
   overflow-y: auto;
+  background-color: #f9f9f9;
+}
+
+.chat-messages div {
+  margin-bottom: 12px;
   padding: 10px;
+  border-radius: 16px;
+  max-width: 75%;
+}
+
+/* Cambia el mensaje del usuario a la izquierda */
+.user-message {
+  align-self: flex-start;
+  background-color: #4a148c; /* Color oscuro para mensajes del usuario */
+  color: white;
+}
+
+/* Cambia el mensaje del bot a la derecha */
+.bot-message {
+  align-self: flex-end;
+  background-color: #e9ecef;
+  color: black;
+}
+
+.chat-input {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  outline: none;
+}
+
+.chat-input button {
+  margin-left: 8px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 16px;
+  background-color: #200444;
+  color: white;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #0056b3;
 }
