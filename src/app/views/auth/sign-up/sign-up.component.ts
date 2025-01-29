@@ -60,9 +60,8 @@ export class SignUpComponent implements OnInit {
       }),
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
-      recaptcha: ['', Validators.required],
+      // recaptcha: ['', Validators.required],
     },
-    { validators: this.validateAreEqual }
   )
   submitted: boolean = false
   loading: boolean = false

@@ -26,7 +26,7 @@ export const authenticationReducer = createReducer(
     console.log('user', user)
     return {
       ...state,
-      user,
+      user: user,
       isLoggedIn: true,
       error: null,
     };

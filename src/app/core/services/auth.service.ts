@@ -41,8 +41,12 @@ export class AuthenticationService {
     return this.http.post<User>(`${API_URL}/auth/login`, { username, password }).pipe(
       map((user) => {
         // login successful if there's a jwt token in the response
+        if(this.getToken()) {
+          this.deleteToken();
+        }
         this.user = user;
-        this.cookieService.set(this.authSessionKey, user.access_token);
+        this.saveSession(user.access_token);
+        // this.cookieService.set(this.authSessionKey, user.access_token);
         return user;
       })
     );
@@ -94,7 +98,7 @@ export class AuthenticationService {
   }
 
   deleteToken(): void {
-    this.cookieService.delete(this.authSessionKey, '/');
+    this.cookieService.delete(this.authSessionKey);
   }
 
   isTokenExpired(token: string): boolean {

@@ -1,6 +1,6 @@
 import { AuthenticationService } from '@/app/core/services/auth.service'
 import { credits, currentYear } from '@/app/store'
-import { login, loginSuccess } from '@/app/store/authentication/authentication.actions'
+import { login, loginSuccess, logout } from '@/app/store/authentication/authentication.actions'
 import { CommonModule } from '@angular/common'
 import { Component, inject } from '@angular/core'
 import {
@@ -56,13 +56,16 @@ export class SignInComponent {
     if (this.signinForm.valid) {
       const username = this.form['username'].value
       const password = this.form['password'].value
-
+      this.authService.deleteToken();
+      this.store.dispatch(logout());
       this.authService.login(username, password).subscribe({
-        next: (user) => {
+        next: async(user) => {
+
           this.successMessage = 'Inicio de sesión exitoso'
           this.loading = false
           this.store.dispatch(login({ username: username, password: password }));
-
+          let resUserData = await this.authService.authMe();
+          this.store.dispatch(loginSuccess({ user: resUserData }));
           this.router.navigate(['/user/profile'])
 
         },
