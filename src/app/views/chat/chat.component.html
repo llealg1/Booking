@@ -1,33 +1,71 @@
 <div class="chat-container" [class.hidden]="isHidden">
-    <div class="chat-header">
-        <button (click)="toggleChat()" class="toggle-button">
-            <i class="bi bi-chat-dots">{{ isHidden ? 'chat' : 'close' }}</i>
-        </button>
-    </div>
-    <div class="chat-content">
-        <!-- Aquí va el contenido del chat -->
-        <div class="row">
-            <!-- Sección del Chat -->
-            <div class="col-md-12 h-100 d-flex flex-column">
-                <div class="shadow rounded bg-light h-100">
-                    <div class="chat-box d-flex flex-column h-100">
-                        <!-- Cuerpo del Chat -->
-                        <div class="chat-container">
-                            <div class="chat-messages">
-                                <div *ngFor="let message of messages" [class.user-message]="message.sender === 'user'"
-                                    [class.bot-message]="message.sender === 'bot'">
-                                    {{ message.text }}
-                                </div>
-                            </div>
-                            <div class="chat-input">
-                                <input type="text" [(ngModel)]="userInput" placeholder="Escribe tu mensaje..."
-                                    (keydown.enter)="sendMessage()" />
-                                <button (click)="sendMessage()"><i class="bi bi-send"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <div
+    class="chat-header bg-primary text-white d-flex align-items-center p-3"
+    [ngClass]="{ 'justify-content-start': isHidden, 'justify-content-between': !isHidden }"
+  >
+    <button
+      (click)="toggleChat()"
+      *ngIf="isHidden"
+      class="toggle-button d-flex"
+    >
+      <p class="">{{ isHidden ? 'Navi' : 'X' }}</p>
+    </button>
+    <p  (click)="toggleChat()"  class="toggle-button"      *ngIf="!isHidden">
+      Navi
+    </p>
+    <button
+      (click)="toggleChat()"
+      *ngIf="!isHidden"
+      class="toggle-button d-flex"
+    >
+      <p class="">{{ isHidden ? 'Navi' : 'X' }}</p>
+    </button>
+  </div>
+  <div class="chat-content">
+    <div class="chat-box d-flex flex-column h-100">
+      <div
+        #chatMessages
+        class="chat-messages flex-grow-1 overflow-auto p-3 d-flex flex-column"
+        style="background-image: url('assets/images/footerweb.png'); background-size: cover; background-position: center;
+        "
+
+      >
+        <div
+          *ngFor="let message of messages"
+          [class.user-message]="message.sender === 'user'"
+          [class.bot-message]="message.sender === 'bot'"
+          [class.waiting-message]="message.sender === 'waiting'"
+          [ngClass]="{ 'text-end': message.sender === 'user' }"
+          class="d-inline-block"
+        >
+          <ng-container *ngIf="message.sender === 'waiting'">
+            <div class="d-flex justify-content-center align-items-center">
+              <div class="trail">
+                <span>•</span>
+                <span>•</span>
+                <span>•</span>
+                <span>•</span>
+                <span>•</span>
+              </div>
             </div>
+          </ng-container>
+          <ng-container *ngIf="message.sender !== 'waiting'">
+            {{ message.text }}
+          </ng-container>
         </div>
+      </div>
+      <div class="chat-input p-3 d-flex">
+        <input
+          type="text"
+          [(ngModel)]="userInput"
+          class="form-control me-2"
+          placeholder="Escribe tu mensaje..."
+          (keydown.enter)="sendMessage()"
+        />
+        <button (click)="sendMessage()" class="btn btn-primary bg-primary">
+          <i class="bi bi-send"></i>
+        </button>
+      </div>
     </div>
+  </div>
 </div>

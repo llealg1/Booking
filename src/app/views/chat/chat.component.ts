@@ -1,6 +1,7 @@
-import { Component } from '@angular/core'
-import { CommonModule } from '@angular/common'
-import { FormsModule } from '@angular/forms'
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ChatNaviService } from '@/app/core/services/chat-navi.service';
 
 @Component({
   standalone: true,
@@ -9,28 +10,56 @@ import { FormsModule } from '@angular/forms'
   styleUrls: ['./chat.component.scss'],
   imports: [CommonModule, FormsModule],
 })
-export class ChatComponent {
-  isHidden = true
+export class ChatComponent  {
+  isHidden = true;
+  isWaiting = false;
+
+  messages: { text: string; sender: 'user' | 'bot' | 'waiting' }[] = [];
+  userInput: string = '';
+
+  @ViewChild('chatMessages') private chatMessagesContainer!: ElementRef;
+
+  constructor(private chatNaviService: ChatNaviService) {}
 
   toggleChat() {
-    this.isHidden = !this.isHidden
+    this.isHidden = !this.isHidden;
   }
-
-  messages: { text: string; sender: 'user' | 'bot' }[] = []
-  userInput: string = ''
 
   sendMessage() {
     if (this.userInput.trim()) {
-      this.messages.push({ text: this.userInput, sender: 'user' })
-      this.userInput = ''
-      this.generateBotResponse()
+      this.scrollToBottom();
+      this.messages.push({ text: this.userInput, sender: 'user' });
+      const userMessage = this.userInput;
+      this.userInput = '';
+
+      // Mostrar spinner de espera
+      this.isWaiting = true;
+      this.messages.push({ text: '', sender: 'waiting' });
+
+      this.scrollToBottom();
+
+      this.chatNaviService.postChatNavi(userMessage).subscribe(response => {
+        // Eliminar spinner de espera
+        this.messages = this.messages.filter(message => message.sender !== 'waiting');
+        this.isWaiting = false;
+
+        const botMessage = response.response;
+        this.messages.push({ text: botMessage, sender: 'bot' });
+
+        this.scrollToBottom();
+      });
     }
   }
 
-  generateBotResponse() {
-    setTimeout(() => {
-      const botMessage = '¡Hola! ¿Cómo puedo ayudarte hoy?'
-      this.messages.push({ text: botMessage, sender: 'bot' })
-    }, 500) // Simula un retraso en la respuesta del bot
+  ngAfterViewChecked(){
+    this.scrollToBottom();
+  }
+
+  private scrollToBottom(): void {
+    try {
+      this.chatMessagesContainer.nativeElement.scrollTo(0, this.chatMessagesContainer.nativeElement.scrollHeight);
+    } catch (err) {
+      console.error('Error scrolling to bottom:', err);
+    }
   }
 }

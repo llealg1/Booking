@@ -8,7 +8,12 @@ import { SelectFormInputDirective } from '@/app/components/form/select-form-inpu
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule, DateFormInputDirective],
   templateUrl: './personal-info.component.html',
-  styles: ``,
+  styles: `
+    .disabled {
+      background-color: #e9ecef;
+      cursor: not-allowed;
+    }
+  `,
 })
 export class PersonalInfoComponent implements OnInit, OnChanges {
   @Input() dataPersonalInfo: any;
