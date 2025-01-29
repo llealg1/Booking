@@ -5,14 +5,15 @@
         <div class="rounded-3 p-3">
           <div class="text-center mb-5">
             <h1 class="fw-bold text-primary">¡NUESTROS ALIADOS COMERCIALES!</h1>
-            <p class="lead text-secondary fw-semibold">Conoce a nuestros socios estratégicos que nos ayudan a ofrecerte las mejores experiencias de viaje.</p>
+            <p class="lead text-secondary fw-semibold">Conoce a nuestros socios estratégicos que nos ayudan a ofrecerte
+              las mejores experiencias de viaje.</p>
           </div>
 
           <div class="tiny-slider arrow-round">
             <div class="tiny-slider-inner">
               <ng-tiny-slider [config]="clientSliderSetting" #clientSlider>
                 <div class="item" *ngFor="let item of clientList">
-                  <img [src]="item.image" alt="" style="width: 500px; height: 300px;" />
+                  <img [src]="item.image" alt="" style="width: auto; height: auto;" />
                 </div>
               </ng-tiny-slider>
             </div>
