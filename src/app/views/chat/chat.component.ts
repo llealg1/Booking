@@ -10,6 +10,12 @@ import { FormsModule } from '@angular/forms'
   imports: [CommonModule, FormsModule],
 })
 export class ChatComponent {
+  isHidden = true
+
+  toggleChat() {
+    this.isHidden = !this.isHidden
+  }
+
   messages: { text: string; sender: 'user' | 'bot' }[] = []
   userInput: string = ''
 

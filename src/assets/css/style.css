@@ -7492,7 +7492,7 @@ fieldset:disabled .btn {
   margin-left: 3px;
   text-indent: -999px;
   cursor: pointer;
-  color:#08845f;
+  color: #08845f;
   background-color: #08845f;
   background-clip: padding-box;
   border: 0;
@@ -7522,8 +7522,6 @@ fieldset:disabled .btn {
   color: #fff;
   text-align: center;
 }
-
-
 
 .spinner-grow,
 .spinner-border {
@@ -23930,4 +23928,3 @@ span.flatpickr-weekday,
   font-size: 0.9rem;
   color: #777;
 }
-
