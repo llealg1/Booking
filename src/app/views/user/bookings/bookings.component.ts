@@ -5,11 +5,13 @@ import {
   NgbDropdownModule,
   NgbModal,
   NgbNavModule,
+  NgbPaginationModule,
 } from '@ng-bootstrap/ng-bootstrap'
 import { upcomingBookingData } from './data'
 import { RouterModule } from '@angular/router'
 import { OrdersService } from '../../../core/services/orders.service'
 import { CommonModule } from '@angular/common'
+import { QRCodeComponent } from 'angularx-qrcode';
 
 @Component({
   selector: 'app-bookings',
@@ -20,6 +22,9 @@ import { CommonModule } from '@angular/common'
     NgbDropdownModule,
     CommonModule,
     NgbCarouselModule,
+    NgbPaginationModule,
+    QRCodeComponent
+
   ],
 
   templateUrl: './bookings.component.html',
@@ -38,7 +43,7 @@ export class BookingsComponent implements OnInit {
   isLoading: boolean = false
   page: number = 1
   totalItems: number = 0
-
+  limit = 10;
 	paused = false;
 	unpauseOnArrow = false;
 	pauseOnIndicator = false;
@@ -51,7 +56,7 @@ export class BookingsComponent implements OnInit {
 
   ngOnInit(): void {}
   constructor(private ordersService: OrdersService,private modalService: NgbModal) {
-    this.getOrders(true)
+    this.getOrders(false)
     this.carousel?.pause()
   }
 
@@ -73,5 +78,15 @@ export class BookingsComponent implements OnInit {
         this.isLoading = false
       }
     )
+  }
+
+  onPageChange(page: number) {
+    this.page = page;
+    this.getOrders(false);
+  }
+
+  downloadPdf(order: any) {
+    console.log(order);
+    // this.ordersService.openPdfInNewWindow(order)
   }
 }

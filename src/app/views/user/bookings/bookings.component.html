@@ -15,6 +15,18 @@
         >
         <ng-template ngbNavContent>
           <div class="tab-pane fade show active" id="tab-1">
+            <div *ngIf="isLoading" class="text-center">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+
+            <div
+              *ngIf="!isLoading && upcomingBookingData.length === 0"
+              class="text-center"
+            >
+              <p>No hay Reservas encontradas</p>
+            </div>
             <div *ngFor="let item of upcomingBookingData;" class="card border mb-4">
               <div
                 class="card-header border-bottom d-md-flex justify-content-md-between align-items-center"
@@ -56,6 +68,35 @@
               </div>
             </div>
           </div>
+          <div
+          class="card-footer pt-0"
+          *ngIf="!isLoading && upcomingBookingData.length > 0"
+        >
+          <div
+            class="d-sm-flex justify-content-sm-between align-items-sm-center"
+          >
+            <p class="mb-sm-0 text-center text-sm-start">
+              Mostrar 1 a {{ upcomingBookingData.length }} de
+              {{ upcomingBookingData.length }} Total
+            </p>
+
+            <nav
+              class="mb-sm-0 d-flex justify-content-center"
+              aria-label="navigation"
+            >
+            <ngb-pagination
+                [collectionSize]="totalItems"
+                [(page)]="page"
+                [pageSize]="limit"
+                (pageChange)="onPageChange($event)"
+                class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0"
+              >
+                <ng-template ngbPaginationPrevious>Atras </ng-template>
+                <ng-template ngbPaginationNext>Siguiente </ng-template>
+              </ngb-pagination>
+            </nav>
+          </div>
+        </div>
         </ng-template>
       </li>
       <!-- Other tabs... -->
@@ -84,25 +125,30 @@
             <div class="row">
               <div *ngFor="let item of data.tickets;" class="card p-4 mb-3 col-4 m-1" style="max-width: 360px; background-color: #f2f4ff; border-radius: 15px;">
                 <div class="card-header text-center text-white bg-primary rounded-3">
-                  <h5 class="mb-0 text-white">{{ item.airline.nameAirline}}</h5>
 
+                  <h5 class="mb-0 text-white" *ngIf="!item.airline.imgUrl ">{{ item.airline.nameAirline}}</h5>
+                  <img
+                  [src]="item.airline.imgUrl ? 'assets/images/'+ item.airline.imgUrl : ''"
+                  class="w-20px me-2"
+                  alt=""
+                />
                 </div>
 
                 <div class="row g-3 mt-3">
                   <!-- From Section -->
                   <div class="col-6">
                     <p class="fw-bold text-uppercase mb-1">From:</p>
-                    <h4 class="mb-0">{{ data.tickets[0].origin.codeIcaoAirport }}</h4>
-                    <p class="mb-0 text-muted">{{ data.tickets[0].origin.codeIataCity }}</p>
-                    <small class="text-muted">{{ data.tickets[0].flightDate | date: 'MMM d, y - h:mm a' }}</small>
+                    <h4 class="mb-0">{{ item.origin.codeIcaoAirport }}</h4>
+                    <p class="mb-0">{{ item.origin.codeIataCity }}</p>
+                    <small class="">{{ item.flightDate | date: 'MMM d, y - h:mm a' }}</small>
                   </div>
 
                   <!-- To Section -->
                   <div class="col-6 text-end">
                     <p class="fw-bold text-uppercase mb-1">To:</p>
-                    <h4 class="mb-0">{{ data.tickets[0].destination.codeIcaoAirport }}</h4>
-                    <p class="mb-0 text-muted">{{ data.tickets[0].destination.codeIataCity }}</p>
-                    <small class="text-muted">{{ data.tickets[0].flightDate | date: 'MMM d, y - h:mm a' }}</small>
+                    <h4 class="mb-0">{{ item.destination.codeIcaoAirport }}</h4>
+                    <p class="mb-0 ">{{ item.destination.codeIataCity }}</p>
+                    <small class="">{{ item.flightDateReturn | date: 'MMM d, y - h:mm a' }}</small>
                   </div>
                 </div>
 
@@ -113,11 +159,11 @@
                 <div class="row g-3">
                   <div class="col">
                     <p class="fw-bold text-uppercase mb-1">Passenger:</p>
-                    <p class="mb-0">{{ data.tickets[0].customer.name + ' ' + data.tickets[0].customer.last_name }}</p>
+                    <p class="mb-0">{{ item.customer.name + ' ' + data.tickets[0].customer.last_name }}</p>
                   </div>
                   <div class="col text-end">
                     <p class="fw-bold text-uppercase mb-1">Class:</p>
-                    <p class="mb-0">{{ data.tickets[0].details_ticket.type_flight_class }}</p>
+                    <p class="mb-0">{{ item.details_ticket.type_flight_class }}</p>
                   </div>
                 </div>
 
@@ -141,22 +187,9 @@
 
                 <!-- QR/Barcode Section -->
                 <div class="text-center mt-4">
-                  <div
-                    style="
-                      background: repeating-linear-gradient(
-                        90deg,
-                        #000,
-                        #000 2px,
-                        transparent 2px,
-                        transparent 4px
-                      );
-                      width: 100%;
-                      height: 60px;
-                      margin: auto;
-                    "
-                  ></div>
+                  <qrcode [qrdata]="item.customer.name" [width]="126" [errorCorrectionLevel]="'M'"></qrcode>
                 </div>
-                <button class="btn btn-light btn-sm float-end" >
+                <button class="btn btn-light btn-sm float-end" (click)="downloadPdf(item)">
                   <i class="fas fa-file-pdf"></i> Descargar PDF
                 </button>
               </div>
