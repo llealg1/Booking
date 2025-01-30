@@ -7,7 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class OrdersService {
   private baseUrl: string = 'https://arcadia-viajes.com:3001';
-  private apiKey: string = 'apikey123';
+  private apiKey: string = '80a123-37e1c0';
   private readonly authSessionKey = 'Bearer_auth_arcadia';
 
   httpOptions = {
@@ -37,5 +37,10 @@ export class OrdersService {
 
   getOrdersById(id: string) {
     return this.httpClient.get(`${this.baseUrl}/order-web/${id}`, this.httpOptions);
+  }
+
+  openPdfInNewWindow(order: { createdAt: string; fileUrl: string; id: number; trackerId: number }) {
+    const pdfUrl = `${order.fileUrl}`;
+    window.open(pdfUrl, '_blank');
   }
 }
