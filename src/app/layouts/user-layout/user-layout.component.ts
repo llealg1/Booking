@@ -1,4 +1,3 @@
-import { AppMenuComponent } from '@/app/components/app-menu/app-menu.component'
 import { bookingHomeMenuItems } from '@/assets/data'
 import { Component } from '@angular/core'
 import { RouterModule } from '@angular/router'
@@ -7,6 +6,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component'
 import { UserVerticalMenuButtonComponent } from './components/user-vertical-menu-button/vertical-menu-button.component'
 import { TopNavbarComponent } from './components/top-navbar/top-navbar.component'
 import { FooterComponent } from './components/footer/footer.component'
+import { ChatComponent } from "../../views/chat/chat.component";
 
 @Component({
   selector: 'layout-user',
@@ -17,9 +17,9 @@ import { FooterComponent } from './components/footer/footer.component'
     NgbCollapseModule,
     SidebarComponent,
     UserVerticalMenuButtonComponent,
-    FooterComponent,
     NgbTooltipModule,
-  ],
+    ChatComponent
+],
   templateUrl: './user-layout.component.html',
 })
 export class UserLayoutComponent {

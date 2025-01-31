@@ -1,6 +1,6 @@
-<div class="card shadow mt-5">
+<div class="card shadow">
   <div class="card-header border-bottom">
-    <h5 class="card-title mb-0">Mis Ordenes</h5>
+    <h4 class="card-title mb-0">Mis Ordenes</h4>
   </div>
   <div class="card-body p-0">
     <ul
@@ -587,7 +587,17 @@
                       <td>{{ item2.quotaNumber === 1 ? 'Pago Inicial' : '# ' + item2.quotaNumber }}</td>
                       <td>{{ currencyType }} {{ item2.amount }}</td>
                       <td>{{ item2.remaining === 0 ? 'Sin deudas' : currencyType + item2.remaining }}</td>
-                      <td>{{ item2.paid ? 'pagado' : 'no pagado' }}</td>
+                      <td>
+                        <div
+                          class="badge bg-success bg-opacity-10 text-success"
+                          [ngClass]="{
+                            'bg-success text-success': item2.paid,
+                            'bg-danger text-danger': !item2.paid
+                          }"
+                        >
+                          {{ item2.paid ? 'Pagado' : 'No Pagado' }}
+                        </div>
+                      </td>
                       <td>{{ item2.datePayment | date: 'dd/MM/yyyy' }}</td>
                     </tr>
                   </tbody>
