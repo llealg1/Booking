@@ -1,0 +1,73 @@
+<div class="card border bg-transparent">
+    <div class="card-header bg-transparent border-bottom">
+        <h4 class="card-header-title">Mis Hospedajes</h4>
+    </div>
+
+    <div class="card-body p-0">
+        <ul ngbNav #nav="ngbNav" class="nav nav-tabs nav-bottom-line nav-responsive nav-justified">
+            <li class="nav-item" ngbNavItem>
+                <a class="nav-link mb-0" ngbNavLink data-bs-toggle="tab" href="#tab-1"><i
+                        class="bi bi-briefcase-fill fa-fw me-1"></i>Hospedajes proximos</a>
+                <ng-template ngbNavContent>
+                    <div class="tab-pane fade show active" id="tab-1">
+                        <div *ngFor="let item of wishListCards;">
+                            <div *ngFor="let item2 of item.insurances;">
+                                <div class="card shadow p-2">
+                                    <div class="row g-0">
+                                        <div class="col-md-3">
+                                            <img [src]="item2.image" class="card-img rounded-2" alt="Card image" />
+                                        </div>
+
+                                        <div class="col-md-9">
+                                            <div class="card-body py-md-2 d-flex flex-column h-100 ">
+                                                <h5 class="card-title mb-1">
+                                                    <a routerLink="{{ item2.link?.name }}">{{ item2.name
+                                                        }}</a>
+                                                </h5>
+                                                <div class="d-flex justify-content-between">
+
+                                                    <div class="mt-2">
+                                                        <strong>Localizador:</strong> {{ item2.locator }}
+                                                    </div>
+                                                    <div class="mt-2">
+                                                        <strong>Proveedor:</strong> {{ item2.providerSystem.name }}
+                                                    </div>
+                                                    <div class="mt-2">
+                                                        <strong>Tipo de Seguro:</strong> {{ item2.typeInsurance.name }}
+                                                    </div>
+                                                    <div class="mt-2">
+                                                        <strong>Start Date:</strong> {{ item2.dateStart | date:
+                                                        'dd/MM/yyyy' }}
+                                                    </div>
+                                                    <div class="mt-2">
+                                                        <strong>Uso: </strong>
+                                                        {{ item2.country.name }}
+                                                    </div>
+                                                </div>
+
+                                                <!-- <small><i class="bi bi-geo-alt me-2"></i>{{ item2.locator }}</small> -->
+
+                                                <div
+                                                    class="d-sm-flex justify-content-sm-between align-items-center mt-5 mt-md-auto">
+                                                    <div class="d-flex align-items-center">
+                                                        <strong>Orden: #</strong>
+                                                        <h5 class="fw-bold mb-0 me-1">{{ item2.orderId }}</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </li>
+            <!-- Other tabs... -->
+        </ul>
+
+        <div class="tab-content p-2 p-sm-4" [ngbNavOutlet]="nav" id="nav-tabContent"></div>
+    </div>
+</div>
+
+<!-- Modal content -->

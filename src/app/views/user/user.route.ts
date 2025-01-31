@@ -9,6 +9,8 @@ import { DeleteProfileComponent } from './delete-profile/delete-profile.componen
 import { FinancesComponent } from './finances/finances.component'
 import { WishlistCreateComponent } from './wishlist/wishlist-create/wishlist-create.component'
 import { HotelBookingsComponent } from './hotel-bookings/hotel-bookings.component'
+import { DatesComponent } from './dates/dates.component'
+import { InsurancesComponent } from './insurances/insurances.component'
 
 export const USER_PAGES_ROUTES: Route[] = [
   {
@@ -20,6 +22,16 @@ export const USER_PAGES_ROUTES: Route[] = [
     path: 'bookings',
     component: BookingsComponent,
     data: { title: 'User - Bookings' },
+  },
+  {
+    path: 'dates',
+    component: DatesComponent,
+    data: { title: 'User - Dates' },
+  },
+  {
+    path: 'insurances',
+    component: InsurancesComponent,
+    data: { title: 'User - Insurances' },
   },
   {
     path: 'settings',
