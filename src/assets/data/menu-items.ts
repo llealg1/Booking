@@ -84,6 +84,13 @@ export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
     parentKey: 'acc-user',
     icon: 'bi bi-safe',
   },
+  // {
+  //   key: 'acc-user-settings',
+  //   label: 'Settings',
+  //   url: '/user/settings',
+  //   parentKey: 'acc-user',
+  //   icon: 'bi bi-gear',
+  // },
 ]
 
 export const AGENT_MENU_ITEMS: MenuItemType[] = [
