@@ -51,32 +51,39 @@ export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
   // },
   {
     key: 'acc-user-finances',
-    label: 'Mis Ordenes',
+    label: 'Ordenes',
     url: '/user/finances',
     parentKey: 'acc-user',
     icon: 'bi bi-cash-coin',
   },
   {
+    key: 'acc-user-dates',
+    label: 'Citas',
+    url: '/user/dates',
+    parentKey: 'acc-dates',
+    icon: 'bi bi-calendar',
+  },
+  {
     key: 'acc-user-bookings',
-    label: 'Mis Reservas',
+    label: 'Reservas',
     url: '/user/bookings',
     parentKey: 'acc-user',
     icon: 'bi bi-ticket-perforated',
   },
   {
     key: 'acc-user-hotel-bookings',
-    label: 'Mis Hospedajes',
+    label: 'Hospedajes',
     url: '/user/hotel-bookings',
     parentKey: 'acc-hotel-bookings',
     icon: 'bi bi-house-door',
   },
-  // {
-  //   key: 'acc-user-settings',
-  //   label: 'Settings',
-  //   url: '/user/settings',
-  //   parentKey: 'acc-user',
-  //   icon: 'bi bi-gear',
-  // },
+  {
+    key: 'acc-user-insurances',
+    label: 'Seguros',
+    url: '/user/insurances',
+    parentKey: 'acc-user',
+    icon: 'bi bi-safe',
+  },
 ]
 
 export const AGENT_MENU_ITEMS: MenuItemType[] = [
