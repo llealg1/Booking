@@ -1,0 +1,126 @@
+<div class="card border bg-transparent">
+  <div class="card-header bg-transparent border-bottom">
+    <h4 class="card-header-title">Mis Alquileres</h4>
+  </div>
+
+  <div class="card-body p-0">
+    <ul
+      ngbNav
+      #nav="ngbNav"
+      class="nav nav-tabs nav-bottom-line nav-responsive nav-justified"
+    >
+      <li class="nav-item" ngbNavItem>
+        <a class="nav-link mb-0" ngbNavLink data-bs-toggle="tab" href="#tab-1"
+          ><i class="bi bi-briefcase-fill fa-fw me-1"></i>Alquileres</a
+        >
+        <ng-template ngbNavContent>
+          <div class="tab-pane fade show active" id="tab-1">
+            <div *ngIf="isLoading" class="text-center">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+
+            <div
+              *ngIf="!isLoading && carRentalsData.length === 0"
+              class="text-center"
+            >
+              <p>No hay Reservas encontradas</p>
+            </div>
+            <div *ngFor="let item of carRentalsData;" class="card border mb-4">
+              <div
+                class="card-header border-bottom d-md-flex justify-content-md-between align-items-center"
+              >
+                <div class="d-flex align-items-center">
+                  <div class="icon-lg bg-light rounded-circle flex-shrink-0">
+                    <i class="fa-solid fa-ticket"></i>
+                  </div>
+
+                  <div class="ms-2">
+                    <h6 class="card-title mb-0">
+                      {{ item?.location?.[0].tickets?.[0].customer.name }}
+                      {{ item?.location?.[0].tickets?.[0].customer.last_name }}
+                    </h6>
+                    <ul class="nav nav-divider small">
+                      <li class="nav-item">
+                        CI/DNI: {{ item?.location?.[0].tickets?.[0].customer.identityCard }}
+                      </li>
+                      <li class="nav-item">
+                        N° de boletos: {{ item?.location?.[0].tickets.length }}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tickets a mapear -->
+              <div class="card-body">
+                <div class="row g-3">
+                  <div class="d-inline-block w-100" style="position: relative;">
+                    <button
+                      class="btn btn-primary w-100"
+                      (click)="openModal(content, item)"
+                    >
+                      Ver Tickets
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+          class="card-footer pt-0"
+          *ngIf="!isLoading && carRentalsData.length > 0"
+        >
+          <div
+            class="d-sm-flex justify-content-sm-between align-items-sm-center"
+          >
+            <p class="mb-sm-0 text-center text-sm-start">
+              Mostrar 1 a {{ carRentalsData.length }} de
+              {{ carRentalsData.length }} Total
+            </p>
+
+            <nav
+              class="mb-sm-0 d-flex justify-content-center"
+              aria-label="navigation"
+            >
+            <ngb-pagination
+                [collectionSize]="totalItems"
+                [(page)]="page"
+                [pageSize]="limit"
+                (pageChange)="onPageChange($event)"
+                class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0"
+              >
+                <ng-template ngbPaginationPrevious>Atras </ng-template>
+                <ng-template ngbPaginationNext>Siguiente </ng-template>
+              </ngb-pagination>
+            </nav>
+          </div>
+        </div>
+        </ng-template>
+      </li>
+      <!-- Other tabs... -->
+    </ul>
+
+    <div
+      class="tab-content p-2 p-sm-4"
+      [ngbNavOutlet]="nav"
+      id="nav-tabContent"
+    ></div>
+  </div>
+</div>
+
+<!-- Modal content -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Tickets</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+
+
+    <div class="tab-content">
+      <!-- <div [ngbNavOutlet]="modalNav"></div> -->
+    </div>
+  </div>
+</ng-template>

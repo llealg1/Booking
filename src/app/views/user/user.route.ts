@@ -11,6 +11,7 @@ import { WishlistCreateComponent } from './wishlist/wishlist-create/wishlist-cre
 import { HotelBookingsComponent } from './hotel-bookings/hotel-bookings.component'
 import { DatesComponent } from './dates/dates.component'
 import { InsurancesComponent } from './insurances/insurances.component'
+import { CarRentalsComponent } from './car-rentals/car-rentals.component'
 
 export const USER_PAGES_ROUTES: Route[] = [
   {
@@ -73,4 +74,9 @@ export const USER_PAGES_ROUTES: Route[] = [
     component: DeleteProfileComponent,
     data: { title: 'User - Delete Profile' },
   },
+  {
+    path: 'rental-cars',
+    component: CarRentalsComponent,
+    data: { title: 'User - Rental Cars' },
+  }
 ]

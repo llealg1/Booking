@@ -1,18 +1,39 @@
 <li ngbDropdown class="nav-item dropdown {{ className }}">
-  <a ngbDropdownToggle class="avatar avatar-sm p-0 arrow-none" id="profileDropdown" role="button"
-    data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-    <img class="avatar-img rounded-2" src="assets/images/logosArcadia/venezuela.jpg" alt="avatar" />
+  <a
+    ngbDropdownToggle
+    class="avatar avatar-sm p-0 arrow-none"
+    id="profileDropdown"
+    role="button"
+    data-bs-auto-close="outside"
+    data-bs-display="static"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    <img
+      class="avatar-img rounded-2"
+      src="assets/images/logosArcadia/venezuela.jpg"
+      alt="avatar"
+    />
   </a>
 
-  <ul ngbDropdownMenu class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3 text-decoration-none"
-    aria-labelledby="profileDropdown">
+  <ul
+    ngbDropdownMenu
+    class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3 text-decoration-none"
+    aria-labelledby="profileDropdown"
+  >
     <li class="px-3 mb-3 text-decoration-none">
       <div class="d-flex align-items-center">
         <div class="avatar me-3">
-          <img class="avatar-img rounded-circle shadow" src="assets/images/logosArcadia/venezuela.jpg" alt="avatar" />
+          <img
+            class="avatar-img rounded-circle shadow"
+            src="assets/images/logosArcadia/venezuela.jpg"
+            alt="avatar"
+          />
         </div>
         <div>
-          <a class="h6 mt-2 mt-sm-0" href="javascript:void(0);">{{user?.name}} {{ user?.last_name}}</a>
+          <a class="h6 mt-2 mt-sm-0" href="javascript:void(0);"
+            >{{ user?.name }} {{ user?.last_name }}</a
+          >
           <p class="small m-0">{{ user?.email }}</p>
         </div>
       </div>
@@ -22,23 +43,47 @@
       <hr class="dropdown-divider" />
     </li>
     <li>
-      <a class="dropdown-item" routerLink="/user/profile"><i class="bi bi-person fa-fw me-2"></i>Mi Perfil</a>
+      <a class="dropdown-item" routerLink="/user/profile"
+        ><i class="bi bi-person fa-fw me-2"></i>Mi Perfil</a
+      >
     </li>
     <li>
       <!-- <a class="dropdown-item" routerLink="/user/wishlist"><i class="bi bi-heart fa-fw me-2"></i>Mis Citas</a> -->
     </li>
     <li>
-      <a class="dropdown-item" routerLink="/user/finances"><i class="bi bi-cash-coin fa-fw me-2"></i>Mis Ordenes</a>
+      <a class="dropdown-item" routerLink="/user/finances"
+        ><i class="bi bi-cash-coin fa-fw me-2"></i>Ordenes</a
+      >
     </li>
     <li>
-      <a class="dropdown-item" routerLink="/user/bookings"><i class="bi bi-ticket-perforated fa-fw me-2"></i>Mis Compras</a>
+      <a class="dropdown-item" routerLink="/user/dates"
+        ><i class="bi bi-ticket-perforated fa-fw me-2"></i>Citas</a
+      >
     </li>
     <li>
-      <a class="dropdown-item" routerLink="/user/notifications"><i class="bi bi-house-door fa-fw me-2"></i>Mis Hospedajes</a>
+      <a class="dropdown-item" routerLink="/user/hotel-bookings"
+        ><i class="bi bi-house-door fa-fw me-2"></i>Hospedajes</a
+      >
     </li>
     <li>
-      <button class="dropdown-item bg-danger-soft-hover" (click)="onLogout()"><i
-          class="fas fa-sign-out-alt fa-fw me-2"></i>Cerrar Sesion</button>
+      <a class="dropdown-item" routerLink="/user/insurances"
+        ><i class="bi bi-postcard-heart fa-fw me-2"></i>Seguros</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" routerLink="/user/car-rentals"
+        ><i class="bi bi-car-front fa-fw me-2"></i>Alquiler de Autos</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" routerLink="/user/esim">
+        <i class="bi bi-sim fa-fw me-2"></i>E-Sim
+      </a>
+    </li>
+    <li>
+      <button class="dropdown-item bg-danger-soft-hover" (click)="onLogout()">
+        <i class="fas fa-sign-out-alt fa-fw me-2"></i>Cerrar Sesion
+      </button>
     </li>
   </ul>
 </li>

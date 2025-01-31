@@ -61,7 +61,7 @@ export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
     label: 'Citas',
     url: '/user/dates',
     parentKey: 'acc-dates',
-    icon: 'bi bi-calendar',
+    icon: 'bi bi-calendar-week',
   },
   {
     key: 'acc-user-bookings',
@@ -82,8 +82,22 @@ export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
     label: 'Seguros',
     url: '/user/insurances',
     parentKey: 'acc-user',
-    icon: 'bi bi-safe',
+    icon: 'bi bi-postcard-heart',
   },
+  {
+    key: 'acc-user-car-reantals',
+    label: 'Alquiler de Autos',
+    url: '/user/rental-cars',
+    parentKey: 'acc-user-car-rentals',
+    icon: 'bi bi-car-front',
+  },
+  {
+    key: 'acc-user-sim-cards',
+    label: 'E-Sim',
+    url: '/user/esim',
+    parentKey: 'acc-user-car-',
+    icon: 'bi bi-sim',
+  }
   // {
   //   key: 'acc-user-settings',
   //   label: 'Settings',
