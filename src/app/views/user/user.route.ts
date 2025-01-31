@@ -8,6 +8,7 @@ import { PaymentDetailsComponent } from './payment-details/payment-details.compo
 import { DeleteProfileComponent } from './delete-profile/delete-profile.component'
 import { FinancesComponent } from './finances/finances.component'
 import { WishlistCreateComponent } from './wishlist/wishlist-create/wishlist-create.component'
+import { HotelBookingsComponent } from './hotel-bookings/hotel-bookings.component'
 
 export const USER_PAGES_ROUTES: Route[] = [
   {
@@ -49,6 +50,11 @@ export const USER_PAGES_ROUTES: Route[] = [
     path: 'payment-details',
     component: PaymentDetailsComponent,
     data: { title: 'User - Payment Details' },
+  },
+  {
+    path: 'hotel-bookings',
+    component: HotelBookingsComponent,
+    data: { title: 'User - Hotel Bookings' },
   },
   {
     path: 'delete-profile',

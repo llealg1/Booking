@@ -63,6 +63,13 @@ export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
     parentKey: 'acc-user',
     icon: 'bi bi-ticket-perforated',
   },
+  {
+    key: 'acc-user-hotel-bookings',
+    label: 'Mis Hospedajes',
+    url: '/user/hotel-bookings',
+    parentKey: 'acc-hotel-bookings',
+    icon: 'bi bi-house-door',
+  },
   // {
   //   key: 'acc-user-settings',
   //   label: 'Settings',
