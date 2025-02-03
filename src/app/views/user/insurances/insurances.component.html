@@ -12,12 +12,12 @@
                     <div class="tab-pane fade show active" id="tab-1">
                         <div *ngFor="let item of wishListCards;">
                             <div *ngFor="let item2 of item.insurances;">
-                                <div class="card shadow p-2">
+                                <div class="card shadow p-2 mb-3">
                                     <div class="row g-0">
                                         <div class="col-md-3">
-                                            <img [src]="item2.image" class="card-img rounded-2" alt="Card image" />
+                                            <img src='./assets/images/interwelt.png' class="card-img rounded-2"
+                                                alt="Card image" />
                                         </div>
-
                                         <div class="col-md-9">
                                             <div class="card-body py-md-2 d-flex flex-column h-100 ">
                                                 <h5 class="card-title mb-1">

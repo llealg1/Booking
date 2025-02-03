@@ -1,43 +1,23 @@
 <div class="chat-container" [class.hidden]="isHidden">
-  <div
-    class="chat-header bg-primary text-white d-flex align-items-center p-3"
-    [ngClass]="{ 'justify-content-start': isHidden, 'justify-content-between': !isHidden }"
-  >
-    <button
-      (click)="toggleChat()"
-      *ngIf="isHidden"
-      class="toggle-button d-flex"
-    >
-      <p class="">{{ isHidden ? 'Navi' : 'X' }}</p>
+  <div class="chat-header bg-primary text-white d-flex align-items-center p-3"
+    [ngClass]="{ 'justify-content-start': isHidden, 'justify-content-between': !isHidden }">
+    <button (click)="toggleChat()" *ngIf="isHidden" class="toggle-button d-flex">
+      <h5 class="text-white">{{ isHidden ? 'Navi' : 'X' }}</h5>
     </button>
-    <p  (click)="toggleChat()"  class="toggle-button"      *ngIf="!isHidden">
+    <h5 (click)="toggleChat()" class="toggle-button" *ngIf="!isHidden">
       Navi
-    </p>
-    <button
-      (click)="toggleChat()"
-      *ngIf="!isHidden"
-      class="toggle-button d-flex"
-    >
-      <p class="">{{ isHidden ? 'Navi' : 'X' }}</p>
+    </h5>
+    <button (click)="toggleChat()" *ngIf="!isHidden" class="toggle-button d-flex">
+      <h5 class="text-white">{{ isHidden ? 'Navi' : 'X' }}</h5>
     </button>
   </div>
   <div class="chat-content">
     <div class="chat-box d-flex flex-column h-100">
-      <div
-        #chatMessages
-        class="chat-messages flex-grow-1 overflow-auto p-3 d-flex flex-column"
-        style="background-image: url('assets/images/footerweb.png'); background-size: cover; background-position: center;
-        "
-
-      >
-        <div
-          *ngFor="let message of messages"
-          [class.user-message]="message.sender === 'user'"
-          [class.bot-message]="message.sender === 'bot'"
-          [class.waiting-message]="message.sender === 'waiting'"
-          [ngClass]="{ 'text-end': message.sender === 'user' }"
-          class="d-inline-block"
-        >
+      <div #chatMessages class="chat-messages flex-grow-1 overflow-auto p-3 d-flex flex-column" style="background-image: url('assets/images/footerweb.png'); background-size: cover; background-position: center;
+        ">
+        <div *ngFor="let message of messages" [class.user-message]="message.sender === 'user'"
+          [class.bot-message]="message.sender === 'bot'" [class.waiting-message]="message.sender === 'waiting'"
+          [ngClass]="{ 'text-end': message.sender === 'user' }" class="d-inline-block">
           <ng-container *ngIf="message.sender === 'waiting'">
             <div class="d-flex justify-content-center align-items-center">
               <div class="trail">
@@ -55,13 +35,8 @@
         </div>
       </div>
       <div class="chat-input p-3 d-flex">
-        <input
-          type="text"
-          [(ngModel)]="userInput"
-          class="form-control me-2"
-          placeholder="Escribe tu mensaje..."
-          (keydown.enter)="sendMessage()"
-        />
+        <input type="text" [(ngModel)]="userInput" class="form-control me-2" placeholder="Escribe tu mensaje..."
+          (keydown.enter)="sendMessage()" />
         <button (click)="sendMessage()" class="btn btn-primary bg-primary">
           <i class="bi bi-send"></i>
         </button>
