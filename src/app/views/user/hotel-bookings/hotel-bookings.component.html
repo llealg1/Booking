@@ -4,67 +4,51 @@
   </div>
 
   <div class="card-body p-0">
-    <ul
-      ngbNav
-      #nav="ngbNav"
-      class="nav nav-tabs nav-bottom-line nav-responsive nav-justified"
-    >
+    <ul ngbNav #nav="ngbNav" class="nav nav-tabs nav-bottom-line nav-responsive nav-justified">
       <li class="nav-item" ngbNavItem>
-        <a class="nav-link mb-0" ngbNavLink data-bs-toggle="tab" href="#tab-1"
-          ><i class="bi bi-briefcase-fill fa-fw me-1"></i>Hospedajes proximos</a
-        >
+        <a class="nav-link mb-0" ngbNavLink data-bs-toggle="tab" href="#tab-1"><i
+            class="bi bi-briefcase-fill fa-fw me-1"></i>Hospedajes proximos</a>
         <ng-template ngbNavContent>
           <div class="tab-pane fade show active" id="tab-1">
             <div *ngFor="let item of wishListCards;">
               <div *ngFor="let item2 of item.accommodations;">
-                <div class="card shadow p-2">
+                <div class="card shadow p-2 mb-3">
                   <div class="row g-0">
                     <div class="col-md-3">
-                      <img
-                        [src]="item2.image"
-                        class="card-img rounded-2"
-                        alt="Card image"
-                      />
+                      <img src='./assets/images/expedia.png' class="card-img rounded-2" alt="Card image" />
                     </div>
 
                     <div class="col-md-9">
-                      <div class="card-body py-md-2 d-flex flex-column h-100 ">
-                        <h5 class="card-title mb-1">
+                      <div class="card-body py-md-2 d-flex flex-column h-100">
+                        <h5 class="card-title mb-2">
                           <a routerLink="{{ item2.link?.name }}">{{ item2.name }}</a>
                         </h5>
                         <div class="d-flex justify-content-between">
+                          <div class="mt-2">
+                            <strong>Localizador:</strong> {{ item2.locator }}
+                          </div>
+                          <div class="mt-2">
+                            <strong>Cliente:</strong> {{ item2.customer.name }} {{ item2.customer.last_name }}
+                          </div>
+                          <div class="mt-2">
+                            <strong>Proveedor:</strong> {{ item2.providerSystem.name }}
+                          </div>
 
-                          <div class="mt-2">
-                            <strong>Customer:</strong> {{ item2.customer.name }} {{ item2.customer.last_name }}
-                          </div>
-                          <div class="mt-2">
-                            <strong>Provider:</strong> {{ item2.providerSystem.name }}
-                          </div>
-                          <div class="mt-2">
-                            <strong>Start Date:</strong> {{ item2.dateStart | date: 'dd/MM/yyyy' }}
-                          </div>
-                          <div class="mt-2">
-                            <strong>End Date:</strong> {{ item2.dateEnd | date: 'dd/MM/yyyy' }}
+                        </div>
+                        <div class="row g-0">
+                          <div class="d-flex justify-content-around">
+                            <div class="mt-2">
+                              <strong>Check In:</strong> {{ item2.dateStart | date: 'dd/MM/yyyy' }}
+                            </div>
+                            <div class="mt-2">
+                              <strong>Check Out:</strong> {{ item2.dateEnd | date: 'dd/MM/yyyy' }}
+                            </div>
+                            <div class="mt-2">
+                              <strong>Duracion:</strong> {{ calcularDiasEstadia(item2) }} Días
+                            </div>
                           </div>
                         </div>
-
                         <!-- <small><i class="bi bi-geo-alt me-2"></i>{{ item2.locator }}</small> -->
-
-
-                        <div class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
-                          <div class="d-flex align-items-center">
-                            <h5 class="fw-bold mb-0 me-1">{{ item2.price }}</h5>
-                            <span class="mb-0 me-2">/day</span>
-                          </div>
-
-                          <div class="mt-3 mt-sm-0 d-flex">
-                            <a
-                              [routerLink]="item2.link?.name"
-                              class="btn btn-sm btn-dark w-100 mb-0 ml-2"
-                              >View hotel</a
-                            >
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -77,11 +61,7 @@
       <!-- Other tabs... -->
     </ul>
 
-    <div
-      class="tab-content p-2 p-sm-4"
-      [ngbNavOutlet]="nav"
-      id="nav-tabContent"
-    ></div>
+    <div class="tab-content p-2 p-sm-4" [ngbNavOutlet]="nav" id="nav-tabContent"></div>
   </div>
 </div>
 

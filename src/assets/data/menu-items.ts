@@ -65,7 +65,7 @@ export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
   },
   {
     key: 'acc-user-bookings',
-    label: 'Reservas',
+    label: 'Vuelos',
     url: '/user/bookings',
     parentKey: 'acc-user',
     icon: 'bi bi-ticket-perforated',
@@ -97,7 +97,7 @@ export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
     url: '/user/esim',
     parentKey: 'acc-user-car-',
     icon: 'bi bi-sim',
-  }
+  },
   // {
   //   key: 'acc-user-settings',
   //   label: 'Settings',
