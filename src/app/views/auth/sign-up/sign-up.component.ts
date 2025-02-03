@@ -34,6 +34,9 @@ import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
   styles: `
     :host(auth-sign-up) {
       display: contents;
+      .pakepasswordicon {
+        display: none;
+      }
     }
   `,
 })
@@ -108,15 +111,7 @@ export class SignUpComponent implements OnInit {
     this.errorMessage = ''
 
     // Convertir la fecha al formato adecuado
-    const birthDate = this.signupForm.value.birthDate;
-    if(birthDate) {
-      const [day, month, year] = birthDate.split('/');
-      const formattedDate = `${year}-${month}-${day}`;
 
-      this.signupForm.patchValue({
-        birthDate: formattedDate,
-      });
-    }
 
     const password = this.signupForm.value.password;
 
@@ -128,6 +123,15 @@ export class SignUpComponent implements OnInit {
 
     }
 
+    const birthDate = this.signupForm.value.birthDate;
+    if(birthDate) {
+      const [day, month, year] = birthDate.split('/');
+      const formattedDate = `${year}-${month}-${day}`;
+
+      this.signupForm.patchValue({
+        birthDate: formattedDate,
+      });
+    }
 
     this.authService.signup(this.signupForm.value).subscribe({
       next: (data) => {
@@ -138,6 +142,9 @@ export class SignUpComponent implements OnInit {
         }, 500) // Navegar después de 2 segundos
       },
       error: (error) => {
+        this.signupForm.patchValue({
+          birthDate: birthDate,
+        })
         this.errorMessage = 'Error al registrar el usuario'
         this.loading = false
       },

@@ -219,9 +219,6 @@
             <label class="form-label">Confirmar Contraseña</label>
             <input
               [type]="fieldTextType1 ? 'text' : 'password'"
-              [ngClass]="{
-                'is-invalid': confirmPwd
-              }"
               class="form-control"
               (change)="onChangeConfirmPwd($event)"
             />
