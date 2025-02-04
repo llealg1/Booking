@@ -1,12 +1,13 @@
 import { Component, Input, OnChanges, SimpleChanges, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule, DatePipe } from '@angular/common';
-import { DateFormInputDirective } from '@/app/components/form/date-form-input.directive'
-import { SelectFormInputDirective } from '@/app/components/form/select-form-input.directive'
+import { DateFormInputDirective } from '@/app/components/form/date-form-input.directive';
+import { SelectFormInputDirective } from '@/app/components/form/select-form-input.directive';
+
 @Component({
   selector: 'profile-personal-info',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, DateFormInputDirective],
+  imports: [ReactiveFormsModule, CommonModule, DateFormInputDirective, SelectFormInputDirective],
   templateUrl: './personal-info.component.html',
   styles: `
     .disabled {

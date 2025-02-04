@@ -18,7 +18,8 @@ import { ChatComponent } from "../../views/chat/chat.component";
     SidebarComponent,
     UserVerticalMenuButtonComponent,
     NgbTooltipModule,
-    ChatComponent
+    ChatComponent,
+    FooterComponent
 ],
   templateUrl: './user-layout.component.html',
 })

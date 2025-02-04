@@ -49,6 +49,7 @@ export class BookingsComponent implements OnInit {
   pauseOnHover = true
   pauseOnFocus = true
   reverveSelect: any
+  stream: any = `https://arcadia-viajes.com:3001/locator-ticket/image/`
 
   @ViewChild('carousel', { static: true }) carousel: NgbCarousel =
     new NgbCarousel()
@@ -89,6 +90,8 @@ export class BookingsComponent implements OnInit {
 
   downloadPdf(order: any) {
     console.log(order)
+    console.log(this.stream + order.fileUrl)
+    window.open(this.stream + order.fileUrl);
     // this.ordersService.openPdfInNewWindow(order)
   }
 }

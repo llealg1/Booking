@@ -20,7 +20,6 @@ export class AgentInfoComponent implements OnInit {
       const id = params.get('id');
       if (id) {
         this.consultantsService.getUserPortalById(id).subscribe(agent => {
-          console.log(agent);
           this.agent = agent;
         });
       }
