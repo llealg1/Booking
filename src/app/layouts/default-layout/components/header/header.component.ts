@@ -10,8 +10,11 @@ import { VerticalMenuButtonComponent } from './header-vertical/vertical-menu-but
 import { Store } from '@ngrx/store'
 import { AuthenticationState } from '@/app/store/authentication/authentication.reducer'
 import { Observable } from 'rxjs'
-import { getisLoggedIn, getUser } from '@/app/store/authentication/authentication.selector'
-import { ProfileDropdownComponent } from "../../../../components/top-bar/profile-dropdown/profile-dropdown.component";
+import {
+  getisLoggedIn,
+  getUser,
+} from '@/app/store/authentication/authentication.selector'
+import { ProfileDropdownComponent } from '../../../../components/top-bar/profile-dropdown/profile-dropdown.component'
 import { CommonModule } from '@angular/common'
 
 @Component({
@@ -26,8 +29,8 @@ import { CommonModule } from '@angular/common'
     HeaderVerticalComponent,
     VerticalMenuButtonComponent,
     ProfileDropdownComponent,
-    CommonModule
-],
+    CommonModule,
+  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -88,16 +91,13 @@ export class HeaderComponent implements OnInit {
     },
   ]
 
-
-  user$: Observable<User | null>;
-  isLoggedIn$: Observable<boolean>;
+  user$: Observable<User | null>
+  isLoggedIn$: Observable<boolean>
 
   constructor(private store: Store<AuthenticationState>) {
-    this.user$ = this.store.select(getUser);
-    this.isLoggedIn$ = this.store.select(getisLoggedIn);
+    this.user$ = this.store.select(getUser)
+    this.isLoggedIn$ = this.store.select(getisLoggedIn)
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 }
