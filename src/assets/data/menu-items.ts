@@ -85,6 +85,13 @@ export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
     icon: 'bi bi-postcard-heart',
   },
   {
+    key: 'acc-user-special-services',
+    label: 'Servicios Especiales',
+    url: '/user/special-services',
+    parentKey: 'acc-user',
+    icon: 'bi bi-gear',
+  },
+  {
     key: 'acc-user-car-reantals',
     label: 'Alquiler de Autos',
     url: '/user/rental-cars',
