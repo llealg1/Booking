@@ -12,6 +12,7 @@ import { HotelBookingsComponent } from './hotel-bookings/hotel-bookings.componen
 import { DatesComponent } from './dates/dates.component'
 import { InsurancesComponent } from './insurances/insurances.component'
 import { CarRentalsComponent } from './car-rentals/car-rentals.component'
+import { SpecialServicesComponent } from './special-services/special-services.component'
 
 export const USER_PAGES_ROUTES: Route[] = [
   {
@@ -33,6 +34,11 @@ export const USER_PAGES_ROUTES: Route[] = [
     path: 'insurances',
     component: InsurancesComponent,
     data: { title: 'User - Insurances' },
+  },
+  {
+    path: 'special-services',
+    component: SpecialServicesComponent,
+    data: { title: 'User - special-services' },
   },
   {
     path: 'settings',
@@ -78,5 +84,5 @@ export const USER_PAGES_ROUTES: Route[] = [
     path: 'rental-cars',
     component: CarRentalsComponent,
     data: { title: 'User - Rental Cars' },
-  }
+  },
 ]
