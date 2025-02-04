@@ -1,13 +1,13 @@
 <div class="card border bg-transparent">
   <div class="card-header bg-transparent border-bottom">
-    <h4 class="card-header-title">Mis Reservas</h4>
+    <h4 class="card-header-title">Mis vuelos</h4>
   </div>
 
   <div class="card-body p-0">
     <ul ngbNav #nav="ngbNav" class="nav nav-tabs nav-bottom-line nav-responsive nav-justified">
       <li class="nav-item" ngbNavItem>
         <a class="nav-link mb-0" ngbNavLink data-bs-toggle="tab" href="#tab-1"><i
-            class="bi bi-briefcase-fill fa-fw me-1"></i>Reservas</a>
+            class="bi bi-briefcase-fill fa-fw me-1"></i>Vuelos</a>
         <ng-template ngbNavContent>
           <div class="tab-pane fade show active" id="tab-1">
             <div *ngIf="isLoading" class="text-center">
@@ -17,7 +17,7 @@
             </div>
 
             <div *ngIf="!isLoading && upcomingBookingData.length === 0" class="text-center">
-              <p>No hay Reservas encontradas</p>
+              <p>No hay vuelos encontrados</p>
             </div>
             <div *ngFor="let item of upcomingBookingData;" class="card border mb-4">
               <div class="card-header border-bottom d-md-flex justify-content-md-between align-items-center">
@@ -38,12 +38,9 @@
                       <li class="nav-item">
                         N° de boletos: {{ item.location?.[0].tickets.length }}
                       </li>
-                      <div class="d-sm-flex justify-content-sm-between align-items-center mt-5 mt-md-auto">
-                        <div class="d-flex align-items-center">
-                          <strong> Orden: #</strong>
-                          <h5 class="fw-bold mb-0 me-1">{{ item.id }}</h5>
-                        </div>
-                      </div>
+                      <li class="nav-item">
+                        Orden: #{{item.id}}
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -162,9 +159,9 @@
 
                 <!-- QR/Barcode Section -->
                 <div class="text-center mt-4">
-                  <qrcode [qrdata]="item.customer.name" [width]="126" [errorCorrectionLevel]="'M'"></qrcode>
+                  <qrcode [qrdata]="stream +data.ticketFiles[0].fileUrl" [width]="126" [errorCorrectionLevel]="'M'"></qrcode>
                 </div>
-                <button class="btn btn-light btn-sm float-end" (click)="downloadPdf(item)">
+                <button class="btn btn-light btn-sm float-end" (click)="downloadPdf(data.ticketFiles[0])">
                   <i class="fas fa-file-pdf"></i> Descargar PDF
                 </button>
               </div>

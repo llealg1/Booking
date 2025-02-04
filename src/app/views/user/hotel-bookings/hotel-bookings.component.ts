@@ -28,14 +28,29 @@ import { OrdersService } from '../../../core/services/orders.service'
 })
 export class HotelBookingsComponent implements OnInit {
   wishListCards: any = []
+  isLoading = true
+  totalItems = 0
+  page = 1
+  limit = 10
 
   constructor(private ordersService: OrdersService) {}
 
   ngOnInit(): void {
-    this.ordersService.getOrders().subscribe((response: any) => {
-      this.wishListCards = response?.data
-      console.log(this.wishListCards)
-    })
+    this.getOrders(false)
+  }
+
+  getOrders(financed: boolean) {
+    this.isLoading = true
+    this.ordersService.getOrders(financed, this.page).subscribe(
+      (res: any) => {
+        this.wishListCards = res.data
+        this.totalItems = res.meta.totalItems
+        this.isLoading = false
+      },
+      () => {
+        this.isLoading = false
+      }
+    )
   }
   calcularDiasEstadia(item: { dateStart: string; dateEnd: string }): number {
     if (!item.dateStart || !item.dateEnd) return 0 // Evitar errores si las fechas no están definidas
@@ -43,5 +58,10 @@ export class HotelBookingsComponent implements OnInit {
     const fechaFin = new Date(item.dateEnd)
     const diferenciaTiempo = fechaFin.getTime() - fechaInicio.getTime()
     return Math.ceil(diferenciaTiempo / (1000 * 60 * 60 * 24)) // Convertir a días
+  }
+
+  onPageChange(page: number) {
+    this.page = page
+    this.getOrders(false)
   }
 }

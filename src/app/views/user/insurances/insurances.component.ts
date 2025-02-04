@@ -27,14 +27,33 @@ import { QRCodeComponent } from 'angularx-qrcode'
 })
 export class InsurancesComponent implements OnInit {
   wishListCards: any = []
-
+  isLoading = true
+  totalItems = 0
+  page = 1
+  limit = 10
   constructor(private ordersService: OrdersService) {}
 
   ngOnInit(): void {
-    this.ordersService.getOrders().subscribe((response: any) => {
-      this.wishListCards = response?.data
-      this.wishListCards = [this.wishListCards[0]]
-      console.log(this.wishListCards)
-    })
+    this.getOrders(false)
   }
+
+  getOrders(financed: boolean) {
+    this.isLoading = true
+    this.ordersService.getOrders(financed, this.page).subscribe(
+      (res: any) => {
+        this.wishListCards = res.data
+        this.totalItems = res.meta.totalItems
+        this.isLoading = false
+      },
+      () => {
+        this.isLoading = false
+      }
+    )
+  }
+
+  onPageChange(page: number) {
+    this.page = page
+    this.getOrders(false)
+  }
+
 }

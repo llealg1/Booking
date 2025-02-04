@@ -49,7 +49,9 @@
 
       <div class="col-md-6">
         <label class="form-label">País<span class="text-danger">*</span></label>
-        <input type="text" formControlName="country" class="form-control" [readonly]="!isEditMode" [ngClass]="{'disabled': !isEditMode}" placeholder="Enter your country" />
+        <select formControlName="country" class="form-control" [disabled]="!isEditMode" [ngClass]="{'disabled': !isEditMode}">
+          <option *ngFor="let country of countrys" [value]="country.id">{{ country.name }}</option>
+        </select>
       </div>
 
       <div class="col-md-6">
