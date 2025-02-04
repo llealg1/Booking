@@ -98,4 +98,17 @@ export class BookingsComponent implements OnInit {
       this.modalService.open(content, { size: 'xl', centered: true });
     });
   }
+
+
+  changeTab(event: any) {
+    console.log(event)
+    const tabId = event.activeId
+    this.page = 1
+    this.upcomingBookingData = []
+    if (tabId == '1') {
+      this.getOrders(true)
+    } else if (tabId == '2') {
+      this.getOrders(false)
+    }
+  }
 }

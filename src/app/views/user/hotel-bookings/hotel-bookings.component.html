@@ -5,14 +5,16 @@
 
   <div class="card-body p-0">
     <ul
+      [destroyOnHide]="false"
+      (navChange)="changeTab($event)"
       ngbNav
       #nav="ngbNav"
       class="nav nav-tabs nav-bottom-line nav-responsive nav-justified"
     >
-      <li class="nav-item" ngbNavItem>
-
-        <a class="nav-link mb-0" ngbNavLink data-bs-toggle="tab" href="#tab-1"><i
-            class="bi bi-house-door fa-fw me-1"></i>Hospedajes proximos</a>
+      <li class="nav-item" ngbNavItem domId="1">
+        <a class="nav-link mb-0" ngbNavLink data-bs-toggle="tab" href="#tab-1"
+          ><i class="bi bi-house-door fa-fw me-1"></i>Hospedajes proximos</a
+        >
         <ng-template ngbNavContent>
           <div *ngIf="isLoading" class="text-center">
             <div class="spinner-border text-primary" role="status">
@@ -21,7 +23,94 @@
           </div>
 
           <div
-            *ngIf="!isLoading && wishListCards.length === 0"
+            *ngIf="!isLoading && wishListCards.length == 0"
+            class="text-center mt-4"
+          >
+            <p>No hay Hospedajes encontrados</p>
+          </div>
+          <div class="tab-pane fade show active" id="tab-1">
+            <div *ngFor="let item of wishListCards">
+              <div *ngFor="let item2 of item.accommodations">
+                <div class="card shadow p-2 mb-3">
+                  <div class="row g-0">
+                    <div class="col-md-3">
+                      <img
+                        src="./assets/images/expedia.png"
+                        class="card-img rounded-2"
+                        alt="Card image"
+                      />
+                    </div>
+
+                    <div class="col-md-9">
+                      <div class="card-body py-md-2 d-flex flex-column h-100">
+                        <h5 class="card-title mb-2">
+                          <a routerLink="{{ item2.link?.name }}">{{
+                            item2.name
+                          }}</a>
+                        </h5>
+                        <div class="d-flex justify-content-between">
+                          <div class="mt-2">
+                            <strong>Localizador:</strong> {{ item2.locator }}
+                          </div>
+                          <div class="mt-2">
+                            <strong>Cliente:</strong> {{ item2.customer.name }}
+                            {{ item2.customer.last_name }}
+                          </div>
+                          <div class="mt-2">
+                            <strong>Proveedor:</strong>
+                            {{ item2?.providerSystem?.name }}
+                          </div>
+                        </div>
+                        <div class="row g-0">
+                          <div class="d-flex justify-content-around">
+                            <div class="mt-2">
+                              <strong>Check In:</strong>
+                              {{ item2.dateStart | date: 'dd/MM/yyyy' }}
+                            </div>
+                            <div class="mt-2">
+                              <strong>Check Out:</strong>
+                              {{ item2.dateEnd | date: 'dd/MM/yyyy' }}
+                            </div>
+                            <div class="mt-2">
+                              <strong>Duracion:</strong>
+                              {{ calcularDiasEstadia(item2) }} Días
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="d-sm-flex justify-content-sm-between align-items-center mt-5 mt-md-auto"
+                        >
+                          <div class="d-flex align-items-center">
+                            <strong>Orden: #</strong>
+                            <h5 class="fw-bold mb-0 me-1">
+                              {{ item2.orderId }}
+                            </h5>
+                          </div>
+                        </div>
+
+                        <!-- <small><i class="bi bi-geo-alt me-2"></i>{{ item2.locator }}</small> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </li>
+      <li class="nav-item" ngbNavItem domId="2">
+        <a class="nav-link mb-0" ngbNavLink data-bs-toggle="tab" href="#tab-1"
+          ><i class="bi bi-house-door fa-fw me-1"></i>Hospedajes Financiados</a
+        >
+        <ng-template ngbNavContent>
+          <div *ngIf="isLoading" class="text-center">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+
+          <div
+            *ngIf="!isLoading && wishListCards.length == 0"
             class="text-center mt-4"
           >
             <p>No hay Hospedajes encontrados</p>

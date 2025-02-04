@@ -81,6 +81,7 @@ export class PaymentHistoryComponent implements OnInit {
     this.ordersService.getOrders(financed, this.page).subscribe(
       (res: any) => {
         this.paymentHistory = res.data
+        console.log(this.paymentHistory);
         this.totalItems = res.meta.totalItems
         this.isLoading = false
       },

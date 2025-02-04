@@ -151,7 +151,6 @@
           ><i class="bi bi-currency-dollar fa-fw me-1"></i>Financiamiento</a
         >
         <ng-template ngbNavContent>
-
           <div class="card-body tab-pane fade show active p-4" id="tab-2">
             <div *ngIf="isLoading" class="text-center">
               <div class="spinner-border text-primary" role="status">
@@ -161,7 +160,7 @@
 
             <div
               *ngIf="!isLoading && paymentHistory.length === 0"
-              class="text-center  mt-4"
+              class="text-center mt-4"
             >
               <p>No hay órdenes encontradas</p>
             </div>
@@ -268,7 +267,7 @@
                 class="mb-sm-0 d-flex justify-content-center"
                 aria-label="navigation"
               >
-              <ngb-pagination
+                <ngb-pagination
                   [collectionSize]="totalItems"
                   [(page)]="page"
                   [pageSize]="limit"
@@ -342,7 +341,11 @@
                     >
                       <div class="d-flex mb-2 mb-sm-0">
                         <img
-                          [src]="item2.airline.imgUrl ? 'assets/images/'+ item2.airline.imgUrl : ''"
+                          [src]="
+                            item2.airline.imgUrl
+                              ? 'assets/images/' + item2.airline.imgUrl
+                              : ''
+                          "
                           class="w-40px me-2"
                           alt=""
                         />
@@ -446,6 +449,7 @@
                     <tr>
                       <th scope="col" class="border-0 rounded-start">Precio</th>
                       <th scope="col" class="border-0">Tipo de vuelo</th>
+                      <th scope="col" class="border-0">Fecha de compra</th>
                       <th scope="col" class="border-0 rounded-end">Total</th>
                     </tr>
                   </thead>
@@ -462,12 +466,18 @@
                         }}
                       </td>
                       <td>
+                        {{
+                          itemView.transactionDate | date: 'H:mm - dd/MM/yyyy'
+                        }}
+                      </td>
+                      <td>
                         <h5 class="mb-0">
                           {{ currencyType }}{{ item2.price }}
                         </h5>
                       </td>
                     </tr>
                     <tr *ngIf="itemView.location.length - 1 == i">
+                      <td></td>
                       <td></td>
                       <td></td>
                       <td>
@@ -484,8 +494,6 @@
           </div>
         </ng-template>
       </li>
-
-
 
       <li class="nav-item" ngbNavItem role="presentation">
         <button
@@ -557,14 +565,32 @@
         </ng-template>
       </li>
 
-      <li class="nav-item" ngbNavItem role="presentation" *ngIf="itemView.quotas.length > 0">
-        <button ngbNavLink class="nav-link mb-0" id="flight-fare" data-bs-toggle="pill"
-          data-bs-target="#flight-fare-tab" type="button" role="tab" aria-controls="flight-fare-tab"
-          aria-selected="false">
+      <li
+        class="nav-item"
+        ngbNavItem
+        role="presentation"
+        *ngIf="itemView.quotas.length > 0"
+      >
+        <button
+          ngbNavLink
+          class="nav-link mb-0"
+          id="flight-fare"
+          data-bs-toggle="pill"
+          data-bs-target="#flight-fare-tab"
+          type="button"
+          role="tab"
+          aria-controls="flight-fare-tab"
+          aria-selected="false"
+        >
           Cuotas
         </button>
         <ng-template ngbNavContent>
-          <div class="tab-pane fade show active" id="flight-fare-tab" role="tabpanel" aria-labelledby="flight-fare">
+          <div
+            class="tab-pane fade show active"
+            id="flight-fare-tab"
+            role="tabpanel"
+            aria-labelledby="flight-fare"
+          >
             <div class="card card-body">
               <div class="table-responsive-lg">
                 <table class="table caption-bottom mb-0">
@@ -574,7 +600,9 @@
 
                   <thead class="table-dark">
                     <tr>
-                      <th scope="col" class="border-0 rounded-start">Cuota N°</th>
+                      <th scope="col" class="border-0 rounded-start">
+                        Cuota N°
+                      </th>
                       <th scope="col" class="border-0">Monto</th>
                       <th scope="col" class="border-0">Restante</th>
                       <th scope="col" class="border-0">¿Pagado?</th>
@@ -582,11 +610,23 @@
                       <!-- <th scope="col" class="border-0 rounded-end">Detalles</th> -->
                     </tr>
                   </thead>
-                  <tbody *ngFor="let item2 of itemView.quotas let i = index">
+                  <tbody *ngFor="let item2 of itemView.quotas; let i = index">
                     <tr>
-                      <td>{{ item2.quotaNumber === 1 ? 'Pago Inicial' : '# ' + item2.quotaNumber }}</td>
+                      <td>
+                        {{
+                          item2.quotaNumber === 1
+                            ? 'Pago Inicial'
+                            : '# ' + item2.quotaNumber
+                        }}
+                      </td>
                       <td>{{ currencyType }} {{ item2.amount }}</td>
-                      <td>{{ item2.remaining === 0 ? 'Sin deudas' : currencyType + item2.remaining }}</td>
+                      <td>
+                        {{
+                          item2.remaining === 0
+                            ? 'Sin deudas'
+                            : currencyType + item2.remaining
+                        }}
+                      </td>
                       <td>
                         <div
                           class="badge bg-success bg-opacity-10 text-success"

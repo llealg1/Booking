@@ -18,7 +18,7 @@ import { ChatComponent } from '@/app/views/chat/chat.component'
     <app-header [showExtraPages]="false" [showContactPages]="true" class="" />
     <router-outlet />
     <app-footer />
-    <app-chat />
+    <!-- <app-chat /> -->
   `,
 })
 export class DefaultLayoutComponent {}

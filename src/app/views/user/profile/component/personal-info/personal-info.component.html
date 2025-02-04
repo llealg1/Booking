@@ -1,9 +1,9 @@
 <div class="card border">
   <div class="card-header border-bottom d-flex justify-content-between align-items-center">
     <h4 class="card-header-title">Información Personal</h4>
-    <button type="button" class="btn btn-sm btn-primary" (click)="toggleEditMode()">
+    <!-- <button type="button" class="btn btn-sm btn-primary" (click)="toggleEditMode()">
       <i class="fas fa-pencil-alt"></i> Editar
-    </button>
+    </button> -->
   </div>
 
   <div class="card-body">
@@ -64,9 +64,9 @@
         <input type="text" formControlName="street" class="form-control" [readonly]="!isEditMode" [ngClass]="{'disabled': !isEditMode}" placeholder="Enter your street" />
       </div>
 
-      <div class="col-12">
+      <!-- <div class="col-12">
         <button type="button" class="btn btn-primary" (click)="onSave()" [disabled]="!isEditMode">Guardar Cambios</button>
-      </div>
+      </div> -->
     </form>
   </div>
 </div>

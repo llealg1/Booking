@@ -64,4 +64,16 @@ export class HotelBookingsComponent implements OnInit {
     this.page = page
     this.getOrders(false)
   }
+
+  changeTab(event: any) {
+    console.log(event)
+    const tabId = event.activeId
+    this.page = 1
+    this.wishListCards = []
+    if (tabId == '1') {
+      this.getOrders(true)
+    } else if (tabId == '2') {
+      this.getOrders(false)
+    }
+  }
 }
