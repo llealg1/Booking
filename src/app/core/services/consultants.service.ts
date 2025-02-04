@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { API_URL } from '../config/url.constans';
 @Injectable({
   providedIn: 'root'
 })
 export class ConsultantsService {
-  private baseUrl: string = 'https://arcadia-viajes.com:3001';
-  private apiKey: string = 'apikey123';
+  private baseUrl: string = API_URL;
+  private apiKey: string = 'apikey2025';
 
   constructor(private http: HttpClient) { }
 

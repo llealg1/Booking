@@ -12,7 +12,8 @@ import { RouterModule } from '@angular/router'
 import { OrdersService } from '../../../core/services/orders.service'
 import { CommonModule } from '@angular/common'
 import { QRCodeComponent } from 'angularx-qrcode'
-
+import { API_URL } from '@/app/core/config/url.constans'
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-bookings',
   standalone: true,
@@ -49,15 +50,16 @@ export class BookingsComponent implements OnInit {
   pauseOnHover = true
   pauseOnFocus = true
   reverveSelect: any
-  stream: any = `https://arcadia-viajes.com:3001/locator-ticket/image/`
-
+  stream: any = `${API_URL}/locator-ticket/image/`
+  pdfSrc: SafeResourceUrl | null = null;
   @ViewChild('carousel', { static: true }) carousel: NgbCarousel =
     new NgbCarousel()
 
   ngOnInit(): void {}
   constructor(
     private ordersService: OrdersService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private sanitizer: DomSanitizer
   ) {
     this.getOrders(false)
     this.carousel?.pause()
@@ -65,6 +67,7 @@ export class BookingsComponent implements OnInit {
 
   openModal(content: any, item: any) {
     this.reverveSelect = item
+    console.log(this.reverveSelect);
     this.modalService.open(content, { size: 'xl', centered: true })
   }
 
@@ -88,10 +91,11 @@ export class BookingsComponent implements OnInit {
     this.getOrders(false)
   }
 
-  downloadPdf(order: any) {
-    console.log(order)
-    console.log(this.stream + order.fileUrl)
-    window.open(this.stream + order.fileUrl);
-    // this.ordersService.openPdfInNewWindow(order)
+  downloadPdf(order: any, content: any) {
+    this.ordersService.downloadPdf(order.fileUrl).subscribe((response: Blob) => {
+      const fileURL = URL.createObjectURL(response);
+      this.pdfSrc = this.sanitizer.bypassSecurityTrustResourceUrl(fileURL);
+      this.modalService.open(content, { size: 'xl', centered: true });
+    });
   }
 }

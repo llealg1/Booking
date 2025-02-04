@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
-
+import { API_URL } from '../config/url.constans';
 @Injectable({
   providedIn: 'root',
 })
 export class OrdersService {
-  private baseUrl: string = 'https://arcadia-viajes.com:3001';
+  private baseUrl: string = API_URL;
   private apiKey: string = '80a123-37e1c0';
   private readonly authSessionKey = 'Bearer_auth_arcadia';
 
@@ -42,5 +42,9 @@ export class OrdersService {
   openPdfInNewWindow(order: { createdAt: string; fileUrl: string; id: number; trackerId: number }) {
     const pdfUrl = `${order.fileUrl}`;
     window.open(pdfUrl, '_blank');
+  }
+
+  downloadPdf(fileUrl: string) {
+    return this.httpClient.get(`${this.baseUrl}/locator-ticket/image/${fileUrl}`, { responseType: 'blob' });
   }
 }
