@@ -1,0 +1,55 @@
+<div class="card border bg-transparent">
+    <div class="card-header bg-transparent border-bottom">
+        <h4 class="card-header-title">Mis Servicios Especiales</h4>
+    </div>
+
+    <div class="card-body p-0">
+        <ul ngbNav #nav="ngbNav" class="nav nav-tabs nav-bottom-line nav-responsive nav-justified">
+            <li class="nav-item" ngbNavItem>
+                <a class="nav-link mb-0" ngbNavLink data-bs-toggle="tab" href="#tab-1"><i
+                        class="bi bi-gear fa-fw me-1"></i>Servicios Especiales proximos</a>
+                <ng-template ngbNavContent>
+                    <div class="tab-pane fade show active" id="tab-1">
+                        <div *ngFor="let item of wishListCards;">
+                            <div *ngFor="let item2 of item.specialService;">
+                                <div class="card shadow p-2 mb-3">
+                                    <div class="row g-0">
+
+                                        <div class="col-md-9">
+                                            <div class="card-body py-md-2 d-flex flex-column h-100 ">
+                                                <h5 class="card-title mb-1">
+                                                    <a routerLink="{{ item2.link?.name }}">{{ item2.specialService.name
+                                                        }}</a>
+                                                </h5>
+                                                <div class="d-flex justify-content-between">
+
+                                                    <div class="mt-2">
+                                                        <strong>Descripcion:</strong> {{
+                                                        item2.specialService.description}}
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="d-sm-flex justify-content-sm-between align-items-center mt-5 mt-md-auto">
+                                                    <div class="d-flex align-items-center">
+                                                        <strong>Orden: #</strong>
+                                                        <h5 class="fw-bold mb-0 me-1">{{ item.id }}
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </li>
+            <!-- Other tabs... -->
+        </ul>
+
+        <div class="tab-content p-2 p-sm-4" [ngbNavOutlet]="nav" id="nav-tabContent"></div>
+    </div>
+</div>
+
+<!-- Modal content -->

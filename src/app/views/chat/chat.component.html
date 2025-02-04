@@ -2,10 +2,10 @@
   <div class="chat-header bg-primary text-white d-flex align-items-center p-3"
     [ngClass]="{ 'justify-content-start': isHidden, 'justify-content-between': !isHidden }">
     <button (click)="toggleChat()" *ngIf="isHidden" class="toggle-button d-flex">
-      <h5 class="text-white">{{ isHidden ? 'Navisex' : 'X' }}</h5>
+      <h5 class="text-white">{{ isHidden ? 'Navi' : 'X' }}</h5>
     </button>
     <h5 (click)="toggleChat()" class="toggle-button" *ngIf="!isHidden">
-      Navisex2
+      Navi
     </h5>
     <button (click)="toggleChat()" *ngIf="!isHidden" class="toggle-button d-flex">
       <h5 class="text-white">{{ isHidden ? 'Navi' : 'X' }}</h5>
