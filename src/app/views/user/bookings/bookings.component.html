@@ -4,15 +4,10 @@
   </div>
 
   <div class="card-body p-0">
-    <ul
-      ngbNav
-      #nav="ngbNav"
-      class="nav nav-tabs nav-bottom-line nav-responsive nav-justified"
-    >
+    <ul ngbNav #nav="ngbNav" class="nav nav-tabs nav-bottom-line nav-responsive nav-justified">
       <li class="nav-item" ngbNavItem>
-        <a class="nav-link mb-0" ngbNavLink data-bs-toggle="tab" href="#tab-1"
-          ><i class="bi bi-briefcase-fill fa-fw me-1"></i>Reservas</a
-        >
+        <a class="nav-link mb-0" ngbNavLink data-bs-toggle="tab" href="#tab-1"><i
+            class="bi bi-briefcase-fill fa-fw me-1"></i>Reservas</a>
         <ng-template ngbNavContent>
           <div class="tab-pane fade show active" id="tab-1">
             <div *ngIf="isLoading" class="text-center">
@@ -21,16 +16,11 @@
               </div>
             </div>
 
-            <div
-              *ngIf="!isLoading && upcomingBookingData.length === 0"
-              class="text-center"
-            >
+            <div *ngIf="!isLoading && upcomingBookingData.length === 0" class="text-center">
               <p>No hay Reservas encontradas</p>
             </div>
             <div *ngFor="let item of upcomingBookingData;" class="card border mb-4">
-              <div
-                class="card-header border-bottom d-md-flex justify-content-md-between align-items-center"
-              >
+              <div class="card-header border-bottom d-md-flex justify-content-md-between align-items-center">
                 <div class="d-flex align-items-center">
                   <div class="icon-lg bg-light rounded-circle flex-shrink-0">
                     <i class="fa-solid fa-ticket"></i>
@@ -48,6 +38,12 @@
                       <li class="nav-item">
                         N° de boletos: {{ item.location?.[0].tickets.length }}
                       </li>
+                      <div class="d-sm-flex justify-content-sm-between align-items-center mt-5 mt-md-auto">
+                        <div class="d-flex align-items-center">
+                          <strong> Orden: #</strong>
+                          <h5 class="fw-bold mb-0 me-1">{{ item.id }}</h5>
+                        </div>
+                      </div>
                     </ul>
                   </div>
                 </div>
@@ -57,10 +53,7 @@
               <div class="card-body">
                 <div class="row g-3">
                   <div class="d-inline-block w-100" style="position: relative;">
-                    <button
-                      class="btn btn-primary w-100"
-                      (click)="openModal(content, item)"
-                    >
+                    <button class="btn btn-primary w-100" (click)="openModal(content, item)">
                       Ver Tickets
                     </button>
                   </div>
@@ -68,45 +61,29 @@
               </div>
             </div>
           </div>
-          <div
-          class="card-footer pt-0"
-          *ngIf="!isLoading && upcomingBookingData.length > 0"
-        >
-          <div
-            class="d-sm-flex justify-content-sm-between align-items-sm-center"
-          >
-            <p class="mb-sm-0 text-center text-sm-start">
-              Mostrar 1 a {{ upcomingBookingData.length }} de
-              {{ upcomingBookingData.length }} Total
-            </p>
+          <div class="card-footer pt-0" *ngIf="!isLoading && upcomingBookingData.length > 0">
+            <div class="d-sm-flex justify-content-sm-between align-items-sm-center">
+              <p class="mb-sm-0 text-center text-sm-start">
+                Mostrar 1 a {{ upcomingBookingData.length }} de
+                {{ upcomingBookingData.length }} Total
+              </p>
 
-            <nav
-              class="mb-sm-0 d-flex justify-content-center"
-              aria-label="navigation"
-            >
-            <ngb-pagination
-                [collectionSize]="totalItems"
-                [(page)]="page"
-                [pageSize]="limit"
-                (pageChange)="onPageChange($event)"
-                class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0"
-              >
-                <ng-template ngbPaginationPrevious>Atras </ng-template>
-                <ng-template ngbPaginationNext>Siguiente </ng-template>
-              </ngb-pagination>
-            </nav>
+              <nav class="mb-sm-0 d-flex justify-content-center" aria-label="navigation">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="limit"
+                  (pageChange)="onPageChange($event)"
+                  class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
+                  <ng-template ngbPaginationPrevious>Atras </ng-template>
+                  <ng-template ngbPaginationNext>Siguiente </ng-template>
+                </ngb-pagination>
+              </nav>
+            </div>
           </div>
-        </div>
         </ng-template>
       </li>
       <!-- Other tabs... -->
     </ul>
 
-    <div
-      class="tab-content p-2 p-sm-4"
-      [ngbNavOutlet]="nav"
-      id="nav-tabContent"
-    ></div>
+    <div class="tab-content p-2 p-sm-4" [ngbNavOutlet]="nav" id="nav-tabContent"></div>
   </div>
 </div>
 
@@ -123,15 +100,13 @@
         <ng-template ngbNavContent>
           <div class="container-fluid">
             <div class="row">
-              <div *ngFor="let item of data.tickets;" class="card p-4 mb-3 col-4 m-1" style="max-width: 360px; background-color: #f2f4ff; border-radius: 15px;">
+              <div *ngFor="let item of data.tickets;" class="card p-4 mb-3 col-4 m-1"
+                style="max-width: 360px; background-color: #f2f4ff; border-radius: 15px;">
                 <div class="card-header text-center text-white bg-primary rounded-3">
 
                   <h5 class="mb-0 text-white" *ngIf="!item.airline.imgUrl ">{{ item.airline.nameAirline}}</h5>
-                  <img
-                  [src]="item.airline.imgUrl ? 'assets/images/'+ item.airline.imgUrl : ''"
-                  class="w-20px me-2"
-                  alt=""
-                />
+                  <img [src]="item.airline.imgUrl ? 'assets/images/'+ item.airline.imgUrl : ''" class="w-20px me-2"
+                    alt="" />
                 </div>
 
                 <div class="row g-3 mt-3">

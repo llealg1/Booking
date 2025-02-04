@@ -6,7 +6,7 @@ import { Component, OnInit, inject } from '@angular/core'
 import { NavigationEnd, Router, RouterModule } from '@angular/router'
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap'
 import { filter } from 'rxjs'
-import { Store } from '@ngrx/store';
+import { Store } from '@ngrx/store'
 import { AuthenticationState } from '@/app/store/authentication/authentication.reducer'
 import { logout } from '@/app/store/authentication/authentication.actions'
 import { getUser } from '@/app/store/authentication/authentication.selector'
@@ -25,11 +25,13 @@ import { getUser } from '@/app/store/authentication/authentication.selector'
             alt=""
           />
         </div>
-        <h6 class="mb-0">{{ this.clientMe?.name  + " " + this.clientMe?.last_name }}</h6>
+        <h6 class="mb-0">
+          {{ this.clientMe?.name + ' ' + this.clientMe?.last_name }}
+        </h6>
         <a
           href="javascript:void(0);"
           class="text-reset text-primary-hover small"
-          >{{ this.clientMe?.email || ""}}</a
+          >{{ this.clientMe?.email || '' }}</a
         >
         <hr />
       </div>
@@ -51,10 +53,11 @@ import { getUser } from '@/app/store/authentication/authentication.selector'
         }
         <li class="nav-item">
           <button
-            class="nav-link text-danger bg-danger-soft-hover" (click)="onLogout()"
-
-            ><i class="fas fa-sign-out-alt fa-fw me-2"></i>Cerrar Sesion</button>
-
+            class="nav-link text-danger bg-danger-soft-hover"
+            (click)="onLogout()"
+          >
+            <i class="fas fa-sign-out-alt fa-fw me-2"></i>Cerrar Sesion
+          </button>
         </li>
       </ul>
     </div>
@@ -71,7 +74,11 @@ export class SidebarComponent implements OnInit {
   offcanvasService = inject(NgbOffcanvas)
   isOffcanvasOpen: boolean = false
 
-  constructor(private router: Router, private authenticationService:AuthenticationService, private store:Store<AuthenticationState>) {}
+  constructor(
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    private store: Store<AuthenticationState>
+  ) {}
 
   ngOnInit(): void {
     this.currentPath = this.router.url
@@ -85,17 +92,12 @@ export class SidebarComponent implements OnInit {
         this.currentPath = event.urlAfterRedirects
       })
 
-
-      this.store.select(getUser).subscribe((data) => {
-        this.clientMe = data
-      })
-
+    this.store.select(getUser).subscribe((data) => {
+      this.clientMe = data
+    })
   }
 
   onLogout() {
     this.authenticationService.logout().subscribe(() => {})
-
   }
-
-
 }
