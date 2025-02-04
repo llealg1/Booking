@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.consultantsService.getUsersPortal().subscribe((data) => {
-      console.log(data)
+      // console.log(data)
     })
     // this.open(this.modalBanner);
   }

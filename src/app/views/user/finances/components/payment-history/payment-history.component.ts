@@ -59,7 +59,7 @@ export class PaymentHistoryComponent implements OnInit {
   open(content: TemplateRef<any>, item: any) {
     this.ordersService.getOrdersById(item.id).subscribe(() => {
       this.itemView = item
-      console.log(this.itemView)
+      // console.log(this.itemView)
     })
 
     this.modalService
@@ -81,7 +81,7 @@ export class PaymentHistoryComponent implements OnInit {
     this.ordersService.getOrders(financed, this.page).subscribe(
       (res: any) => {
         this.paymentHistory = res.data
-        console.log(this.paymentHistory);
+        // console.log(this.paymentHistory);
         this.totalItems = res.meta.totalItems
         this.isLoading = false
       },
@@ -92,7 +92,7 @@ export class PaymentHistoryComponent implements OnInit {
   }
 
   changeTab(event: any) {
-    console.log(event)
+    // console.log(event)
     const tabId = event.activeId
     this.page = 1
     this.paymentHistory = []

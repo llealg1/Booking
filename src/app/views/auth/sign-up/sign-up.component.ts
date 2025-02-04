@@ -80,7 +80,7 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.countryService.getCountry().subscribe((data: any) => {
-      console.log(data)
+      // console.log(data)
       this.countrys = data.data
     })
   }
@@ -98,10 +98,10 @@ export class SignUpComponent implements OnInit {
   }
 
   resolvedCaptcha(captchaResponse: any) {
-    console.log(`Resolved captcha with response: ${captchaResponse}`);
+    // console.log(`Resolved captcha with response: ${captchaResponse}`);
   }
   onChangeConfirmPwd(event: any) {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     this.confirmPwd = event.target.value
   }
   onSubmit() {

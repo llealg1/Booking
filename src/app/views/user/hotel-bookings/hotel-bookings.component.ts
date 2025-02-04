@@ -66,7 +66,6 @@ export class HotelBookingsComponent implements OnInit {
   }
 
   changeTab(event: any) {
-    console.log(event)
     const tabId = event.activeId
     this.page = 1
     this.wishListCards = []

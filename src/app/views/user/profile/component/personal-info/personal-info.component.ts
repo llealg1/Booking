@@ -73,7 +73,6 @@ export class PersonalInfoComponent implements OnInit, OnChanges {
 
   onSave() {
     if (this.personalInfoForm.valid) {
-      console.log(this.personalInfoForm.value);
       // Aquí puedes agregar la lógica para guardar los cambios
       this.isEditMode = false;
       this.originalFormValues = this.personalInfoForm.value;

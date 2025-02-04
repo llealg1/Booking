@@ -34,7 +34,6 @@ export class SpecialServicesComponent implements OnInit {
     this.ordersService.getOrders().subscribe((response: any) => {
       this.wishListCards = response?.data
       this.wishListCards = [this.wishListCards[0]]
-      console.log(this.wishListCards)
     })
   }
 }

@@ -50,7 +50,7 @@ export class CarRentalsComponent {
     this.ordersService.getOrders(financed, this.page).subscribe(
       (res: any) => {
         this.carRentalsData = res.data
-        console.log(res)
+        // console.log(res)
         this.totalItems = res.meta.totalItems
         this.isLoading = false
       },

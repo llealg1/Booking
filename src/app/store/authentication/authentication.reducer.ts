@@ -23,7 +23,7 @@ export const authenticationReducer = createReducer(
   initialState,
   on(login, (state) => ({ ...state, error: null })),
   on(loginSuccess, (state, { user }) => {
-    console.log('user', user)
+    // console.log('user', user)
     return {
       ...state,
       user: user,

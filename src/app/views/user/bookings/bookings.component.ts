@@ -67,7 +67,7 @@ export class BookingsComponent implements OnInit {
 
   openModal(content: any, item: any) {
     this.reverveSelect = item
-    console.log(this.reverveSelect);
+    // console.log(this.reverveSelect);
     this.modalService.open(content, { size: 'xl', centered: true })
   }
 
@@ -76,7 +76,7 @@ export class BookingsComponent implements OnInit {
     this.ordersService.getOrders(financed, this.page).subscribe(
       (res: any) => {
         this.upcomingBookingData = res.data
-        console.log(res)
+        // console.log(res)
         this.totalItems = res.meta.totalItems
         this.isLoading = false
       },
@@ -101,7 +101,7 @@ export class BookingsComponent implements OnInit {
 
 
   changeTab(event: any) {
-    console.log(event)
+    // console.log(event)
     const tabId = event.activeId
     this.page = 1
     this.upcomingBookingData = []

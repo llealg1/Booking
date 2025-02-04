@@ -41,7 +41,7 @@ export class AgentWidgetCardComponent {
         const id = params.get('id');
         if (id) {
           this.consultantsService.getUserPortalById(id).subscribe(agent => {
-            console.log(agent);
+            // console.log(agent);
             // this.statisticsData = agent;
           });
         }

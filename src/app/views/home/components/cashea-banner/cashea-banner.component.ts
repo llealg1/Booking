@@ -24,8 +24,8 @@ export class CasheaBannerComponent {
 
   private checkScreenSize(): void {
     this.isMobile = window.innerWidth < 768 // Puedes ajustar el ancho según tus necesidades
-    console.log(window.innerWidth)
-    console.log(this.isMobile)
+    // console.log(window.innerWidth)
+    // console.log(this.isMobile)
   }
 
 }

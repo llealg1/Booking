@@ -18,12 +18,12 @@ export class TeamListComponent implements OnInit {
 
   constructor(private consultantsService: ConsultantsService) {
     this.consultantsService.getUsersPortal().subscribe((consultants) => {
-      console.log(consultants)
+      // console.log(consultants)
       this.teamMembers = consultants.data
     })
   }
   ngOnInit() {
-    console.log('TeamListComponent initialized')
+    // console.log('TeamListComponent initialized')
   }
 
 

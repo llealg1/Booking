@@ -33,7 +33,7 @@ export class DatesComponent implements OnInit {
   ngOnInit(): void {
     this.ordersService.getOrders().subscribe((response: any) => {
       this.wishListCards = response?.data
-      console.log(this.wishListCards)
+      // console.log(this.wishListCards)
     })
   }
   calcularDiasEstadia(item: { dateStart: string; dateEnd: string }): number {
