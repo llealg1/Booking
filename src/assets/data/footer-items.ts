@@ -32,9 +32,15 @@ const footerLinks: FooterLink[] = [
   {
     title: 'TELÉFONOS',
     items: [
-      { name: '+584121300249' },
-      { name: '+584241704117' },
-      { name: '+584241704117' },
+      { name: 'Venezuela' },
+      { name: 'España' },
+      { name: 'Argentina' },
+      { name: 'Colombia' },
+      { name: 'Estados Unidos' },
+      { name: 'Panama' },
+      { name: 'Peru' },
+      { name: 'Chile' },
+      { name: 'Ecuador' },
     ],
   },
   {

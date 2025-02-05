@@ -83,6 +83,12 @@ export class HeaderComponent implements OnInit {
       url: '/faq',
       icon: 'fa-solid fa-question-circle',
     },
+    // {
+    //   key: 'blog',
+    //   label: 'Blog',
+    //   url: '/blog',
+    //   icon: 'fa-solid fa-question-circle',
+    // },
     {
       key: 'contacto',
       label: 'Contacto',
