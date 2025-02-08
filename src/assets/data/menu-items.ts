@@ -363,6 +363,12 @@ export const APP_MENU_ITEMS: MenuItemType[] = [
     icon: 'fa-solid fa-question-circle',
   },
   {
+    key: 'blog',
+    label: 'Blog',
+    url: '/blog',
+    icon: 'fa-solid fa-map-marker',
+  },
+  {
     key: 'contacto',
     label: 'Contacto',
     url: '/contact',
