@@ -1,14 +1,15 @@
-import { CommonModule } from '@angular/common'
-import { Component, OnInit, ViewChild } from '@angular/core'
-import { TinySliderSettings } from 'tiny-slider'
-import { TinySliderComponent } from '@/app/components/tiny-slider/tiny-slider.component'
-const avatar1 = 'assets/images/carmelo.png'
-const avatar2 = 'assets/images/melani.png'
-const avatar3 = 'assets/images/pierina.png'
-
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap'
-import { ConsultantsService } from '@/app/core/services/consultants.service'
+import { CommonModule } from '@angular/common';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { TinySliderSettings } from 'tiny-slider';
+import { TinySliderComponent } from '@/app/components/tiny-slider/tiny-slider.component';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { ConsultantsService } from '@/app/core/services/consultants.service';
 import { Router } from '@angular/router';
+
+const avatar1 = 'assets/images/carmelo.png';
+const avatar2 = 'assets/images/melani.png';
+const avatar3 = 'assets/images/pierina.png';
+
 @Component({
   selector: 'our-team-list',
   standalone: true,
@@ -33,9 +34,9 @@ export class TeamListComponent implements OnInit {
       position: 'Editor in Chief',
       image: avatar3,
     },
-  ]
+  ];
 
-  @ViewChild('clientSlider', { static: false }) clientSlider: any
+  @ViewChild('clientSlider', { static: false }) clientSlider: any;
 
   clientSliderSetting: TinySliderSettings = {
     autoplay: true,
@@ -60,41 +61,55 @@ export class TeamListComponent implements OnInit {
         items: 4,
       },
     },
-  }
-  clientList:any= [
-  ]
-  chunkedMemberList: any[][] = []
-
+  };
+  clientList: any = [];
+  chunkedMemberList: any[][] = [];
 
   clientList1 = [
-    { id: 4, image: "assets/images/proveedores/AVIOR.png" },
-    { id: 5, image: "assets/images/proveedores/BT-TRAVEL.png" },
-    { id: 6, image: "assets/images/proveedores/ESTELAR.png" },
-    { id: 7, image: "assets/images/proveedores/EXPEDIA-1.png" },
-    { id: 8, image: "assets/images/proveedores/FVF.png" },
-    { id: 9, image: "assets/images/proveedores/INTERWELT.png" },
-    { id: 10, image: "assets/images/proveedores/VIRAmundo.png" },
-    { id: 11, image: "assets/images/proveedores/vivitatis.png" },
+    { id: 4, image: 'assets/images/proveedores/AVIOR.png' },
+    { id: 5, image: 'assets/images/proveedores/BT-TRAVEL.png' },
+    { id: 6, image: 'assets/images/proveedores/ESTELAR.png' },
+    { id: 7, image: 'assets/images/proveedores/EXPEDIA-1.png' },
+    { id: 8, image: 'assets/images/proveedores/FVF.png' },
+    { id: 9, image: 'assets/images/proveedores/INTERWELT.png' },
+    { id: 10, image: 'assets/images/proveedores/VIRAmundo.png' },
+    { id: 11, image: 'assets/images/proveedores/vivitatis.png' },
   ];
-  constructor(private consultantsService: ConsultantsService,  private router:Router) {}
+
+  constructor(private consultantsService: ConsultantsService, private router: Router) {}
+
   navigateToAdvisor(team: any) {
     this.router.navigate([`/advisors/${team.id}/${team.name}-${team.lastName}`]);
   }
 
   ngOnInit() {
-    this.consultantsService.getUsersPortal().subscribe((consultants) => {
-      this.memberList = consultants.data
-      this.chunkedMemberList = this.chunkArray(this.memberList, 4)
-    })
+    const startDate = this.getFirstDayOfMonth();
+    const endDate = this.getLastDayOfMonth();
+
+    this.consultantsService.getUsersPortalHome(startDate, endDate).subscribe((consultants) => {
+      console.log(consultants);
+      this.memberList = consultants;
+      // Mamalo puto!+
+      this.memberList = this.memberList.filter((data) => data.id != 7);
+      this.chunkedMemberList = this.chunkArray(this.memberList, 4);
+    });
+  }
+
+  getFirstDayOfMonth(): string {
+    const date = new Date();
+    return new Date(date.getFullYear(), date.getMonth(), 1).toISOString().split('T')[0];
+  }
+
+  getLastDayOfMonth(): string {
+    const date = new Date();
+    return new Date(date.getFullYear(), date.getMonth() + 1, 0).toISOString().split('T')[0];
   }
 
   chunkArray(myArray: any[], chunk_size: number): any[][] {
-    const results = []
+    const results = [];
     while (myArray.length) {
-      results.push(myArray.splice(0, chunk_size))
+      results.push(myArray.splice(0, chunk_size));
     }
-    return results
+    return results;
   }
-
-
 }

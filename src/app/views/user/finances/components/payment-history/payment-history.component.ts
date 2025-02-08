@@ -10,6 +10,8 @@ import { ReplaceUnderscorePipe } from '@/app/core/pipes/replace-underscore.pipe'
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap'
 import { RouterModule } from '@angular/router'
 import { inject, signal, TemplateRef, WritableSignal } from '@angular/core'
+import { AviationEdgeService } from '../../../../../core/services/aviation-edge.service'
+import { map } from 'rxjs/operators'
 import {
   ModalDismissReasons,
   NgbDatepickerModule,
@@ -46,11 +48,14 @@ export class PaymentHistoryComponent implements OnInit {
   totalItems = 0
   page = 1
   limit = 10
-
+  dataTracker: any[] = []
   private modalService = inject(NgbModal)
   closeResult: WritableSignal<string> = signal('')
 
-  constructor(private ordersService: OrdersService) {}
+  constructor(
+    private ordersService: OrdersService,
+    private aviationEdgeService: AviationEdgeService
+  ) {}
 
   ngOnInit(): void {
     this.getOrders(false)
@@ -59,7 +64,35 @@ export class PaymentHistoryComponent implements OnInit {
   open(content: TemplateRef<any>, item: any) {
     this.ordersService.getOrdersById(item.id).subscribe(() => {
       this.itemView = item
-      // console.log(this.itemView)
+      this.itemView.location.map((location: any) => {
+        location.trackerNumberFlights.map((flight: any) => {
+          this.getInfoFlight(flight.iataFlight + flight.numberFlight).then(
+            (res: any) => {
+              if (res.data && res.data.length > 0) {
+                this.dataTracker.push(res.data[0])
+              }
+            }
+          )
+        })
+      })
+
+      this.dataTracker.map((data: any) => {
+        this.itemView.location.map((location: any, index1: number) => {
+          location.tickets.map((flight: any, index2: number) => {
+            console.log(data)
+            console.log(flight)
+            if (
+              data.flight.iataNumber ==
+              flight.iataFlight + flight.numberFlight
+            ) {
+              this.itemView.location[index1].tickets[
+                index2
+              ].flight_data_tracker = data
+            }
+          })
+        })
+      })
+      // this.aviationEdgeService.getInfoFlight(item.flight_id).subscribe
     })
 
     this.modalService
@@ -92,7 +125,6 @@ export class PaymentHistoryComponent implements OnInit {
   }
 
   changeTab(event: any) {
-    // console.log(event)
     const tabId = event.activeId
     this.page = 1
     this.paymentHistory = []
@@ -117,5 +149,9 @@ export class PaymentHistoryComponent implements OnInit {
   onPageChange(page: number) {
     this.page = page
     this.getOrders(false)
+  }
+
+  async getInfoFlight(flightId: string) {
+    return await this.aviationEdgeService.getInfoFlight(flightId).toPromise()
   }
 }

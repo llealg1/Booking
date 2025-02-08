@@ -1,6 +1,6 @@
 <section class="py-5">
   <div class="container">
-    <!-- <h2 class="text-center mb-5">¡Conoce a tus asesores de ventas!</h2> -->
+    <h2 class="text-center mb-5">¡Conoce a tus asesores de ventas!</h2>
     <ngb-carousel id="teamCarousel" [interval]="2500">
       <ng-template ngbSlide *ngFor="let chunk of chunkedMemberList; let i = index">
         <div class="row g-4">
@@ -8,16 +8,16 @@
             <div class="card card-img-scale card-element-hover overflow-hidden bg-transparent"
               (click)="navigateToAdvisor(team)">
               <div class="card-img-scale-wrapper rounded-3">
-                <img [src]="team.imgUrl" class="card-img" alt=""
+                <img [src]="team.userImg" class="card-img" alt=""
                   style="width: 100%; height: 350px; object-fit: cover;" />
                 <div class="card-img-overlay d-flex align-items-start flex-column p-4">
                 </div>
               </div>
               <div class="card-body px-3 pb-2">
                 <h3 class="card-title mb-2 fs-4">
-                  <a href="javascript:void(0);">{{ team.name }}</a>
+                  <a href="javascript:void(0);">{{ team.name }} {{ team.lastName }}</a>
                 </h3>
-                <span class="fs-5">{{ team.session.rol.name }}</span>
+                <span class="fs-5">{{ team.team[0].team.name }}</span>
               </div>
             </div>
           </div>

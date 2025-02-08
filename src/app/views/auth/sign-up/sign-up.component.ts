@@ -49,18 +49,18 @@ export class SignUpComponent implements OnInit {
   public fb = inject(UntypedFormBuilder)
   signupForm: UntypedFormGroup = this.fb.group(
     {
-      name: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      passport: ['', [Validators.required]],
-      phone: ['', [Validators.required]],
+      // name: ['', [Validators.required]],
+      // lastName: ['', [Validators.required]],
+      // passport: ['', [Validators.required]],
+      // phone: ['', [Validators.required]],
       identityCard: ['', [Validators.required]],
-      child: [false, [Validators.required]],
-      birthDate: ['', [Validators.required]],
-      address: this.fb.group({
-        country: ['', [Validators.required]],
-        state: ['', [Validators.required]],
-        street: ['', [Validators.required]],
-      }),
+      // child: [false, [Validators.required]],
+      // birthDate: ['', [Validators.required]],
+      // address: this.fb.group({
+      //   country: ['', [Validators.required]],
+      //   state: ['', [Validators.required]],
+      //   street: ['', [Validators.required]],
+      // }),
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
       // recaptcha: ['', Validators.required],

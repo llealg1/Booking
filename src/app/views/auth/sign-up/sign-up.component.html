@@ -39,7 +39,7 @@
     >
       <div class="row">
         <div class="col-md-6">
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label class="form-label">Nombre</label>
             <input
               type="text"
@@ -81,7 +81,7 @@
               [ngClass]="{ 'is-invalid': submitted && form['phone'].errors }"
             />
             <div class="invalid-feedback">Por favor ingresa tu teléfono</div>
-          </div>
+          </div> -->
 
           <div class="mb-3">
             <label class="form-label">Cédula de Identidad / DNI</label>
@@ -97,7 +97,7 @@
               Por favor ingresa tu cédula de identidad
             </div>
           </div>
-
+<!--
           <div class="mb-3">
             <label class="form-label">Es menor de edad?</label>
             <input
@@ -109,9 +109,9 @@
             <div class="invalid-feedback">
               Por favor selecciona si es menor de edad
             </div>
-          </div>
+          </div> -->
 
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label class="form-label">Fecha de Nacimiento</label>
             <input
               type="date"
@@ -127,11 +127,11 @@
             <div class="invalid-feedback">
               Por favor ingresa tu fecha de nacimiento
             </div>
-          </div>
+          </div> -->
         </div>
 
         <div class="col-md-6">
-          <div formGroupName="address">
+          <!-- <div formGroupName="address">
             <div class="mb-3">
               <div class="mb-3">
                 <label class="form-label">País</label>
@@ -179,7 +179,7 @@
               />
               <div class="invalid-feedback">Por favor ingresa tu calle</div>
             </div>
-          </div>
+          </div> -->
 
           <div class="mb-3">
             <label class="form-label">Correo Electrónico</label>
@@ -192,8 +192,13 @@
             <div class="invalid-feedback">
               Por favor ingresa tu correo electrónico
             </div>
+
           </div>
 
+
+        </div>
+
+        <div class="col-md-12">
           <div class="mb-3 position-relative">
             <label class="form-label">Contraseña</label>
             <input

@@ -8,10 +8,12 @@ import { CookieService } from 'ngx-cookie-service';
 export class AviationEdgeService {
   private baseUrl: string = 'https://arcadia-viajes.com:3001';
   private readonly authSessionKey = 'Bearer_auth_arcadia';
+  private apiKey: string = "apikey123";
     httpOptions = {
       headers: new HttpHeaders({
         Authorization: `Bearer ${this.session}`,
         'Content-Type': 'application/json',
+        'X-API-KEY': this.apiKey,
       }),
     };
   constructor(private http:HttpClient, private cookieService: CookieService) { }
@@ -21,7 +23,7 @@ export class AviationEdgeService {
   }
 
   getInfoFlight(numberFlight:string){
-    return this.http.get(`${this.baseUrl}/aviation-edge/timetable?`, this.httpOptions);
+    return this.http.get(`${this.baseUrl}/aviation-edge/timetable?type=departure&flight_iata=${numberFlight}`, this.httpOptions);
   }
 
 }

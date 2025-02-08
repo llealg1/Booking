@@ -7,7 +7,7 @@ import { API_URL } from '../config/url.constans';
 })
 export class ConsultantsService {
   private baseUrl: string = API_URL;
-  private apiKey: string = 'apikey2025';
+  private apiKey: string = 'apikey123';
 
   constructor(private http: HttpClient) { }
 
@@ -42,5 +42,22 @@ export class ConsultantsService {
     });
 
     return this.http.get<any>(url, { headers });
+  }
+
+  getUsersPortalHome(
+    startDate: string,
+    endDate: string
+  ): Observable<any> {
+    const url = `${this.baseUrl}/dashboard-web/top-avisor-metadata`;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-API-KEY': this.apiKey
+    });
+
+    let params = new HttpParams()
+      .set('startDate', startDate)
+      .set('endDate', endDate);
+
+    return this.http.get<any>(url, { headers, params });
   }
 }
