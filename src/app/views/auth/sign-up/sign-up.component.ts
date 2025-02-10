@@ -49,8 +49,8 @@ export class SignUpComponent implements OnInit {
   public fb = inject(UntypedFormBuilder)
   signupForm: UntypedFormGroup = this.fb.group(
     {
-      // name: ['', [Validators.required]],
-      // lastName: ['', [Validators.required]],
+      name: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
       // passport: ['', [Validators.required]],
       // phone: ['', [Validators.required]],
       identityCard: ['', [Validators.required]],
