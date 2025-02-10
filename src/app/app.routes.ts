@@ -7,6 +7,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component'
 import { AuthGuard } from './core/guards'
 import { ChatComponent } from './views/chat/chat.component'
+import { PolicyComponent } from './views/policy/policy.component'
 
 export const routes: Routes = [
   {
@@ -75,6 +76,12 @@ export const routes: Routes = [
       import('./views/blog-list/blog-list.route').then(
         (mod) => mod.BLOGLIST_ROUTES
       ),
+  },
+  {
+    path: 'policy',
+    component: DefaultLayoutComponent,
+    loadChildren: () =>
+      import('./views/policy/policy.route').then((mod) => mod.POLICY_ROUTES),
   },
   {
     path: 'auth',

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs'
   providedIn: 'root',
 })
 export class CountryService {
-  private baseUrl: string = 'https://arcadia-viajes.com:3001'
+  private baseUrl: string = 'https://arcadia-viajes.com:3000'
   private apiKey: string = 'apikey123'
 
   constructor(private http: HttpClient) {}
@@ -16,7 +16,6 @@ export class CountryService {
     limit: number = 199,
     page: number = 1,
     orderDirection: string = 'asc'
-
   ): Observable<any> {
     const url = `${this.baseUrl}/country`
     const headers = new HttpHeaders({
@@ -28,8 +27,7 @@ export class CountryService {
       .set('search', search)
       .set('limit', limit.toString())
       .set('page', page.toString())
-      .set('orderDirection', orderDirection);
-
+      .set('orderDirection', orderDirection)
 
     return this.http.get<any>(url, { headers, params })
   }
