@@ -22,7 +22,7 @@ const footerLinks: FooterLink[] = [
       { name: 'Home', link: '/home' },
       { name: 'Promociones', link: '/promotions' },
       { name: 'Empresa', link: '/business' },
-      { name: 'Asesores', link: '/advisors' },
+      // { name: 'Asesores', link: '/advisors' },
       { name: 'Planificador', link: '/destiny' },
       // { name: 'Paises', link: '/paises' },
       { name: 'FAQ', link: '/faq' },
