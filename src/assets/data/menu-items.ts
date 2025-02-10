@@ -343,11 +343,11 @@ export const APP_MENU_ITEMS: MenuItemType[] = [
         label: 'Empresa',
         url: '/business',
       },
-      {
-        key: 'asesores',
-        label: 'Asesores',
-        url: '/advisors',
-      },
+      // {
+      //   key: 'asesores',
+      //   label: 'Asesores',
+      //   url: '/advisors',
+      // },
     ],
   },
   {
@@ -362,16 +362,22 @@ export const APP_MENU_ITEMS: MenuItemType[] = [
     url: '/faq',
     icon: 'fa-solid fa-question-circle',
   },
-  {
-    key: 'blog',
-    label: 'Blog',
-    url: '/blog',
-    icon: 'fa-solid fa-map-marker',
-  },
+  // {
+  //   key: 'blog',
+  //   label: 'Blog',
+  //   url: '/blog',
+  //   icon: 'fa-solid fa-map-marker',
+  // },
   {
     key: 'contacto',
     label: 'Contacto',
     url: '/contact',
+    icon: 'fa-solid fa-envelope',
+  },
+  {
+    key: 'Iniciar Sesion',
+    label: 'Iniciar Sesion',
+    url: '/auth/sign-in',
     icon: 'fa-solid fa-envelope',
   },
 ]
