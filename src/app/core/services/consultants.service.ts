@@ -7,7 +7,7 @@ import { API_URL } from '../config/url.constans';
 })
 export class ConsultantsService {
   private baseUrl: string = API_URL;
-  private apiKey: string = 'apikey123';
+  private apiKey: string = 'apikey2025';
 
   constructor(private http: HttpClient) { }
 
