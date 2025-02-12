@@ -101,14 +101,14 @@ export class TeamListComponent implements OnInit {
     firstDay.setUTCHours(0, 0, 0, 0);
     return firstDay.toISOString();
   }
-  
+
   getLastDayOfMonth(): string {
     const date = new Date();
     const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
     lastDay.setUTCHours(23, 59, 59, 999);
     return lastDay.toISOString();
   }
-  
+
   chunkArray(myArray: any[], chunk_size: number): any[][] {
     const results = [];
     while (myArray.length) {

@@ -21,8 +21,9 @@
 
     <form [formGroup]="signinForm" (ngSubmit)="onLogin()" class="mt-4 text-start">
       <div class="mb-3">
-        <label class="form-label">Usuario</label>
+        <label class="form-label">Correo</label>
         <input type="username" formControlName="username" class="form-control"
+        placeholder="Ejemplo: usuario@mail.com"
           [ngClass]="{ 'is-invalid': submitted && form['username'].errors }" />
         <div class="invalid-feedback">Ingresar Dato</div>
       </div>
