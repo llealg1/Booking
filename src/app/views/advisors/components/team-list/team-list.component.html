@@ -7,26 +7,26 @@
             class="card card-img-scale card-element-hover overflow-hidden bg-transparent"
           >
             <div class="card-img-scale-wrapper rounded-3">
-              <img [src]="team.imgUrl" class="card-img" alt="{{ team.name }}"
+              <img [src]="team.userImg" class="card-img" alt="{{ team.name + ' ' + team.lastName }}"
                 style="height: 350px; object-fit: cover; width: 100%;"
 
               />
 
-              <div
+              <!-- <div
                 class="card-img-overlay d-flex align-items-start flex-column p-3"
               >
                 <span class="badge text-bg-white">
                   <i class="fa-solid fa-star text-warning me-2"></i>4.3
                 </span>
-              </div>
+              </div> -->
             </div>
 
             <div class="card-body px-2 pb-0">
               <h5 class="card-title mb-1">
                 <a [routerLink]="['/advisors', team.id, team.name + '-' + team.lastName]">{{ team.name }}</a>
               </h5>
-              <span>{{ team.session.rol.name }}</span>
-              <p class="mb-0">Sede: {{ team.sede.name }}</p>
+              <!-- <span>{{ team.session.rol.name }}</span> -->
+              <!-- <p class="mb-0">Sede: {{ team.sede.name }}</p> -->
             </div>
           </div>
         </div>
