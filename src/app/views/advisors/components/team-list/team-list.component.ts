@@ -23,7 +23,7 @@ export class TeamListComponent implements OnInit {
     const startDate = this.getFirstDayOfMonth();
     const endDate = this.getLastDayOfMonth();
     this.consultantsService.getUsersPortalHome(startDate, endDate).subscribe((consultants) => {
-      console.log(consultants)
+      // console.log(consultants)
       this.teamMembers = consultants
     })
   }

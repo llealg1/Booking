@@ -79,8 +79,7 @@ export class PaymentHistoryComponent implements OnInit {
       this.dataTracker.map((data: any) => {
         this.itemView.location.map((location: any, index1: number) => {
           location.tickets.map((flight: any, index2: number) => {
-            console.log(data)
-            console.log(flight)
+
             if (
               data.flight.iataNumber ==
               flight.iataFlight + flight.numberFlight
