@@ -343,11 +343,11 @@ export const APP_MENU_ITEMS: MenuItemType[] = [
         label: 'Empresa',
         url: '/business',
       },
-      // {
-      //   key: 'asesores',
-      //   label: 'Asesores',
-      //   url: '/advisors',
-      // },
+      {
+        key: 'asesores',
+        label: 'Asesores',
+        url: '/advisors',
+      },
     ],
   },
   {
