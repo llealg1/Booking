@@ -87,7 +87,7 @@ export class TeamListComponent implements OnInit {
     const endDate = this.getLastDayOfMonth();
 
     this.consultantsService.getUsersPortalHome(startDate, endDate).subscribe((consultants) => {
-      console.log(consultants);
+      // console.log(consultants);
       this.memberList = consultants;
       // Mamalo puto!+
       this.memberList = this.memberList.filter((data) => data.id != 7);
