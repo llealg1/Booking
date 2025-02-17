@@ -30,6 +30,12 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'europe',
+    component: DefaultLayoutComponent,
+    loadChildren: () =>
+      import('./views/europe/europe.route').then((mod) => mod.EUROPE_ROUTES),
+  },
+  {
     path: 'business',
     component: DefaultLayoutComponent,
     loadChildren: () =>
