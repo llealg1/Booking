@@ -1,0 +1,54 @@
+.info-box {
+  background: white;
+  color: black;
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  width: 500px;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+.info-box img {
+  max-width: 160px;
+  min-width: 160px;
+  height: 60px;
+}
+
+.country-box {
+  position: relative;
+  width: 100%;
+  height: 200px; /* Ajusta la altura según tus necesidades */
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.country-box p {
+  color: white;
+  font-weight: bold;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 0.25rem;
+}
+
+.card-custom {
+  background-color: #f8f9fa; /* Fondo claro */
+  border: 1px solid #dee2e6; /* Borde gris claro */
+  border-radius: 0.75rem; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.card-custom .card-body {
+  padding: 1.5rem; /* Espaciado interno */
+}
+
+.card-custom .card-text {
+  font-size: 1rem; /* Tamaño de fuente */
+  color: #495057; /* Color de texto */
+}
