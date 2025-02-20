@@ -1,30 +1,32 @@
-import { CommonModule } from '@angular/common'
-import { Component, inject, ViewChild } from '@angular/core'
+import { CommonModule } from '@angular/common';
+import { Component, inject, ViewChild } from '@angular/core';
 import {
   UntypedFormGroup,
   UntypedFormBuilder,
   Validators,
   FormsModule,
   ReactiveFormsModule,
-} from '@angular/forms'
-import { last } from 'rxjs'
-import { CountryService } from '@/app/core/services/country.service'
-import { TinySliderSettings } from 'tiny-slider'
-import { TinySliderComponent } from '@/app/components/tiny-slider/tiny-slider.component'
-import { ConfirmTicketComponent } from './components/confirm-ticket/confirm-ticket.component'
+} from '@angular/forms';
+import { Router } from '@angular/router';
+import { last } from 'rxjs';
+import { CountryService } from '@/app/core/services/country.service';
+import { ContactService } from '@/app/core/services/contact.service';
+import { TinySliderSettings } from 'tiny-slider';
+import { TinySliderComponent } from '@/app/components/tiny-slider/tiny-slider.component';
+import { ConfirmTicketComponent } from './components/confirm-ticket/confirm-ticket.component';
 
 type OurStoryType = {
-  title: string
-  description: string
-  icon: string
-  variant: string
-}
+  title: string;
+  description: string;
+  icon: string;
+  variant: string;
+};
 
 type TestimonialType = {
-  title: string
-  description: string
-  image: string
-}
+  title: string;
+  description: string;
+  image: string;
+};
 
 const testimonialData: TestimonialType[] = [
   {
@@ -59,7 +61,7 @@ const testimonialData: TestimonialType[] = [
     description: 'Viaja con nosotros y gana puntos viajeros recomendándono',
     image: 'assets/images/referidos.jpg',
   },
-]
+];
 
 @Component({
   selector: 'app-europe',
@@ -75,12 +77,16 @@ const testimonialData: TestimonialType[] = [
   styleUrl: './europe.component.scss',
 })
 export class EuropeComponent {
-  contactForm!: UntypedFormGroup
-  submitted: boolean = false
+  contactForm!: UntypedFormGroup;
+  submitted: boolean = false;
+  loading: boolean = false;
+  successMessage: string = '';
 
-  private fb = inject(UntypedFormBuilder)
+  private fb = inject(UntypedFormBuilder);
+  private router = inject(Router);
+  private contactService = inject(ContactService);
 
-  destinations: any
+  destinations: any;
 
   constructor(private countryService: CountryService) {
     this.contactForm = this.fb.group({
@@ -88,27 +94,40 @@ export class EuropeComponent {
       lastName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required]],
-      country: ['', [Validators.required]],
-    })
+      description: ['', [Validators.required]],
+      subject: ['', [Validators.required]],
+    });
     this.countryService.getCountry().subscribe((rest) => {
-      console.log(rest)
-
       this.destinations = rest.data.map((data: any) => {
         return {
           label: data.name,
           value: data.id,
-        }
-      })
-    })
+        };
+      });
+    });
   }
 
   get form() {
-    return this.contactForm.controls
+    return this.contactForm.controls;
   }
 
   onSubmit() {
-    this.submitted = true
-    console.log()
+    this.submitted = true;
+
+      this.loading = true;
+      this.contactService.sendContactForm(this.contactForm.value).subscribe(
+        (response) => {
+          this.loading = false;
+          this.successMessage = 'Formulario enviado con éxito!';
+          setTimeout(() => {
+            this.router.navigate(['europe/europe-congratulation']);
+          }, 2000);
+        },
+        (error) => {
+          this.loading = false;
+        }
+      );
+
   }
 
   storyList: OurStoryType[] = [
@@ -140,11 +159,11 @@ export class EuropeComponent {
       icon: 'bi bi-bag-check',
       variant: 'bg-info text-info',
     },
-  ]
+  ];
 
-  experienceList = testimonialData
+  experienceList = testimonialData;
 
-  @ViewChild('experienceSlider', { static: false }) experienceSlider: any
+  @ViewChild('experienceSlider', { static: false }) experienceSlider: any;
 
   experienceSliderSettings: TinySliderSettings = {
     arrowKeys: true,
@@ -174,5 +193,5 @@ export class EuropeComponent {
         gutter: 30,
       },
     },
-  }
+  };
 }

@@ -46,28 +46,39 @@
                     <p class="mb-4 text-primary">Completa el formulario y un asesor se pondra en contacto pronto.</p>
 
                     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-                        <div class="mb-3">
-                            <label class="form-label">Nombre *</label>
-                            <input type="text" formControlName="name" class="form-control" />
-                        </div>
+                      <div class="mb-3">
+                        <label class="form-label">Nombre *</label>
+                        <input type="text" formControlName="name" class="form-control" />
+                    </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Apellido *</label>
-                            <input type="text" formControlName="lastName" class="form-control" />
-                        </div>
+                    <div class="mb-3">
+                        <label class="form-label">Apellido *</label>
+                        <input type="text" formControlName="lastName" class="form-control" />
+                    </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Correo electrónico *</label>
-                            <input type="email" formControlName="email" class="form-control" />
-                        </div>
+                    <div class="mb-3">
+                        <label class="form-label">Correo electrónico *</label>
+                        <input type="email" formControlName="email" class="form-control" />
+                    </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Teléfono *</label>
-                            <input type="text" formControlName="phone" class="form-control" />
-                        </div>
+                    <div class="mb-3">
+                        <label class="form-label">Teléfono *</label>
+                        <input type="text" formControlName="phone" class="form-control" />
+                    </div>
+
+                    <!-- <div class="mb-3">
+                      <label class="form-label">Descripción *</label>
+                      <textarea formControlName="description" class="form-control"></textarea>
+                  </div> -->
+
+                  <div class="mb-3">
+                      <label class="form-label">Asunto *</label>
+                      <input type="text" formControlName="subject" class="form-control" />
+                  </div>
 
                         <div class="mb-3">
                             <label class="form-label">¿A dónde te gustaría viajar?</label>
+                            <!-- formControlName="destination" -->
                             <select formControlName="destination" class="form-select">
                                 <option value="" disabled selected>Selecciona un destino</option>
                                 <option *ngFor="let destination of destinations" [value]="destination.value">
@@ -76,8 +87,15 @@
                             </select>
                         </div>
 
-                        <button class="btn btn-lg btn-primary w-100" type="submit">¡Cotiza Ahora!</button>
-                    </form>
+                        <button class="btn btn-lg btn-primary w-100" type="submit" [disabled]="loading">
+                          <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                          <span *ngIf="!loading">¡Cotiza Ahora!</span>
+                      </button>
+                  </form>
+
+                  <div *ngIf="successMessage" class="alert alert-success mt-3" role="alert">
+                      {{ successMessage }}
+                  </div>
                 </div>
             </div>
         </div>
@@ -191,7 +209,7 @@
                             </p>
                         </div>
                     </div>
-            
+
                     <div class="info-box text-start">
                         <img src="https://via.placeholder.com/40" alt="eSIM" />
                         <div>
