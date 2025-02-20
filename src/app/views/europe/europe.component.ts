@@ -11,6 +11,7 @@ import { last } from 'rxjs'
 import { CountryService } from '@/app/core/services/country.service'
 import { TinySliderSettings } from 'tiny-slider'
 import { TinySliderComponent } from '@/app/components/tiny-slider/tiny-slider.component'
+import { ConfirmTicketComponent } from './components/confirm-ticket/confirm-ticket.component'
 
 type OurStoryType = {
   title: string
@@ -68,6 +69,7 @@ const testimonialData: TestimonialType[] = [
     ReactiveFormsModule,
     CommonModule,
     TinySliderComponent,
+    ConfirmTicketComponent,
   ],
   templateUrl: './europe.component.html',
   styleUrl: './europe.component.scss',
