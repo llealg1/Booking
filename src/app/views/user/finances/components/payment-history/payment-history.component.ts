@@ -64,34 +64,12 @@ export class PaymentHistoryComponent implements OnInit {
   open(content: TemplateRef<any>, item: any) {
     this.ordersService.getOrdersById(item.id).subscribe(() => {
       this.itemView = item
+      console.log(this.itemView)
       this.itemView.location.map((location: any) => {
-        location.trackerNumberFlights.map((flight: any) => {
-          this.getInfoFlight(flight.iataFlight + flight.numberFlight).then(
-            (res: any) => {
-              if (res.data && res.data.length > 0) {
-                this.dataTracker.push(res.data[0])
-              }
-            }
-          )
+        location.ticket.map((ticket: any) => {
+
         })
       })
-
-      this.dataTracker.map((data: any) => {
-        this.itemView.location.map((location: any, index1: number) => {
-          location.tickets.map((flight: any, index2: number) => {
-
-            if (
-              data.flight.iataNumber ==
-              flight.iataFlight + flight.numberFlight
-            ) {
-              this.itemView.location[index1].tickets[
-                index2
-              ].flight_data_tracker = data
-            }
-          })
-        })
-      })
-      // this.aviationEdgeService.getInfoFlight(item.flight_id).subscribe
     })
 
     this.modalService
