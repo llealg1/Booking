@@ -1,110 +1,102 @@
-<section class="container">
-    <div class="row">
-        <section class="container text-center">
-            <div class="row justify-content-center">
-                <div class="col-auto">
-                    <img src="assets/images/logo-light-full.png" alt="logo" style="max-width: 350px; height: auto;">
-                </div>
-            </div>
-        </section>
-        <section class="pt-2 pt-md-5">
-            <div class="container-fluid px-5">
-                <div class="row justify-content-center">
-                    <section class="pt-0 pt-lg-5">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-10 d-flex justify-content-end ms-auto position-relative">
-                                    <img src="assets/images/viajes.jpg" class="rounded-3 d-none d-lg-block" alt="" />
-                                    <div
-                                        class="position-absolute top-50 start-40 translate-middle-y text-white px-2 d-flex flex-column justify-content-end w-50 align-items-end">
-                                        <h1 class="fw-bold text-white stretched-link text-shadow">Tu viaje a Europa, sin
-                                            estrés
-                                            y con todo incluido.
-                                        </h1>
-                                        <button class="btn btn-orange text-white text-right me-7">Descubre
-                                            destinos
-                                            increíbles
-                                            con la
-                                            mejor experiencia de viaje.</button>
-                                    </div>
-                                    <div
-                                        class="col-12 col-sm-10 col-lg-10 col-xl-6 position-lg-middle ms-lg-8 ms-xl-7 align-items-center form-container">
-                                        <div class="card shadow pb-0 mt-n7 mt-sm-n8 mt-lg-0">
-                                            <div class="row g-2">
-                                                <div class="col-lg-12 col-sm-6 p-4">
-                                                    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()"
-                                                        class="mt-4">
-                                                        <div class="mb-4 form-control-bg-light">
-                                                            <label class="form-label">Nombre *</label>
-                                                            <input type="text" formControlName="name"
-                                                                class="form-control"
-                                                                [ngClass]="{ 'is-invalid': submitted && form['name'].errors }" />
-                                                            <div class="invalid-feedback">Por favor ingresa tu nombre
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="mb-4 form-control-bg-light">
-                                                            <label class="form-label">Apellido *</label>
-                                                            <input type="text" formControlName="lastName"
-                                                                class="form-control"
-                                                                [ngClass]="{ 'is-invalid': submitted && form['lastName'].errors }" />
-                                                            <div class="invalid-feedback">Por favor ingresa tu apellido
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="mb-4 form-control-bg-light">
-                                                            <label class="form-label">Correo electrónico *</label>
-                                                            <input type="email" formControlName="email"
-                                                                class="form-control"
-                                                                [ngClass]="{ 'is-invalid': submitted && form['email'].errors }" />
-                                                            <div class="invalid-feedback">Por favor ingresa tu correo
-                                                                electrónico</div>
-                                                        </div>
-
-                                                        <div class="mb-4 form-control-bg-light">
-                                                            <label class="form-label">Teléfono *</label>
-                                                            <input type="text" formControlName="phone"
-                                                                class="form-control"
-                                                                [ngClass]="{ 'is-invalid': submitted && form['phone'].errors }" />
-                                                            <div class="invalid-feedback">Por favor ingresa tu número de
-                                                                teléfono</div>
-                                                        </div>
-
-                                                        <div class="mb-4 form-control-bg-light">
-                                                            <label class="form-label">¿A dónde te gustaría
-                                                                viajar?</label>
-                                                            <select formControlName="destination" class="form-select"
-                                                                [ngClass]="{ 'is-invalid': submitted && form['destination'].errors }">
-                                                                <option value="" disabled selected>Selecciona un destino
-                                                                </option>
-                                                                <option *ngFor="let destination of destinations"
-                                                                    [value]="destination.value">
-                                                                    {{ destination.label }}
-                                                                </option>
-                                                            </select>
-                                                            <div class="invalid-feedback">Por favor selecciona un
-                                                                destino
-                                                            </div>
-                                                        </div>
-
-                                                        <div>
-                                                            <button class="btn btn-lg btn-primary mb-0 w-100"
-                                                                type="submit">
-                                                                ¡Cotiza Ahora!
-                                                            </button>
-                                                        </div>
-                                                    </form>
+<section class="text-center">
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <img src="assets/images/logo-light-full.png" alt="logo" style="max-width: 350px; height: auto;">
+        </div>
+    </div>
+</section>
+<section class="pt-2 pt-md-5">
+    <div class="container-fluid px-5">
+        <div class="row justify-content-center">
+            <section class="pt-0 pt-lg-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 d-flex justify-content-end ms-auto position-relative">
+                            <img src="assets/images/viajes.jpg" class="rounded-3 d-none d-lg-block" alt="" />
+                            <div
+                                class="col-12 col-sm-10 col-lg-10 col-xl-6 position-lg-middle ms-lg-8 ms-xl-7 align-items-center form-container">
+                                <div class="card shadow pb-0 mt-n7 mt-sm-n8 mt-lg-0">
+                                    <div class="row g-2">
+                                        <div class="col-lg-12 col-sm-6 p-4">
+                                            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="mt-4">
+                                                <div class="mb-4 form-control-bg-light">
+                                                    <label class="form-label">Nombre *</label>
+                                                    <input type="text" formControlName="name" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && form['name'].errors }" />
+                                                    <div class="invalid-feedback">Por favor ingresa tu nombre
+                                                    </div>
                                                 </div>
-                                            </div>
+
+                                                <div class="mb-4 form-control-bg-light">
+                                                    <label class="form-label">Apellido *</label>
+                                                    <input type="text" formControlName="lastName" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && form['lastName'].errors }" />
+                                                    <div class="invalid-feedback">Por favor ingresa tu apellido
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-4 form-control-bg-light">
+                                                    <label class="form-label">Correo electrónico *</label>
+                                                    <input type="email" formControlName="email" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && form['email'].errors }" />
+                                                    <div class="invalid-feedback">Por favor ingresa tu correo
+                                                        electrónico</div>
+                                                </div>
+
+                                                <div class="mb-4 form-control-bg-light">
+                                                    <label class="form-label">Teléfono *</label>
+                                                    <input type="text" formControlName="phone" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && form['phone'].errors }" />
+                                                    <div class="invalid-feedback">Por favor ingresa tu número de
+                                                        teléfono</div>
+                                                </div>
+
+                                                <div class="mb-4 form-control-bg-light">
+                                                    <label class="form-label">¿A dónde te gustaría
+                                                        viajar?</label>
+                                                    <select formControlName="destination" class="form-select"
+                                                        [ngClass]="{ 'is-invalid': submitted && form['destination'].errors }">
+                                                        <option value="" disabled selected>Selecciona un destino
+                                                        </option>
+                                                        <option *ngFor="let destination of destinations"
+                                                            [value]="destination.value">
+                                                            {{ destination.label }}
+                                                        </option>
+                                                    </select>
+                                                    <div class="invalid-feedback">Por favor selecciona un
+                                                        destino
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <button class="btn btn-lg btn-primary mb-0 w-100" type="submit">
+                                                        ¡Cotiza Ahora!
+                                                    </button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div
+                                class="position-absolute top-50 start-40 translate-middle-y text-white px-2 d-flex flex-column justify-content-end w-50 align-items-start">
+                                <h1 class="fw-bold text-white stretched-link text-shadow">Tu viaje a Europa, sin
+                                    estrés
+                                    y con todo incluido.
+                                </h1>
+                                <button class="btn btn-orange text-white text-right me-7">Descubre
+                                    destinos
+                                    increíbles
+                                    con la
+                                    mejor experiencia de viaje.</button>
+                            </div>
                         </div>
-                    </section>
+                    </div>
                 </div>
+            </section>
+        </div>
 
-                <!-- <div class="row g-4 align-items-center mt-5">
+        <!-- <div class="row g-4 align-items-center mt-5">
         <div class="col-lg-4">
           <h5 class="mb-0">Otra forma de contactarnos</h5>
         </div>
@@ -141,60 +133,60 @@
           </ul>
         </div>
       </div> -->
+    </div>
+    <div class="container py-5 mt-3">
+        <div class="row align-items-center">
+            <!-- Sección de texto -->
+            <div class="col-lg-5 text-center text-lg-start">
+                <h2 class="fw-bold">Reserva fácil, rápida y sin complicaciones.</h2>
+                <button class="btn btn-primary fw-bold px-4 py-2 mt-3">
+                    ¡Quiero info!
+                </button>
             </div>
-            <div class="container py-5 mt-3">
-                <div class="row align-items-center">
-                    <!-- Sección de texto -->
-                    <div class="col-lg-5 text-center text-lg-start">
-                        <h2 class="fw-bold">Reserva fácil, rápida y sin complicaciones.</h2>
-                        <button class="btn btn-primary fw-bold px-4 py-2 mt-3">
-                            ¡Quiero info!
-                        </button>
-                    </div>
-                    <!-- Sección de imágenes -->
-                    <div class="col-lg-7">
-                        <div class="row g-3">
-                            <div class="col-4">
-                                <div class="country-box" style="
+            <!-- Sección de imágenes -->
+            <div class="col-lg-7">
+                <div class="row g-3">
+                    <div class="col-4">
+                        <div class="country-box" style="
                   background-image: url('../../../assets/images/mad.jpg');
                 ">
-                                </div>
-                                <p class="text-center mt-2">España</p>
-                            </div>
+                        </div>
+                        <p class="text-center mt-2">España</p>
+                    </div>
 
-                            <div class="col-4">
-                                <div class="country-box" style="
+                    <div class="col-4">
+                        <div class="country-box" style="
                   background-image: url('../../../assets/images/italia.jpg');
                 ">
-                                </div>
-                                <p class="text-center mt-2">Italia</p>
-                            </div>
-                            <div class="col-4">
-                                <div class="country-box" style="
+                        </div>
+                        <p class="text-center mt-2">Italia</p>
+                    </div>
+                    <div class="col-4">
+                        <div class="country-box" style="
                   background-image: url('../../../assets/images/japon.jpg');
                 ">
-                                </div>
-                                <p class="text-center mt-2">Japón</p>
-                            </div>
                         </div>
+                        <p class="text-center mt-2">Japón</p>
                     </div>
                 </div>
             </div>
-            <section class="container">
-                <div class="row g-4">
-                    @for (story of storyList; track $index) {
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="icon-lg bg-opacity-10 {{ story.variant }} rounded-2">
-                            <i class="fa-solid {{ story.icon }} fs-5"></i>
-                        </div>
-                        <h5 class="mt-2">{{ story.title }}</h5>
-                        <p class="mb-0">{{ story.description }}</p>
-                    </div>
-                    }
+        </div>
+    </div>
+    <section class="container">
+        <div class="row g-4">
+            @for (story of storyList; track $index) {
+            <div class="col-sm-6 col-lg-3">
+                <div class="icon-lg bg-opacity-10 {{ story.variant }} rounded-2">
+                    <i class="fa-solid {{ story.icon }} fs-5"></i>
                 </div>
-            </section>
+                <h5 class="mt-2">{{ story.title }}</h5>
+                <p class="mb-0">{{ story.description }}</p>
+            </div>
+            }
+        </div>
+    </section>
 
-            <!-- <div class="container">
+    <!-- <div class="container">
             <div class="row">
                 <div class="col-md-3 mb-3">
                     <div class="card card-custom h-100">
@@ -228,54 +220,53 @@
         </div> -->
 
 
-            <div class="container-fluid text-center py-5 text-white bg-primary">
-                <h2 class="fw-bold text-white">
-                    Más que una agencia, tu mejor aliado en cada viaje
-                </h2>
-                <p class="mt-1 px-md-5 fw-bold">
-                    En Arcadia Viajes hacemos que tu experiencia de compra sea fácil, rápida
-                    y segura, con beneficios <br />que te permiten viajar sin
-                    preocupaciones. ¡Olvídate de las preocupaciones por visados y
-                    restricciones!
-                </p>
-                <div class="row justify-content-center">
-                    <div class="col-lg-12 col-md-6">
-                        <section class="pt-1 pt-md-2 pb-0">
-                            <div class="container-fluid px-lg-5">
-                                <div class="tiny-slider arrow-round arrow-blur rounded-3 overflow-hidden">
-                                    <div class="tiny-slider-inner">
-                                        <ng-tiny-slider [config]="experienceSliderSettings" #experienceSlider>
-                                            @for (data of experienceList; track $index) {
-                                            <div>
-                                                <div class="card card-metro overflow-hidden">
-                                                    <img [src]="data.image" alt=""
-                                                        style="max-width: auto; height: auto;" />
+    <div class="container-fluid text-center py-5 text-white bg-primary">
+        <h2 class="fw-bold text-white">
+            Más que una agencia, tu mejor aliado en cada viaje
+        </h2>
+        <p class="mt-1 px-md-5 fw-bold">
+            En Arcadia Viajes hacemos que tu experiencia de compra sea fácil, rápida
+            y segura, con beneficios <br />que te permiten viajar sin
+            preocupaciones. ¡Olvídate de las preocupaciones por visados y
+            restricciones!
+        </p>
+        <div class="row justify-content-center">
+            <div class="col-lg-12 col-md-6">
+                <section class="pt-1 pt-md-2 pb-0">
+                    <div class="container-fluid px-lg-5">
+                        <div class="tiny-slider arrow-round arrow-blur rounded-3 overflow-hidden">
+                            <div class="tiny-slider-inner">
+                                <ng-tiny-slider [config]="experienceSliderSettings" #experienceSlider>
+                                    @for (data of experienceList; track $index) {
+                                    <div>
+                                        <div class="card card-metro overflow-hidden">
+                                            <img [src]="data.image" alt="" style="max-width: auto; height: auto;" />
 
-                                                    <div class="card-img-overlay d-flex">
-                                                        <div class="card-text mt-auto">
-                                                            <h3 class="align-items-center">
-                                                                <a href="javascript:void(0);"
-                                                                    class="text-white stretched-link text-shadow">{{
-                                                                    data.title }}</a>
-                                                            </h3>
-                                                            <p class="text-white mb-2 fw-bold">{{
-                                                                data.description
-                                                                }}</p>
-                                                            <!-- <button class="btn btn-link text-white p-0 mb-0">
+                                            <div class="card-img-overlay d-flex">
+                                                <div class="card-text mt-auto">
+                                                    <h5 class="align-items-center">
+                                                        <a href="javascript:void(0);"
+                                                            class="text-white stretched-link text-shadow">{{
+                                                            data.title }}</a>
+                                                    </h5>
+                                                    <p class="text-white mb-2 text-shadow">{{
+                                                        data.description
+                                                        }}</p>
+                                                    <!-- <button class="btn btn-link text-white p-0 mb-0">
                                                             Explore now
                                                             <i class="fa-solid fa-arrow-right-long fa-fw"></i>
                                                         </button> -->
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
-                                            }
-                                        </ng-tiny-slider>
+                                        </div>
                                     </div>
-                                </div>
+                                    }
+                                </ng-tiny-slider>
                             </div>
-                        </section>
-                        <!-- <div class="mt-4 d-flex flex-column align-items-start gap-3">
+                        </div>
+                    </div>
+                </section>
+                <!-- <div class="mt-4 d-flex flex-column align-items-start gap-3">
                         <div class="info-box text-start">
                             <img src="https://via.placeholder.com/40" alt="Asesoría" />
                             <div>
@@ -285,7 +276,7 @@
                                 </p>
                             </div>
                         </div>
-    
+                
                         <div class="info-box text-start">
                             <img src="https://via.placeholder.com/40" alt="eSIM" />
                             <div>
@@ -296,31 +287,30 @@
                             </div>
                         </div>
                     </div> -->
-                    </div>
-                </div>
-                <button class="btn btn-orange btn-lg mt-5">Quiero cotizar mi viaje!</button>
             </div>
-        </section>
-        <section class="py-2 text-center text-white bg-white">
-            <div class="container">
-                <h1 class="fw-bold display-4">+20,000 <span class="text-orange">viajeros</span> felices ya confiaron en
-                    nosotros
-                </h1>
-                <div class="d-flex justify-content-center gap-3 mt-4">
-                    <span class="badge bg-light text-dark p-3 fs-6"><i class="bi bi-globe2"></i> 20K+ Clientes
-                        Globales</span>
-                    <span class="badge bg-light text-dark p-3 fs-6"><i class="bi bi-person-fill-check"></i> 19K+
-                        Clientes
-                        felices</span>
-                    <span class="badge bg-light text-dark p-3 fs-6"><i class="bi bi-airplane"></i> 1M+
-                        Vuelos Concretados</span>
-                </div>
+        </div>
 
-            </div>
-            <a href="#" class="btn btn-orange btn-lg mt-5">Planifica tu próximo viaje</a>
-
-        </section>
+        <button class="btn btn-orange btn-lg mt-5">Quiero cotizar mi viaje!</button>
     </div>
+</section>
+<section class="py-2 text-center text-white bg-white">
+    <div class="container">
+        <h1 class="fw-bold display-4">+20,000 <span class="text-orange">viajeros</span> felices ya confiaron en
+            nosotros
+        </h1>
+        <div class="d-flex justify-content-center gap-3 mt-4">
+            <span class="badge bg-light text-dark p-3 fs-6"><i class="bi bi-globe2"></i> 20K+ Clientes
+                Globales</span>
+            <span class="badge bg-light text-dark p-3 fs-6"><i class="bi bi-person-fill-check"></i> 19K+
+                Clientes
+                felices</span>
+            <span class="badge bg-light text-dark p-3 fs-6"><i class="bi bi-airplane"></i> 1M+
+                Vuelos Concretados</span>
+        </div>
+
+    </div>
+    <a href="#" class="btn btn-orange btn-lg mt-5">Planifica tu próximo viaje</a>
+
 </section>
 <div class="card-body" style="width: 100%; height: 80vh; overflow: hidden;">
     <iframe src="https://18170f7e3dd14d059b8c3211a57aaed7.elf.site" allowfullscreen

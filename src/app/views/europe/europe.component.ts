@@ -28,8 +28,7 @@ type TestimonialType = {
 const testimonialData: TestimonialType[] = [
   {
     title: 'Asesoría Personalizada',
-    description:
-      'Te ayudamos a encontrar el mejor vuelo según tu presupuesto y destino.',
+    description: 'Te ayudamos a encontrar el mejor vuelo.',
     image: 'assets/images/asesoria.jpg',
   },
   {
@@ -46,7 +45,7 @@ const testimonialData: TestimonialType[] = [
     title: 'Promociones y Ofertas',
     description:
       'Accede a tarifas especiales que no encontrarás en otros sitios.',
-    image: 'assets/images/auth-side-bg.png',
+    image: 'assets/images/promocion.jpg',
   },
   {
     title: 'eSIM para Viajeros',
