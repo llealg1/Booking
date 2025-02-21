@@ -1,15 +1,15 @@
-<section class="position-relative py-8 py-lg-5" style="
-    background-image: url('assets/images/viajes.jpg');
+<section class="position-relative py-8 py-lg-5 mobile-view" style="
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url('assets/images/viajes.jpg');
     background-position: center left;
     background-size: cover;
-    height: 850px;
+
     width: auto;">
 
     <!-- Superposición oscura mejorada (solo en pantallas grandes) -->
-    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark d-none d-lg-block"
+    <div #inicio class="position-absolute top-0 start-0 w-100 h-100 bg-dark d-none d-lg-block"
         style="opacity: 0.4; z-index: 1;"></div>
 
-    <div class="container-fluid px-5 position-relative" style="z-index: 2;">
+    <div class="container-fluid px-5 position-relative " style="z-index: 2;">
 
         <!-- Sección del Logo (Siempre Visible) -->
         <div class="row justify-content-center mb-4">
@@ -20,17 +20,12 @@
 
         <div class="row align-items-center">
             <!-- Texto en el lado izquierdo (Oculto en móviles) -->
-            <div class="col-lg-7 text-white text-start px-5 d-none d-lg-block">
-                <h1 class="fw-bold text-white text-shadow">Tu próximo destino está más cerca de lo que crees</h1>
+            <div class="col-lg-7 text-white text-start px-5 d-lg-block">
+                <h1 class="fw-bold text-white text-shadow">No solo planeamos tu viaje, te acompañamos en cada paso</h1>
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-8 mobile-text">
                         <p class="fs-5">
-                            ¿Buscando la mejor oferta para viajar? En <b>Arcadia Viajes</b> te ayudamos a encontrar los
-                            boletos
-                            más
-                            baratos,
-                            con opciones de financiamiento, promociones exclusivas y la seguridad de una agencia
-                            confiable.
+                            Viaja con asesoría experta, pago en cómodas cuotas, e-Sim, con asistencia antes y durante tu aventura. Es hora de cumplir tu sueño de viajar.
                         </p>
                     </div>
                     <div class="col-md-4">
@@ -43,8 +38,7 @@
             <div class="col-lg-5 d-flex justify-content-center">
                 <div class="card shadow p-4 w-100" style="max-width: 450px;">
                     <!-- Título del formulario -->
-                    <p class="mb-4 text-primary" id="formulario">Completa el formulario y un asesor se pondra en
-                        contacto pronto.</p>
+                    <p class="mb-4 text-primary" id="formulario">Dejanos tu información de contacto para aprovechar nuestras promociones del mes.</p>
 
                     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
                         <div class="mb-3">
@@ -72,10 +66,10 @@
                       <textarea formControlName="description" class="form-control"></textarea>
                   </div> -->
 
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label class="form-label">Asunto *</label>
                             <input type="text" formControlName="subject" class="form-control" />
-                        </div>
+                        </div> -->
 
                         <div class="mb-3">
                             <label class="form-label">¿A dónde te gustaría viajar?</label>
@@ -108,8 +102,8 @@
         <div class="row align-items-center">
             <!-- Sección de texto -->
             <div class="col-lg-5 text-center text-lg-start">
-                <h2 class="fw-bold">Reserva fácil, rápida y sin complicaciones.</h2>
-                <button href="#formulario" class="btn btn-primary fw-bold px-4 py-2 mt-3">
+                <h2 class="fw-bold">Reserva fácil, rápido y sin complicaciones.</h2>
+                <button href="#formulario" class="btn btn-primary fw-bold px-4 py-2 mt-3 mb-5" (click)="scrollToTop()">
                     ¡Quiero info!
                 </button>
             </div>
@@ -225,7 +219,7 @@
             </div>
         </div>
 
-        <button class="btn btn-orange btn-lg mt-5">Quiero cotizar mi viaje!</button>
+        <button class="btn btn-orange btn-lg mt-5" (click)="scrollToTop()">Quiero cotizar mi viaje!</button>
     </div>
 </section>
 <section class="py-2 text-center text-white bg-white">
@@ -235,21 +229,21 @@
         </h1>
         <div class="d-flex flex-wrap justify-content-center gap-3 mt-4 text-center">
             <span class="badge bg-light text-dark p-3 fs-6">
-                <i class="bi bi-globe2"></i> Estamos en mas de 10 Paises
+                <i class="bi bi-globe2"></i> Estamos en Más de 10 Paises
             </span>
             <span class="badge bg-light text-dark p-3 fs-6">
-                <i class="bi bi-person-fill-check"></i> Mas de 40 Destinos
+                <i class="bi bi-person-fill-check"></i> Más de 40 Destinos
             </span>
             <span class="badge bg-light text-dark p-3 fs-6">
                 <i class="bi bi-airplane"></i> 1M+ Vuelos Concretados
             </span>
         </div>
     </div>
-    <a href="#" class="btn btn-orange btn-lg mt-5">Planifica tu próximo viaje</a>
+    <button class="btn btn-orange btn-lg mt-5" (click)="scrollToTop()">Planifica tu próximo viaje</button>
 
-    <!-- <div>
-        <booking-confirm-ticket />
-    </div> -->
+    <div>
+        <!-- <booking-confirm-ticket /> -->
+    </div>
 </section>
 <!-- <iframe srcdoc='
     <!DOCTYPE html>
@@ -264,5 +258,5 @@
     </html>
 ' style="width: 100%; height: 500px; border: none;"></iframe> -->
 <iframe src='https://widgets.sociablekit.com/google-reviews/iframe/25526165' frameborder='0' width='100%'
-    height='1000px'></iframe>
+    height='400px'></iframe>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

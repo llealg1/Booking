@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, ViewChild } from '@angular/core';
+import { Component, inject, ViewChild, ElementRef } from '@angular/core';
 import {
   UntypedFormGroup,
   UntypedFormBuilder,
@@ -77,11 +77,14 @@ const testimonialData: TestimonialType[] = [
   styleUrl: './europe.component.scss',
 })
 export class EuropeComponent {
+  @ViewChild('inicio') inicio!: ElementRef;
+
   contactForm!: UntypedFormGroup;
   submitted: boolean = false;
   loading: boolean = false;
   successMessage: string = '';
-
+  scrollOffset = 450
+  button!: HTMLElement
   private fb = inject(UntypedFormBuilder);
   private router = inject(Router);
   private contactService = inject(ContactService);
@@ -95,7 +98,7 @@ export class EuropeComponent {
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      subject: ['', [Validators.required]],
+      // subject: ['', [Validators.required]],
     });
     this.countryService.getCountry().subscribe((rest) => {
       this.destinations = rest.data.map((data: any) => {
@@ -113,49 +116,52 @@ export class EuropeComponent {
 
   onSubmit() {
     this.submitted = true;
-
+    if (this.contactForm.valid) {
       this.loading = true;
       this.contactService.sendContactForm(this.contactForm.value).subscribe(
         (response) => {
+          console.log('Form submitted successfully', response);
           this.loading = false;
           this.successMessage = 'Formulario enviado con éxito!';
           setTimeout(() => {
-            this.router.navigate(['europe/europe-congratulation']);
+            this.router.navigate(['/congratulations']);
           }, 2000);
         },
         (error) => {
+          console.error('Error submitting form', error);
           this.loading = false;
         }
       );
-
+    }
   }
+
 
   storyList: OurStoryType[] = [
     {
-      title: 'Precios exclusivos en boletos aéreos.',
+      title: 'Nueve sedes en todo el mundo',
       description:
-        'Accede a tarifas preferenciales y promociones especiales en vuelos a los mejores destinos.',
+        'Contamos con oficinas en Perú, Chile , Argentina, Colombia, España, Venezuela.',
       icon: 'bi bi-airplane',
       variant: 'bg-orange text-orange',
     },
     {
-      title: 'Asesoría 100% personalizada.',
+      title: 'Asesoría con tus requisitos',
       description:
-        'Te guiamos en cada paso para encontrar el viaje ideal según tus necesidades y presupuesto.',
+        'Te guiamos en visados y requisitos para viajes en todo el mundo.',
       icon: 'bi bi-luggage',
       variant: 'bg-success text-success',
     },
     {
-      title: 'Financiamiento disponible.',
+      title: 'Financiamiento disponible',
       description:
         'Viaja ahora y paga en cómodas cuotas con nuestras opciones de financiamiento flexibles.',
       icon: 'bi bi-credit-card',
       variant: 'bg-primary text-primary',
     },
     {
-      title: 'Compra segura y garantizada.',
+      title: 'Aceptamos todos los métodos de pago',
       description:
-        'Reserva con total confianza, con protección y respaldo en cada compra.',
+        'Puedes pagar con tarjeta de crédito, debito, tranferencia bancaria y medios electrónicos.',
       icon: 'bi bi-bag-check',
       variant: 'bg-info text-info',
     },
@@ -194,4 +200,18 @@ export class EuropeComponent {
       },
     },
   };
+
+  onWindowScroll() {
+    if (!this.button) return
+    const target = window
+    if (target && target.scrollY > this.scrollOffset) {
+      this.button.classList.add('back-top-show')
+    } else {
+      this.button.classList.remove('back-top-show')
+    }
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 }

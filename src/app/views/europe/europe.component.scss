@@ -53,6 +53,10 @@
   color: #495057; /* Color de texto */
 }
 
+.mobile-view{
+  height: 850px;
+}
+
 @media (min-width: 992px) {
   .form-container {
     max-width: 450px; /* Ajusta este valor según la imagen */
@@ -63,4 +67,14 @@
 
 .text-shadow {
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 992px) {
+  .mobile-text {
+    display: none;
+  }
+
+  .mobile-view{
+    height: 100%;
+  }
 }
