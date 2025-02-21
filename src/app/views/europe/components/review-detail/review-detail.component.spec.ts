@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { EuropeComponent } from './europe.component'
+import { ReviewDetailComponent } from './review-detail.component'
 
-describe('EuropeComponent', () => {
-  let component: EuropeComponent
-  let fixture: ComponentFixture<EuropeComponent>
+describe('ReviewDetailComponent', () => {
+  let component: ReviewDetailComponent
+  let fixture: ComponentFixture<ReviewDetailComponent>
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EuropeComponent],
+      imports: [ReviewDetailComponent],
     }).compileComponents()
 
-    fixture = TestBed.createComponent(EuropeComponent)
+    fixture = TestBed.createComponent(ReviewDetailComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
   })

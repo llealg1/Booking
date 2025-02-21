@@ -53,7 +53,7 @@
   color: #495057; /* Color de texto */
 }
 
-.mobile-view{
+.mobile-view {
   height: 850px;
 }
 
@@ -74,7 +74,32 @@
     display: none;
   }
 
-  .mobile-view{
+  .mobile-view {
     height: 100%;
   }
+}
+
+.swiper-container {
+  width: 100%;
+  height: auto;
+}
+.review-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  margin: auto;
+}
+.date {
+  font-size: 12px;
+  color: gray;
+}
+.stars {
+  color: gold;
+  font-size: 18px;
+}
+.comment {
+  font-style: italic;
 }

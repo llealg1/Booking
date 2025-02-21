@@ -1,32 +1,34 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject, ViewChild, ElementRef } from '@angular/core';
+import { CommonModule } from '@angular/common'
+import { Component, inject, ViewChild, ElementRef } from '@angular/core'
 import {
   UntypedFormGroup,
   UntypedFormBuilder,
   Validators,
   FormsModule,
   ReactiveFormsModule,
-} from '@angular/forms';
-import { Router } from '@angular/router';
-import { last } from 'rxjs';
-import { CountryService } from '@/app/core/services/country.service';
-import { ContactService } from '@/app/core/services/contact.service';
-import { TinySliderSettings } from 'tiny-slider';
-import { TinySliderComponent } from '@/app/components/tiny-slider/tiny-slider.component';
-import { ConfirmTicketComponent } from './components/confirm-ticket/confirm-ticket.component';
+} from '@angular/forms'
+import { Router } from '@angular/router'
+import { last } from 'rxjs'
+import { CountryService } from '@/app/core/services/country.service'
+import { ContactService } from '@/app/core/services/contact.service'
+import { TinySliderSettings } from 'tiny-slider'
+import { TinySliderComponent } from '@/app/components/tiny-slider/tiny-slider.component'
+import { ConfirmTicketComponent } from './components/confirm-ticket/confirm-ticket.component'
+import { ReviewCardComponent } from '../admin/reviews/components/review-card/review-card.component'
+import { ReviewDetailComponent } from './components/review-detail/review-detail.component'
 
 type OurStoryType = {
-  title: string;
-  description: string;
-  icon: string;
-  variant: string;
-};
+  title: string
+  description: string
+  icon: string
+  variant: string
+}
 
 type TestimonialType = {
-  title: string;
-  description: string;
-  image: string;
-};
+  title: string
+  description: string
+  image: string
+}
 
 const testimonialData: TestimonialType[] = [
   {
@@ -61,7 +63,7 @@ const testimonialData: TestimonialType[] = [
     description: 'Viaja con nosotros y gana puntos viajeros recomendándono',
     image: 'assets/images/referidos.jpg',
   },
-];
+]
 
 @Component({
   selector: 'app-europe',
@@ -72,24 +74,25 @@ const testimonialData: TestimonialType[] = [
     CommonModule,
     TinySliderComponent,
     ConfirmTicketComponent,
+    ReviewDetailComponent,
   ],
   templateUrl: './europe.component.html',
   styleUrl: './europe.component.scss',
 })
 export class EuropeComponent {
-  @ViewChild('inicio') inicio!: ElementRef;
+  @ViewChild('inicio') inicio!: ElementRef
 
-  contactForm!: UntypedFormGroup;
-  submitted: boolean = false;
-  loading: boolean = false;
-  successMessage: string = '';
+  contactForm!: UntypedFormGroup
+  submitted: boolean = false
+  loading: boolean = false
+  successMessage: string = ''
   scrollOffset = 450
   button!: HTMLElement
-  private fb = inject(UntypedFormBuilder);
-  private router = inject(Router);
-  private contactService = inject(ContactService);
+  private fb = inject(UntypedFormBuilder)
+  private router = inject(Router)
+  private contactService = inject(ContactService)
 
-  destinations: any;
+  destinations: any
 
   constructor(private countryService: CountryService) {
     this.contactForm = this.fb.group({
@@ -99,42 +102,64 @@ export class EuropeComponent {
       phone: ['', [Validators.required]],
       description: ['', [Validators.required]],
       // subject: ['', [Validators.required]],
-    });
+    })
     this.countryService.getCountry().subscribe((rest) => {
       this.destinations = rest.data.map((data: any) => {
         return {
           label: data.name,
           value: data.id,
-        };
-      });
-    });
+        }
+      })
+    })
   }
 
   get form() {
-    return this.contactForm.controls;
+    return this.contactForm.controls
   }
 
   onSubmit() {
-    this.submitted = true;
+    this.submitted = true
     if (this.contactForm.valid) {
-      this.loading = true;
+      this.loading = true
       this.contactService.sendContactForm(this.contactForm.value).subscribe(
         (response) => {
-          console.log('Form submitted successfully', response);
-          this.loading = false;
-          this.successMessage = 'Formulario enviado con éxito!';
+          console.log('Form submitted successfully', response)
+          this.loading = false
+          this.successMessage = 'Formulario enviado con éxito!'
           setTimeout(() => {
-            this.router.navigate(['/congratulations']);
-          }, 2000);
+            this.router.navigate(['/congratulations'])
+          }, 2000)
         },
         (error) => {
-          console.error('Error submitting form', error);
-          this.loading = false;
+          console.error('Error submitting form', error)
+          this.loading = false
         }
-      );
+      )
     }
   }
 
+  reviews = [
+    {
+      name: 'Ysacleidi Duran Landinez',
+      date: 'October 20, 2024',
+      comment: 'Excelente servicio, siempre seguro y placentero.',
+    },
+    {
+      name: 'Ali Hernandez',
+      date: 'August 20, 2024',
+      comment: 'Excelente, muy buena atención!',
+    },
+    {
+      name: 'Ember Sanchez',
+      date: 'December 20, 2024',
+      comment: 'Muy bueno en realidad lo recomiendo',
+    },
+    {
+      name: 'Mariauxy',
+      date: 'August 20, 2024',
+      comment: 'Mi asesor Johan Pereira, hasta ahora excelente asesoría.',
+    },
+  ]
 
   storyList: OurStoryType[] = [
     {
@@ -165,11 +190,11 @@ export class EuropeComponent {
       icon: 'bi bi-bag-check',
       variant: 'bg-info text-info',
     },
-  ];
+  ]
 
-  experienceList = testimonialData;
+  experienceList = testimonialData
 
-  @ViewChild('experienceSlider', { static: false }) experienceSlider: any;
+  @ViewChild('experienceSlider', { static: false }) experienceSlider: any
 
   experienceSliderSettings: TinySliderSettings = {
     arrowKeys: true,
@@ -199,7 +224,7 @@ export class EuropeComponent {
         gutter: 30,
       },
     },
-  };
+  }
 
   onWindowScroll() {
     if (!this.button) return
