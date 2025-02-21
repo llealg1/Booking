@@ -119,7 +119,7 @@ export class EuropeComponent {
 
   onSubmit() {
     this.submitted = true
-    if (this.contactForm.valid) {
+
       this.loading = true
       this.contactService.sendContactForm(this.contactForm.value).subscribe(
         (response) => {
@@ -135,7 +135,7 @@ export class EuropeComponent {
           this.loading = false
         }
       )
-    }
+
   }
 
   reviews = [
