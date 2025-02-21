@@ -43,38 +43,39 @@
             <div class="col-lg-5 d-flex justify-content-center">
                 <div class="card shadow p-4 w-100" style="max-width: 450px;">
                     <!-- Título del formulario -->
-                    <p class="mb-4 text-primary">Completa el formulario y un asesor se pondra en contacto pronto.</p>
+                    <p class="mb-4 text-primary" id="formulario">Completa el formulario y un asesor se pondra en
+                        contacto pronto.</p>
 
                     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-                      <div class="mb-3">
-                        <label class="form-label">Nombre *</label>
-                        <input type="text" formControlName="name" class="form-control" />
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nombre *</label>
+                            <input type="text" formControlName="name" class="form-control" />
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Apellido *</label>
-                        <input type="text" formControlName="lastName" class="form-control" />
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">Apellido *</label>
+                            <input type="text" formControlName="lastName" class="form-control" />
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Correo electrónico *</label>
-                        <input type="email" formControlName="email" class="form-control" />
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">Correo electrónico *</label>
+                            <input type="email" formControlName="email" class="form-control" />
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Teléfono *</label>
-                        <input type="text" formControlName="phone" class="form-control" />
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">Teléfono *</label>
+                            <input type="text" formControlName="phone" class="form-control" />
+                        </div>
 
-                    <!-- <div class="mb-3">
+                        <!-- <div class="mb-3">
                       <label class="form-label">Descripción *</label>
                       <textarea formControlName="description" class="form-control"></textarea>
                   </div> -->
 
-                  <div class="mb-3">
-                      <label class="form-label">Asunto *</label>
-                      <input type="text" formControlName="subject" class="form-control" />
-                  </div>
+                        <div class="mb-3">
+                            <label class="form-label">Asunto *</label>
+                            <input type="text" formControlName="subject" class="form-control" />
+                        </div>
 
                         <div class="mb-3">
                             <label class="form-label">¿A dónde te gustaría viajar?</label>
@@ -88,14 +89,15 @@
                         </div>
 
                         <button class="btn btn-lg btn-primary w-100" type="submit" [disabled]="loading">
-                          <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                          <span *ngIf="!loading">¡Cotiza Ahora!</span>
-                      </button>
-                  </form>
+                            <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status"
+                                aria-hidden="true"></span>
+                            <span *ngIf="!loading">¡Cotiza Ahora!</span>
+                        </button>
+                    </form>
 
-                  <div *ngIf="successMessage" class="alert alert-success mt-3" role="alert">
-                      {{ successMessage }}
-                  </div>
+                    <div *ngIf="successMessage" class="alert alert-success mt-3" role="alert">
+                        {{ successMessage }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -107,7 +109,7 @@
             <!-- Sección de texto -->
             <div class="col-lg-5 text-center text-lg-start">
                 <h2 class="fw-bold">Reserva fácil, rápida y sin complicaciones.</h2>
-                <button class="btn btn-primary fw-bold px-4 py-2 mt-3">
+                <button href="#formulario" class="btn btn-primary fw-bold px-4 py-2 mt-3">
                     ¡Quiero info!
                 </button>
             </div>
@@ -245,20 +247,22 @@
     </div>
     <a href="#" class="btn btn-orange btn-lg mt-5">Planifica tu próximo viaje</a>
 
-    <div>
+    <!-- <div>
         <booking-confirm-ticket />
-    </div>
+    </div> -->
 </section>
-<iframe srcdoc='
+<!-- <iframe srcdoc='
     <!DOCTYPE html>
     <html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://widget.trustmary.com/40SaUrTB4"></script>
     </head>
     <body>
     </body>
+    <script src="https://widget.trustmary.com/40SaUrTB4"></script>
     </html>
-' style="width: 100%; height: 500px; border: none;"></iframe>
+' style="width: 100%; height: 500px; border: none;"></iframe> -->
+<iframe src='https://widgets.sociablekit.com/google-reviews/iframe/25526165' frameborder='0' width='100%'
+    height='1000px'></iframe>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
