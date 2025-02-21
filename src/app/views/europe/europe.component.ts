@@ -138,14 +138,14 @@ export class EuropeComponent {
 
   storyList: OurStoryType[] = [
     {
-      title: 'Nueve sedes en todo el mundo',
+      title: '9 sedes en todo el mundo',
       description:
         'Contamos con oficinas en Perú, Chile , Argentina, Colombia, España, Venezuela.',
       icon: 'bi bi-airplane',
       variant: 'bg-orange text-orange',
     },
     {
-      title: 'Asesoría con tus requisitos',
+      title: 'Lleva tus requisitos al día',
       description:
         'Te guiamos en visados y requisitos para viajes en todo el mundo.',
       icon: 'bi bi-luggage',
