@@ -1,4 +1,4 @@
-// 
+//
 // general.scss
 // Theme general elements and helper styling
 
@@ -8,12 +8,12 @@
 }
 
 // GLightbox theme color
-.plyr__control--overlaid, 
-.plyr--audio .plyr__control.plyr__tab-focus, 
-.plyr--audio .plyr__control:hover, 
+.plyr__control--overlaid,
+.plyr--audio .plyr__control.plyr__tab-focus,
+.plyr--audio .plyr__control:hover,
 .plyr--audio .plyr__control[aria-expanded=true],
-.plyr--video .plyr__control.plyr__tab-focus, 
-.plyr--video .plyr__control:hover, 
+.plyr--video .plyr__control.plyr__tab-focus,
+.plyr--video .plyr__control:hover,
 .plyr--video .plyr__control[aria-expanded=true],
 .plyr__menu__container .plyr__control[role=menuitemradio][aria-checked=true]:before{
   background: var(--#{$prefix}primary);
@@ -56,7 +56,7 @@
   cursor: pointer;
   position: fixed !important;
   bottom: 40px;
-  right: 40px;
+  right: 100px;
   display: block;
   z-index: 99;
   visibility: hidden;
@@ -175,7 +175,7 @@
 }
 @include media-breakpoint-down(lg){
   .position-lg-middle{
-    position: relative; 
+    position: relative;
     top: 0;
     left: 0;
     transform: translate(0);
@@ -200,8 +200,8 @@
   }
 }
 
-// Fake password icon 
-.fakepasswordicon { 
+// Fake password icon
+.fakepasswordicon {
   height: 100%;
   display: flex;
   justify-content: center;

@@ -22,7 +22,7 @@ export class FooterComponent {
       name: 'Venezuela',
       description: 'Arcadia Venezuela: Viaja feliz, Viaja Arcadia.',
       image: 'assets/images/logosArcadia/venezuela.jpg',
-      link: 'https://www.instagram.com/arcadia.viajes/',
+      link: '',
     },
     {
       name: 'España',

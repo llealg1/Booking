@@ -25,13 +25,14 @@ Footer START -->
             <ul class="nav flex-column text-primary-hover">
               @for (data of item.items; track $index) {
               <li class="nav-item">
-                <a class="nav-link text-body-secondary" routerLink="{{ data.link }}" *ngIf="!data.offices">
+
+                <a class="nav-link text-body-secondary" [routerLink]="['/office', data.name.toLowerCase().replace(' ', '-')]" *ngIf="!data.offices">
                   @if (data.icon) {
                   <i class="fa-solid {{ data.icon }} me-2"></i>
                   }
                   {{ data.name }}
                 </a>
-                <a class="nav-link text-body-secondary" href="javascript:void(0);" *ngIf="data.offices"
+                <a [routerLink]="['/office', data.name.toLowerCase().replace(' ', '-')]" class="nav-link text-body-secondary" routerLink="{{ data.link }}" *ngIf="data.offices"
                   ngbTooltip="{{ getOfficesTooltip(data.offices) }}">
                   @if (data.icon) {
                   <img [src]="data.image" [alt]="data.name" style="
@@ -54,7 +55,7 @@ Footer START -->
 
     <div class="row g-4 justify-content-between mt-0 mt-md-2">
       <div class="col-sm-7 col-md-6 col-lg-4">
-        <!-- <h5 class="text-white mb-2">Payment & Security</h5>
+        <h5 class="text-white mb-2">Métodos de pago</h5>
         <ul class="list-inline mb-0 mt-3">
           <li class="list-inline-item">
             <a href="javascript:void(0);" class="me-1"
@@ -85,7 +86,7 @@ Footer START -->
                 alt=""
             /></a>
           </li>
-        </ul> -->
+        </ul>
       </div>
 
       <!-- <div class="col-sm-5 col-md-6 col-lg-3 text-sm-end">

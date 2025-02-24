@@ -32,15 +32,37 @@ const footerLinks: FooterLink[] = [
   {
     title: 'TELÉFONOS',
     items: [
-      { name: 'Venezuela' },
-      { name: 'España' },
-      { name: 'Argentina' },
-      { name: 'Colombia' },
-      { name: 'Estados Unidos' },
-      { name: 'Panama' },
-      { name: 'Peru' },
-      { name: 'Chile' },
-      { name: 'Ecuador' },
+      { name: 'Venezuela', offices: [
+        { name: 'Caracas',  address: '+58 424-1542685' },
+        { name: 'Valencia', address: '+58 424-4097684' },
+        { name: 'Barquisimeto', address: '+58 424-5239195' },
+      ]},
+      { name: 'España', offices: [
+        { name: 'Madrid', address: '+34 655 20 45 86' },
+        { name: 'Barcelona', address: '+34 655205035' },
+      ]},
+      { name: 'Argentina', offices: [
+        { name: 'Buenos Aires', address: '+54 1178543970' },
+      ]},
+      { name: 'Colombia', offices: [
+        { name: 'Bogotá', address: '+57 313 8897876' },
+        { name: 'Medellín', address: '+57 323 3932626' },
+      ]},
+      { name: 'Estados Unidos', offices: [
+        { name: 'Miami', address: '' },
+      ]},
+      { name: 'Panama', offices: [
+        { name: 'Panamá', address: '' },
+      ]},
+      { name: 'Peru', offices: [
+        { name: 'Lima', address: '+51 981 255 261' },
+      ]},
+      { name: 'Chile', offices: [
+        { name: 'Santiago de Chile', address: '+56 9 6141 4833' },
+      ]},
+      { name: 'Ecuador', offices: [
+        { name: 'Quito', address: '+593 96 231 8390' },
+      ]},
     ],
   },
   {

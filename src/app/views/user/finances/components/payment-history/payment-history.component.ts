@@ -64,10 +64,9 @@ export class PaymentHistoryComponent implements OnInit {
   open(content: TemplateRef<any>, item: any) {
     this.ordersService.getOrdersById(item.id).subscribe(() => {
       this.itemView = item
-      console.log(this.itemView)
-      this.itemView.location.map((location: any) => {
-        location.ticket.map((ticket: any) => {
-
+      this.itemView.location.map((aux: any) => {
+        aux.tickets.map((ticket: any) => {
+          console.log(ticket)
         })
       })
     })

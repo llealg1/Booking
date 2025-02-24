@@ -12,7 +12,7 @@ import { PolicyComponent } from './views/policy/policy.component'
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
@@ -22,7 +22,13 @@ export const routes: Routes = [
       import('./views/home/home.route').then((mod) => mod.HOME_ROUTES),
   },
   {
-    path: 'promotions',
+    path: 'office',
+    component: DefaultLayoutComponent,
+    loadChildren: () =>
+      import('./views/office/office.route').then((mod) => mod.OFFICE_ROUTES),
+  },
+  {
+    path: 'promotions/:name',
     component: DefaultLayoutComponent,
     loadChildren: () =>
       import('./views/promotions/promotions.route').then(
