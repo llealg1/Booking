@@ -77,4 +77,8 @@ export class FooterComponent {
   getOfficesTooltip(offices: any[]): string {
     return offices.map(office => `${office.name}: ${office.address}`).join('\n');
   }
+
+  goToOffice(office: any) {
+
+  }
 }
