@@ -1,13 +1,17 @@
-import { Component } from '@angular/core'
+import { CommonModule } from '@angular/common';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'home-nearby',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './nearby.component.html',
-  styles: ``,
+  styles: [],
 })
 export class NearbyComponent {
+  @ViewChild('modalTemplate') modalTemplate!: TemplateRef<any>;
+
   nearbyPlacesData = [
     {
       image: 'assets/images/bg/nube.png',
@@ -69,5 +73,14 @@ export class NearbyComponent {
       name: 'Oslo',
       travelTime: '1 hour 13 min drive',
     },
-  ]
+  ];
+
+  selectedPlace: any;
+
+  constructor(private modalService: NgbModal) {}
+
+  openModal(index: number): void {
+    this.selectedPlace = this.nearbyPlacesData[index];
+    this.modalService.open(this.modalTemplate);
+  }
 }
