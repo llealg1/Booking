@@ -120,22 +120,21 @@ export class EuropeComponent {
   onSubmit() {
     this.submitted = true
 
-      this.loading = true
-      this.contactService.sendContactForm(this.contactForm.value).subscribe(
-        (response) => {
-          console.log('Form submitted successfully', response)
-          this.loading = false
-          this.successMessage = 'Formulario enviado con éxito!'
-          setTimeout(() => {
-            this.router.navigate(['/congratulations'])
-          }, 2000)
-        },
-        (error) => {
-          console.error('Error submitting form', error)
-          this.loading = false
-        }
-      )
-
+    this.loading = true
+    this.contactService.sendContactForm(this.contactForm.value).subscribe(
+      (response) => {
+        console.log('Form submitted successfully', response)
+        this.loading = false
+        this.successMessage = 'Formulario enviado con éxito!'
+        setTimeout(() => {
+          this.router.navigate(['/europe/europe-congratulation'])
+        }, 2000)
+      },
+      (error) => {
+        console.error('Error submitting form', error)
+        this.loading = false
+      }
+    )
   }
 
   reviews = [
