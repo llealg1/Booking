@@ -49,7 +49,7 @@
 
                 <div class="card-body px-3">
                   <h2 class="card-title mb-0">
-                    <a routerLink="/auth/sign-in" class="stretched-link">{{
+                    <a routerLink="/promotions/promotions-detail" class="stretched-link">{{
                       item.name
                       }}</a>
                   </h2>
@@ -147,8 +147,8 @@
                       </div>
 
                       <div class="mt-2 mt-sm-0 text-center">
-                        <a href="/auth/sign-in" class="btn btn-sm btn-primary mb-0">Reservar AHORA! <i
-                            class="bi bi-ticket-detailed"></i></a>
+                        <a [routerLink]="['/promotions/promotions-detail']" class="btn btn-sm btn-primary mb-0">Reservar
+                          AHORA! <i class="bi bi-ticket-detailed"></i></a>
                       </div>
                     </div>
                   </div>

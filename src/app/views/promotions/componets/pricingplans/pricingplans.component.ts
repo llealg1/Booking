@@ -2,6 +2,7 @@ import { Component } from '@angular/core'
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap'
 import { CommonModule } from '@angular/common'
 import { currency } from '@/app/store'
+import { RouterLink } from '@angular/router'
 
 type PricingType = {
   planName: string
@@ -47,7 +48,7 @@ type FAQType = {
 @Component({
   selector: 'pricing-plans',
   standalone: true,
-  imports: [NgbTooltipModule, CommonModule],
+  imports: [NgbTooltipModule, CommonModule, RouterLink],
   templateUrl: './pricingplans.component.html',
   styles: ``,
 })

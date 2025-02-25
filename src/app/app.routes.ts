@@ -28,7 +28,7 @@ export const routes: Routes = [
       import('./views/office/office.route').then((mod) => mod.OFFICE_ROUTES),
   },
   {
-    path: 'promotions/:name',
+    path: 'promotions',
     component: DefaultLayoutComponent,
     loadChildren: () =>
       import('./views/promotions/promotions.route').then(
