@@ -1,6 +1,6 @@
-import { CommonModule } from '@angular/common';
-import { Component, TemplateRef, ViewChild } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common'
+import { Component, TemplateRef, ViewChild } from '@angular/core'
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 
 @Component({
   selector: 'home-nearby',
@@ -10,77 +10,77 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styles: [],
 })
 export class NearbyComponent {
-  @ViewChild('modalTemplate') modalTemplate!: TemplateRef<any>;
+  @ViewChild('modalTemplate') modalTemplate!: TemplateRef<any>
 
   nearbyPlacesData = [
     {
-      image: 'assets/images/bg/nube.png',
-      name: 'San Francisco',
-      travelTime: '13 min drive',
-    },
-    {
-      image: 'assets/images/bg/nube.png',
-      name: 'Los Angeles',
-      travelTime: '25 min drive',
-    },
-    {
-      image: 'assets/images/bg/nube.png',
+      image: 'assets/images/planificaciones/miami.jpg',
       name: 'Miami',
-      travelTime: '45 min drive',
+      country: 'Estados Unidos',
     },
     {
-      image: 'assets/images/bg/nube.png',
-      name: 'Sanjosh',
-      travelTime: '55 min drive',
+      image: 'assets/images/planificaciones/paris.jpg',
+      name: 'Paris',
+      country: 'Francia',
     },
     {
-      image: 'assets/images/bg/nube.png',
-      name: 'New York',
-      travelTime: '1 hour drive',
+      image: 'assets/images/planificaciones/madrid.jpg',
+      name: 'Madrid',
+      country: 'España',
     },
     {
-      image: 'assets/images/bg/nube.png',
-      name: 'North Justen',
-      travelTime: '2 hour drive',
+      image: 'assets/images/planificaciones/barcelona.jpg',
+      name: 'Barcelona',
+      country: 'España',
     },
     {
-      image: 'assets/images/bg/nube.png',
-      name: 'Rio',
-      travelTime: '20 min drive',
+      image: 'assets/images/planificaciones/milan.jpg',
+      name: 'Milan',
+      country: 'Italia',
     },
     {
-      image: 'assets/images/bg/nube.png',
-      name: 'Las Vegas',
-      travelTime: '3 hour drive',
+      image: 'assets/images/planificaciones/dubai.jpg',
+      name: 'Dubai',
+      country: 'Emiratos Árabes Unidos',
     },
     {
-      image: 'assets/images/bg/nube.png',
-      name: 'Texas',
-      travelTime: '55 min drive',
+      image: 'assets/images/planificaciones/bogota.jpg',
+      name: 'Bogota',
+      country: 'Colombia',
     },
     {
-      image: 'assets/images/bg/nube.png',
-      name: 'Chicago',
-      travelTime: '13 min drive',
+      image: 'assets/images/planificaciones/medellin.jpg',
+      name: 'Medellin',
+      country: 'Colombia',
     },
     {
-      image: 'assets/images/bg/nube.png',
-      name: 'New Keagan',
-      travelTime: '35 min drive',
+      image: 'assets/images/planificaciones/lisboa.jpg',
+      name: 'Lisboa',
+      country: 'Portugal',
     },
     {
-      image: 'assets/images/bg/nube.png',
-      name: 'Oslo',
-      travelTime: '1 hour 13 min drive',
+      image: 'assets/images/planificaciones/oporto.jpg',
+      name: 'Oporto',
+      country: 'Portugal',
     },
-  ];
+    {
+      image: 'assets/images/planificaciones/buenosaires.png',
+      name: 'Buenos Aires',
+      country: 'Argentina',
+    },
+    {
+      image: 'assets/images/planificaciones/roma.jpg',
+      name: 'Roma',
+      country: 'Italia',
+    },
+  ]
 
-  selectedPlace: any;
+  selectedPlace: any
 
   constructor(private modalService: NgbModal) {}
 
   openModal(index: number): void {
-    this.selectedPlace = this.nearbyPlacesData[index];
-    this.modalService.open(this.modalTemplate);
+    this.selectedPlace = this.nearbyPlacesData[index]
+    this.modalService.open(this.modalTemplate)
   }
 }
