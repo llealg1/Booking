@@ -36,9 +36,9 @@ export class OfficeComponent implements OnInit {
 
   offices: any = {
     venezuela: [
-      { name: 'Caracas', title: 'Caracas', phone: '+58 424-1542685', address: 'Av. Francisco de Miranda, Torre Cavendes, oficina 6-02.', images: ['assets/images/sedes/caracas/caracas1.jpg', 'assets/images/sedes/caracas/caracas2.jpg', 'assets/images/sedes/caracas/caracas3.jpg'], images1: 'assets/images/sedes/caracas/caracas1.jpg', images2: 'assets/images/sedes/caracas/caracas2.jpg', images3: 'assets/images/sedes/caracas/caracas3.jpg' },
-      { name: 'Valencia', title: 'Valencia', phone: '+58 424-4097684', address: 'Av. Bolívar Norte, Torre Majay, oficina principal.', images: ['assets/images/sedes/valencia/valencia1.jpg', 'assets/images/sedes/valencia/valencia2.jpg', 'assets/images/sedes/valencia/valencia3.jpg'], images1: 'assets/images/sedes/valencia/valencia1.jpg', images2: 'assets/images/sedes/valencia/valencia2.jpg', images3: 'assets/images/sedes/valencia/valencia3.jpg' },
-      { name: 'Barquisimeto', title: 'Barquisimeto', phone: '+58 424-5239195', address: 'Av. Los Leones, CC. Los Leones, Local #24.', images: ['assets/images/sedes/barquisimeto/barquisimeto1.jpg', 'assets/images/sedes/barquisimeto/barquisimeto2.jpg', 'assets/images/sedes/barquisimeto/barquisimeto3.jpg'], images1: 'assets/images/sedes/barquisimeto/barquisimeto1.jpg', images2: 'assets/images/sedes/barquisimeto/barquisimeto2.jpg', images3: 'assets/images/sedes/barquisimeto/barquisimeto3.jpg' },
+      { name: 'Caracas', title: 'Caracas', phone: '+58 424-1542685', address: 'Av. Francisco de Miranda, Torre Cavendes, oficina 6-02.', images: ['assets/images/sedes/caracas/caracas1.jpg', 'assets/images/sedes/caracas/caracas2.jpg', 'assets/images/sedes/caracas/caracas3.jpg'], images1: 'assets/images/sedes/caracas/caracas.jpg', images2: 'assets/images/sedes/caracas/caracas2.jpg', images3: 'assets/images/sedes/caracas/caracas3.jpg' },
+      { name: 'Valencia', title: 'Valencia', phone: '+58 424-4097684', address: 'Av. Bolívar Norte, Torre Majay, oficina principal.', images: ['assets/images/sedes/valencia/valencia1.jpg', 'assets/images/sedes/valencia/valencia2.jpg', 'assets/images/sedes/valencia/valencia3.jpg'], images1: 'assets/images/sedes/valencia/valencia.jpg', images2: 'assets/images/sedes/valencia/valencia2.jpg', images3: 'assets/images/sedes/valencia/valencia3.jpg' },
+      { name: 'Barquisimeto', title: 'Barquisimeto', phone: '+58 424-5239195', address: 'Av. Los Leones, CC. Los Leones, Local #24.', images: ['assets/images/sedes/barquisimeto/barquisimeto1.jpg', 'assets/images/sedes/barquisimeto/barquisimeto2.jpg', 'assets/images/sedes/barquisimeto/barquisimeto3.jpg'], images1: 'assets/images/sedes/barquisimeto/barquisimeto.jpg', images2: 'assets/images/sedes/barquisimeto/barquisimeto2.jpg', images3: 'assets/images/sedes/barquisimeto/barquisimeto3.jpg' },
     ],
     espana: [
       { name: 'Madrid', title: 'Madrid', phone: '+34 655 20 45 86', address: 'Calle Alcalá 22. Piso 2, puerta DR. 28014. Madrid', images: ['assets/images/sedes/madrid/madrid1.jpg', 'assets/images/sedes/madrid/madrid2.jpg', 'assets/images/sedes/madrid/madrid3.jpg'], images1: 'assets/images/sedes/madrid/madrid1.jpg', images2: 'assets/images/sedes/madrid/madrid2.jpg', images3: 'assets/images/sedes/madrid/madrid3.jpg' },
@@ -74,7 +74,7 @@ export class OfficeComponent implements OnInit {
   flattenedOffices: any[] = [];
   testimonialSlides: any[] = [];
 
-  constructor(private route: ActivatedRoute,private router: Router) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -141,6 +141,4 @@ export class OfficeComponent implements OnInit {
     }
     return slides;
   }
-
-
 }

@@ -21,7 +21,7 @@ const footerLinks: FooterLink[] = [
     items: [
       { name: 'Home', link: '/home' },
       { name: 'Promociones', link: '/promotions' },
-      { name: 'Empresa', link: '/business' },
+      { name: 'Empresa', link: '/business/global' },
       { name: 'Asesores', link: '/advisors' },
       { name: 'Planificador', link: '/destiny' },
       // { name: 'Paises', link: '/paises' },

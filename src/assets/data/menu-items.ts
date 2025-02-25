@@ -335,7 +335,7 @@ export const APP_MENU_ITEMS: MenuItemType[] = [
   {
     key: 'empresa',
     label: 'Empresa',
-    url: '/business',
+    url: '/business/global',
     icon: 'fa-solid fa-building',
     children: [
       {

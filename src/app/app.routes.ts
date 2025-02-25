@@ -44,9 +44,7 @@ export const routes: Routes = [
     path: 'business',
     component: DefaultLayoutComponent,
     loadChildren: () =>
-      import('./views/business/business.route').then(
-        (mod) => mod.BUSINESS_ROUTES
-      ),
+      import('./views/office/office.route').then((mod) => mod.OFFICE_ROUTES),
   },
   {
     path: 'faq',
