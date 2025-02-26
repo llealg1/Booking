@@ -13,12 +13,25 @@ export class InfoComponent {
   contactos = [
     { pais: 'España', telefono: '+34 602573491' },
     { pais: 'Colombia', telefono: '+57 3009294155' },
-    { pais: 'Venezuela', telefono: '+58 4144306302' },
-    { pais: 'Argentina', telefono: '+54 91152761025' },
+    { pais: 'Venezuela', telefono: '+58 424-1542685' },
+    { pais: 'Argentina', telefono: '+54 1178543970' },
     { pais: 'Chile', telefono: '+56 322162243' },
     { pais: 'Perú', telefono: '+51 995615590' },
     { pais: 'Ecuador', telefono: '+593 983550811' },
-  ]
+    { pais: 'Santiago', telefono: '+56 9 6141 4833' },
+    { pais: 'Madrid', telefono: '+34 655 20 45 86' },
+    { pais: 'Barcelona', telefono: '+34 655205035' },
+    { pais: 'Valencia', telefono: '+58 424-4097684' },
+    { pais: 'Caracas', telefono: '+58 424-1542685' },
+    { pais: 'Barquisimeto', telefono: '+58 424-5239195' },
+    { pais: 'Lima', telefono: '+51 981 255 261' },
+    { pais: 'Bogotá', telefono: '+57 313 8897876' },
+    { pais: 'Medellín', telefono: '+57 323 3932626' },
+    { pais: 'Buenos Aires', telefono: '+54 1178543970' },
+    { pais: 'Quito', telefono: '+593 96 231 8390' },
+    { pais: 'Panamá', telefono: '+507 6700 3135' }
+  ];
+
 
   sedes = [
     {
