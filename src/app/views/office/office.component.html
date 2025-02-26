@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row g-4 g-lg-5 align-items-center">
       <div class="col-lg-6">
-        <h1 class="mb-0">Conoce Nuestras Oficinas en {{ officeName }}🔥</h1>
+        <h1 class="mb-0">Conoce Nuestras Oficinas en {{ officeName ? officeName : 'en el mundo ' }}🔥</h1>
         <p>Conoce nuestras sedes y encuentra el apoyo personalizado que necesitas para hacer realidad el viaje de tus
           sueños, estés donde estés.</p>
 
@@ -114,9 +114,10 @@
       }
     </style>
     <div class="col-md-4" *ngFor="let office of flattenedOffices">
-      <div class="office-card" >
+      <div class="office-card">
         <h5>{{ office.title }}</h5>
-        <img [src]="'/assets/images/sedes/' + office.name.toLowerCase()  + '/' + office.name.toLowerCase() + '.jpg'" alt="Imagen de {{ office.name }}" class="img-fluid rounded shadow" />
+        <img [src]="'/assets/images/sedes/' + office.name.toLowerCase()  + '/' + office.name.toLowerCase() + '.jpg'"
+          alt="Imagen de {{ office.name }}" class="img-fluid rounded shadow" />
         <div class="overlay">
           <div>
             <p><strong>Teléfono:</strong> {{ office.phone }}</p>
