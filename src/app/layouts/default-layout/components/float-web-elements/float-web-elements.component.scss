@@ -28,23 +28,58 @@
     background-color: #128c7e; // Color de fondo al pasar el mouse
   }
 
-  &.instagram {
-    background-color: #e4405f;
-
-    &:hover {
-      background-color: #c13584;
-    }
-  }
-
-  &.telegram {
-    background-color: #0088cc;
-
-    &:hover {
-      background-color: #006699;
-    }
-  }
-
   i {
     font-size: 24px;
   }
+}
+
+.float-buttons {
+  position: fixed;
+  bottom: 35px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.float-button {
+  background-color: #25d366;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 15px;
+
+  &:hover {
+    background-color: #128c7e; // Color de fondo al pasar el mouse
+  }
+}
+
+.float-button .instagram {
+  background-color: #c30d59;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 15px;
+
+  &:hover {
+    background-color: #6f0466; // Color de fondo al pasar el mouse
+  }
+}
+
+.dropdown-menu {
+  min-width: 200px;
+  max-height: 440px; /* Ajusta la altura máxima según necesites */
+  overflow-y: auto; /* Habilita el scroll vertical */
 }
