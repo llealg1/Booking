@@ -112,4 +112,9 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./views/admin/admin.route').then((mod) => mod.ADMIN_ROUTES),
   },
+  {
+    path: 'info',
+    loadChildren: () =>
+      import('./views/info/info.routes').then((mod) => mod.INFO_ROUTES),
+  },
 ]

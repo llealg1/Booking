@@ -1,0 +1,123 @@
+<div
+  class="container-fluid text-center"
+  style="
+    background-image: url('../../../assets/images/background_arcadia.viajes.png');
+  "
+>
+  <div class="header">
+    <img
+      src="../../../assets/images/logosArcadia/venezuela.jpg"
+      alt="Arcadia Viajes Logo"
+      class="logo"
+    />
+    <h1 class="text-white">Arcadia Viajes</h1>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/arcadia.viajes" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="mailto:info@arcadiaviajes.com" target="_blank">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://www.tiktok.com/@viajaarcadia?_t=ZM-8uFH9VJkK4U&_r=1" target="_blank">
+        <i class="fab fa-tiktok"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="card bg-transparent p-0">
+    <div class="card-header border-bottom bg-transparent px-0 py-0">
+      <ul
+        ngbNav
+        #nav="ngbNav"
+        class="nav nav-tabs nav-bottom-line nav-responsive gap-2 gap-sm-4 mb-0 border-0 justify-content-center"
+      >
+        <li ngbNavItem class="nav-item ps-3 ps-sm-0">
+          <a ngbNavLink class="nav-link text-white" data-bs-toggle="tab"
+            ><i class="fa-solid bi bi-house fa-fw me-2"></i>Home</a
+          >
+          <ng-template ngbNavContent>
+            <p class="text-white">Contáctanos</p>
+            <div
+              class="contact-card mx-auto text-center"
+              *ngFor="let contacto of contactos"
+            >
+              <a
+                >Whatsapp {{ contacto.pais }} <br />
+                Escríbenos al {{ contacto.telefono }}</a
+              >
+            </div>
+            <!-- <button class="subscribe-btn">Suscribete</button> -->
+            <p class="mt-2 text-white" style="font-size: 1.2rem; color: white">
+              ¡Llama ya! <br />
+              General Valencia 0414-4306302 Caracas 0212-6133470
+            </p>
+          </ng-template>
+        </li>
+        <li ngbNavItem class="nav-item">
+          <a ngbNavLink class="nav-link text-white" data-bs-toggle="tab"
+            ><i class="fa-solid bi bi-geo-alt fa-fw me-2"></i>Ubicaciones</a
+          >
+          <ng-template ngbNavContent>
+            <div class="cards-container d-flex flex-column align-items-center">
+              <div class="card contact-card container" *ngFor="let sede of sedes">
+                <div class="row">
+                  <div class="col-6 d-flex justify-content-center">
+                    <img
+                      [src]="sede.imagen"
+                      alt="Imagen de {{ sede.nombre }}"
+                      class="card-img"
+                    />
+                  </div>
+                  <div class="col-6 d-flex flex-column justify-content-center">
+                    <p>{{ sede.nombre }}</p>
+                    <p>★★★★★ · {{ sede.tipo }}</p>
+                    <p>{{ sede.address }}</p>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+            <!-- <button class="subscribe-btn">Suscribete</button> -->
+            <p class="mt-2 text-white" style="font-size: 1.2rem; color: white">
+              ¡Llama ya! <br />
+              General Valencia 0414-4306302 Caracas 0212-6133470
+            </p>
+          </ng-template>
+        </li>
+
+        <li ngbNavItem class="nav-item">
+          <a ngbNavLink class="nav-link text-white" data-bs-toggle="tab"
+            ><i class="fab fa-instagram fa-fw me-2"></i>Instagram</a
+          >
+          <ng-template ngbNavContent>
+            <div class="">
+              <div class="contact-card mx-auto text-cente d-flex justify-content-center align-items-center" *ngFor="let item of items">
+                <img [src]="item.image" alt="Imagen de {{ item.name }}"     style="
+                height: 36px;
+                margin-right: 5px;
+                border-radius: 50%;
+              "/>
+                <div class="card-info p-2 d-flex align-items-center">
+
+                  <a [href]="item.link" target="_blank" class="btn btn-primary mb-0" style="width: 200px;">
+                    <i class="fab fa-instagram"></i> {{ item.name }}
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- <button class="subscribe-btn">Suscribete</button> -->
+            <p class="mt-2 text-white" style="font-size: 1.2rem; color: white">
+              ¡Llama ya! <br />
+              General Valencia 0414-4306302 Caracas 0212-6133470
+            </p>
+          </ng-template>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card-body px-0 pt-4">
+      <div [ngbNavOutlet]="nav" class="tab-content" id="nav-tabContent"></div>
+    </div>
+  </div>
+</div>
