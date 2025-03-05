@@ -79,6 +79,12 @@ export const routes: Routes = [
       import('./views/chat/chat.route').then((mod) => mod.CHAT_ROUTES),
   },
   {
+    path: 'leads',
+    component: DefaultLayoutComponent,
+    loadChildren: () =>
+      import('./views/leads/leads.route').then((mod) => mod.LEADS_ROUTES),
+  },
+  {
     path: 'blog',
     component: DefaultLayoutComponent,
     loadChildren: () =>
