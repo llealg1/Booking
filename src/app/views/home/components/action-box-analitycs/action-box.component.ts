@@ -11,7 +11,7 @@ export class ActionBoxAnalitycsComponent implements OnInit {
   travelers: number = 0
   destinations: number = 0
   advisories: number = 0
-  bookings: number = 6740
+  bookings: number = 7000
 
   ngOnInit(): void {
     this.incrementNumber('travelers', 45740, 457)
