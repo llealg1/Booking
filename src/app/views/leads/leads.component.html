@@ -1,11 +1,45 @@
-<p>leads works!</p>
+<section class="container">
+    <div class="row border-3">
+        <h2>Leads</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th># ID</th>
+                    <th>Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Country</th>
+                    <!-- <th>Action</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let sub of contacsArr; let i = index">
+                    <!-- Índice con formato 01, 02, etc. -->
+                    <td>{{ (i + 1) | number: '2.0' }}</td>
 
+                    <!-- ID -->
+                    <!-- <td><b>{{ sub.id }}</b></td> -->
 
-<div *ngFor="let sub of contacsArr">
-    <li><b>{{sub.id}}</b></li>
-    <li>{{sub.name}}</li>
-    <li>{{sub.lastName}}</li>
-    <li>{{sub.email}}</li>
-    <li>{{sub.phone}}</li>
-    <li>{{sub.country}}</li>
-</div>
+                    <!-- Nombre -->
+                    <td>{{ sub.name }}</td>
+
+                    <!-- Apellido -->
+                    <td>{{ sub.lastName }}</td>
+
+                    <!-- Correo electrónico -->
+                    <td>{{ sub.email }}</td>
+
+                    <!-- Teléfono -->
+                    <td>{{ sub.phone }}</td>
+
+                    <!-- País -->
+                    <td>{{ sub.country }}</td>
+
+                    <!-- Botón de acción -->
+                    <!-- <td><button class="view">View</button></td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
