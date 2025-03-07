@@ -85,14 +85,6 @@ export const routes: Routes = [
       import('./views/leads/leads.route').then((mod) => mod.LEADS_ROUTES),
   },
   {
-    path: 'blog',
-    component: DefaultLayoutComponent,
-    loadChildren: () =>
-      import('./views/blog-list/blog-list.route').then(
-        (mod) => mod.BLOGLIST_ROUTES
-      ),
-  },
-  {
     path: 'policy',
     component: DefaultLayoutComponent,
     loadChildren: () =>
@@ -123,4 +115,10 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./views/info/info.routes').then((mod) => mod.INFO_ROUTES),
   },
+  {
+    path: 'blog',
+    component: DefaultLayoutComponent,
+    loadChildren: () =>
+      import('./views/blog/blog.routes').then((mod) => mod.BLOG_ROUTES),
+  }
 ]
