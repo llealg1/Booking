@@ -1,0 +1,115 @@
+/* Estilo general */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #121212; /* Fondo oscuro */
+  color: #fff; /* Texto blanco */
+  padding: 20px;
+}
+
+/* Título */
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Input de búsqueda y botón */
+input[type='text'] {
+  background-color: #1e1e1e;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: white;
+  margin-right: 10px;
+}
+
+button {
+  background-color: #6b4cff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #5a3bcc;
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Encabezado de la tabla */
+thead {
+  background-color: #1e1e1e;
+}
+
+th {
+  text-align: left;
+  padding: 12px;
+}
+
+/* Filas de la tabla */
+tr {
+  border-bottom: 1px solid #333;
+}
+
+/* Celdas */
+td {
+  padding: 12px;
+}
+
+/* Numeración */
+td:first-child {
+  font-weight: bold;
+}
+
+/* Botón de acción */
+button.view {
+  background-color: #444;
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+button.view:hover {
+  background-color: #555;
+}
+
+/* Etiquetas de estado */
+.booked {
+  background-color: #22c55e; /* Verde */
+  padding: 4px 8px;
+  border-radius: 12px;
+  color: #fff;
+}
+
+.reserved {
+  background-color: #3b82f6; /* Azul */
+  padding: 4px 8px;
+  border-radius: 12px;
+  color: #fff;
+}
+
+/* Etiquetas de pago */
+.full-payment {
+  background-color: #1d4ed8; /* Azul oscuro */
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+.half-payment {
+  background-color: #f59e0b; /* Amarillo */
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+.on-property {
+  background-color: #6b4cff; /* Morado */
+  padding: 4px 8px;
+  border-radius: 12px;
+}
