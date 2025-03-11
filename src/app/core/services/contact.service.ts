@@ -18,9 +18,19 @@ export class ContactService {
     phone: string
     description: string
     subject: string
+    phoneCode: string
   }): Observable<any> {
     const url = `${this.baseUrl}/contact`
-    return this.http.post(url, contactData, {
+    contactData.phone = contactData.phoneCode + contactData.phone
+
+    const aux = {
+      description: contactData.description,
+      email: contactData.email,
+      lastName: contactData.lastName,
+      name: contactData.name,
+      phone: contactData.phone,
+    }
+    return this.http.post(url, aux, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${this.apiKey}`,
