@@ -7,13 +7,24 @@
     </div>
 
     <div class="row g-4 g-md-5">
-      <div *ngFor="let data of nearbyPlacesData; let i = index" class="col-6 col-sm-4 col-lg-3 col-xl-2">
+      <div
+        *ngFor="let data of nearbyPlacesData; let i = index"
+        class="col-6 col-sm-4 col-lg-3 col-xl-2"
+      >
         <div class="card bg-transparent text-center p-1 h-100">
-          <img src="{{ data.image }}" class="img-fluid rounded-circle img-custom" alt="{{ data.name }}" />
+          <img
+            src="{{ data.image }}"
+            class="img-fluid rounded-circle img-custom"
+            alt="{{ data.name }}"
+          />
 
           <div class="card-body p-0 pt-3">
             <h5 class="card-title">
-              <a href="javascript:void(0);" class="stretched-link" (click)="openModal(i)">
+              <a
+                href="javascript:void(0);"
+                class="stretched-link"
+                (click)="openModal(i)"
+              >
                 {{ data.name }}
               </a>
             </h5>
@@ -29,16 +40,33 @@
 <ng-template #modalTemplate let-modal>
   <div class="modal-header">
     <h5 class="modal-title">{{ selectedPlace?.name }}</h5>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
   </div>
   <div class="modal-body">
-    <img [src]="selectedPlace?.image" class="img-fluid mb-3" alt="{{ selectedPlace?.name }}" />
-    <p>Pais: {{ selectedPlace?.country }}</p>
+    <!-- <img [src]="selectedPlace?.image" class="img-fluid mb-3" alt="{{ selectedPlace?.name }}" />
+    <p>Pais: {{ selectedPlace?.country }}</p> -->
+    <iframe
+      src="https://v2.app.moguplatform.com/aggressive-deep-van"
+      width="100%"
+      height="600"
+      frameborder="0"
+    ></iframe>
     <!-- <iframe src="https://v2.app.moguplatform.com/trips/echoing-fluffy-secretary" width="100%" height="600"
       frameborder="0"></iframe> -->
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+    <button
+      type="button"
+      class="btn btn-secondary"
+      (click)="modal.close('Close click')"
+    >
+      Close
+    </button>
   </div>
 </ng-template>
 
