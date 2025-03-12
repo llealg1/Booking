@@ -1,5 +1,6 @@
 import {
   ApplicationConfig,
+  importProvidersFrom,
   isDevMode,
   provideZoneChangeDetection,
 } from '@angular/core'
@@ -21,7 +22,7 @@ import { provideStoreDevtools } from '@ngrx/store-devtools'
 import { FakeBackendProvider } from './helpers/fake-backend'
 import { JwtInterceptor } from './helpers/jwt.interceptor'
 import { ErrorInterceptor } from './helpers/error.interceptor'
-
+import { provideNgxStripe } from 'ngx-stripe'
 // Scroll
 const scrollConfig: InMemoryScrollingOptions = {
   scrollPositionRestoration: 'top',
@@ -33,6 +34,7 @@ const inMemoryScrollingFeature: InMemoryScrollingFeature =
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideNgxStripe('pk_live_51R1HyuFTVkUctNSIGGiwje6x7aIXcMvPssCwaPBy7UQ5nm5vqxp06Ig12WtlnjFvT9aK059u05M7SIJBNHdtn6J400FcYspzj4'),
     provideRouter(routes, inMemoryScrollingFeature),
     {
       provide: IMAGE_CONFIG,

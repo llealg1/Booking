@@ -120,5 +120,13 @@ export const routes: Routes = [
     component: DefaultLayoutComponent,
     loadChildren: () =>
       import('./views/blog/blog.routes').then((mod) => mod.BLOG_ROUTES),
+  },
+  {
+    path: 'stripe',
+    component: DefaultLayoutComponent,
+    loadChildren: () =>
+      import('./views/stripe-pay-form/stripe-pay-form.route').then(
+        (mod) => mod.STRIPE_ROUTES
+      ),
   }
 ]
