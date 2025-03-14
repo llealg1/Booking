@@ -26,35 +26,29 @@
     <section class="pt-0">
       <section class="container">
         <div class="row g-4 align-items-center justify-content-between mb-4">
-
           <div class="row g-4">
             @for (item of tourCards; track $index) {
             <div class="col-md-6 col-xl-4">
               <div class="card card-hover-shadow pb-0 h-100">
                 <div class="position-relative">
-                  <img [src]="item.image" class="card-img-top" alt="Card image" />
+                  <img [src]="item.image" class="card-img-top" alt="Card image" height="236" width="354"  style="height: 236px; width: 354px;"/>
 
-                  <div class="card-img-overlay d-flex flex-column p-4 z-index-1">
-                    <div>
-                      <span class="badge text-bg-danger me-1">{{ item.sale }}</span>
-                      <span class="badge text-bg-dark">{{ item.type }}</span>
-                    </div>
-
+                  <div class="d-flex flex-column p-1 text-center z-index">
                     <div class="w-100 mt-auto text-left">
-                      <span class="badge text-bg-secondary fs-6">Valido hasta el mes de Julio</span>
+                      <!-- <span class="badge text-bg-secondary fs-6">Valido hasta el mes de Julio</span> -->
                     </div>
                   </div>
                 </div>
 
 
-                <div class="card-body px-3">
-                  <h2 class="card-title mb-0">
-                    <a routerLink="/promotions/promotions-detail" class="stretched-link">{{
+                <div class="card-body p-1">
+                  <h5 class="card-title mb-0">
+                    <a [routerLink]="'/promotions/promotions-detail/' + item.mogu" class="stretched-link">{{
                       item.name
                       }}</a>
-                  </h2>
+                  </h5>
                   <span class="medium"><i class="far fa-calendar-alt me-2"></i>{{ item.date }}</span>
-
+<!--
                   <ul class="list-unstyled mt-3">
                     @if (item.benefits.flight == 1) {
                     <li class="nav-item h6 fw-normal mb-2">
@@ -126,7 +120,11 @@
                       Asesoria Personalizada
                     </li>
                     }
-                  </ul>
+                  </ul> -->
+                  <div>
+                    <span class="badge text-bg-danger me-1">{{ item.sale }}</span>
+                    <span class="badge text-bg-dark">{{ item.type }}</span>
+                  </div>
                 </div>
 
 
@@ -137,16 +135,16 @@
                     <div class="row">
                       <div class="hstack gap-2 text-center">
                         <small>DESDE</small>
-                        <h3 class="fw-normal text-secondary mb-0">
-                          {{ currencyType }}{{ item.price }}
-                        </h3>
+                        <h5 class="fw-normal text-secondary mb-0">
+                        {{ item.price }}  {{ item.currency }}
+                        </h5>
                         <small>/ Por Persona</small>
                         @if (item.disc) {
                         <span class="text-decoration-line-through">{{ currencyType }}100</span>
                         }
                       </div>
 
-                      <div class="mt-2 mt-sm-0 text-center">
+                      <div class="mt-2 text-center">
                         <a [routerLink]="['/promotions/promotions-detail']" class="btn btn-sm btn-primary mb-0">Reservar
                           AHORA! <i class="bi bi-ticket-detailed"></i></a>
                       </div>

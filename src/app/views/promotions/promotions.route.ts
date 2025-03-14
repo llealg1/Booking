@@ -8,7 +8,7 @@ export const PROMOTIONS_ROUTES: Route[] = [
     data: { title: 'Promociones' },
   },
   {
-    path: 'promotions-detail',
+    path: 'promotions-detail/:id',
     component: PromotionsDetailComponent,
     data: { title: 'Promociones' },
   },
