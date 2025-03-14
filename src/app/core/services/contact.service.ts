@@ -6,7 +6,7 @@ import { Observable } from 'rxjs'
   providedIn: 'root',
 })
 export class ContactService {
-  private baseUrl: string = 'https://arcadia-viajes.com:3001'
+  private baseUrl: string = 'https://arcadia-viajes.com:3000'
   private apiKey: string = 'apikey2025'
 
   constructor(private http: HttpClient) {}
@@ -39,11 +39,15 @@ export class ContactService {
   }
 
   subscriptionEmail(email: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/subscribe-mail`, { email: email }, {
-      headers: {
-        'Content-Type': 'application/json',
-        'X-API-KEY': this.apiKey,
-      },
-    })
+    return this.http.post(
+      `${this.baseUrl}/subscribe-mail`,
+      { email: email },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-API-KEY': this.apiKey,
+        },
+      }
+    )
   }
 }
